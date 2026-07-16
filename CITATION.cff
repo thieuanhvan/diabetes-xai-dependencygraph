@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you found our work useful, please cite the article below."
+title: "diabetes-xai-kg"
+abstract: >-
+  Reference implementation of a five-class directional intervention taxonomy
+  for counterfactual explanations in type-2 diabetes risk prediction. Encodes
+  clinical actionability semantics as per-query DiCE constraints, without
+  requiring a full structural causal model.
+authors:
+  - family-names: "Thieu"
+    given-names: "Van"
+    orcid: "https://orcid.org/0009-0003-9637-0195"
+    affiliation: >-
+      University of Information Technology, Ho Chi Minh City, Vietnam;
+      Vietnam National University, Ho Chi Minh City, Vietnam
+license: MIT
+repository-code: "https://github.com/thieuanhvan/diabetes-xai-kg"
+url: "https://diabetes-xai-kg.streamlit.app"
+preferred-citation:
+  type: article
+  title: >-
+    Knowledge-guided counterfactual explanations for diabetes risk decision
+    support: A directional intervention taxonomy
+  authors:
+    - family-names: "Thieu"
+      given-names: "Van"
+      orcid: "https://orcid.org/0009-0003-9637-0195"
+      affiliation: >-
+        University of Information Technology, Ho Chi Minh City, Vietnam;
+        Vietnam National University, Ho Chi Minh City, Vietnam
+  journal: "International Journal of Medical Informatics"
+  year: 2026
+  start: 106555
+  issn: "1386-5056"
+  doi: "10.1016/j.ijmedinf.2026.106555"

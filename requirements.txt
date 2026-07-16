@@ -1,0 +1,11 @@
+# Pinned to match the published reproduction package (tag v1.0-ijmi).
+numpy==1.26.4
+pandas==3.0.3
+scipy==1.17.1
+scikit-learn==1.8.0
+xgboost==3.2.0
+dice-ml==0.12
+pyyaml==6.0.3
+tqdm==4.67.3
+joblib==1.5.3
+psutil==7.2.2

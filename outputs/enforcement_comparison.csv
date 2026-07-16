@@ -1,0 +1,3 @@
+config,validity,sparsity,mean_changes_per_cf,total_changes,indicator_changes,unsupported_cfs,pure_indicator_cfs
+per-query (published taxonomy),0.819,0.0725,1.52,1523,350,171,110
+per-query + graph (indicators excluded),0.861,0.0705,1.48,1480,0,0,0
