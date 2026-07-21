@@ -1,0 +1,313 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Levers and Indicators: A Guideline-Sourced Dependency Graph for Counterfactual Recourse in Diabetes Risk Prediction}
+
+\author{\IEEEauthorblockN{Van Thieu and Phuc Do\textsuperscript{*}}
+\IEEEauthorblockA{University of Information Technology, Ho Chi Minh City, Vietnam\\
+Vietnam National University, Ho Chi Minh City, Vietnam\\
+Email: vantv.20@grad.uit.edu.vn, \textsuperscript{*}phucdo@uit.edu.vn (corresponding author)}
+}
+
+\maketitle
+
+\begin{abstract}
+Counterfactual explanations are increasingly presented to clinicians as candidate intervention recommendations. A recommendation, unlike an explanation, must name something the patient can do. Knowledge-guided counterfactual methods enforce this partially, by declaring which features are immutable and in which direction each remaining feature may move. Direction, however, is not agency. A feature can be mutable, can move in the clinically desirable direction, and still not be an action: self-rated general health is not something a patient performs. We audit a peer-reviewed clinical counterfactual pipeline for diabetes risk and find that 10.4\% of its 1{,}000 counterfactuals recommend no action the patient can take, and that 22.1\% of all recommended feature changes target self-reported health-status indicators. Its own actionability metric penalises none of them: none contributes a direction or immutability violation. The finding is stable across the five random seeds of that paper's own multi-seed protocol. The gaming-versus-improvement distinction that explains this behaviour is known, but existing treatments require a structural causal model, which health-survey instruments do not identify. We therefore recast the flat per-feature knowledge layer as a directed dependency graph in which direction is a node attribute and intervention route is an edge, with every edge sourced from the ADA Standards of Care, graded where a numbered recommendation supports it and marked ungraded where only section narrative does. Removing indicators from the search space eliminates all unsupported recommendations at no measurable cost to validity, which improves in five of five seeds.
+\end{abstract}
+
+\begin{IEEEkeywords}
+counterfactual explanations, algorithmic recourse, guideline-sourced dependency graph, actionability, diabetes risk prediction
+\end{IEEEkeywords}
+
+\section{Introduction}
+Counterfactual explanations answer a question of the form: what would have had to be different for this prediction to change? In clinical decision support they are rarely consumed as explanations alone. They are surfaced to a clinician, and through the clinician to a patient, as \emph{candidate intervention recommendations}~\cite{thieu2026}. That reframing quietly imports an obligation the explanation literature does not owe: a recommendation must name an \textbf{action}.
+
+Off-the-shelf counterfactual generators do not know what an action is. They perturb features until the prediction flips. Applied to observational health-survey data, where correlations arise as much from care-seeking behaviour as from physiology, this produces recommendations that are mathematically valid and clinically inappropriate. The best-known example, and the one that motivated the system we audit here, is a counterfactual that lowers predicted diabetes risk by advising the patient to skip their cholesterol check~\cite{thieu2026}.
+
+Knowledge-guided counterfactual methods close part of this gap. They encode clinical domain knowledge as a constraint layer over the generator: a per-feature rule declaring which features are immutable and, for the rest, the direction in which a clinically appropriate intervention would move them. Physical activity may only increase; smoking may only decrease. It works: the system we audit raises its actionability score from 0.6655 to 0.9880 and drives wrong-direction violations to zero~\cite{thieu2026}.
+
+\textbf{Direction, however, is not agency.} A feature may be mutable, may move in the direction the guidelines endorse, and still fail to be an action. Consider \texttt{GenHlth}, the BRFSS item that asks the respondent to rate their general health from excellent to poor. A counterfactual that advises \texttt{GenHlth: 5}$\rightarrow$\texttt{2} is telling the patient to feel considerably healthier. That is a description of a desired \emph{outcome}. It is not an \emph{intervention}. The distinction is orthogonal to mutability and orthogonal to direction, which is precisely why a direction-only rule table cannot see it.
+
+This paper makes four claims. \textbf{First}, the failure mode is present, at scale, in a published and peer-reviewed clinical counterfactual pipeline, and its own actionability metric fails to flag it. Reproducing the released pipeline, we find that 331 of 1{,}500 recommended feature changes across 200 high-risk patients (22.1\%) target self-reported health-status indicators, and 104 of 1{,}000 counterfactuals (10.4\%) recommend nothing the patient can act on at all. None contributes a direction or immutability violation, so none is penalised. The audited system already suppresses three features as selection-effect proxies rather than causal pathways. Self-rated general health is one as well, and the system's own principle, applied consistently, excludes it. The system does not apply it.
+
+\textbf{Second}, the conceptual distinction that explains this is not new, and we do not claim it. Miller et al.~\cite{miller2020} separate actions that change the prediction from actions that change the outcome; K\"onig et al.~\cite{konig2023} build Improvement-Focused Causal Recourse on that separation, with a motivating example structurally identical to ours: intervening on symptoms changes the diagnosis but not the infection. Their solution is correct, and it requires a structural causal model that a health-survey instrument such as BRFSS does not provide~\cite{konig2023,thieu2026}. \textbf{The contribution here is to ask what can be done in that gap.}
+
+\textbf{Third}, we recast the flat per-feature knowledge layer as a directed dependency graph. Direction remains a node attribute. A second node attribute records the feature's \textbf{role}: lever, treatable, indicator, or immutable. Edges assert that acting on one feature is a recognised route to changing another. The graph is deliberately weaker than a causal graph, and supports exactly one query, which is the only one the audit needs: \emph{is there a guideline-recognised route from any lever this counterfactual changes to the indicator it wants to move?} Every edge is sourced from the ADA Standards of Care. Eighteen cite a numbered recommendation and carry the evidence grade the ADA Professional Practice Committee assigned to it; the remaining eight rest on section narrative and are marked ungraded~\cite{ada2026s5,ada2026s8,ada2026s10,ada2026int}. No edge is inferred from BRFSS correlations, which would be circular: those correlations are what the generator is exploiting. The graph is introduced as an audit layer over an existing generator, not as a new counterfactual generator.
+
+\textbf{Fourth}, enforcing the distinction costs nothing we can measure. Excluding the three indicators from the generator's search space eliminates all unsupported recommendations and \textbf{improves} validity in five of five seeds (mean $+0.026$, paired $t=5.47$, $p=0.005$): the generator was using indicators as a cheap shortcut, and the shortcut was a poor one. Meanwhile the direction-only actionability score barely moves, from 0.980 to 0.978. It cannot distinguish a configuration that emits 104 meaningless recommendations from one that emits none. That is the argument for a different representation, and it is not an argument about performance.
+
+\section{Background and Related Work}
+\subsection{Counterfactual explanations as recourse}
+Wachter et al.~\cite{wachter2017} introduced counterfactual explanations as the minimal perturbation that flips a prediction. DiCE~\cite{mothilal2020} generates diverse candidate counterfactuals for a single query. The reframing from explanation to \emph{recourse}, that is, from \emph{why} to \emph{what should I do}, is due to Ustun et al.~\cite{ustun2019} and Karimi et al.~\cite{karimi2021}. Once a counterfactual is a recommendation, it acquires an obligation to be actionable.
+
+\subsection{Constraining the action set}
+The standard response is to restrict which features may vary and by how much. Ustun et al.~\cite{ustun2019} formalise this as an action set. FACE~\cite{poyiadzi2020} additionally requires that the counterfactual be reachable along the data manifold. FACEGroup~\cite{facegroup2025} builds a graph over instances, weighted by data density, to audit group fairness. Thieu~\cite{thieu2026} declares a per-feature intervention-direction taxonomy over BRFSS and translates it, per query, into the constraint interface of an off-the-shelf generator.
+
+All of these share a shape: a rule attached to a feature, in isolation. The rule can say \emph{this feature may not move}, or \emph{this feature may only move upward}, or \emph{this feature may move within these bounds}. It cannot say \emph{this feature may only move as a consequence of moving that one}. That is a statement about a pair, and a flat table has no place to put it. FACEGroup's graph, in contrast, is over instances and is learned from data density, which in our setting would be circular.
+
+\subsection{Gaming versus improvement, and why it needs a causal model}
+Miller et al.~\cite{miller2020} observe that a predictive model creates an incentive structure, and separate two kinds of response to it: \textbf{gaming}, an action that changes the prediction without changing the underlying target, and \textbf{improvement}, an action that changes both. Shavit et al.~\cite{shavit2020} show that incentivising improvement, predictive accuracy, and recovering the true mechanism are in general in conflict.
+
+K\"onig et al.~\cite{konig2023} carry this into recourse as Improvement-Focused Causal Recourse. Their motivating example is, structurally, ours: intervening on symptoms alters the diagnosis but not the infection, so a recourse method that optimises for acceptance may advise the patient to take cough drops. \textbf{We claim no novelty for this observation.} What we claim is that its remedy has been out of reach in our setting. ICR in its individualised form requires a fully specified structural causal model; in its subpopulation form it still requires the causal graph together with causal sufficiency, and the authors state plainly that SCMs and causal graphs are rarely readily available in practice~\cite{konig2023}. Their evaluation is conducted on synthetic and semi-synthetic structural causal models.
+
+Health-survey instruments are exactly the case in which that requirement bites. BRFSS is a cross-sectional telephone survey; its variables are self-reported, temporally unordered, and confounded by care-seeking behaviour. The audited system adopted a flat rule table \textbf{because} no structural causal model was identifiable~\cite{thieu2026}. The question this paper asks is therefore not how to do causal recourse properly, which is settled, but \textbf{how little structure is enough to detect gaming when causal structure is unavailable.}
+
+We also report an empirical contrast. K\"onig et al. find, on synthetic causal models, that improvement-focused actions cost more than gaming actions, because improvement requires more effort~\cite{konig2023}. In our clinical setting we find the opposite: suppressing the gaming shortcut incurs no measurable validity cost and improves validity in every seed we tested. The shortcut was not merely unactionable; it was also an inefficient way to flip the prediction.
+
+\subsection{Knowledge graphs as evidence gates}
+Knowledge graphs have been used both to reason over structured facts and to make clinical reasoning auditable. On the reasoning side, methods such as QUERY2TREE~\cite{query2tree2025} learn to answer logical queries over a knowledge graph by embedding its entities and relations. Our use is deliberately narrower and unlearned: CausalKG~\cite{causalkg2022} encodes interventional and counterfactual reasoning over a causal knowledge graph, while T2D-Bench~\cite{t2dbench2026} builds a multi-layer clinical-lifestyle knowledge graph, incorporating computable ADA Standards of Care rules, and uses it to \textbf{gate} the outputs of large language models against checkable evidence requirements. To our knowledge, no work applies this pattern to the output of a \textbf{counterfactual generator}. That is the narrow gap this paper occupies. We make no claim about the literature at large: graph-based counterfactual explanation is an established field with its own survey~\cite{pradoromero2024}. The claim is specific, and it is checkable: the recommendations a clinical counterfactual pipeline hands to a clinician have not been audited against the clinical guidelines, encoded as a graph.
+
+\section{The Indicator-as-Lever Failure Mode}
+\subsection{Levers and indicators}
+We distinguish two roles a feature can play in a recourse recommendation. A \textbf{lever} is an upstream determinant the patient can act on directly. Body mass index, physical activity, smoking, fruit and vegetable intake are levers: there is something the patient does, and the feature moves as a result. An \textbf{indicator} is a downstream summary of health status. It reports rather than causes. In BRFSS, \texttt{GenHlth} asks the respondent to rate their general health on a five-point scale; \texttt{PhysHlth} and \texttt{MentHlth} ask how many of the past thirty days were physically or mentally unhealthy. A patient does not perform \texttt{GenHlth}. It is what happens to them.
+
+The distinction is orthogonal to both axes a direction-only taxonomy encodes. An indicator is \textbf{mutable}: \texttt{GenHlth} can and does change. It has a \textbf{desirable direction}: lower is better. A rule table that records mutability and direction therefore admits it, and a violation metric defined over mutability and direction therefore records no violation for it. Nothing in that machinery has a place to record that the patient cannot pull the lever, because there is no lever. We call the resulting failure \textbf{indicator-as-lever recommendation}. Its conceptual root is the gaming/improvement distinction~\cite{miller2020,konig2023}; our contribution is to show that it survives, unnoticed and uncounted, inside a published clinical constraint layer.
+
+\subsection{The audited system, and its own principle}
+The system we audit~\cite{thieu2026} is a knowledge-guided counterfactual pipeline for BRFSS diabetes risk. Central to its contribution is the removal of three features from the search space entirely: \texttt{CholCheck}, \texttt{AnyHealthcare} and \texttt{HvyAlcoholConsump}. The stated rationale is that these behave as \emph{healthcare-utilisation indicators and behavioural self-report features}, whose correlation with diabetes reflects care-seeking patterns rather than a direct causal effect. The suppression accounts for 64\% of the paper's reported actionability gain. The principle is correct, and it is the paper's strongest idea. \textbf{The paper does not apply it consistently.} \texttt{GenHlth}, \texttt{PhysHlth} and \texttt{MentHlth} are also self-reported health-status indicators. They are retained, classified \texttt{monotonic\_down}, and left free for the generator to vary.
+
+\subsection{The failure appears in the audited paper's own showcase}
+The audited paper illustrates its contribution with a single high-risk patient. Table~\ref{tab:patient168} reproduces the comparison.
+
+\begin{table}[t]
+\caption{The audited system's own worked example (patient 168).}
+\label{tab:patient168}
+\centering
+\footnotesize
+\begin{tabular}{@{}p{1.4cm}p{3.1cm}p{2.6cm}@{}}
+\toprule
+\textbf{Mode} & \textbf{Recommendation} & \textbf{Verdict in \cite{thieu2026}} \\
+\midrule
+Unconstrained & Skip cholesterol check; lower income & Rejected as a search artefact \\
+Direction-constrained & Lower cholesterol; \textbf{improve self-rated general health (\texttt{GenHlth} 5$\rightarrow$2)} & \textbf{Presented as the success case} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The redirection is real, and the first recommendation is genuinely better than what it replaced. But the second component of the ``successful'' counterfactual instructs a patient to move their self-rated general health from \emph{poor} to \emph{very good}. That is the state the intervention is supposed to produce. It is not the intervention. The argument the paper uses to suppress \texttt{CholCheck} applies without modification to \texttt{GenHlth}. Reproducing the pipeline shows this example is not an unlucky draw. Patient 168 is one of only two patients in the cohort of 200 who receive no counterfactual at all that moves a lever. All five counterfactuals offered for this patient ask for a change in self-rated general health, and every other change they make falls on cholesterol, blood pressure, income or education. The paper's showcase is the failure mode in its purest form.
+
+\subsection{Why the metric cannot catch it}
+The audited system scores each query with an actionability score, its Eq.~(1):
+\begin{equation}
+\mathrm{Act}(x_i) = 1 - \frac{V_{\mathrm{dir}}(x_i) + V_{\mathrm{imm}}(x_i)}{N_{\mathrm{changes}}(x_i)}
+\end{equation}
+where $V_{\mathrm{dir}}$ counts counterfactual changes that violate the taxonomy direction class of a feature, $V_{\mathrm{imm}}$ counts counterfactuals that alter any immutable feature, and $N_{\mathrm{changes}}$ is the total number of counterfactual feature changes for the query~\cite{thieu2026}. A recommendation to lower \texttt{GenHlth} from 5 to 2 violates neither term. It is not immutable, so it contributes nothing to $V_{\mathrm{imm}}$; its permitted direction is \texttt{monotonic\_down} and $5\rightarrow2$ moves downward, so it contributes nothing to $V_{\mathrm{dir}}$. It does, however, increment $N_{\mathrm{changes}}$. \textbf{An indicator-as-lever recommendation therefore does not merely escape the penalty. It inflates the denominator and thereby raises the score.} The metric is not miscalibrated, and the audited paper does not overstate it: it presents the score as a \emph{taxonomy-consistency proxy}, explicitly not a clinically validated actionability metric~\cite{thieu2026}. We take that disclaimer at face value and ask how wide the gap is in practice.
+
+\section{$K_G$: A Guideline-Sourced Dependency Graph}
+\subsection{From tuple to graph}
+The knowledge layer of~\cite{thieu2026} is a set of per-feature tuples recording a direction class and a permitted range for each feature, independently of every other feature. A flat table has no slot in which to write \emph{this feature moves only as a consequence of moving that one}, because that is a statement about a pair. We define a directed graph $K_G = (V, E)$ with $V$ the twenty-one BRFSS features and $E$ a set of dependency edges. The direction class of~\cite{thieu2026} is retained verbatim as a node attribute, so that any difference in behaviour we report is attributable to what we add: a second node attribute, the feature's \textbf{role tier}, and the edge set.
+
+\subsection{Role tiers}
+Table~\ref{tab:tiers} gives the assignment. Four tiers answer one question: can the patient act on this, and how?
+
+\begin{table}[t]
+\caption{Role tiers over the twenty-one BRFSS features.}
+\label{tab:tiers}
+\centering
+\footnotesize
+\begin{tabular}{@{}p{1.5cm}p{4.2cm}p{1.3cm}@{}}
+\toprule
+\textbf{Tier} & \textbf{Features} & \textbf{Patient-controllable?} \\
+\midrule
+Lever & \texttt{BMI}, \texttt{PhysActivity}, \texttt{Fruits}, \texttt{Veggies}, \texttt{Smoker}, \texttt{HvyAlcoholConsump}, \texttt{NoDocbcCost} & Directly or through behaviour \\
+Treatable & \texttt{HighBP}, \texttt{HighChol} & Via clinician \\
+\textbf{Indicator} & \textbf{GenHlth, \texttt{PhysHlth}, \texttt{MentHlth}, DiffWalk} & \textbf{No} \\
+Immutable / proxy & \texttt{Age}, \texttt{Sex}, \texttt{Stroke}, \texttt{HeartDiseaseorAttack}, \texttt{Income}, \texttt{Education}, \texttt{AnyHealthcare}, \texttt{CholCheck} & No \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Guideline support for the indicator tier}
+We searched sections 5, 8 and 10 of the ADA Standards of Care in Diabetes 2026~\cite{ada2026s5,ada2026s8,ada2026s10} for \textbf{any} numbered recommendation whose intervention target is self-rated general health, physically unhealthy days, or mentally unhealthy days. \textbf{There is none.} These constructs appear only as goals to be \emph{assessed}: Recommendation 5.3 directs the clinician to assess health status and well-being as key goals of self-management education~\cite{ada2026s5}. The section that would house such a recommendation is titled \emph{Facilitating Positive Health Behaviors and Well-being to Improve Health Outcomes}: behaviours are what one does, health outcomes are what improve as a result. The absence is the guideline-level justification for the indicator tier. Those three sections are the ones whose recommendations name the constructs in $K_G$: health behaviours, weight management, and cardiovascular risk factors. We do not claim to have searched the full Standards, and the direction of that limitation is worth stating: a recommendation we missed would add an edge, and an added edge can only turn an unsupported recommendation into a supported one, so the counts we report are an upper bound on the failure rate under this graph.
+
+\subsection{Edges, and their evidence grades}
+Every edge in $E$ asserts that acting on its source is a recognised route to changing its target, and is sourced from the ADA Standards of Care. Edges backed by a numbered recommendation carry the \textbf{evidence grade} the ADA Professional Practice Committee assigned to that recommendation, and edges resting on section narrative are marked separately as ungraded~\cite{ada2026int}. The grades are: A for adequately powered generalisable RCTs or meta-analyses; B for flawed trials or cohort and case-control studies; C for poorly controlled or observational studies; E for expert consensus. Grades are the committee's vote, not our judgment. The graph has 26 edges spanning 21 distinct source--target pairs, five pairs being asserted by two separate recommendations each: 12 at grade A, 3 at grade B, 3 at grade C, and 8 supported by section narrative rather than a numbered recommendation, which we mark separately as the weakest evidence. Table~\ref{tab:edges} gives the load-bearing edges. The complete 26-edge list, with grades and source locations, is provided in the reproduction package.
+
+\begin{table}[t]
+\caption{Selected edges of $K_G$, with ADA evidence grades.}
+\label{tab:edges}
+\centering
+\footnotesize
+\begin{tabular}{@{}p{2.9cm}cp{2.4cm}@{}}
+\toprule
+\textbf{Edge} & \textbf{Grade} & \textbf{Source} \\
+\midrule
+PhysActivity $\rightarrow$ BMI & A & SoC'26 \S5, R5.12 \\
+Fruits, Veggies $\rightarrow$ BMI & A & SoC'26 \S5, R5.12 \\
+BMI $\rightarrow$ HighBP & A & SoC'26 \S8, R8.5 \\
+BMI $\rightarrow$ HighChol & A & SoC'26 \S8, R8.5 \\
+5 lifestyle levers $\rightarrow$ HighBP & A & SoC'26 \S10, R10.5 \\
+PhysAct., Fruits, Veg. $\rightarrow$ HighChol & C & SoC'26 \S10, R10.15 \\
+PhysActivity $\rightarrow$ GenHlth, PhysHlth, MentHlth & narr. & SoC'26 \S5 \\
+BMI $\rightarrow$ GenHlth, PhysHlth & narr. & SoC'26 \S8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Recommendation 10.5, at grade A, is the single most load-bearing statement: one sentence names five lifestyle behaviours as routes to blood-pressure control, and yields five edges. Sections 8 and 10 carry external warrant: section 8 was approved by The Obesity Society, section 10 by the American College of Cardiology~\cite{ada2026int}. We source edges from the 2026 Standards, whereas the audited system was built on the 2024 edition. The recommendations we rely on were refined between the two (Recommendations 5.12 and 8.5 made the 5 to 7\% weight-loss target explicit, per the Summary of Revisions), but the intervention pathways the edges encode, from lifestyle behaviours to weight and from weight to cardiovascular risk factors, are stable across both editions. We did not rebuild $K_G$ on the 2024 edition, so the claim is about what current guidance supports, not about what was available when the audited system was built. \textbf{No edge is inferred from BRFSS correlations}, which would be circular.
+
+\subsection{What $K_G$ is not, and the audit rule}
+$K_G$ is deliberately weaker than a causal graph. It licenses no do-calculus, estimates no interventional distribution, and assumes no causal sufficiency. We call it a dependency graph rather than a knowledge graph deliberately: it carries one relation type, no entity typing, no attributes beyond the two node labels, and it answers one question. None of the machinery the term knowledge graph usually implies is present, and none of it is needed for the audit. It cannot say how much \texttt{GenHlth} will improve if BMI falls; it cannot even say that it will. It supports exactly one query, which is all the audit requires: given a counterfactual that changes a set of features $S$, and an indicator $v \in S$, does $S$ contain any lever $u$ with an edge $u \rightarrow v$ in $E$? This is a \textbf{necessary condition} for actionability, not a causal estimate. Formally, a change to $v$ is \textbf{unsupported} when
+\begin{equation}
+\mathrm{tier}(v){=}\mathrm{indicator} \;\wedge\; \{u : (u{\rightarrow}v){\in}E,\, \mathrm{tier}(u){=}\mathrm{lever},\, u{\in}S\} {=} \emptyset .
+\end{equation}
+The rule admits lever sources only. \texttt{HighBP} and \texttt{HighChol} carry narrative edges into \texttt{GenHlth} and stay in the graph because that is the route the Standards themselves record, but neither is something a patient performs: reaching either runs through a clinician. Admitting them as sources would justify ``feel healthier'' by appealing to ``have lower blood pressure,'' which relocates the actionability question rather than answering it. Those two edges therefore describe the graph and never confer support, under either reading of Section~V-E; removing them changes no number we report. This is the audit rule. It fits on one line, requires the edge set, and a flat table cannot express it.
+
+\subsection{The graph structure}
+Fig.~\ref{fig:kg} shows $K_G$. Reading the lever in-neighbourhoods of the indicator tier: \texttt{GenHlth}$\leftarrow\{$BMI, PhysActivity$\}$; \texttt{PhysHlth}$\leftarrow\{$BMI, PhysActivity, Smoker$\}$; \texttt{MentHlth}$\leftarrow\{$PhysActivity$\}$; \texttt{DiffWalk}$\leftarrow\emptyset$. Two further narrative edges reach \texttt{GenHlth} from the treatable tier, so the indicator tier receives eight edges in all, and every narrative edge in the graph terminates there. There are exactly two lever-originating routes to improving self-rated general health, and they are the two most familiar levers in diabetes prevention. A counterfactual that asks a patient to improve \texttt{GenHlth} while touching neither is not merely optimistic; it has no path.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{fig1.pdf}
+\caption{The dependency graph $K_G$. Nodes are the 21 BRFSS features in four role bands; edges assert guideline-recognised intervention routes, with line style encoding the ADA evidence grade. One arrow is drawn per distinct source--target pair, at the strongest grade asserting it, so the 26 edges appear as 21 arrows. No edge originates in the indicator band: indicators are sinks. The eight edges that terminate there are exactly the eight supported by section narrative rather than by a numbered recommendation. The immutable band is disconnected, lying on no intervention route.}
+\label{fig:kg}
+\end{figure*}
+
+\section{Audit: Applying $K_G$ to Published Counterfactuals}
+\subsection{Setup and reproduction}
+The classifier is XGBoost trained on BRFSS 2021 (236{,}378 records, 21 features, prevalence 14.2\%) under an 80/20 split; the cohort is the 200 test records with the highest predicted risk; DiCE's \texttt{random} backend generates five counterfactuals per query against the low-risk class, with the audited paper's per-feature direction classes supplied through its constraint interface. We reproduce the released pipeline of~\cite{thieu2026} without modification: the classifier, split, seed, cohort rule and DiCE backend are those of the published configuration, and the taxonomy source file is not touched. The only addition is that we record every counterfactual's feature-level changes, which the published pipeline aggregates away. The classifier reproduces exactly: test AUC 0.8233 and cohort mean risk 0.7475, both matching the published values to four decimal places. The counterfactual set does not: 1{,}500 total changes against the published 1{,}520, short by 1.3\%. The stochastic \texttt{random} backend of DiCE is not reproducible across library versions, and every figure we report was produced with dice-ml 0.12. We therefore report each finding as a range across the five seeds of the audited paper's own protocol, and the reproduction package records the library versions it used. The reproduction run regenerates the counterfactual set once; \textbf{the audit that follows reads only the recorded feature-level changes, and performs no further training and no further generation.} Validity is the proportion of generated counterfactuals whose predicted class reaches the requested low-risk target.
+
+\subsection{Where the recommendations go}
+Table~\ref{tab:audit} assigns each of the 1{,}500 recommended changes to a role tier.
+
+\begin{table}[t]
+\caption{Where the 1{,}500 recommended changes land (seed 42).}
+\label{tab:audit}
+\centering
+\footnotesize
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Tier} & \textbf{Changes} & \textbf{Share} \\
+\midrule
+Lever & 758 & 50.5\% \\
+Treatable & 253 & 16.9\% \\
+\textbf{Indicator} & \textbf{331} & \textbf{22.1\%} \\
+Immutable / SES proxy & 158 & 10.5\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Just over half of what the system recommends is something the patient can do directly. \texttt{GenHlth} is the second most frequently recommended change in the entire system, behind only BMI: 112 of 200 patients (56\%) are told to raise their self-rated health by a mean of 2.25 categories on a 1--5 scale; \texttt{PhysHlth} 71/200 by a mean 14.72 of 30 days; \texttt{MentHlth} 34/200 by 10.15 days. \texttt{DiffWalk}, the fourth member of the indicator tier, is never changed, so these three features account for the whole tier. None of these 331 changes contributes a direction or immutability violation, so each receives zero penalty under the published metric.
+
+\subsection{Applying the audit rule}
+Applying the rule of Section IV-E to the 1{,}000 counterfactuals: 323 (32.3\%) change at least one indicator; of those, 185 (57.3\%) change no lever at all; \textbf{104 counterfactuals (11.0\%) recommend nothing the patient can act on whatsoever}, their changes falling exclusively on indicators and socioeconomic proxies; and 107 of 200 patients (53.5\%) receive at least one such counterfactual. Those 104 tell a patient, in effect, to be healthier and richer. The edge set is what separates this audit from a role label. A role-only rule, asking merely whether the counterfactual pulls any lever at all, flags 185 of the 323; the rule of Section~IV-E, asking whether it pulls a lever with a route to the indicator being moved, flags 210. The 25-counterfactual difference is dominated by a single pattern: 23 counterfactuals lower \texttt{BMI} in order to move \texttt{MentHlth}, and the Standards record no route from body weight to mentally unhealthy days. Across the five seeds the difference ranges from 25 to 35 counterfactuals, mean 30.8. A flat table cannot state it, because the missing fact is about a pair.
+
+\subsection{What tempers this, and must be said}
+\textbf{No patient receives five unactionable counterfactuals.} For 198 of the 200 patients, at least one of the five is supported by a lever. For the remaining two, the candidate set contains clinician-mediated targets and socioeconomic proxies but no patient-level lever at all. Whether a treatment route exists for those two is not something the counterfactuals answer, and we do not claim one. The failure is at the level of the individual counterfactual, not the patient. It matters nonetheless: a clinician is handed five candidate recommendations, presented as equivalently actionable by a metric reporting 0.988, and roughly one in ten cannot be carried out, with nothing marking which.
+
+\subsection{Both readings, and robustness}
+Placing \texttt{HighBP} and \texttt{HighChol} in the treatable tier is a judgment; a reviewer may hold they are downstream of BMI and belong with the indicators. Under the narrow reading (indicators only) non-lever recommendations are 331/1{,}500 (22.1\%); under the broad reading (indicators and treatables) 584/1{,}500 (38.9\%). The conclusion does not turn on the choice. The audit is also stable across the five seeds of the audited paper's own protocol $\{42, 123, 2024, 7, 31337\}$: indicator changes range 288--333, no-lever counterfactuals 157--185, counterfactuals unsupported under the edge rule 192--214, and fully-unactionable counterfactuals 88--108. The 158 changes on \texttt{Income} and \texttt{Education} are not our finding: the audited paper already reports a conservative ablation making those immutable~\cite{thieu2026}. The novel axis is the indicator tier.
+
+\section{Enforcement: What Does It Cost to Stop?}
+\subsection{Configuration and result}
+The graph predicts that removing \texttt{GenHlth}, \texttt{PhysHlth} and \texttt{MentHlth} from the generator's search space should cost nothing a patient could have used. We test this directly: the three indicators are excluded from \texttt{features\_to\_vary}, everything else identical. The exclusion needs only the role tier; no edge is consulted to take three features out of a search space. The edge set earns its place in the audit of Section~V, not here, and we claim no generation gain for it. Table~\ref{tab:enforce} reports the mean over five seeds.
+
+\begin{table}[t]
+\caption{Published taxonomy versus $K_G$ constraint, mean of five seeds.}
+\label{tab:enforce}
+\centering
+\footnotesize
+\begin{tabular}{@{}lrr@{}}
+\toprule
+ & \textbf{Published} & \textbf{With $K_G$} \\
+\midrule
+Validity & 0.7972 & \textbf{0.8234} \\
+Indicator changes & 288--333 & \textbf{0} \\
+Unsupported CFs, role rule & 157--185 & \textbf{0} \\
+Unsupported CFs, edge rule & 192--214 & \textbf{0} \\
+Patients left with no CF & 0/200 & 0/200 \\
+Mean changes per CF & 1.49 & 1.45 \\
+\textbf{Direction-only actionability} & \textbf{0.9798} & \textbf{0.9778} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Validity improves in \textbf{five seeds out of five} (mean $+0.0262$, sd $0.0107$, paired $t=5.47$, $p=0.005$). The seeds are computational replicates on one dataset and one pipeline rather than independent samples, so we read the paired test descriptively: the load-bearing facts are that all five differences are positive and that the smallest is $+0.019$. The per-seed gain ranges from $+0.019$ to $+0.045$, so \textbf{we make no claim about the size of the improvement}; the defensible claim is that enforcing the lever/indicator distinction carries \textbf{no measurable validity cost in this configuration}. No patient loses their counterfactual set.
+
+\subsection{Why it is free, and the blind metric}
+The pattern in the audit data is consistent with the generator using indicators as a low-cost shortcut, though the two groups are not matched on baseline risk or on distance to the decision boundary. Counterfactuals that move an indicator without moving any lever have validity 0.676 ($n=185$); those that move a lever have 0.905 ($n=704$). This suggests the generator was using indicators as low-cost perturbations that flip the prediction poorly, and that removing them redirects the search toward levers, whose counterfactuals show higher validity in this experiment. This runs against the closest prior result: K\"onig et al. report, on synthetic causal models, that improvement costs \emph{more} than gaming~\cite{konig2023}; on real survey data we find the opposite. We do not claim this generalises. The last row of Table~\ref{tab:enforce} is the reason this paper argues for a representation and not a hyperparameter: the direction-only actionability score is 0.9798 with 104 unactionable counterfactuals and 0.9778 with none. It moves by two thousandths, in the wrong direction. No tuning fixes this; the knowledge layer needs another axis. A role label is enough to switch a feature off, and an edge is what tells the audit which of the surviving recommendations to trust.
+
+\section{Limitations}
+The lever/indicator boundary is a judgment, not a measurement. Two assignments are weaker than the rest. \texttt{NoDocbcCost} records a cost barrier to care rather than an act the patient performs, and a reviewer may hold that it belongs with the socioeconomic proxies; it carries 2 of the 758 lever changes, so no result turns on it. \texttt{HvyAlcoholConsump} is placed in the lever tier on the authority of Recommendation 10.5, although the audited system suppresses it from the search space, so it is never varied and contributes no change; the tier records what the patient can act on, independently of what the audited generator was permitted to move. \texttt{BMI} is the larger question. It carries 686 of the 758 lever changes, so the lever tier is in practice almost entirely \texttt{BMI}, and \texttt{BMI} is a modifiable clinical state rather than an act the patient performs: a patient changes diet and activity, and weight follows. We keep it in the lever tier because the recommendations that make weight loss an intervention target treat it as one, and because the choice is conservative: moving \texttt{BMI} out of the lever tier can only remove routes from the graph, so it would raise the count of unsupported recommendations rather than lower it. \texttt{HighBP} and \texttt{HighChol} remain the contested cases, and we report both readings. Edges are asserted from guideline recommendations and carry the ADA's grade, but no effect size is estimated and no edge is validated on data; learning them from BRFSS would be circular. Eight of the 26 edges rest on section narrative rather than a numbered recommendation, are marked as such, and all point into the indicator tier where the audit rule bites; the honest reason is that the ADA does not issue graded recommendations about self-rated health, because self-rated health is not a target of care, which is the point Section IV-C makes. Those eight are also the only edges the audit rule can use under the narrow reading: no graded edge reaches the indicator tier, so restricting the graph to graded edges alone would leave every indicator-touching counterfactual unsupported. The graded edges bear on the audit only under the broad reading, where the treatable tier is audited as well. The edge extraction was carried out by one author and was not repeated independently, so we report no inter-annotator agreement. No clinical panel reviewed our tiers or our edges; the audited paper concedes the same about its own class assignments, and ours inherit it. Results are for one cohort, one generator, one classifier (BRFSS 2021, DiCE, XGBoost). $K_G$ is not a causal model and makes no interventional claims; where a structural causal model is available, ICR~\cite{konig2023} is the stronger tool.
+
+\section{Conclusion}
+Direction was the right first axis for a clinical knowledge layer, and encoding it works: it removes the recommendation to skip a cholesterol check. It is not the last axis. A recommendation must not only point the right way; it must name something the patient can do. We showed that a peer-reviewed clinical counterfactual pipeline recommends, in 10.4\% of its counterfactuals, nothing the patient can act on, and that its own actionability metric fails to flag a single one. The failure is invisible to a direction-only rule table because it is not about direction but about whether a route exists from an action to the thing being changed, and a route is an edge. Recasting the flat layer as a dependency graph, with every edge traceable to a clinical guideline and graded wherever the guideline grades it, makes the failure detectable in one query and removable at no measurable cost to validity. Where the causal model exists, use it. Where it does not, a role and a route are still more than a row.
+
+
+\section*{Appendix A: The Complete Edge Set}
+Table~\ref{tab:edges-full} lists every edge of $K_G$, its evidence grade and the recommendation it is sourced from, so that the graph can be checked without the repository. It is generated directly from the edge module used by the audit, so the table and the code cannot drift apart.
+
+\begin{table*}[t]
+\caption{The complete edge set of $K_G$. Twenty-six edges over twenty-one distinct source--target pairs; five pairs are asserted by two recommendations each. Grades are the ADA's, not ours. No guideline text is reproduced: the last column is our one-line paraphrase.}
+\label{tab:edges-full}
+\centering\scriptsize
+\begin{tabular}{@{}lllp{9.2cm}@{}}
+\toprule
+\textbf{Edge} & \textbf{Grade} & \textbf{ADA source} & \textbf{What the recommendation licenses} \\
+\midrule
+\texttt{BMI} $\rightarrow$ \texttt{HighBP} & A & S8, Rec 8.5 & Weight loss of 5-7\% improves glycaemia and intermediate cardiovascular risk factors. \\
+\texttt{BMI} $\rightarrow$ \texttt{HighBP} & A & S10, Rec 10.5 & Weight loss is the first lifestyle behaviour advised above 120/80 mmHg. \\
+\texttt{BMI} $\rightarrow$ \texttt{HighChol} & A & S8, Rec 8.5 & Same recommendation; dyslipidaemia is among the intermediate cardiovascular risk factors. \\
+\texttt{Fruits} $\rightarrow$ \texttt{BMI} & A & S5, Rec 5.12 & Nutrition is one of the three components of the weight-management plan. \\
+\texttt{Fruits} $\rightarrow$ \texttt{HighBP} & A & S10, Rec 10.5 & A DASH-style eating pattern is one of the advised lifestyle behaviours. \\
+\texttt{HvyAlcoholConsump} $\rightarrow$ \texttt{HighBP} & A & S10, Rec 10.5 & Limiting or avoiding alcohol is one of the advised lifestyle behaviours. \\
+\texttt{PhysActivity} $\rightarrow$ \texttt{BMI} & A & S5, Rec 5.12 & A weight-management plan built on nutrition, physical activity and behavioural support target... \\
+\texttt{PhysActivity} $\rightarrow$ \texttt{BMI} & A & S8, Rec 8.8a & Structured counselling centred on nutrition and physical activity to achieve a daily energy d... \\
+\texttt{PhysActivity} $\rightarrow$ \texttt{HighBP} & A & S10, Rec 10.5 & Increased physical activity is one of the advised lifestyle behaviours. \\
+\texttt{Smoker} $\rightarrow$ \texttt{HighBP} & A & S10, Rec 10.5 & Smoking cessation is one of the advised lifestyle behaviours. \\
+\texttt{Veggies} $\rightarrow$ \texttt{BMI} & A & S5, Rec 5.12 & Nutrition is one of the three components of the weight-management plan. \\
+\texttt{Veggies} $\rightarrow$ \texttt{HighBP} & A & S10, Rec 10.5 & A DASH-style eating pattern is one of the advised lifestyle behaviours. \\
+\texttt{Fruits} $\rightarrow$ \texttt{BMI} & B & S5, Rec 5.14 & Eating patterns should emphasise whole fruits, among other principles. \\
+\texttt{HvyAlcoholConsump} $\rightarrow$ \texttt{HighBP} & B & S5, Rec 5.18 & Adults with or at risk of diabetes should not exceed recommended daily alcohol limits. \\
+\texttt{Veggies} $\rightarrow$ \texttt{BMI} & B & S5, Rec 5.14 & Eating patterns should emphasise nonstarchy vegetables, among other principles. \\
+\texttt{Fruits} $\rightarrow$ \texttt{HighChol} & C & S10, Rec 10.15 & Lifestyle therapy is intensified for raised triglycerides or low HDL. \\
+\texttt{PhysActivity} $\rightarrow$ \texttt{HighChol} & C & S10, Rec 10.15 & Lifestyle therapy is intensified for raised triglycerides or low HDL. \\
+\texttt{Veggies} $\rightarrow$ \texttt{HighChol} & C & S10, Rec 10.15 & Lifestyle therapy is intensified for raised triglycerides or low HDL. \\
+\texttt{BMI} $\rightarrow$ \texttt{GenHlth} & narrative & S8, obesity narr. & Obesity treatment is framed as improving health outcomes broadly. \\
+\texttt{BMI} $\rightarrow$ \texttt{PhysHlth} & narrative & S8, obesity narr. & Obesity treatment is framed as improving health outcomes broadly. \\
+\texttt{HighBP} $\rightarrow$ \texttt{GenHlth} & narrative & S10, narr. & Blood-pressure control is framed as reducing cardiovascular risk and improving outcomes. \\
+\texttt{HighChol} $\rightarrow$ \texttt{GenHlth} & narrative & S10, narr. & Lipid control is framed as reducing cardiovascular risk and improving outcomes. \\
+\texttt{PhysActivity} $\rightarrow$ \texttt{GenHlth} & narrative & S5, physical activity narr. & Physical activity is described as favourably affecting glycaemia, cardiovascular risk factors... \\
+\texttt{PhysActivity} $\rightarrow$ \texttt{MentHlth} & narrative & S5, physical activity narr. & Physical activity is described as favourably affecting psychosocial well-being, and as benefi... \\
+\texttt{PhysActivity} $\rightarrow$ \texttt{PhysHlth} & narrative & S5, physical activity narr. & Physical activity is described as favourably affecting mobility and physical function. \\
+\texttt{Smoker} $\rightarrow$ \texttt{PhysHlth} & narrative & S5, tobacco narr. & Smoking is described as causally linked to multiple health risks that affect morbidity in peo... \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{thebibliography}{00}
+\bibitem{thieu2026} V. Thieu, ``Knowledge-guided counterfactual explanations for diabetes risk decision support: a directional intervention taxonomy,'' \emph{Int. J. Med. Inform.}, vol. 219, Art. no. 106555, 2026. \url{https://doi.org/10.1016/j.ijmedinf.2026.106555}
+\bibitem{wachter2017} S. Wachter, B. Mittelstadt, and C. Russell, ``Counterfactual explanations without opening the black box: automated decisions and the GDPR,'' \emph{Harv. J. Law Technol.}, vol. 31, no. 2, pp. 841--887, 2017. \url{https://doi.org/10.2139/ssrn.3063289}
+\bibitem{mothilal2020} R. K. Mothilal, A. Sharma, and C. Tan, ``Explaining machine learning classifiers through diverse counterfactual explanations,'' in \emph{Proc. ACM FAT* '20}, 2020, pp. 607--617. \url{https://doi.org/10.1145/3351095.3372850}
+\bibitem{ustun2019} B. Ustun, A. Spangher, and Y. Liu, ``Actionable recourse in linear classification,'' in \emph{Proc. ACM FAT* '19}, 2019, pp. 10--19. \url{https://doi.org/10.1145/3287560.3287566}
+\bibitem{karimi2021} A.-H. Karimi, B. Sch\"olkopf, and I. Valera, ``Algorithmic recourse: from counterfactual explanations to interventions,'' in \emph{Proc. ACM FAccT '21}, 2021, pp. 353--362. \url{https://doi.org/10.1145/3442188.3445899}
+\bibitem{poyiadzi2020} R. Poyiadzi, K. Sokol, R. Santos-Rodriguez, T. De Bie, and P. Flach, ``FACE: feasible and actionable counterfactual explanations,'' in \emph{Proc. AAAI/ACM AIES '20}, 2020, pp. 344--350. \url{https://doi.org/10.1145/3375627.3375850}
+\bibitem{facegroup2025} C. Fragkathoulas, V. Papanikou, E. Pitoura, and E. Terzi, ``FACEGroup: feasible and actionable counterfactual explanations for group fairness,'' in \emph{Machine Learning and Knowledge Discovery in Databases: Research Track (ECML PKDD 2025)}, Lecture Notes in Computer Science, vol. 16016. Cham, Switzerland: Springer, 2026, pp. 41--59. \url{https://doi.org/10.1007/978-3-032-06078-5_3}
+\bibitem{miller2020} J. Miller, S. Milli, and M. Hardt, ``Strategic classification is causal modeling in disguise,'' in \emph{Proc. 37th Int. Conf. Mach. Learn.}, PMLR, vol. 119, 2020, pp. 6917--6926.
+\bibitem{shavit2020} Y. Shavit, B. Edelman, and B. Axelrod, ``Causal strategic linear regression,'' in \emph{Proc. 37th Int. Conf. Mach. Learn.}, PMLR, vol. 119, 2020, pp. 8676--8686.
+\bibitem{konig2023} G. K\"onig, T. Freiesleben, and M. Grosse-Wentrup, ``Improvement-focused causal recourse (ICR),'' in \emph{Proc. AAAI Conf. Artif. Intell.}, vol. 37, no. 10, 2023, pp. 11847--11855. \url{https://doi.org/10.1609/aaai.v37i10.26398}
+\bibitem{query2tree2025} T. H. V. Phan and P. Do, ``QUERY2TREE: a reasoning model for answering logical queries based on knowledge graph embedding and large language model,'' \emph{Knowl. Inf. Syst.}, vol. 67, pp. 5271--5300, 2025. \url{https://doi.org/10.1007/s10115-025-02347-z}
+\bibitem{causalkg2022} U. Jaimini and A. Sheth, ``CausalKG: causal knowledge graph explainability using interventional and counterfactual reasoning,'' \emph{IEEE Internet Comput.}, vol. 26, no. 1, pp. 43--50, 2022. \url{https://doi.org/10.1109/MIC.2021.3133551}
+\bibitem{t2dbench2026} S. A. Farahani, H. Cao, R. Jain, and A. M. Rahmani, ``T2D-Bench: evidence-gated evaluation of LLM outputs for type 2 diabetes using a multi-layer clinical-lifestyle knowledge graph,'' arXiv:2606.24145, 2026, accepted as a poster, AMIA 2026 Annu. Symp. \url{https://doi.org/10.48550/arXiv.2606.24145}
+\bibitem{pradoromero2024} M. A. Prado-Romero, B. Prenkaj, G. Stilo, and F. Giannotti, ``A survey on graph counterfactual explanations: definitions, methods, evaluation, and research challenges,'' \emph{ACM Comput. Surv.}, vol. 56, no. 7, Art. no. 171, 2024. \url{https://doi.org/10.1145/3618105}
+\bibitem{ada2026s5} American Diabetes Association Professional Practice Committee, ``5. Facilitating positive health behaviors and well-being to improve health outcomes: Standards of Care in Diabetes 2026,'' \emph{Diabetes Care}, vol. 49, suppl. 1, pp. S89--S131, 2026. \url{https://doi.org/10.2337/dc26-S005}
+\bibitem{ada2026s8} American Diabetes Association Professional Practice Committee, ``8. Obesity and weight management for the prevention and treatment of diabetes: Standards of Care in Diabetes 2026,'' \emph{Diabetes Care}, vol. 49, suppl. 1, 2026. \url{https://doi.org/10.2337/dc26-S008}
+\bibitem{ada2026s10} American Diabetes Association Professional Practice Committee, ``10. Cardiovascular disease and risk management: Standards of Care in Diabetes 2026,'' \emph{Diabetes Care}, vol. 49, suppl. 1, pp. S216--S245, 2026. \url{https://doi.org/10.2337/dc26-S010}
+\bibitem{ada2026int} American Diabetes Association Professional Practice Committee, ``Introduction and methodology: Standards of Care in Diabetes 2026,'' \emph{Diabetes Care}, vol. 49, suppl. 1, pp. S1--S5, 2026. \url{https://doi.org/10.2337/dc26-SINT}
+\end{thebibliography}
+
+\end{document}

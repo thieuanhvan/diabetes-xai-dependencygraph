@@ -1,0 +1,27 @@
+#	Source	Target	Grade	ADA source	Gloss
+1	BMI	HighBP	A	SoC 2026, S8, Rec 8.5	Weight loss of 5-7% improves glycaemia and intermediate cardiovascular risk factors.
+2	BMI	HighBP	A	SoC 2026, S10, Rec 10.5	Weight loss is the first lifestyle behaviour advised above 120/80 mmHg.
+3	BMI	HighChol	A	SoC 2026, S8, Rec 8.5	Same recommendation; dyslipidaemia is among the intermediate cardiovascular risk factors.
+4	Fruits	BMI	A	SoC 2026, S5, Rec 5.12	Nutrition is one of the three components of the weight-management plan.
+5	Fruits	HighBP	A	SoC 2026, S10, Rec 10.5	A DASH-style eating pattern is one of the advised lifestyle behaviours.
+6	HvyAlcoholConsump	HighBP	A	SoC 2026, S10, Rec 10.5	Limiting or avoiding alcohol is one of the advised lifestyle behaviours.
+7	PhysActivity	BMI	A	SoC 2026, S5, Rec 5.12	A weight-management plan built on nutrition, physical activity and behavioural support targets 5-7% weight loss.
+8	PhysActivity	BMI	A	SoC 2026, S8, Rec 8.8a	Structured counselling centred on nutrition and physical activity to achieve a daily energy deficit.
+9	PhysActivity	HighBP	A	SoC 2026, S10, Rec 10.5	Increased physical activity is one of the advised lifestyle behaviours.
+10	Smoker	HighBP	A	SoC 2026, S10, Rec 10.5	Smoking cessation is one of the advised lifestyle behaviours.
+11	Veggies	BMI	A	SoC 2026, S5, Rec 5.12	Nutrition is one of the three components of the weight-management plan.
+12	Veggies	HighBP	A	SoC 2026, S10, Rec 10.5	A DASH-style eating pattern is one of the advised lifestyle behaviours.
+13	Fruits	BMI	B	SoC 2026, S5, Rec 5.14	Eating patterns should emphasise whole fruits, among other principles.
+14	HvyAlcoholConsump	HighBP	B	SoC 2026, S5, Rec 5.18	Adults with or at risk of diabetes should not exceed recommended daily alcohol limits.
+15	Veggies	BMI	B	SoC 2026, S5, Rec 5.14	Eating patterns should emphasise nonstarchy vegetables, among other principles.
+16	Fruits	HighChol	C	SoC 2026, S10, Rec 10.15	Lifestyle therapy is intensified for raised triglycerides or low HDL.
+17	PhysActivity	HighChol	C	SoC 2026, S10, Rec 10.15	Lifestyle therapy is intensified for raised triglycerides or low HDL.
+18	Veggies	HighChol	C	SoC 2026, S10, Rec 10.15	Lifestyle therapy is intensified for raised triglycerides or low HDL.
+19	BMI	GenHlth	narrative	SoC 2026, S8, obesity narrative	Obesity treatment is framed as improving health outcomes broadly.
+20	BMI	PhysHlth	narrative	SoC 2026, S8, obesity narrative	Obesity treatment is framed as improving health outcomes broadly.
+21	HighBP	GenHlth	narrative	SoC 2026, S10, narrative	Blood-pressure control is framed as reducing cardiovascular risk and improving outcomes.
+22	HighChol	GenHlth	narrative	SoC 2026, S10, narrative	Lipid control is framed as reducing cardiovascular risk and improving outcomes.
+23	PhysActivity	GenHlth	narrative	SoC 2026, S5, physical activity narrative	Physical activity is described as favourably affecting glycaemia, cardiovascular risk factors, weight, body composition and physical function.
+24	PhysActivity	MentHlth	narrative	SoC 2026, S5, physical activity narrative	Physical activity is described as favourably affecting psychosocial well-being, and as benefiting depressive symptoms.
+25	PhysActivity	PhysHlth	narrative	SoC 2026, S5, physical activity narrative	Physical activity is described as favourably affecting mobility and physical function.
+26	Smoker	PhysHlth	narrative	SoC 2026, S5, tobacco narrative	Smoking is described as causally linked to multiple health risks that affect morbidity in people with diabetes.

@@ -1,0 +1,7 @@
+reading,rule,grades,n_cf,cf_touching_target,cf_unsupported,unsupported_changes,cf_fully_unactionable
+narrow,role,all,1000,332,171,189,110
+narrow,edge,all,1000,332,205,223,110
+narrow,edge,ABC,1000,332,332,350,110
+broad,role,all,1000,502,237,327,110
+broad,edge,all,1000,502,272,362,110
+broad,edge,ABC,1000,502,399,489,110
