@@ -3,12 +3,11 @@
 Printed in the header of every run so that a stale checkout announces itself
 instead of quietly producing plausible numbers from old code.
 """
-
 REPO_VERSION = "v24"
 RELEASED = "2026-07-19"
 
-# Files whose presence check_install.py verifies. A partial extraction is the
-# usual cause of a missing entry.
+# Files introduced after v12. check_install.py verifies these exist, which is
+# the cheapest way to catch an archive that was never extracted.
 EXPECTED = [
     "src/depgraph/audit.py",
     "src/depgraph/paths.py",

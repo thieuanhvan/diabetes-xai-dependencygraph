@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you found our work useful, please cite the article below."
-title: "diabetes-xai-kg"
+title: "diabetes-xai-dependencygraph"
 abstract: >-
   Reference implementation of a five-class directional intervention taxonomy
   for counterfactual explanations in type-2 diabetes risk prediction. Encodes
@@ -14,8 +14,8 @@ authors:
       University of Information Technology, Ho Chi Minh City, Vietnam;
       Vietnam National University, Ho Chi Minh City, Vietnam
 license: MIT
-repository-code: "https://github.com/thieuanhvan/diabetes-xai-kg"
-url: "https://diabetes-xai-kg.streamlit.app"
+repository-code: "https://github.com/thieuanhvan/diabetes-xai-dependencygraph"
+url: "https://diabetes-xai-dependencygraph.streamlit.app"
 preferred-citation:
   type: article
   title: >-
