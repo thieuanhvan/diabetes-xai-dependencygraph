@@ -35,6 +35,9 @@ from src.pipelines.models.xgb_train import XGBConfig, train_xgb
 from src.pipelines.preprocessing.pipeline import get_train_test_split
 from src.utils.seed import seed_everything
 
+from depgraph.runlog import RunLog
+
+RUNLOG = RunLog("run_audit_dump")
 cfg = yaml.safe_load(open(REPO / "configs" / "default.yaml"))
 seed_everything(cfg["random"]["seed"])
 
@@ -126,3 +129,5 @@ print(f"\n      queries with no CF: {n_skipped}")
 print(f"      CFs dumped        : {len(idx_rows)}")
 print(f"      TOTAL CF CHANGES  : {n_changes}   (published Table 8 per-query total: 1520)")
 print(f"      -> {out/'raw_cf_changes.csv'}")
+
+RUNLOG.finish(REPO / "outputs_kg")

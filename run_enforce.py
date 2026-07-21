@@ -38,8 +38,14 @@ from src.pipelines.models.xgb_train import XGBConfig, train_xgb
 from src.pipelines.preprocessing.pipeline import get_train_test_split
 from src.utils.seed import seed_everything
 
+from depgraph.runlog import RunLog
+
+from depgraph.audit import summarise            # the rule of Section IV-E
+from depgraph.nodes import TIER
+
 INDICATORS = ["GenHlth", "PhysHlth", "MentHlth"]
 
+RUNLOG = RunLog("run_enforce")
 cfg = yaml.safe_load(open(REPO / "configs" / "default.yaml"))
 seed_everything(cfg["random"]["seed"])
 
@@ -73,6 +79,7 @@ def run(label: str) -> dict:
     cfe = runner.generate(queries)
 
     val, act, prox, spar = [], [], [], []
+    per_cf = []
     ind_changes = n_changes = n_no_cf = 0
     for i in range(len(queries)):
         q = queries.iloc[i]
@@ -92,15 +99,24 @@ def run(label: str) -> dict:
         spar.append(sparsity(q, d))
         act.append(float(np.mean([actionability_score(q, d.iloc[j])["score"] for j in range(len(d))])))
         for k in range(len(d)):
+            chg = []
             for f in queries.columns:
                 b, a = float(q[f]), float(d[f].iloc[k])
                 ch = (int(round(b)) != int(round(a))) if f in discrete else abs(b - a) > 1e-6
                 if ch:
                     n_changes += 1
-                    if f in INDICATORS:
+                    chg.append(f)
+                    if TIER.get(f) == "indicator":
                         ind_changes += 1
+            per_cf.append(chg)
+
+    role = summarise(per_cf, reading="narrow", rule="role")
+    edge = summarise(per_cf, reading="narrow", rule="edge")
     return {
         "label": label,
+        "unsupported_cfs_role_rule": role["cf_unsupported"],
+        "unsupported_cfs_edge_rule": edge["cf_unsupported"],
+        "fully_unactionable_cfs": role["cf_fully_unactionable"],
         "validity": float(np.mean(val)),
         "actionability": float(np.mean(act)),
         "proximity_L1": float(np.mean(prox)),
@@ -132,4 +148,10 @@ dv = graph["validity"] - base["validity"]
 print(f"\nΔ validity      : {dv:+.4f}   ({dv/base['validity']*100:+.1f}% relative)")
 print(f"Δ sparsity      : {graph['sparsity'] - base['sparsity']:+.4f}")
 print(f"indicator changes: {base['indicator_changes']} -> {graph['indicator_changes']}")
+print(f"unsupported CFs, role rule: {base['unsupported_cfs_role_rule']} -> {graph['unsupported_cfs_role_rule']}")
+print(f"unsupported CFs, edge rule: {base['unsupported_cfs_edge_rule']} -> {graph['unsupported_cfs_edge_rule']}")
+print("Both go to zero by construction once indicators cannot vary; the")
+print("non-trivial results are the validity, proximity and availability rows.")
 print(f"total changes    : {base['n_changes']} -> {graph['n_changes']}")
+
+RUNLOG.finish(REPO / "outputs_kg")

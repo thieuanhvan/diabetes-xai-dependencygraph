@@ -1,4 +1,4 @@
-# diabetes-xai-kg
+# diabetes-xai-dependencygraph
 
 A guideline-sourced dependency graph for auditing counterfactual recourse in
 diabetes risk prediction. Companion code for the FAIR 2026 paper *"Levers and
@@ -27,14 +27,14 @@ taxonomy at run time, in memory. See SETUP.md for how to point at it.
 ## Layout
 
 ```
-src/kg/            the knowledge graph
+src/depgraph/            the dependency graph
     nodes.py       21 features: direction class + role tier (lever/treatable/indicator/immutable)
     edges.py       26 dependency edges, each with an ADA recommendation and evidence grade
 run_audit_dump.py  reproduce the published run, dump raw per-CF changes
 run_enforce.py     re-run with indicators excluded from features_to_vary; measure the cost
 run_seed_sweep.py  both configurations across the audited paper's five seeds
 analysis/
-    make_figures.py  Figure 1 (the graph) from src/kg/
+    make_figures.py  Figure 1 (the graph) from src/depgraph/
     figures/         generated figures
 outputs/           result CSVs
 manuscript/        paper7.tex, paper7.pdf, fig1.pdf (IEEEtran, FAIR 2026)

@@ -3,12 +3,12 @@
 ## Create the GitHub repo
 
 ```bash
-# 1. On GitHub, create a PRIVATE repo: diabetes-xai-kg
+# 1. On GitHub, create a PRIVATE repo: diabetes-xai-dependencygraph
 #    (keep private until FAIR notification, 15 Sep 2026)
 
 # 2. Push this folder
 git init
-git remote add origin https://github.com/thieuanhvan/diabetes-xai-kg.git
+git remote add origin https://github.com/thieuanhvan/diabetes-xai-dependencygraph.git
 git add .
 git commit -m "Paper 7 (FAIR 2026): KG audit of counterfactual recourse"
 git branch -M main
@@ -23,7 +23,7 @@ tag `v1.0-ijmi`). Provide it either way:
 ```bash
 # Option A: clone it as a sibling folder (the default the runners look for)
 #   parent/
-#     diabetes-xai-kg/               <- this repo
+#     diabetes-xai-dependencygraph/               <- this repo
 #     diabetes-xai-counterfactual/   <- at tag v1.0-ijmi
 git clone https://github.com/thieuanhvan/diabetes-xai-counterfactual.git ../diabetes-xai-counterfactual
 ( cd ../diabetes-xai-counterfactual && git checkout v1.0-ijmi )
