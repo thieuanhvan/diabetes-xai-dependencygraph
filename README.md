@@ -14,7 +14,7 @@ that knowledge layer as a directed dependency graph K_G, in which a feature's
 direction is a node attribute and an intervention route is an edge, every edge
 sourced from a numbered ADA Standards of Care recommendation with its evidence
 grade. It then audits the published counterfactuals against K_G and shows that
-11% of them recommend nothing the patient can act on, undetected by the
+about 10% of them recommend nothing the patient can act on, undetected by the
 direction-only actionability metric.
 
 ## Relationship to the published pipeline
@@ -37,7 +37,6 @@ analysis/
     make_figures.py  Figure 1 (the graph) from src/depgraph/
     figures/         generated figures
 outputs/           result CSVs
-manuscript/        paper7.tex, paper7.pdf, fig1.pdf (IEEEtran, FAIR 2026)
 configs/           note on reused pipeline config
 ```
 
@@ -46,7 +45,7 @@ configs/           note on reused pipeline config
 ```bash
 pip install -r requirements.txt
 # point at the published pipeline (see SETUP.md), then:
-python run_audit_dump.py     # ~4 min   reproduces AUC 0.8234, 1523 CF changes
+python run_audit_dump.py     # ~4 min   reproduces AUC 0.8234, 1500 CF changes
 python run_enforce.py        # ~8 min
 python run_seed_sweep.py     # ~35 min
 python analysis/make_figures.py
@@ -54,14 +53,14 @@ python analysis/make_figures.py
 
 ## Headline results
 
-Audit (stable across five seeds): 291-350 counterfactual changes target
-health-status indicators; 96-111 of 1000 counterfactuals recommend nothing
+Audit (stable across five seeds): 288-333 counterfactual changes target
+health-status indicators; 88-108 of 1000 counterfactuals recommend nothing
 actionable; all scored at violation rate 0.000 by the direction-only metric.
 
 Enforcement (indicators excluded): validity improves in 5 of 5 seeds
-(0.8012 -> 0.8266 mean; paired t = 2.90, p = 0.044) at no cost; the
-direction-only actionability score barely moves (0.9804 -> 0.9742), being
-structurally unable to see the difference.
+(0.7972 -> 0.8234 mean, +0.0262, sd 0.0107; paired t = 5.47, p = 0.005) at no
+cost; the direction-only actionability score barely moves (0.9798 -> 0.9778),
+being structurally unable to see the difference.
 
 ## Citation
 

@@ -1,11 +1,16 @@
 cff-version: 1.2.0
-message: "If you found our work useful, please cite the article below."
+message: >-
+  This repository accompanies a paper under review. Until it appears, please
+  cite the published pipeline that this work audits, listed below.
 title: "diabetes-xai-dependencygraph"
 abstract: >-
-  Reference implementation of a five-class directional intervention taxonomy
-  for counterfactual explanations in type-2 diabetes risk prediction. Encodes
-  clinical actionability semantics as per-query DiCE constraints, without
-  requiring a full structural causal model.
+  A guideline-sourced dependency graph for auditing counterfactual recourse in
+  type-2 diabetes risk prediction. Recasts a flat per-feature intervention
+  taxonomy as a directed graph in which direction is a node attribute and an
+  intervention route is an edge, every edge sourced from a numbered ADA
+  Standards of Care recommendation with its evidence grade. Audits a published
+  counterfactual pipeline against that graph and measures the cost of excluding
+  health-status indicators from the generator search space.
 authors:
   - family-names: "Thieu"
     given-names: "Van"
@@ -15,7 +20,6 @@ authors:
       Vietnam National University, Ho Chi Minh City, Vietnam
 license: MIT
 repository-code: "https://github.com/thieuanhvan/diabetes-xai-dependencygraph"
-url: "https://diabetes-xai-dependencygraph.streamlit.app"
 preferred-citation:
   type: article
   title: >-
