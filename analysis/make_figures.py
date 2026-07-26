@@ -1,23 +1,19 @@
-"""Generate Figure 1 (the dependency graph) from the depgraph module.
+"""Generate Figure 2 (route support is a property of the pair).
 
-Standalone: `python analysis/make_figures.py`
-Also importable from a top-level runner.
+Standalone: `python analysis/make_fig2_route.py`
+Companion to make_figures.py, which draws Figure 1.
 
-The figure is drawn at the FULL TEXT WIDTH of the IEEE conference layout
-(6.77 in on A4), so the font sizes below are the sizes the reader actually sees
-in print. Do not rescale the image when placing it.
+Two counterfactuals from the reference run, both moving BMI, both moving a
+self-reported indicator, one admissible and one not. Drawn from
+outputs/raw_cf_changes.csv:
 
-One arrow is drawn per distinct source-target pair, at the strongest evidence
-grade asserting that pair. K_G has 26 edges over 21 distinct pairs; five pairs
-are asserted twice by different recommendations, and drawing both would put two
-overlapping arrows on the same path.
+    patient 8, cf 0    BMI 44 -> 26.9   PhysHlth 30 -> 25    admitted
+    patient 3, cf 4    BMI 48 -> 30.6   MentHlth 20 -> 12    blocked
 
-Structural invariants the figure encodes (kept true by construction, do not break):
-  - four role bands, top to bottom: lever / treatable / indicator / immutable
-  - line style encodes the ADA evidence grade (A solid, B dashed, C dotted,
-    section narrative = faint thin warm line)
-  - no edge originates in the indicator band (indicators are sinks)
-  - the immutable band is disconnected (lies on no route)
+The edge facts are READ FROM depgraph.edges rather than written into this file,
+so that a change to the edge set cannot leave the figure quietly wrong. If the
+pairs below stop matching the graph, the script fails loudly instead of drawing
+a false picture.
 """
 from __future__ import annotations
 import sys
@@ -26,141 +22,123 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 import matplotlib
 matplotlib.use("Agg")
-# TrueType, not Type 3: IEEE PDF eXpress rejects Type 3 fonts.
+# TrueType, not Type 3: IEEE PDF eXpress rejects Type 3 fonts, and Elsevier
+# production prefers embedded TrueType as well.
 matplotlib.rcParams["pdf.fonttype"] = 42
 matplotlib.rcParams["ps.fonttype"] = 42
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
-from matplotlib.lines import Line2D
 
 from depgraph.edges import EDGES
-from depgraph.nodes import TIER  # noqa: F401
+from depgraph.nodes import TIER
 
-# ---------------------------------------------------------------- print geometry
-FIG_W_IN = 6.77        # full text width, A4
-FIG_H_IN = 3.60
-FS_NODE = 6.6          # >= 6 pt, IEEE floor for figure text
-FS_BAND = 8.5
-FS_LEGEND = 7.0
-FS_NOTE = 6.8
-NODE_H = 0.125
-HUB = {"BMI"}          # visually emphasise the hub
+OUT = Path(__file__).parent / "figures"
+OUT.mkdir(exist_ok=True)
 
-# band label, tier key, y, dark colour, light fill
-BANDS = [("LEVER",             "lever",     3.00, "#1B5E20", "#E7F1E8"),
-         ("TREATABLE",         "treatable", 2.00, "#0D47A1", "#E6EEF7"),
-         ("INDICATOR",         "indicator", 1.00, "#B71C1C", "#FBE9E9"),
-         ("IMMUTABLE / proxy", "immutable", -0.20, "#616161", "#EFEFEF")]
-
-ORDER = {
-    "lever": ["Fruits", "Veggies", "PhysActivity", "BMI", "Smoker",
-              "HvyAlcoholConsump", "NoDocbcCost"],
-    "treatable": ["HighBP", "HighChol"],
-    "indicator": ["GenHlth", "PhysHlth", "MentHlth", "DiffWalk"],
-    "immutable": ["Age", "Sex", "Stroke", "HeartDiseaseorAttack", "Income",
-                  "Education", "AnyHealthcare", "CholCheck"],
-}
-WRAP = {"HvyAlcoholConsump": "HvyAlcohol\nConsump",
-        "NoDocbcCost": "NoDocbc\nCost",
-        "HeartDiseaseorAttack": "HeartDisease\norAttack"}
-
-# grade -> line style; weight/alpha reinforce, narrative is the faint warm line
-STYLE = {"A": dict(ls="-",           lw=1.35, alpha=0.92, color="#20303A"),
-         "B": dict(ls=(0, (4.5, 2.0)), lw=1.10, alpha=0.88, color="#30465A"),
-         "C": dict(ls=(0, (1.1, 1.7)), lw=1.10, alpha=0.88, color="#4A6274"),
-         "-": dict(ls="-",           lw=0.70, alpha=0.55, color="#C08A2E")}
-RANK = {"A": 0, "B": 1, "C": 2, "E": 3, "-": 4}
+# ------------------------------------------------------------------ graph facts
+def edge_between(src: str, dst: str):
+    hits = [e for e in EDGES if e.src == src and e.dst == dst]
+    return hits[0] if hits else None
 
 
-def _strongest_pairs():
-    """26 edges -> 21 arrows: keep the strongest grade per (src, dst)."""
-    best = {}
-    for e in EDGES:
-        k = (e.src, e.dst)
-        if k not in best or RANK[e.grade] < RANK[best[k]]:
-            best[k] = e.grade
-    return best
+def lever_routes_into(dst: str):
+    return sorted({e.src for e in EDGES
+                   if e.dst == dst and TIER.get(e.src) == "lever"})
 
 
-def make(out_dir: Path):
-    pos = {}
-    for _, tier, y, _, _ in BANDS:
-        n = len(ORDER[tier])
-        for i, name in enumerate(ORDER[tier]):
-            pos[name] = ((i + 0.5) / n * 10.0, y)
+SUPPORTED = edge_between("BMI", "PhysHlth")
+assert SUPPORTED is not None, "panel (a) assumes BMI -> PhysHlth is in K_G"
+assert edge_between("BMI", "MentHlth") is None, \
+    "panel (b) assumes BMI -> MentHlth is NOT in K_G"
+ALT = lever_routes_into("MentHlth")
+assert ALT == ["PhysActivity"], f"panel (b) assumes one alternative route, got {ALT}"
 
-    fig, ax = plt.subplots(figsize=(FIG_W_IN, FIG_H_IN))
+SRC_A = SUPPORTED.source          # e.g. "SoC 2026, S8, obesity narrative"
+SRC_B = edge_between(ALT[0], "MentHlth").source
 
-    # band backgrounds; indicator band emphasised (it is the focus)
-    for label, tier, y, dark, fill in BANDS:
-        emph = 0.55 if tier == "indicator" else 0.42
-        ax.add_patch(plt.Rectangle((-0.35, y - 0.27), 10.70, 0.54, facecolor=fill,
-                                   edgecolor="none", zorder=0, alpha=emph))
-        ax.text(-0.62, y, label, ha="right", va="center", fontsize=FS_BAND,
-                weight="bold", color=dark, linespacing=1.0)
+plt.rcParams.update({
+    "font.family": "serif", "font.size": 9, "axes.linewidth": 0.6,
+})
 
-    # disconnection cue between indicator and immutable
-    ax.axhline(0.40, xmin=0.03, xmax=0.985, color="#BDBDBD", lw=0.6,
-               ls=(0, (2, 3)), zorder=0)
-    ax.text(10.32, 0.40, "no edges cross", ha="right", va="bottom",
-            fontsize=FS_NOTE - 0.6, style="italic", color="#9E9E9E", zorder=0)
+INK, MUTE, GHOST = "#111111", "#666666", "#AAAAAA"
 
-    pairs = _strongest_pairs()
-    incoming = {}
-    for (s, d) in pairs:
-        incoming.setdefault(d, []).append(s)
-    for d in incoming:
-        incoming[d].sort(key=lambda s: pos[s][0])
 
-    # draw weakest first so graded edges sit on top
-    for (s, d), g in sorted(pairs.items(), key=lambda kv: RANK[kv[1]], reverse=True):
-        st = STYLE[g]
-        sx, sy = pos[s]
-        dx, dy = pos[d]
-        sibs = incoming[d]
-        k = sibs.index(s)
-        spread = 0.26
-        off = 0.0 if len(sibs) == 1 else (k / (len(sibs) - 1) - 0.5) * 2 * spread
-        ax.add_patch(FancyArrowPatch(
-            (sx, sy - NODE_H - 0.012), (dx + off, dy + NODE_H + 0.012),
-            arrowstyle="-|>", mutation_scale=6.8, shrinkA=0, shrinkB=0,
-            connectionstyle=f"arc3,rad={0.11 if sx > dx else -0.11}",
-            linestyle=st["ls"], linewidth=st["lw"], alpha=st["alpha"],
-            color=st["color"], zorder=1, capstyle="round"))
+def box(ax, xy, w, h, label, sub, tier, ghost=False):
+    ec = GHOST if ghost else INK
+    fc = "#FFFFFF" if not ghost else "#FAFAFA"
+    ls = (0, (2, 2)) if ghost else "solid"
+    ax.add_patch(FancyBboxPatch(xy, w, h, boxstyle="round,pad=0.012",
+                                lw=0.9, ec=ec, fc=fc, linestyle=ls, zorder=3))
+    cx, cy = xy[0] + w / 2, xy[1] + h / 2
+    ax.text(cx, cy + 0.055, label, ha="center", va="center", zorder=4,
+            fontsize=9.5, color=ec, fontweight="bold" if not ghost else "normal")
+    ax.text(cx, cy - 0.052, sub, ha="center", va="center", zorder=4,
+            fontsize=8, color=GHOST if ghost else MUTE)
+    ax.text(cx, xy[1] - 0.045, tier, ha="center", va="top", fontsize=7.2,
+            color=GHOST if ghost else MUTE, style="italic")
 
-    # nodes (hub filled + bold + thicker border)
-    for _, tier, y, dark, fill in BANDS:
-        for name in ORDER[tier]:
-            x, yy = pos[name]
-            is_hub = name in HUB
-            ax.add_patch(FancyBboxPatch(
-                (x - 0.44, yy - NODE_H), 0.88, 2 * NODE_H,
-                boxstyle="round,pad=0.018,rounding_size=0.06",
-                facecolor=fill if is_hub else "white",
-                edgecolor=dark, linewidth=1.5 if is_hub else 0.8,
-                zorder=3, mutation_aspect=0.5))
-            ax.text(x, yy, WRAP.get(name, name), ha="center", va="center",
-                    fontsize=FS_NODE, linespacing=0.92, zorder=4,
-                    weight="bold" if is_hub else "normal", color="#111")
 
-    ax.legend(handles=[
-        Line2D([0], [0], color=STYLE["A"]["color"], ls="-", lw=1.35, label="ADA grade A"),
-        Line2D([0], [0], color=STYLE["B"]["color"], ls=(0, (4.5, 2.0)), lw=1.10, label="ADA grade B"),
-        Line2D([0], [0], color=STYLE["C"]["color"], ls=(0, (1.1, 1.7)), lw=1.10, label="ADA grade C"),
-        Line2D([0], [0], color=STYLE["-"]["color"], ls="-", lw=0.9, label="section narrative")],
-        loc="lower center", fontsize=FS_LEGEND, framealpha=0.0, ncol=4,
-        handlelength=2.5, columnspacing=1.5, borderpad=0.1,
-        bbox_to_anchor=(0.47, -0.075))
+def arrow(ax, a, b, text, ok=True, ghost=False):
+    col = GHOST if ghost else INK
+    st = "solid" if ok and not ghost else (0, (2.5, 2.5))
+    ax.add_patch(FancyArrowPatch(a, b, arrowstyle="-|>", mutation_scale=11,
+                                 lw=1.0, color=col, linestyle=st, zorder=2,
+                                 shrinkA=2, shrinkB=2))
+    mx, my = (a[0] + b[0]) / 2, (a[1] + b[1]) / 2
+    ax.text(mx, my + 0.035, text, ha="center", va="bottom", fontsize=7.4,
+            color=col, zorder=5,
+            bbox=dict(fc="white", ec="none", pad=1.0))
 
-    ax.set_xlim(-2.35, 10.55)
-    ax.set_ylim(-0.62, 3.34)
+
+fig, axes = plt.subplots(1, 2, figsize=(7.0, 3.05))
+W, H = 0.30, 0.19
+YTOP, YBOT = 0.66, 0.30          # rows: main pair, ghost route
+YV = 0.10                        # verdict, identical in both panels
+
+# ---------------------------------------------------------------- admitted
+ax = axes[0]
+box(ax, (0.06, YTOP), W, H, "BMI", "44.0 $\\rightarrow$ 26.9", "lever")
+box(ax, (0.62, YTOP), W, H, "PhysHlth", "30 $\\rightarrow$ 25", "indicator")
+arrow(ax, (0.36, YTOP + H / 2), (0.62, YTOP + H / 2),
+      f"{SRC_A}")
+ax.text(0.5, YV, "ADMITTED", ha="center", fontsize=10, fontweight="bold")
+ax.text(0.5, YV - 0.09,
+        "the indicator moves, and the same counterfactual\n"
+        "moves a lever that has an edge into it",
+        ha="center", va="top", fontsize=7.6, color=MUTE)
+ax.set_title("(a) route support present", fontsize=9, pad=4)
+
+# ----------------------------------------------------------------- blocked
+ax = axes[1]
+box(ax, (0.06, YTOP), W, H, "BMI", "48.0 $\\rightarrow$ 30.6", "lever")
+box(ax, (0.62, YTOP), W, H, "MentHlth", "20 $\\rightarrow$ 12", "indicator")
+ym = YTOP + H / 2
+ax.plot([0.36, 0.62], [ym, ym], lw=0.9, ls=(0, (2, 2)), color=GHOST, zorder=2)
+ax.text(0.49, ym + 0.035, "no edge", ha="center", va="bottom", fontsize=7.4,
+        color=GHOST, bbox=dict(fc="white", ec="none", pad=1.0))
+ax.plot(0.49, ym, marker="x", ms=6.5, mew=1.4, color=INK, zorder=6)
+box(ax, (0.06, YBOT), W, H, "PhysActivity", "unchanged", "lever", ghost=True)
+arrow(ax, (0.36, YBOT + H / 2), (0.66, YTOP - 0.005),
+      f"the only route: {SRC_B}", ghost=True)
+ax.text(0.5, YV, "BLOCKED", ha="center", fontsize=10, fontweight="bold")
+ax.text(0.5, YV - 0.09,
+        "the only lever the guideline recognises as a route\n"
+        "into this indicator is not the one that moved",
+        ha="center", va="top", fontsize=7.6, color=MUTE)
+ax.set_title("(b) route support absent", fontsize=9, pad=4)
+
+for ax in axes:
+    ax.set_xlim(-0.02, 1.02)
+    ax.set_ylim(-0.12, 0.94)
     ax.axis("off")
-    plt.subplots_adjust(left=0.004, right=0.999, top=0.996, bottom=0.06)
-    out_dir.mkdir(parents=True, exist_ok=True)
-    plt.savefig(out_dir / "fig1_kg.pdf")
-    plt.savefig(out_dir / "fig1_kg.png", dpi=600)
-    print(f"Figure 1 -> {out_dir/'fig1_kg.pdf'}  ({FIG_W_IN} x {FIG_H_IN} in, node text {FS_NODE} pt)")
 
+fig.subplots_adjust(bottom=0.16, wspace=0.06)
+fig.text(0.5, 0.015,
+         "The same lever moves in both. Admissibility depends on which indicator "
+         "it is paired with, which is why a\nconstraint table indexed by feature "
+         "cannot express the condition.",
+         ha="center", fontsize=7.8, color=MUTE)
 
-if __name__ == "__main__":
-    make(Path(__file__).parent / "figures")
+fig.savefig(OUT / "fig2_route.pdf")
+fig.savefig(OUT / "fig2_route.png", dpi=220)
+print(f"wrote {OUT / 'fig2_route.pdf'} and .png")
