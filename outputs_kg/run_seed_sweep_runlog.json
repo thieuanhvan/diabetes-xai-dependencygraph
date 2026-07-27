@@ -1,0 +1,62 @@
+{
+  "run": "run_seed_sweep",
+  "started": "2026-07-19T16:38:15+07:00",
+  "total_seconds": 2494.89,
+  "steps": [
+    {
+      "label": "load BRFSS 2021",
+      "seconds": 0.36
+    },
+    {
+      "label": "seed 42 / published",
+      "seconds": 253.56
+    },
+    {
+      "label": "seed 42 / graph",
+      "seconds": 261.5
+    },
+    {
+      "label": "seed 123 / published",
+      "seconds": 268.8
+    },
+    {
+      "label": "seed 123 / graph",
+      "seconds": 247.36
+    },
+    {
+      "label": "seed 2024 / published",
+      "seconds": 245.33
+    },
+    {
+      "label": "seed 2024 / graph",
+      "seconds": 244.75
+    },
+    {
+      "label": "seed 7 / published",
+      "seconds": 243.28
+    },
+    {
+      "label": "seed 7 / graph",
+      "seconds": 242.07
+    },
+    {
+      "label": "seed 31337 / published",
+      "seconds": 240.6
+    },
+    {
+      "label": "seed 31337 / graph",
+      "seconds": 247.19
+    }
+  ],
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "processor": "Intel64 Family 6 Model 126 Stepping 5, GenuineIntel",
+    "numpy": "1.26.4",
+    "pandas": "3.0.3",
+    "sklearn": "1.8.0",
+    "xgboost": "3.2.0",
+    "dice_ml": "not installed",
+    "scipy": "1.17.1"
+  }
+}

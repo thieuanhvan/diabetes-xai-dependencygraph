@@ -62,18 +62,47 @@ q_proba = res["proba"][high_risk_idx]
 print(f"      top-{n_eval} cohort: base P mean={q_proba.mean():.4f} "
       f"min={q_proba.min():.4f} max={q_proba.max():.4f}   (published mean 0.7475)")
 
-print("[3/4] generating per-query CFs (DiCE) ...")
-runner = DiCERunner(
-    model=res["model"], X_train=X_train, y_train=y_train, target_col=TARGET_COL,
-    config=DiCEConfig(
-        method=cfg["dice"]["method"],
-        n_counterfactuals=cfg["dice"]["n_counterfactuals"],
-        desired_class=cfg["dice"]["desired_class"],
-        proximity_weight=cfg["dice"]["proximity_weight"],
-        diversity_weight=cfg["dice"]["diversity_weight"],
-        per_query=True,
-    ),
-)
+# ---------------------------------------------------------------------------
+# RNG ALIGNMENT WITH THE PUBLISHED RUN.  Verified 2026-07-27.
+#
+# The published run executes compare_modes=True (src/pipelines/main.py): it
+# generates counterfactuals TWICE in one process, global mode first and
+# per-query mode second, and reports the second.  This script generates only
+# the second.  DiCE's `random` method draws from the process-global NumPy RNG,
+# so the discarded global pass displaces that stream before per-query begins.
+#
+# Omitting it does not fail loudly.  It yields a different, statistically
+# equivalent sample: 1,500 feature changes instead of the published 1,520,
+# at L1 distance 88 from the published per-feature vector, with individual
+# features moving in BOTH directions.  Reinstating it reproduces the published
+# vector EXACTLY, all thirteen features, L1 distance 0.
+#
+# Set to False only to reproduce the earlier, misaligned dump.
+# ---------------------------------------------------------------------------
+PRESERVE_MODE_SEQUENCE = True
+
+
+def _make_runner(per_query: bool) -> DiCERunner:
+    return DiCERunner(
+        model=res["model"], X_train=X_train, y_train=y_train,
+        target_col=TARGET_COL,
+        config=DiCEConfig(
+            method=cfg["dice"]["method"],
+            n_counterfactuals=cfg["dice"]["n_counterfactuals"],
+            desired_class=cfg["dice"]["desired_class"],
+            proximity_weight=cfg["dice"]["proximity_weight"],
+            diversity_weight=cfg["dice"]["diversity_weight"],
+            per_query=per_query,
+        ),
+    )
+
+
+if PRESERVE_MODE_SEQUENCE:
+    print("[3a/4] replaying the discarded global-mode pass (RNG alignment) ...")
+    _ = _make_runner(per_query=False).generate(queries)
+
+print("[3b/4] generating per-query CFs (DiCE) ...")
+runner = _make_runner(per_query=True)
 cf_examples = runner.generate(queries)
 
 print("[4/4] dumping raw per-CF changes ...")
@@ -127,7 +156,8 @@ pd.DataFrame(idx_rows).to_csv(out / "raw_cf_index.csv", index=False)
 n_changes = len(chg_rows)
 print(f"\n      queries with no CF: {n_skipped}")
 print(f"      CFs dumped        : {len(idx_rows)}")
-print(f"      TOTAL CF CHANGES  : {n_changes}   (published Table 8 per-query total: 1520)")
+print(f"      TOTAL CF CHANGES  : {n_changes}   (published Table 8 per-query total: 1520)"
+      f"   aligned={PRESERVE_MODE_SEQUENCE}")
 print(f"      -> {out/'raw_cf_changes.csv'}")
 
 RUNLOG.finish(REPO / "outputs_kg")

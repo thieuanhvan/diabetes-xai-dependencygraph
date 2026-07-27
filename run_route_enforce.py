@@ -141,6 +141,8 @@ from src.pipelines.data.loader import TARGET_COL, load_dataset
 from src.pipelines.evaluate.cf_metrics import proximity_l1, sparsity, validity
 from src.pipelines.models.xgb_train import XGBConfig, train_xgb
 from src.pipelines.preprocessing.pipeline import get_train_test_split
+import random
+
 from src.utils.seed import seed_everything
 
 from depgraph.audit import summarise
@@ -291,7 +293,7 @@ ranges = FT.get_feature_ranges()
 N_WANTED = int(cfg["dice"]["n_counterfactuals"])
 
 
-def _make_runner() -> DiCERunner:
+def _make_runner(per_query: bool = True) -> DiCERunner:
     return DiCERunner(
         model=res["model"], X_train=X_train, y_train=y_train,
         target_col=TARGET_COL,
@@ -301,7 +303,7 @@ def _make_runner() -> DiCERunner:
             desired_class=cfg["dice"]["desired_class"],
             proximity_weight=cfg["dice"]["proximity_weight"],
             diversity_weight=cfg["dice"]["diversity_weight"],
-            per_query=True,
+            per_query=per_query,
         ),
     )
 
@@ -333,10 +335,59 @@ def _clean(cfs: pd.DataFrame) -> pd.DataFrame:
 # ---------------------------------------------------------------------------
 RUNNER = _make_runner()   # built once; rounds differ by reseeding, not by rebuild
 
+# ---------------------------------------------------------------------------
+# RNG ALIGNMENT WITH THE PUBLISHED RUN.  Verified 2026-07-27.
+#
+# The published run executes compare_modes=True (src/pipelines/main.py): it
+# generates counterfactuals TWICE in one process, global mode first and
+# per-query mode second, and reports the second.  DiCE's `random` method draws
+# from the process-global NumPy RNG, so the discarded global pass displaces
+# that stream before per-query begins.  run_baseline below reproduces the
+# per-query pass ALONE, which yields a different, statistically equivalent
+# sample: 1,500 feature changes instead of the published 1,520, at L1 distance
+# 88 from the published per-feature vector.  Replaying the discarded pass
+# reproduces the published vector exactly, L1 distance 0.
+#
+# This affects run_baseline ONLY.  run_route reseeds per patient per round with
+# seed_everything(seed + 100_000 * r) and generates one patient at a time, so
+# its draws are fixed by that seed and carry no history.  Variant rows already
+# in the checkpoint therefore remain valid and do not need regenerating.
+#
+# The alignment pass is expensive, so the RNG state that follows it is captured
+# once per seed and restored afterwards.  seed_everything touches only
+# random, np.random and PYTHONHASHSEED, so capturing those two states is
+# complete.
+# ---------------------------------------------------------------------------
+ALIGN_BASELINE_TO_PUBLISHED = True
+
+_GLOBAL_RUNNER = None
+_ALIGN_STATE: Dict[int, tuple] = {}
+
+
+def _seed_like_published(seed: int) -> None:
+    global _GLOBAL_RUNNER
+    if not ALIGN_BASELINE_TO_PUBLISHED:
+        seed_everything(seed)
+        return
+    st = _ALIGN_STATE.get(seed)
+    if st is not None:
+        np.random.set_state(st[0])
+        random.setstate(st[1])
+        return
+    if _GLOBAL_RUNNER is None:
+        _GLOBAL_RUNNER = _make_runner(per_query=False)
+    print(f"  [align] replaying the discarded global-mode pass, seed {seed} ...",
+          flush=True)
+    seed_everything(seed)
+    _GLOBAL_RUNNER.generate(queries)          # output discarded on purpose
+    _ALIGN_STATE[seed] = (np.random.get_state(), random.getstate())
+
 
 def run_baseline(seed: int) -> Dict:
     """The published configuration, unconstrained. One draw, no rejection."""
-    seed_everything(seed)
+    _seed_like_published(seed)
+    # marker written into the checkpoint so a stale, unaligned baseline row
+    # from an earlier run is detected and replaced rather than skipped
     cfe = RUNNER.generate(queries)
     per_cf, val, act, prox, spar = [], [], [], [], []
     n_no_cf = 0
@@ -355,9 +406,11 @@ def run_baseline(seed: int) -> Dict:
                                   for j in range(len(d))])))
         for k in range(len(d)):
             per_cf.append(_changes_of(q, d.iloc[k]))
-    return _summarise("baseline_published", seed, per_cf, val, act, prox, spar,
+    _row = _summarise("baseline_published", seed, per_cf, val, act, prox, spar,
                       n_no_cf, rounds=[1] * len(queries), source_tiers={"lever"},
                       grades=None)
+    _row["aligned"] = bool(ALIGN_BASELINE_TO_PUBLISHED)
+    return _row
 
 
 def run_route(seed: int, variant: str) -> Dict:
@@ -454,6 +507,24 @@ if __name__ == "__main__":
     if ckpt.exists():
         prev = pd.read_csv(ckpt)
         rows = prev.to_dict("records")
+
+        # A baseline row written before the RNG alignment was introduced is a
+        # different draw of the configuration and must not be reused. Such rows
+        # carry no `aligned` marker, or carry False. Drop them so they rerun;
+        # variant rows are unaffected because run_route reseeds per patient per
+        # round and therefore never depended on the preceding pass.
+        def _fresh(r):
+            if r["label"] != "baseline_published":
+                return True
+            if not ALIGN_BASELINE_TO_PUBLISHED:
+                return True
+            return str(r.get("aligned", "")).strip().lower() == "true"
+
+        stale = [r for r in rows if not _fresh(r)]
+        if stale:
+            print(f"dropping {len(stale)} unaligned baseline row(s); they will "
+                  f"be regenerated with the discarded global pass replayed")
+        rows = [r for r in rows if _fresh(r)]
         done = {(r["label"], int(r["seed"])) for r in rows}
         print(f"resuming: {len(done)} rows already done")
 

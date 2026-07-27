@@ -1,0 +1,3 @@
+label,unsupported_cfs_role_rule,unsupported_cfs_edge_rule,fully_unactionable_cfs,validity,actionability,proximity_L1,sparsity,n_changes,indicator_changes,queries_with_no_cf
+per-query (published),185,210,104,0.82,0.985,1.44325,0.07142857142857142,1500,331,0
+per-query + graph (levers/treatables only),0,0,0,0.8440000000000001,0.992,1.5708636363636364,0.06904761904761905,1450,0,0

@@ -1,0 +1,11 @@
+seed,config,auc,validity,actionability,total_changes,indicator_changes,queries_no_cf,narrow_role_cf_touching,narrow_role_unsupported_cfs,narrow_role_unsupported_changes,narrow_edge_cf_touching,narrow_edge_unsupported_cfs,narrow_edge_unsupported_changes,broad_role_cf_touching,broad_role_unsupported_cfs,broad_role_unsupported_changes,broad_edge_cf_touching,broad_edge_unsupported_cfs,broad_edge_unsupported_changes,pure_indicator_cfs,unsupported_cfs
+42,published,0.8233,0.82,0.985,1500,331,0,323,185,193,323,210,218,482,252,354,482,277,379,104,185
+42,graph,0.8233,0.844,0.992,1450,0,0,0,0,0,0,0,0,272,87,99,272,89,101,0,0
+123,published,0.8224,0.776,0.968,1490,318,0,309,166,175,309,199,208,522,264,339,522,301,376,108,166
+123,graph,0.8224,0.796,0.96,1417,0,0,0,0,0,0,0,0,335,147,166,335,151,170,0,0
+2024,published,0.8183,0.81,0.988,1536,333,0,323,181,191,323,214,224,513,239,343,513,272,376,95,181
+2024,graph,0.8183,0.829,0.985,1450,0,0,0,0,0,0,0,0,280,100,108,280,101,109,0,0
+7,published,0.8221,0.793,0.98,1495,306,0,296,164,174,296,192,202,476,224,310,476,252,338,99,164
+7,graph,0.8221,0.838,0.983,1481,0,0,0,0,0,0,0,0,306,101,116,306,102,117,0,0
+31337,published,0.8199,0.787,0.978,1453,288,0,280,157,165,280,192,200,458,223,308,458,260,345,88,157
+31337,graph,0.8199,0.81,0.969,1437,0,0,0,0,0,0,0,0,305,115,136,305,116,137,0,0

@@ -1,0 +1,8 @@
+scenario,narrow_role,narrow_edge,broad_edge
+as published,185,210,277
+BMI -> treatable,317,319,901
+BMI -> indicator,817,834,901
+NoDocbcCost -> immutable,185,210,277
+HvyAlcoholConsump -> immutable,185,210,277
+"HighBP, HighChol -> indicator",252,277,277
+"BMI -> treatable, NoDocbcCost -> immutable",317,319,901
