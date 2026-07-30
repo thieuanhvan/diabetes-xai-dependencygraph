@@ -66,6 +66,19 @@ def find_dump(filename: str, *, echo: bool = True, required: bool = True) -> Opt
     """
     override = os.environ.get("KG_OUTPUTS")
     dirs = [Path(override)] + search_paths() if override else search_paths()
+    # KG_OUTPUTS often names a directory that is already in search_paths()
+    # (refresh_outputs.bat sets it to this repo's outputs\). Without this the
+    # same file is announced twice, once as "reading" and once as
+    # "ignoring (identical)", which reads like a real disagreement.
+    _seen: set = set()
+    _uniq = []
+    for _d in dirs:
+        _key = _d.resolve() if _d.exists() else _d
+        if _key in _seen:
+            continue
+        _seen.add(_key)
+        _uniq.append(_d)
+    dirs = _uniq
     found = [d / filename for d in dirs if (d / filename).exists()]
     if not found:
         if not required:

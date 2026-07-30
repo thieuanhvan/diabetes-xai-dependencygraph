@@ -22,6 +22,7 @@ re-audited with analysis/audit_rules.py without regenerating counterfactuals.
 """
 from __future__ import annotations
 
+import random
 import sys
 from pathlib import Path
 
@@ -55,6 +56,32 @@ from depgraph.runlog import RunLog
 from depgraph.nodes import TIER
 
 SEEDS = [42, 123, 2024, 7, 31337]
+
+# ---------------------------------------------------------------------------
+# RNG ALIGNMENT WITH THE PUBLISHED RUN.  Verified 2026-07-27.
+#
+# The published run executes compare_modes=True (src/pipelines/main.py): it
+# generates counterfactuals TWICE in one process, global mode first and
+# per-query mode second, and reports the second.  DiCE's `random` method draws
+# from the process-global NumPy RNG, so the discarded global pass displaces
+# that stream before per-query begins.  Generating the per-query pass alone
+# yields a different, statistically equivalent sample: 1,500 feature changes
+# at seed 42 instead of the published 1,520, at L1 distance 88 from the
+# published per-feature vector.  Replaying the discarded pass reproduces the
+# published vector exactly, L1 distance 0.
+#
+# The global pass ignores the taxonomy (features_to_vary=all), and the split,
+# the model and the query cohort depend only on the seed, so the RNG state that
+# follows the pass is a function of the seed alone.  It is therefore computed
+# once per seed and restored for both the published and the graph
+# configuration, which halves the cost and keeps the two configurations on the
+# same starting stream.
+#
+# Set to False only to reproduce the earlier, misaligned sweep.
+# ---------------------------------------------------------------------------
+ALIGN_TO_PUBLISHED = True
+
+_ALIGN_STATE: dict = {}
 # Excluded from features_to_vary by Config B. DiffWalk is in the indicator tier
 # too, but the audited generator never varies it, so removing it is a no-op.
 INDICATORS = ["GenHlth", "PhysHlth", "MentHlth"]
@@ -90,6 +117,28 @@ def one(seed: int, graph: bool) -> dict:
     queries = Xte.iloc[np.argsort(res["proba"])[-n_eval:]].reset_index(drop=True)
 
     seed_everything(seed)
+    if ALIGN_TO_PUBLISHED:
+        st = _ALIGN_STATE.get(seed)
+        if st is None:
+            print(f"[align] replaying the discarded global-mode pass, seed {seed} ...",
+                  flush=True)
+            DiCERunner(
+                model=res["model"], X_train=Xtr, y_train=ytr, target_col=TARGET_COL,
+                config=DiCEConfig(
+                    method=cfg["dice"]["method"],
+                    n_counterfactuals=cfg["dice"]["n_counterfactuals"],
+                    desired_class=cfg["dice"]["desired_class"],
+                    proximity_weight=cfg["dice"]["proximity_weight"],
+                    diversity_weight=cfg["dice"]["diversity_weight"],
+                    per_query=False,
+                ),
+            ).generate(queries)          # output discarded on purpose
+            st = (np.random.get_state(), random.getstate())
+            _ALIGN_STATE[seed] = st
+        else:
+            np.random.set_state(st[0])
+            random.setstate(st[1])
+
     runner = DiCERunner(
         model=res["model"], X_train=Xtr, y_train=ytr, target_col=TARGET_COL,
         config=DiCEConfig(
