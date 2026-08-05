@@ -1,7 +1,7 @@
 """Generate Figure 2 (route support is a property of the pair).
 
 Standalone: `python analysis/make_fig2_route.py`
-Companion to make_figures.py, which draws Figure 1.
+Companion to make_fig1_kg.py, which draws Figure 1.
 
 Two counterfactuals from the reference run, both moving BMI, both moving a
 self-reported indicator, one admissible and one not. Drawn from

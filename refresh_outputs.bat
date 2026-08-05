@@ -57,6 +57,11 @@ set "KG_OUTPUTS=%DST%"
 "%PY%" analysis\audit_rules.py outputs   || (echo [FAIL] audit_rules & exit /b 1)
 "%PY%" analysis\tier_sensitivity.py      || (echo [FAIL] tier_sensitivity & exit /b 1)
 "%PY%" analysis\export_edges.py outputs  || (echo [FAIL] export_edges & exit /b 1)
+REM  export_edges.py caps the gloss at 96 chars: right for the CSV, wrong for print.
+REM  outputs\edges_full.tex ends five glosses with "...".  Appendix A of the paper
+REM  must come from analysis\tables\appendix_edges.tex, written by the script below,
+REM  which reads depgraph.edges directly and truncates nothing.  Takes no argument.
+"%PY%" analysis\export_edges_tex.py      || (echo [FAIL] export_edges_tex & exit /b 1)
 
 REM ---- 3: verification gate --------------------------------------------------
 echo.
