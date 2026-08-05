@@ -87,7 +87,7 @@ def classify(changed: Iterable[str], *, reading: str = "narrow", rule: str = "ed
         n_unsupported_changes    how many individual changes are unsupported
         fully_unactionable   nothing a patient can act on: no lever, no treatable,
                              and at least one indicator moved. Independent of
-                             `rule` and `reading`; this is the 11.0% headline.
+                             `rule` and `reading`; this is the 11.1% headline.
     """
     S = set(changed)
     tgts = sorted(S & targets_of(reading))
