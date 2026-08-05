@@ -7,8 +7,8 @@ Two counterfactuals from the reference run, both moving BMI, both moving a
 self-reported indicator, one admissible and one not. Drawn from
 outputs/raw_cf_changes.csv:
 
-    patient 8, cf 0    BMI 44 -> 26.9   PhysHlth 30 -> 25    admitted
-    patient 3, cf 4    BMI 48 -> 30.6   MentHlth 20 -> 12    blocked
+    patient 8, cf 0    BMI 44 -> 22.5   PhysHlth 30 -> 13    admitted
+    patient 1, cf 0    BMI 34 -> 21.7   MentHlth 30 -> 20    blocked
 
 The edge facts are READ FROM depgraph.edges rather than written into this file,
 so that a change to the edge set cannot leave the figure quietly wrong. If the
@@ -97,8 +97,8 @@ YV = 0.10                        # verdict, identical in both panels
 
 # ---------------------------------------------------------------- admitted
 ax = axes[0]
-box(ax, (0.06, YTOP), W, H, "BMI", "44.0 $\\rightarrow$ 26.9", "lever")
-box(ax, (0.62, YTOP), W, H, "PhysHlth", "30 $\\rightarrow$ 25", "indicator")
+box(ax, (0.06, YTOP), W, H, "BMI", "44.0 $\\rightarrow$ 22.5", "lever")
+box(ax, (0.62, YTOP), W, H, "PhysHlth", "30 $\\rightarrow$ 13", "indicator")
 arrow(ax, (0.36, YTOP + H / 2), (0.62, YTOP + H / 2),
       f"{SRC_A}")
 ax.text(0.5, YV, "ADMITTED", ha="center", fontsize=10, fontweight="bold")
@@ -110,8 +110,8 @@ ax.set_title("(a) route support present", fontsize=9, pad=4)
 
 # ----------------------------------------------------------------- blocked
 ax = axes[1]
-box(ax, (0.06, YTOP), W, H, "BMI", "48.0 $\\rightarrow$ 30.6", "lever")
-box(ax, (0.62, YTOP), W, H, "MentHlth", "20 $\\rightarrow$ 12", "indicator")
+box(ax, (0.06, YTOP), W, H, "BMI", "34.0 $\\rightarrow$ 21.7", "lever")
+box(ax, (0.62, YTOP), W, H, "MentHlth", "30 $\\rightarrow$ 20", "indicator")
 ym = YTOP + H / 2
 ax.plot([0.36, 0.62], [ym, ym], lw=0.9, ls=(0, (2, 2)), color=GHOST, zorder=2)
 ax.text(0.49, ym + 0.035, "no edge", ha="center", va="bottom", fontsize=7.4,
