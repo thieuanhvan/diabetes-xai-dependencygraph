@@ -63,3 +63,13 @@ check(b["cf_unsupported"] == 4, "broad edge rule flags 4")
 check(n["cf_fully_unactionable"] == 1, "1 fully unactionable")
 
 print("\nALL CHECKS PASSED")
+
+
+def test_audit_regression_suite():
+    """Lets `python -m pytest` collect this file.
+
+    The checks above run at import time; any failing check raises during
+    collection, which pytest reports as an error. Reaching this function
+    means every check passed.
+    """
+    assert True

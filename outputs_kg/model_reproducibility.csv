@@ -1,3 +1,0 @@
-label,max,cohort_mean,cohort_cutoff,auc,delta_mean_vs_artefact,delta_max_vs_artefact,cohort_shared,cohort_order_identical,platform,python,xgboost
-artefact,0.8870328664779663,0.747454822063446,0.6947795748710632,,0.0,0.0,200,True,Windows-10-10.0.19045-SP0,3.12.10,3.2.0
-retrained,0.8870328664779663,0.747454822063446,0.6947795748710632,0.823318976585703,0.0,0.0,200,True,Windows-10-10.0.19045-SP0,3.12.10,3.2.0
