@@ -1,18 +1,10 @@
 # Setup
 
-## Create the GitHub repo
+## Get the code
 
 ```bash
-# 1. On GitHub, create a PRIVATE repo: diabetes-xai-dependencygraph
-#    (keep private until FAIR notification, 15 Sep 2026)
-
-# 2. Push this folder
-git init
-git remote add origin https://github.com/thieuanhvan/diabetes-xai-dependencygraph.git
-git add .
-git commit -m "Paper 7 (FAIR 2026): KG audit of counterfactual recourse"
-git branch -M main
-git push -u origin main
+git clone https://github.com/thieuanhvan/diabetes-xai-dependencygraph.git
+cd diabetes-xai-dependencygraph
 ```
 
 ## Point the runners at the published pipeline

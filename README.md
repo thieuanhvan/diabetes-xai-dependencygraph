@@ -1,10 +1,15 @@
 # diabetes-xai-dependencygraph
 
 A guideline-sourced dependency graph for auditing counterfactual recourse in
-diabetes risk prediction. Companion code for the FAIR 2026 paper *"Levers and
-Indicators."*
+diabetes risk prediction. Companion code for the paper *"Levers and Indicators:
+A Guideline-Sourced Dependency Graph for Counterfactual Recourse in Diabetes Risk
+Prediction"* (Van Thieu and Phuc Do), accepted at FAIR 2026, the 19th Conference
+on Fundamental and Applied IT Research.
 
-**Status: private until FAIR notification (15 September 2026).**
+**Status: accepted at FAIR 2026** (notified 22 September 2026). To be presented
+8–9 October 2026 at the HCMC University of Industry and Trade, Ho Chi Minh City,
+Vietnam. Proceedings: IEEE, to appear. This repository is public from
+26 September 2026.
 
 ## What this is
 
@@ -36,7 +41,7 @@ run_seed_sweep.py  both configurations across the audited paper's five seeds
 analysis/
     make_fig1_kg.py     Figure 1 (the graph) from src/depgraph/
     make_fig2_route.py  Figure 2 (route support is a property of the pair)
-    export_edges_tex.py Appendix A longtable, glosses NOT truncated
+    export_edges.py     complete edge list (outputs/edges_full.csv / .tsv), see below
     figures/            generated figures
 outputs/           result CSVs
 configs/           note on reused pipeline config
@@ -54,6 +59,17 @@ python run_seed_sweep.py     # ~35 min
 python analysis/make_fig1_kg.py
 python analysis/make_fig2_route.py
 ```
+
+## Complete edge set
+
+The paper (Section IV-D) refers to this repository for the complete list of the
+26 edges of K_G over 21 distinct source-target pairs. It is in
+`outputs/edges_full.csv` (machine readable) and `outputs/edges_full.tsv`, one row
+per edge, with columns: source and its role tier, target and its role tier, ADA
+evidence grade (A, B, C, or `narrative` for edges supported only by section
+narrative), the Standards of Care section and recommendation number, and a
+one-line paraphrase written by the authors. Regenerate with
+`python analysis/export_edges.py`. No ADA guideline text is reproduced.
 
 ## Headline results
 
@@ -73,7 +89,22 @@ unable to see the difference.
 
 ## Citation
 
-See CITATION.cff. The published pipeline is Thieu, *Int. J. Med. Inform.* 219
+If you use this code or the edge set, please cite the FAIR 2026 paper
+(see also CITATION.cff):
+
+```bibtex
+@inproceedings{thieu2026levers,
+  author    = {Van Thieu and Phuc Do},
+  title     = {Levers and Indicators: A Guideline-Sourced Dependency Graph for
+               Counterfactual Recourse in Diabetes Risk Prediction},
+  booktitle = {Proceedings of the 19th Conference on Fundamental and Applied
+               IT Research (FAIR 2026)},
+  address   = {Ho Chi Minh City, Vietnam},
+  publisher = {IEEE},
+  year      = {2026},
+  note      = {Accepted; to appear}
+}
+``` The published pipeline is Thieu, *Int. J. Med. Inform.* 219
 (2026) 106555, doi:10.1016/j.ijmedinf.2026.106555.
 
 ## License

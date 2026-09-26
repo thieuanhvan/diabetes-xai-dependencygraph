@@ -1,16 +1,17 @@
 cff-version: 1.2.0
 message: >-
-  This repository accompanies a paper under review. Until it appears, please
-  cite the published pipeline that this work audits, listed below.
+  If you use this code or the edge set, please cite the FAIR 2026 paper listed
+  under preferred-citation. The counterfactual pipeline that this work audits
+  is listed under references.
 title: "diabetes-xai-dependencygraph"
 abstract: >-
   A guideline-sourced dependency graph for auditing counterfactual recourse in
   type-2 diabetes risk prediction. Recasts a flat per-feature intervention
   taxonomy as a directed graph in which direction is a node attribute and an
-  intervention route is an edge, every edge sourced from a numbered ADA
-  Standards of Care recommendation with its evidence grade. Audits a published
-  counterfactual pipeline against that graph and measures the cost of excluding
-  health-status indicators from the generator search space.
+  intervention route is an edge, every edge sourced from the ADA Standards of
+  Care with its evidence grade. Audits a published counterfactual pipeline
+  against that graph and measures the cost of excluding health-status
+  indicators from the generator search space.
 authors:
   - family-names: "Thieu"
     given-names: "Van"
@@ -21,10 +22,10 @@ authors:
 license: MIT
 repository-code: "https://github.com/thieuanhvan/diabetes-xai-dependencygraph"
 preferred-citation:
-  type: article
+  type: conference-paper
   title: >-
-    Knowledge-guided counterfactual explanations for diabetes risk decision
-    support: A directional intervention taxonomy
+    Levers and Indicators: A Guideline-Sourced Dependency Graph for
+    Counterfactual Recourse in Diabetes Risk Prediction
   authors:
     - family-names: "Thieu"
       given-names: "Van"
@@ -32,8 +33,36 @@ preferred-citation:
       affiliation: >-
         University of Information Technology, Ho Chi Minh City, Vietnam;
         Vietnam National University, Ho Chi Minh City, Vietnam
-  journal: "International Journal of Medical Informatics"
+    - family-names: "Do"
+      given-names: "Phuc"
+      affiliation: >-
+        University of Information Technology, Ho Chi Minh City, Vietnam;
+        Vietnam National University, Ho Chi Minh City, Vietnam
+  collection-title: >-
+    Proceedings of the 19th Conference on Fundamental and Applied IT Research
+    (FAIR 2026)
+  conference:
+    name: "19th Conference on Fundamental and Applied IT Research (FAIR 2026)"
+    city: "Ho Chi Minh City"
+    country: "VN"
+    date-start: "2026-10-08"
+    date-end: "2026-10-09"
+  publisher:
+    name: "IEEE"
   year: 2026
-  start: 106555
-  issn: "1386-5056"
-  doi: "10.1016/j.ijmedinf.2026.106555"
+  status: in-press
+references:
+  - type: article
+    title: >-
+      Knowledge-guided counterfactual explanations for diabetes risk decision
+      support: A directional intervention taxonomy
+    authors:
+      - family-names: "Thieu"
+        given-names: "Van"
+        orcid: "https://orcid.org/0009-0003-9637-0195"
+    journal: "International Journal of Medical Informatics"
+    year: 2026
+    volume: 219
+    start: 106555
+    issn: "1386-5056"
+    doi: "10.1016/j.ijmedinf.2026.106555"

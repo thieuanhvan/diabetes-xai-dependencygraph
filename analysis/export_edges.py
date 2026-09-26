@@ -2,9 +2,9 @@
 
 Standalone: `python analysis/export_edges.py`
 
-Reviewers cannot reproduce the graph from Table III alone, which shows selected
-edges only, and the repository is private until the notification date. This
-writes the full set in three formats so it can go into the paper itself:
+Table III of the paper shows selected edges only; the camera-ready paper
+(Section IV-D) points to this repository for the complete set. This writes the
+full set in three formats:
 
     outputs/edges_full.csv    machine readable
     outputs/edges_full.tex    LaTeX longtable, drop into the appendix
