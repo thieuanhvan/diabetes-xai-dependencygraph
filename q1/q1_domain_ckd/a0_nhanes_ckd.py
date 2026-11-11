@@ -192,7 +192,11 @@ def main():
               f"| with KIQ022 = 1 (excluded in the less-exposed cohort) | {int((pooled.KIQ022_weakfailingkidneys == 1).sum())} |", ""]
     (DEST / "nhanes_ckd_flow.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     write_json(DEST / "nhanes_ckd_flow.json", {"flow": flows, "pooled_n": n})
-    write_json(DEST / "a0_gate_nhanes.json", {"gate": gate, "p7_feature_consistency_mismatches": cons,
+    import subprocess
+    commit = subprocess.run(["git", "-C", str(NHANES_REPO), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
+    dirty = subprocess.run(["git", "-C", str(NHANES_REPO), "status", "--short", "src"], capture_output=True, text=True).stdout.strip()
+    write_json(DEST / "a0_gate_nhanes.json", {"nhanes_diabetes_commit": commit, "nhanes_diabetes_src_uncommitted": dirty,
+                                               "gate": gate, "p7_feature_consistency_mismatches": cons,
                                                "analytic_csv": str(out_csv), "analytic_csv_sha256": sha256_file(out_csv)})
     print("\n".join(lines))
     print("consistency", cons)

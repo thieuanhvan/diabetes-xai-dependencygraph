@@ -91,6 +91,19 @@ def main():
     diff = {v: (got[v], EXPECTED[v]) for v in EXPECTED if got.get(v) != EXPECTED[v]}
     assert not diff, f"derived table differs from prereg 4.5: {diff}"
     lock = sorted(r["variable"] for r in rows if r["role"] == "indicator")
+    if "--check" in sys.argv:  # re-derive and compare with the hashed files, write nothing
+        import io
+        buf = io.StringIO()
+        w = csv.DictWriter(buf, fieldnames=list(rows[0]), lineterminator="\n")
+        w.writeheader()
+        w.writerows(rows)
+        import hashlib
+        h_tab = hashlib.sha256(buf.getvalue().encode("utf-8")).hexdigest()
+        h_lock = hashlib.sha256(("\n".join(lock) + "\n").encode("utf-8")).hexdigest()
+        rec = __import__("json").loads((DEST / "ckd_role_table_hash.json").read_text(encoding="utf-8"))
+        same = h_tab == rec["ckd_role_table_sha256"] and h_lock == rec["ckd_lock_set_sha256"]
+        print("role table re-derived:", h_tab, "lock:", h_lock, "UNCHANGED" if same else "CHANGED")
+        sys.exit(0 if same else 1)
     path = DEST / "ckd_role_table.csv"
     with open(path, "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=list(rows[0]), lineterminator="\n")
