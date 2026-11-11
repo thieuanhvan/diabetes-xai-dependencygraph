@@ -1,0 +1,74 @@
+{
+  "_about": "Fallback extractor (prereg v3 4.4: recall gate of extractor 2 failed). Second Claude instance with an independently written prompt; written before any fallback extraction.",
+  "prompt_files": {
+    "system": "extraction_prompt_v2_fallback_system.txt",
+    "user_template": "extraction_prompt_v2_fallback_user.txt"
+  },
+  "rendered_user_messages": "a0_freeze/prompts_v2_fallback/<chunk_id>_user.txt",
+  "extractor_2_fallback": {
+    "name": "Claude, second instance (fallback for extractor 2)",
+    "model": "claude-opus-5-5",
+    "runtime": "Claude Code agent sessions, one fresh sub-agent per chunk, given only the v2 system prompt and the rendered user message; temperature and max_tokens not controllable (as D2)",
+    "session_rule": "no access to extractor 1 prompt or output, extractor 2 (Qwen) output, the prereg or the pre-plan check"
+  },
+  "json_schema": "json_schema_v1 of extraction_settings_v1.json (unchanged)",
+  "parsing_rule": "as extraction_settings_v1.json",
+  "merge_rule": "as extraction_settings_v1.json",
+  "chunks": [
+    {
+      "chunk_id": "kdigo_s3_1_c01",
+      "sha256_chunk": "11229ee88e0a1cb34085a98fbf4599f684ec8c4894fe7ad339735859f2a2025b",
+      "sha256_user_v2": "67d7624c89a5ae2d66decaadda62530ab3878bfe12b5f86224928060c239132c"
+    },
+    {
+      "chunk_id": "kdigo_s3_2_c01",
+      "sha256_chunk": "8963fe1d5fe5f6bba8f00cafc7c4c940298a16a5603cd1ff26b3aca3def7b288",
+      "sha256_user_v2": "fcdbff2a18743192113a8a86554bc39b7e6fd9fed3743275d2baad6942625f72"
+    },
+    {
+      "chunk_id": "kdigo_s3_3_c01",
+      "sha256_chunk": "3ae50aad7637263d171db9af9c06ed58481cf2d7b31455b6b8586164e4b9b4bd",
+      "sha256_user_v2": "a8caf58a8f3879505df93a18149e8bdc605ccffc4a6dde7a1f4a5db4bb986d59"
+    },
+    {
+      "chunk_id": "kdigo_s3_3_c02",
+      "sha256_chunk": "3acd98ec765dfda1e37e1ed01c7fc334ae61a618abeec1968b57190c4410a1d8",
+      "sha256_user_v2": "96900320e51c4e817094daabd0ee1aa681e4b477bb0bdd42ecae34d539da591f"
+    },
+    {
+      "chunk_id": "kdigo_s3_4_c01",
+      "sha256_chunk": "7c120fa5461b2421580ba98e0a481b86c8f4fd7495470402c273d0f2bb428dd9",
+      "sha256_user_v2": "122446fd77abe3decaab3955dfcd7c7bfb85abffba1469175ed9c1d639d3f6c6"
+    },
+    {
+      "chunk_id": "kdigo_s3_5_c01",
+      "sha256_chunk": "73bf582b2578f1f2ad5c50cb471722c82194a097e696ae171a4b80d8e65bf171",
+      "sha256_user_v2": "c9cb49596663a28e9d4980caa10a61bd28f69e7803fd6a1dd541c737ae375045"
+    },
+    {
+      "chunk_id": "kdigo_s3_15_c01",
+      "sha256_chunk": "6ee8f47bd0b973ad10fca2a1c6cab59835141aed25ca624c89f7db2fb5eba72d",
+      "sha256_user_v2": "322b07ceb0116cb1c7d669261b273c4063fcc31caf16b2aae816b16523b53e03"
+    },
+    {
+      "chunk_id": "kdigo_s3_15_c02",
+      "sha256_chunk": "c7d119abfd1496a93d5fe672699caf72163e0b57ce8d3d08d71069c987280580",
+      "sha256_user_v2": "4be83539f667818dccd70e5b011f44c1f2308e864997b543a449afb4eb1dea98"
+    },
+    {
+      "chunk_id": "kdigo_s5_2_c01",
+      "sha256_chunk": "8f5bbd0de9862f282c0e11383fa581c423a0198e8a73d31f0095328bcc49f94e",
+      "sha256_user_v2": "616ab081bf0aea7b60c428e680bd0f04e7c223c8281bc0742fbafbb6ad99009f"
+    },
+    {
+      "chunk_id": "kdigo_table37_c01",
+      "sha256_chunk": "8011daa84e7f38a1b56beca40ded7a722b76ce63fd532a0f03c7a9970a1dac8a",
+      "sha256_user_v2": "dc95b8273a05c21173ad3370718891bc267f8fa751b1d1bbed8b460f21edc4b8"
+    },
+    {
+      "chunk_id": "kdigo_table38_c01",
+      "sha256_chunk": "6723541933b7fe9d9c9c0427ec281655111706e2b223c33e417470c040402b30",
+      "sha256_user_v2": "c55f7d32d160bc0730560c3169cf41756b6e255482e007e1875706245a873746"
+    }
+  ]
+}

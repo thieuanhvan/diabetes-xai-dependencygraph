@@ -1,0 +1,11 @@
+Source document: {DOCUMENT_LABEL}
+Licence and attribution: {LICENCE}
+Excerpt: {UNIT_LABEL} (excerpt id {CHUNK_ID}, part {CHUNK} of {N_CHUNKS})
+
+Page markers: each line "=== PDF page N ===" starts the text of PDF page N; "(continued)" means the excerpt starts part-way through that page.
+
+List every route this excerpt states, following the instructions, and return only the JSON object.
+
+<<<EXCERPT START>>>
+{CHUNK_TEXT}
+<<<EXCERPT END>>>
