@@ -14,3 +14,8 @@ Step A1 (KDIGO extraction agreement): the local extractor failed its recall gate
 used, a second Claude instance with an independently written prompt (`extraction_prompt_v2_fallback_*.txt`,
 rendered by `a1_fallback_render_prompts.py`). `a1_agreement.py` applies the frozen quotation check to both
 extractors and computes kappa, PABAK, positive/negative agreement and the agreed (intersection) edge set.
+
+Extension B (counterfactual recourse beyond the P7 counterfactual generator): `q1_ext_b/` holds the Wachter core
+(unmodified CARLA commit 24db00a files under `vendor/`, MIT licence, plus the edited core with the pre-registered
+changes), Growing Spheres, Actionable Recourse (own MIP) and MINT runs on BRFSS, the unit tests run before any
+real-data run, the analysis script and the freeze-manifest script. No BRFSS data, models or outputs are included.
