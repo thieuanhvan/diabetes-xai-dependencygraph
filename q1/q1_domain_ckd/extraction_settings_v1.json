@@ -1,0 +1,59 @@
+{
+  "_about": "Frozen extractor settings for the P7 Q1 extension (prereg v3 4.4). Identical prompt text (system + user template) for both extractors. Written 11/11/2026 before any extraction.",
+  "prompt_files": {"system": "extraction_prompt_v1_system.txt", "user_template": "extraction_prompt_v1_user.txt"},
+  "local_chat_wrapper": "<|im_start|>system\n{SYSTEM}<|im_end|>\n<|im_start|>user\n{USER}<|im_end|>\n<|im_start|>assistant\n",
+  "extractor_1": {
+    "name": "Claude via Anthropic Messages API",
+    "model": "claude-opus-5-5",
+    "temperature": 0,
+    "max_tokens": 2048,
+    "system": "contents of extraction_prompt_v1_system.txt",
+    "user": "extraction_prompt_v1_user.txt with placeholders filled",
+    "session_rule": "separate session; no access to extractor 2 output, the prereg, or the pre-plan KDIGO keyword check"
+  },
+  "extractor_2": {
+    "name": "Qwen2.5-7B-Instruct GGUF Q4_K_M via llama.cpp",
+    "model_repo": "Qwen/Qwen2.5-7B-Instruct-GGUF",
+    "model_files": {
+      "qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf": "dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db",
+      "qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf": "539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a"
+    },
+    "engine": "llama.cpp tag b12283 (commit f3b407ca1), llama-server /completion endpoint with the raw ChatML prompt above",
+    "engine_hardware": "Kaggle T4 GPU, CUDA build (-DGGML_CUDA=ON) of the same tag; see deviations log D1",
+    "server_args": {"ctx_size": 16384, "parallel": 1, "n_gpu_layers": 99, "seed": 42, "flash_attn": "off"},
+    "request": {"temperature": 0, "top_k": 1, "top_p": 1.0, "min_p": 0.0, "repeat_penalty": 1.0, "seed": 42, "n_predict": 2048, "cache_prompt": false, "json_schema": "json_schema_v1"},
+    "session_rule": "batch run without access to extractor 1 output, the prereg, or the pre-plan check"
+  },
+  "json_schema_v1": {
+    "type": "object",
+    "properties": {
+      "edges": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "source": {"type": "string", "enum": ["PHYSICAL_ACTIVITY", "SMOKING", "BODY_WEIGHT", "ALCOHOL", "FRUIT_INTAKE", "VEGETABLE_INTAKE", "BLOOD_PRESSURE", "CHOLESTEROL"]},
+            "target": {"type": "string", "enum": ["PHYSICAL_ACTIVITY", "SMOKING", "BODY_WEIGHT", "ALCOHOL", "FRUIT_INTAKE", "VEGETABLE_INTAKE", "BLOOD_PRESSURE", "CHOLESTEROL", "GENERAL_HEALTH", "MENTAL_HEALTH", "PHYSICAL_FUNCTION", "MOBILITY"]},
+            "strength": {"type": "string", "enum": ["graded", "explicit", "narrative"]},
+            "grade": {"type": "string"},
+            "page": {"type": "integer"},
+            "section": {"type": "string"},
+            "quotation": {"type": "string"},
+            "paraphrase": {"type": "string"},
+            "population": {"type": "string"}
+          },
+          "required": ["source", "target", "strength", "grade", "page", "section", "quotation", "paraphrase", "population"]
+        }
+      }
+    },
+    "required": ["edges"]
+  },
+  "licence_notices": {
+    "kdigo": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease. Kidney Int. 2024;105(4S):S117-S314, doi:10.1016/j.kint.2023.10.018. Open access under CC BY-NC-ND 4.0; processed for non-commercial academic research.",
+    "gate_who_heartsd": "World Health Organization. HEARTS-D: diagnosis and management of type 2 diabetes. WHO/UCN/NCD/20.1, 2020. CC BY-NC-SA 3.0 IGO.",
+    "gate_moh5481": "Ministry of Health of Vietnam, Decision 5481/QD-BYT (2020), Huong dan chan doan va dieu tri dai thao duong tip 2. Official document.",
+    "gate_nice_ng28": "NICE guideline NG28 (2022), Type 2 diabetes in adults: management. (c) NICE; used for non-commercial research, not redistributed."
+  },
+  "parsing_rule": "The first JSON object in the output is parsed. An unparseable output counts as zero edges for that chunk and is reported. Edges with ids outside the vocabulary, u == v, or a target listed as not recorded are dropped and counted.",
+  "merge_rule": "Per extractor, edges are merged to distinct (source, target) concept pairs per document; each pair keeps every passage (page, quotation) it was found with; the strongest strength (graded > explicit > narrative) is the pair's strength."
+}
