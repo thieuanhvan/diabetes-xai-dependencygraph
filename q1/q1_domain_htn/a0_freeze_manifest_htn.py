@@ -21,7 +21,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # python -I omit
 from htn_common import CKD_FREEZE, FREEZE, OUT, PAPER7, TOOLS, below_normal, check_prereg, sha256_file  # noqa: E402
 
 DESIGN = ["section_rule_htn_v1.json", "extraction_settings_htn_v1.json", "concepts_constructs_htn_v1.json",
-          "section_rule_htn_v2.json", "extraction_settings_htn_v2.json"]  # v2 files added by --append (addendum v2)
+          "section_rule_htn_v2.json", "extraction_settings_htn_v2.json",  # v2 files added by --append (addendum v2)
+          "extraction_settings_htn_v3.json"]  # added by --append (addendum v3)
 SCRIPTS = ["htn_common.py", "a0_nhanes_htn.py", "a0_role_table_htn.py", "a0_render_gate_prompts_v2.py",
            "a0_build_chunks_htn.py", "a0_freeze_manifest_htn.py"]
 CKD_REUSED = ["design/concepts_constructs_v1.json", "design/extraction_prompt_v1_system.txt",

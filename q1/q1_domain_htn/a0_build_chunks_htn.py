@@ -213,7 +213,7 @@ def main():
     a = ap.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
     rule = json.loads((TOOLS / "section_rule_htn_v2.json").read_text(encoding="utf-8"))
-    sett = json.loads((TOOLS / "extraction_settings_htn_v2.json").read_text(encoding="utf-8"))
+    sett = json.loads((TOOLS / "extraction_settings_htn_v3.json").read_text(encoding="utf-8"))
     pdf = Path(a.pdf)
     texts = pdftotext(pdf)
     raw_pages = texts["raw"].read_text(encoding="utf-8").split("\f")
@@ -289,7 +289,7 @@ def main():
         w = csv.DictWriter(fh, fieldnames=list(rows[0]), lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
-    # same-prompt test-retest sample (extraction_settings_htn_v2.json "test_retest"), drawn once, before any extraction
+    # same-prompt test-retest sample (extraction_settings_htn_v3.json "test_retest"), drawn once, before any extraction
     import math
     import numpy as np
     k = max(1, math.ceil(0.10 * len(rows)))

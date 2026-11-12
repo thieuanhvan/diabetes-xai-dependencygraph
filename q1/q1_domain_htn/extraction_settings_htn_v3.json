@@ -1,0 +1,202 @@
+{
+  "_about": "Frozen extractor design for the HTN guideline, version 3 (addendum HTN v3, sections 5, 15 and 16). Same as v2 (which stays hashed) except the fixes N1 and N2 of the second blind check, made before any HTN extraction output existed: prefix caching off, one GPU class (A100 80 GB), hardware and versions logged, finish_reason recorded and a response cut at max_tokens scored as zero edges, at most one further rental for requests that never returned.",
+  "vocabulary": {
+    "file": "outputs/q1_domain_ckd/a0_freeze/design/concepts_constructs_v1.json",
+    "sha256": "6db9963a5f712f27e49301516d17e54ef69223012203fc786368a8235465e30b",
+    "note": "The 12-Concept vocabulary is unchanged. HTN-specific item map: concepts_constructs_htn_v1.json."
+  },
+  "extractor_A": {
+    "name": "Claude (prompt v1)",
+    "model": "claude-opus-5-5",
+    "system_prompt": {
+      "file": "outputs/q1_domain_ckd/a0_freeze/design/extraction_prompt_v1_system.txt",
+      "sha256": "2959ef9da9120141e6a0bda42b52b96b0c7a087c1a02aee666796a7229398185"
+    },
+    "user_template": {
+      "file": "outputs/q1_domain_ckd/a0_freeze/design/extraction_prompt_v1_user.txt",
+      "sha256": "960a8261f8167af7ab7ef57c41825c04331b7ab0d21eb60b05734fd9f5397678",
+      "placeholders": [
+        "{DOCUMENT_LABEL}",
+        "{LICENCE_NOTICE}",
+        "{UNIT_LABEL}",
+        "{CHUNK_INDEX}",
+        "{CHUNK_COUNT}",
+        "{CHUNK_TEXT}"
+      ]
+    },
+    "runtime": "agent sub-sessions, one fresh sub-session per chunk, given only the system prompt and the rendered user message; temperature and max_tokens not controllable (as CKD deviation D2)"
+  },
+  "extractor_B": {
+    "name": "Qwen2.5-72B-Instruct (prompt v2, written independently of v1 for CKD event E1)",
+    "model": "Qwen/Qwen2.5-72B-Instruct-AWQ",
+    "system_prompt": {
+      "file": "outputs/q1_domain_ckd/a0_freeze/design/extraction_prompt_v2_fallback_system.txt",
+      "sha256": "3a38d58b1f5e03e24c70871104918c8b2a74670d66b2341fc2b2a3d856e843c4"
+    },
+    "user_template": {
+      "file": "outputs/q1_domain_ckd/a0_freeze/design/extraction_prompt_v2_fallback_user.txt",
+      "sha256": "8e9c4a2566d9ab891107a30c58c9374aff531352b210cdb2f891a0e24994c040",
+      "placeholders": [
+        "{DOCUMENT_LABEL}",
+        "{LICENCE}",
+        "{UNIT_LABEL}",
+        "{CHUNK_ID}",
+        "{CHUNK}",
+        "{N_CHUNKS}",
+        "{CHUNK_TEXT}"
+      ]
+    },
+    "runtime": {
+      "engine": "vLLM 0.32.0",
+      "image": "vllm/vllm-openai:v0.32.0",
+      "image_digest": "sha256:6ee133356d49ed24cee03dd0cda3d3980279a11c107ce3e752c89e76540f41c9",
+      "server_args": {
+        "quantization": "awq_marlin",
+        "max_model_len": 16384,
+        "max_num_seqs": 1,
+        "seed": 42,
+        "generation_config": "vllm",
+        "enable_prefix_caching": false,
+        "flags": "--quantization awq_marlin --max-model-len 16384 --max-num-seqs 1 --no-enable-prefix-caching --seed 42 --generation-config vllm"
+      },
+      "request": {
+        "endpoint": "/v1/chat/completions",
+        "messages": "system prompt v2 + rendered user message",
+        "temperature": 0,
+        "top_p": 1.0,
+        "top_k": -1,
+        "repetition_penalty": 1.0,
+        "seed": 42,
+        "max_tokens": 4096,
+        "constrained_decoding": null,
+        "concurrency": 1,
+        "saved_per_request": [
+          "finish_reason",
+          "prompt_tokens",
+          "completion_tokens",
+          "response text",
+          "SHA-256"
+        ]
+      },
+      "length_guard": "a rendered prompt above 16384 - 4096 tokens stops the run",
+      "gpu_class": "NVIDIA A100 80 GB (SXM4 or PCIe), one GPU",
+      "logged_at_start": [
+        "nvidia-smi (GPU model, driver version, CUDA version)",
+        "vllm --version",
+        "image digest",
+        "weights file hashes"
+      ],
+      "reproducibility_claim": "only for the same image digest, weights revision and GPU class",
+      "truncation_rule": "finish_reason == 'length' (cut at max_tokens 4096): zero edges for that chunk, never retried, reported"
+    },
+    "weights": {
+      "repo": "Qwen/Qwen2.5-72B-Instruct-AWQ",
+      "revision": "698703eae6604af048a3d2f509995dc302088217",
+      "quantisation": "AWQ 4-bit",
+      "bytes_in_repo": 41607438677,
+      "gated": false,
+      "check": "file hashes from the Hugging Face listing at the revision, verified after download"
+    },
+    "where": "one rented Vast.ai GPU, see addendum section 15 and gpu_run below"
+  },
+  "session_rule": "Extractor A: each chunk is given to a fresh sub-session that sees only its system prompt and rendered user message. Extractor B: each request carries only its system prompt and rendered user message, sent one at a time. Neither has access to the other extractor's prompt or output, the prereg, this addendum, the CKD outputs, the role tables or any results. File contents are passed verbatim.",
+  "document_label": "2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ASPC/NMA/PCNA/SGIM Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults",
+  "licence_notice": "Jones DW, et al. 2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ASPC/NMA/PCNA/SGIM Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults. J Am Coll Cardiol. 2025;86(18):1567-1678, doi:10.1016/j.jacc.2025.05.007. (c) American College of Cardiology Foundation and American Heart Association; Elsevier user license (non-commercial access, text and data mining permitted; no redistribution or adaptation); processed for non-commercial academic research.",
+  "json_schema": "json_schema_v1 of outputs/q1_domain_ckd/a0_freeze/design/extraction_settings_v1.json (unchanged)",
+  "parsing_rule": "as extraction_settings_v1.json (first JSON object parsed; unparseable output = zero edges for that chunk, reported; out-of-vocabulary ids, u == v and not-recorded targets dropped and counted)",
+  "merge_rule": "as extraction_settings_v1.json; agreed edge strength = weaker of the two (CKD clarification C8)",
+  "quotation_check": "as prereg v3 4.4 and CKD clarification C5, on the frozen -raw and -layout conversions of the HTN PDF",
+  "recall_gate": {
+    "when": "before any HTN chunk is given to either extractor",
+    "chunks": "the 18 frozen recall-gate chunks of the CKD A0 freeze, hash-checked",
+    "rendering": "extractor A: the frozen rendered v1 user messages of the CKD A0 freeze (a0_freeze/prompts/gate_*_user.txt, hash-checked); extractor B: v2 user template filled by a0_render_gate_prompts_v2.py into outputs/q1_domain_htn/a0_freeze/prompts_gate_v2/",
+    "scoring": "as prereg v3 4.4 and CKD clarification C3 (a1_ingest_kaggle_zip.py gate scoring, BRFSS item map)",
+    "pass_rule": "each extractor separately: recovers the HEARTS-D agreed edge and at least 3 of the 5 MoH 5481 agreed edges after the quotation check; NG28 output reported as a false-positive count",
+    "if_one_fails": "No fallback: no new prompt, model, quantisation or runtime is tried after a gate result. The HTN agreed graph, H3-HTN and A-Q4-HTN are 'not reached'; the passing extractor's quotation-checked edges are reported descriptively as a single-extractor graph. H1-HTN and H2-HTN run unchanged."
+  },
+  "agreement_gate": {
+    "unit": "primary: the 70 audit-relevant Concept pairs (u, v), u != v, u in the 7 lever/treatable Concepts other than BLOOD_PRESSURE, v in the 11 Concepts other than BLOOD_PRESSURE (7 x 11 - 7 = 70); present for an extractor if at least one passage passes the quotation check. Secondary: all 88 pairs (CKD clarification C7), reported, not gated",
+    "statistics": "Cohen kappa, PABAK, positive and negative agreement (as CKD)",
+    "pass_rule": "Cohen kappa >= 0.40 and positive agreement >= 0.50 over the 70 audit-relevant pairs",
+    "empty_case": "If neither extractor finds any pair, kappa is undefined; the graph is empty and H3-HTN is 'not testable: degenerate graph' (not an agreement failure)",
+    "if_fails": "The intersection graph is still built and reported, but H3-HTN is reported as 'not testable: agreement gate failed'; A-Q4-HTN is reported descriptively only",
+    "basis": "0.40 is the lower bound of 'moderate' agreement in the Landis-Koch convention; positive agreement guards against kappa being dominated by the many pairs neither extractor finds. Both are conventions, stated as such.",
+    "name": "inter-model agreement gate",
+    "meaning": "The extractors are two model families (Claude; Qwen2.5-72B) with two independently written prompts; agreement mixes model and prompt and the two cannot be separated. Both are LLMs, so errors shared by LLMs are not excluded. Passing the gate does not establish that the extraction is valid."
+  },
+  "graph": "intersection of the two extractors' Concept pairs; an agreed edge must carry, for EACH extractor, at least one verbatim quotation that passes the scripted quotation check against the frozen -raw/-layout text of the JACC PDF; union reported as secondary; no person adjudicates",
+  "run_policy": {
+    "runs": "exactly one run per chunk and per extractor (recall-gate chunks and HTN chunks alike); the first completed run is the run used",
+    "retry": "at most one retry, and only for a technical failure: an empty response, a timeout, or a tool or session error that returns no model text",
+    "not_retried": "an output that is returned but cannot be parsed counts as zero edges for that chunk (parsing_rule) and is never retried",
+    "logging": "every attempt, including failed ones, is saved with its time, the reason for any retry, and its SHA-256, in the extractor's output folder",
+    "deviation": "any other re-run of a chunk or of a whole gate or extraction pass is a deviation",
+    "truncated": "a response cut at max_tokens (extractor B, finish_reason 'length') counts as zero edges, is never retried, and is reported"
+  },
+  "test_retest": {
+    "what": "same-prompt test-retest, to separate run-to-run (stochastic) disagreement from disagreement between prompts",
+    "sample": "ceil(10% of the HTN chunks), at least 1, drawn once by numpy.random.default_rng(20261111).choice over chunk_index.csv rows in file order, without replacement, before any extraction; the drawn ids are written to test_retest_chunks.json and hashed",
+    "runs": "each sampled chunk is run a second time by each extractor (A: fresh sub-session; B: second request on the same server after all first runs); the second run is used only for this statistic, never for the graph",
+    "statistics": "per extractor, raw agreement and the counts both/only-run-1/only-run-2 over the 70 audit-relevant Concept pairs on the sampled chunks (after the quotation check); also between models on the same chunks",
+    "gate": "none (descriptive)",
+    "note_B": "B is greedy with prefix caching off, so its retest checks reproducibility of the runtime on the same machine"
+  },
+  "external_check": "No human audit of edges (project rule: no human raters). The check outside the two extractors is the scripted word-for-word quotation check against the PDF text. The descriptive local third extractor is dropped.",
+  "gpu_run": {
+    "provider": "Vast.ai via the vastai CLI and the existing SSH key; the API key is never read",
+    "offer_rule": {
+      "num_gpus": 1,
+      "arch": "x86-64",
+      "verified": true,
+      "reliability_min": 0.98,
+      "inet_down_mbps_min": 500,
+      "disk_gb_min": 150,
+      "inet_down_cost_usd_per_gb_max": 0.005,
+      "dph_total_usd_max": 1.6,
+      "choice": "cheapest matching offer at rent time",
+      "gpu_class": "NVIDIA A100 80 GB (SXM4 or PCIe) only"
+    },
+    "example_offer_20261112_0840": {
+      "id": 58320599,
+      "gpu": "A100 SXM4 80 GB",
+      "where": "Czechia",
+      "dph_total_usd": 1.001,
+      "inet_down_cost_usd_per_gb": 0.0026,
+      "inet_down_mbps": 2142
+    },
+    "estimate": {
+      "hours": 1.5,
+      "usd_compute": 1.5,
+      "usd_download": 0.14,
+      "requests_B": "about 27"
+    },
+    "cap": {
+      "student_hard_cap_usd": 8,
+      "destroy_at_hours": 4,
+      "destroy_at_projected_usd": 6,
+      "note": "the 8 USD cap covers all rentals together"
+    },
+    "data_policy": "only rendered chunk messages and the two system prompts are sent, never the PDF; deleted on the instance before destroy",
+    "close_down": [
+      "copy responses back",
+      "verify SHA-256 against hashes computed on the instance",
+      "delete messages and prompts on the instance",
+      "vastai destroy instance <id> -y",
+      "vastai show instances must be empty",
+      "log rental id, offer, times, cost"
+    ],
+    "further_rental": {
+      "max": 1,
+      "when": "only if some requests never returned (no response, empty response, timeout, server error)",
+      "same": [
+        "image digest",
+        "weights revision",
+        "server and decoding settings",
+        "GPU class"
+      ],
+      "send": "only the requests that never returned; a returned response (including truncated or unparseable) is never re-requested",
+      "log": "hardware and versions as for the first rental",
+      "if_still_missing": "extractor B is 'not reached': HTN agreed graph, H3-HTN and A-Q4-HTN 'not reached' (as a failed recall gate)"
+    }
+  }
+}
