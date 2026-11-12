@@ -31,3 +31,10 @@ measured-BP label (mean SBP >= 130 or DBP >= 80 mmHg) and a measured-or-treated 
 (HighBP is the outcome and is removed; Income, Education and AnyHealthcare are immutable in every mode), keyword
 rule for selecting guideline sections, recall-gate prompts for both Claude extractors, and the freeze-manifest
 script. No guideline text, NHANES data or outputs are included. No extraction or counterfactual has been run.
+
+Post-hoc plan S-P5 (`q1_posthoc_v5/`, exploratory, labelled post hoc): diagnosis flags (ever told high blood pressure
+or cholesterol) and the cost barrier are not counted as actions (reading R5); `v5_reclass.py` recounts every diabetes
+output and `v5_presentation_r5.py` the presentation layer; `v5_fl_levers.py` and `v5_fl_analysis.py` run the
+levers-only forced-lever baseline for projected Wachter with the cluster bootstrap; `v5_dm_a0.py`, `v5_dm_runs.py` and
+`v5_dm_analysis.py` set up diabetes on the matched NHANES 2017-2023 data of the hypertension arm; and
+`v5_fig5_three_disease.py` draws the three-disease figure. No survey data or outputs are included.
