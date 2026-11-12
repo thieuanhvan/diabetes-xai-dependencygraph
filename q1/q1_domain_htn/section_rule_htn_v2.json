@@ -1,0 +1,81 @@
+{
+  "_about": "Frozen unit-selection and chunking rule for the HTN guideline, version 2 (addendum HTN v2, section 5.1). Changes from v1 (blind review of addendum v1, issue 11, decided by the coordinator on 12/11/2026 after the index-only stage had been run): keywords 'anxiety', 'mood', 'mental' added to the health-status list; matching changed from plain substring to word-start matching (a keyword must begin a word), because 'mental' as a substring matches 'environmental', 'supplemental' and 'incremental'; 'overweight' added so that word-start matching does not lose what 'weight' matched in v1. v1 stays hashed in the A0-HTN manifest.",
+  "document": {
+    "primary": "JACC version: Jones DW, Ferdinand KC, Taler SJ, et al. 2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ASPC/NMA/PCNA/SGIM Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults. J Am Coll Cardiol. 2025;86(18):1567-1678. doi:10.1016/j.jacc.2025.05.007",
+    "expected_pdf_name": "AHA-ACC-2025-HBP-Guideline_JACC.pdf",
+    "co_publications_not_used": [
+      "Hypertension 2025;82(10), doi:10.1161/HYP.0000000000000249",
+      "Circulation 2025;152(11), doi:10.1161/CIR.0000000000001356"
+    ],
+    "fallback_if_2025_unobtainable": "2017 ACC/AHA guideline, Hypertension 2018;71(6):e13-e115, doi:10.1161/HYP.0000000000000065 (same rule applied; logged as a deviation)"
+  },
+  "text_sources": "Section units are cut from `pdftotext -raw`; a table or figure whose caption matches the keyword rule is also given as its own unit cut from `pdftotext -layout` (as CKD clarification C2). pdftotext 4.00, -enc UTF-8.",
+  "body_limits": {
+    "include": "the main guideline body, from the first numbered section heading to the start of the reference list",
+    "exclude": [
+      "front matter before section 1 (abstract, table of contents, Top take-home messages, preamble)",
+      "any front-matter summary that repeats recommendations given in the body",
+      "reference list",
+      "appendices (author relationships with industry, reviewer relationships, abbreviations)",
+      "page headers, footers and running titles (matched by regexes written once the PDF is in hand, before any extraction; logged as a clarification)"
+    ]
+  },
+  "heading_detection": {
+    "pattern": "^(\\d{1,2}(?:\\.\\d{1,2}){0,3})\\.?\\s+([A-Z][^\\n]{2,150})$",
+    "check": "The detected heading index must agree with the guideline's printed table of contents (number and title). Disagreements are resolved by the printed table of contents, and each resolution is logged as a clarification before any extraction. If the PDF has no printed table of contents, the HTML table of contents of the publisher page (read by anh Van, copied as text) is used.",
+    "reconciliation": "Clarification HTN-C2: a detected line is a heading if its number is a printed TOC entry and either its title is a prefix of the TOC title or its first two words equal those of the TOC title (wording can differ slightly, e.g. 'Pharmacologic' vs 'Pharmacological'); or it has 4 or more levels (the TOC lists 3) and its parent is an accepted heading. The full TOC title is used for keyword matching."
+  },
+  "selection_rule": {
+    "match": "case-insensitive; a keyword matches when it begins a word of the heading or caption title (regex (?<![a-z0-9])keyword after lower-casing and ligature normalisation); numbers excluded",
+    "keywords_lever_and_behaviour": [
+      "nonpharmacolog",
+      "non-pharmacolog",
+      "lifestyle",
+      "weight",
+      "obes",
+      "diet",
+      "nutrition",
+      "sodium",
+      "potassium",
+      "physical activity",
+      "exercise",
+      "fitness",
+      "alcohol",
+      "tobacco",
+      "smoking",
+      "nicotine",
+      "stress",
+      "sleep",
+      "overweight"
+    ],
+    "keywords_health_status": [
+      "quality of life",
+      "well-being",
+      "wellbeing",
+      "depress",
+      "mental health",
+      "psycholog",
+      "cognit",
+      "dementia",
+      "brain health",
+      "functional",
+      "patient-reported",
+      "anxiety",
+      "mood",
+      "mental"
+    ],
+    "unit": "A matched heading defines one unit: its text up to the next heading of the same or a higher level (its subsections are included). A matched heading inside an already selected unit does not create a second unit. Two matched siblings are separate units.",
+    "minimum": "If no heading matches, the rule is reported as giving an empty graph (degenerate) and no section is added by hand.",
+    "declared_limitation": "Routes stated only in sections whose headings match no keyword (for example a comorbidity or special-population section) are not extracted. This mirrors the CKD design, which also used a closed section list.",
+    "toc_stage_limit": "The index-only stage (footer regexes, body limits, table-of-contents reconciliation, caption cut) cannot add or remove a unit beyond what the keyword rule yields when applied to the printed table of contents and to the table and figure captions."
+  },
+  "chunking": {
+    "max_tokens": 6000,
+    "overlap_tokens": 500,
+    "tokenizer": "Qwen2.5-7B-Instruct GGUF vocabulary via llama.cpp b12283 /tokenize (tokeniser only, no generation), the same as CKD clarification C1",
+    "boundary": "line-snapped, as CKD clarification C1; a chunk that starts mid-page repeats the page marker with \"(continued)\"",
+    "page_marker": "=== PDF page N === (PDF page index, 1-based)"
+  },
+  "recall_gate_chunks": "The 18 frozen recall-gate chunks of the CKD A0 freeze (WHO HEARTS-D x3, MoH 5481 x10, NICE NG28 x5), reused unchanged; each is checked against the CKD A0 manifest hash before use.",
+  "table_units": "Clarification HTN-C3: a TABLE or FIGURE caption (raw text; the next line when the caption line holds only the number) that matches a keyword gives a unit cut from -layout, on every page carrying that caption, from the caption line to the abbreviation footnote line ('X indicates ...') inclusive, else to the end of the page."
+}

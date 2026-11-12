@@ -72,6 +72,10 @@ def build(cycle: str, gate: dict):
     gate[cycle] = {"weight_variable_expected": cfg["weight"], "weight_variable_present": cfg["weight"] in joined.columns,
                    "missing_required_variables": {k: v for k, v in missing.items() if v},
                    "p7_tables_loaded": status,
+                   # TCHOL (LBXTC) and KIQ_U (KIQ022) are not P7 tables: read from the files downloaded in CKD A0
+                   "extra_tables": {t: {"file": str(NHANES_NEW_RAW / cycle / f"{fn}.xpt"),
+                                        "sha256": sha256_file(NHANES_NEW_RAW / cycle / f"{fn}.xpt")}
+                                    for t, fn in cfg["files"].items()},
                    "p7_provenance": {k: prov[k] for k in ("PhysActivity", "MentHlth", "GenHlth", "Education", "Income",
                                                           "AnyHealthcare", "Stroke", "HeartDiseaseorAttack", "BMI")}}
     if any(missing.values()) or not gate[cycle]["weight_variable_present"]:
