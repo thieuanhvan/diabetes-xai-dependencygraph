@@ -1,0 +1,48 @@
+{
+  "_about": "Frozen extractor design for the HTN guideline (addendum HTN v1, section 5). Written 12/11/2026 before the guideline PDF was obtained and before any HTN extraction. Both extractors are Claude sessions: the design does NOT have two model families. The two prompts are the frozen CKD prompts, reused byte for byte (hash-checked), so no prompt was written or tuned for this guideline.",
+  "vocabulary": {
+    "file": "outputs/q1_domain_ckd/a0_freeze/design/concepts_constructs_v1.json",
+    "sha256": "6db9963a5f712f27e49301516d17e54ef69223012203fc786368a8235465e30b",
+    "note": "The 12-Concept vocabulary is unchanged. HTN-specific item map: concepts_constructs_htn_v1.json."
+  },
+  "extractor_A": {
+    "name": "Claude, instance A (prompt v1)",
+    "model": "claude-opus-5-5",
+    "system_prompt": {"file": "outputs/q1_domain_ckd/a0_freeze/design/extraction_prompt_v1_system.txt", "sha256": "2959ef9da9120141e6a0bda42b52b96b0c7a087c1a02aee666796a7229398185"},
+    "user_template": {"file": "outputs/q1_domain_ckd/a0_freeze/design/extraction_prompt_v1_user.txt", "sha256": "960a8261f8167af7ab7ef57c41825c04331b7ab0d21eb60b05734fd9f5397678",
+                      "placeholders": ["{DOCUMENT_LABEL}", "{LICENCE_NOTICE}", "{UNIT_LABEL}", "{CHUNK_INDEX}", "{CHUNK_COUNT}", "{CHUNK_TEXT}"]},
+    "runtime": "Claude Code agent sessions, one fresh sub-agent per chunk, given only the system prompt and the rendered user message; temperature and max_tokens not controllable (as CKD deviation D2)"
+  },
+  "extractor_B": {
+    "name": "Claude, instance B (prompt v2, written independently of v1 for CKD event E1)",
+    "model": "claude-opus-5-5",
+    "system_prompt": {"file": "outputs/q1_domain_ckd/a0_freeze/design/extraction_prompt_v2_fallback_system.txt", "sha256": "3a38d58b1f5e03e24c70871104918c8b2a74670d66b2341fc2b2a3d856e843c4"},
+    "user_template": {"file": "outputs/q1_domain_ckd/a0_freeze/design/extraction_prompt_v2_fallback_user.txt", "sha256": "8e9c4a2566d9ab891107a30c58c9374aff531352b210cdb2f891a0e24994c040",
+                      "placeholders": ["{DOCUMENT_LABEL}", "{LICENCE}", "{UNIT_LABEL}", "{CHUNK_ID}", "{CHUNK}", "{N_CHUNKS}", "{CHUNK_TEXT}"]},
+    "runtime": "as extractor A"
+  },
+  "session_rule": "Each chunk is given to a fresh sub-agent that sees only its system prompt and its rendered user message. It has no access to the other extractor's prompt or output, to the prereg, this addendum, the CKD outputs, the role tables or any results. The orchestrating session passes file contents verbatim and does not summarise or edit them.",
+  "document_label": "2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ASPC/NMA/PCNA/SGIM Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults",
+  "licence_notice": "Jones DW, et al. 2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ASPC/NMA/PCNA/SGIM Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults. J Am Coll Cardiol. 2025;86(18):1567-1678, doi:10.1016/j.jacc.2025.05.007. (c) American College of Cardiology Foundation and American Heart Association; Elsevier user license (non-commercial access, text and data mining permitted; no redistribution or adaptation); processed for non-commercial academic research.",
+  "json_schema": "json_schema_v1 of outputs/q1_domain_ckd/a0_freeze/design/extraction_settings_v1.json (unchanged)",
+  "parsing_rule": "as extraction_settings_v1.json (first JSON object parsed; unparseable output = zero edges for that chunk, reported; out-of-vocabulary ids, u == v and not-recorded targets dropped and counted)",
+  "merge_rule": "as extraction_settings_v1.json; agreed edge strength = weaker of the two (CKD clarification C8)",
+  "quotation_check": "as prereg v3 4.4 and CKD clarification C5, on the frozen -raw and -layout conversions of the HTN PDF",
+  "recall_gate": {
+    "when": "before any HTN chunk is given to either extractor",
+    "chunks": "the 18 frozen recall-gate chunks of the CKD A0 freeze, hash-checked",
+    "rendering": "extractor A: the frozen rendered v1 user messages of the CKD A0 freeze (a0_freeze/prompts/gate_*_user.txt, hash-checked); extractor B: v2 user template filled by a0_render_gate_prompts_v2.py into outputs/q1_domain_htn/a0_freeze/prompts_gate_v2/",
+    "scoring": "as prereg v3 4.4 and CKD clarification C3 (a1_ingest_kaggle_zip.py gate scoring, BRFSS item map)",
+    "pass_rule": "each extractor separately: recovers the HEARTS-D agreed edge and at least 3 of the 5 MoH 5481 agreed edges after the quotation check; NG28 output reported as a false-positive count",
+    "if_one_fails": "No new prompt is written after a gate result. The HTN agreed graph is then not reached: H3-HTN and A-Q4-HTN are reported as not reached, and the passing extractor's graph is reported descriptively. H1-HTN and H2-HTN do not depend on extracted edges and run unchanged."
+  },
+  "agreement_gate": {
+    "unit": "the 88 candidate Concept pairs (u, v), u != v, u in the 8 lever/treatable Concepts, v in all 12 Concepts (CKD clarification C7); present for an extractor if at least one passage passes the quotation check",
+    "statistics": "Cohen kappa, PABAK, positive and negative agreement (as CKD)",
+    "pass_rule": "Cohen kappa >= 0.40 and positive agreement >= 0.50 over the 88 pairs",
+    "empty_case": "If neither extractor finds any pair, kappa is undefined; the graph is empty and H3-HTN is 'not testable: degenerate graph' (not an agreement failure)",
+    "if_fails": "The intersection graph is still built and reported, but H3-HTN is reported as 'not testable: agreement gate failed'; A-Q4-HTN is reported descriptively only",
+    "basis": "0.40 is the lower bound of 'moderate' agreement in the Landis-Koch convention; positive agreement guards against kappa being dominated by the many pairs neither extractor finds. Both are conventions, stated as such."
+  },
+  "graph": "intersection of the two extractors' quotation-checked Concept pairs; union reported as secondary; no person adjudicates"
+}

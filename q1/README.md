@@ -25,3 +25,9 @@ is a constant function, so H4 and H5 are not reached. With the student's approva
 refit tries seeds 43, 44, ... of the same architecture and training (accept: every hidden layer has a live unit and
 at least 50 test patients with p >= 0.5; stop at 5 accepted or 30 tried) and runs Wachter on each accepted MLP with
 the unchanged extension B code. `ph_seed_screen.py`, `ph_run_wachter.py`, `ph_analysis.py`.
+
+Third domain, hypertension (`q1_domain_htn/`, addendum HTN v1, design and data only): NHANES 2017-2023 table with a
+measured-BP label (mean SBP >= 130 or DBP >= 80 mmHg) and a measured-or-treated label, graph-derived role table
+(HighBP is the outcome and is removed; Income, Education and AnyHealthcare are immutable in every mode), keyword
+rule for selecting guideline sections, recall-gate prompts for both Claude extractors, and the freeze-manifest
+script. No guideline text, NHANES data or outputs are included. No extraction or counterfactual has been run.
