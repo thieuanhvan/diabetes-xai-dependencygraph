@@ -9,7 +9,7 @@
       "affiliation": "University of Information Technology, Ho Chi Minh City, Vietnam; Vietnam National University, Ho Chi Minh City, Vietnam"
     }
   ],
-  "license": "MIT",
+  "license": "mit",
   "keywords": [
     "counterfactual explanation",
     "algorithmic recourse",
