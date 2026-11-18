@@ -6,7 +6,7 @@ This folder holds the data and records behind the journal extension of the FAIR 
 |---|---|
 | `kg/` | Dependency graphs in RDF Turtle (diabetes, CKD); node and role tables with terminology codes; the triple table with the provenance of every route; KDIGO extraction passages (quotation and page) from both extractors; agreement statistics |
 | `sparql/` | SPARQL audit queries and the recorded checks of SPARQL against the Python audit |
-| `preregistration/public_copies/` | The internally time-stamped protocol, the three hypertension addenda, the post-hoc plans (B-P1, S-P1 to S-P3, S-P4, S-P5, S-P6) and the deviation log |
+| `preregistration/public_copies/` | The internally time-stamped protocol, the hypertension addendum (three hashed versions), the post-hoc plans (B-P1, S-P1 to S-P3, S-P4, S-P5, S-P6) and the deviation log |
 | `preregistration/reviewer_copies/` | The anonymised copies given to reviewers |
 | `preregistration/SHA256_originals_and_public_copies.txt` | The SHA-256 of each original file and of its public copy |
 | `results/` | Derived summary results: analysis JSON and CSV files and per-run summaries. Survey rows and per-counterfactual change files are not included; the code in `../q1/` regenerates them from the public CDC files. |
