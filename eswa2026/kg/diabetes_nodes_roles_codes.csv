@@ -1,0 +1,22 @@
+node,label,role,direction,ncit,hpo,mondo,efo,loinc,snomed_ct,umls_cui,code_note
+BMI,Body mass index,lever,bidirectional,NCIT:C16358,,,EFO:0004340,LOINC:39156-5,,,SNOMED CT and UMLS codes not assigned (licence required).
+PhysActivity,Physical activity in the past 30 days outside work,lever,monotonic_up,NCIT:C17708,,,EFO:0003940,,,,SNOMED CT and UMLS codes not assigned (licence required).
+Fruits,Fruit consumption at least once per day,lever,monotonic_up,NCIT:C172465,,,,,,,Codes name dietary fruit intake; the survey item is a binary daily-consumption indicator. SNOMED CT and UMLS codes not assigned (licence required).
+Veggies,Vegetable consumption at least once per day,lever,monotonic_up,NCIT:C172466,,,,,,,Codes name dietary vegetable intake; the survey item is a binary daily-consumption indicator. SNOMED CT and UMLS codes not assigned (licence required).
+Smoker,Smoked at least 100 cigarettes in lifetime,lever,monotonic_down,NCIT:C29719,,,EFO:0006527,LOINC:63581-3,,,SNOMED CT and UMLS codes not assigned (licence required).
+HvyAlcoholConsump,Heavy alcohol consumption,lever,monotonic_down,NCIT:C126384,,,EFO:0004329,,,,NCIt 'Heavy Drinker'; BRFSS uses sex-specific weekly thresholds. SNOMED CT and UMLS codes not assigned (licence required).
+NoDocbcCost,Could not see a doctor in the past year because of cost,lever,monotonic_down,,,,,LOINC:99552-2,,,"No NCIt, HPO, MONDO or EFO concept for a cost barrier to care was found. SNOMED CT and UMLS codes not assigned (licence required)."
+HighBP,High blood pressure (told by a health professional),treatable,monotonic_down,NCIT:C3117,HP:0000822,,,,,,No LOINC survey item for 'ever told high blood pressure' was found in the NLM LOINC search. SNOMED CT and UMLS codes not assigned (licence required).
+HighChol,High blood cholesterol (told by a health professional),treatable,monotonic_down,NCIT:C37967,HP:0003124,,,LOINC:58292-4,,,SNOMED CT and UMLS codes not assigned (licence required).
+GenHlth,Self-rated general health (1 excellent to 5 poor),indicator,monotonic_down,,,,EFO:0004778,LOINC:66576-0,,,SNOMED CT and UMLS codes not assigned (licence required).
+PhysHlth,Days of poor physical health in the past 30 days,indicator,monotonic_down,,,,,LOINC:66577-8,,,CDC HRQOL-4 item; no ontology concept for days of poor physical health was found. SNOMED CT and UMLS codes not assigned (licence required).
+MentHlth,Days of poor mental health in the past 30 days,indicator,monotonic_down,,,,,LOINC:66578-6,,,CDC HRQOL-4 item; no ontology concept for days of poor mental health was found. SNOMED CT and UMLS codes not assigned (licence required).
+DiffWalk,Serious difficulty walking or climbing stairs,indicator,conditional,NCIT:C198638,,,,LOINC:69859-7,,,SNOMED CT and UMLS codes not assigned (licence required).
+Age,Age group,immutable,immutable,NCIT:C25150,,,EFO:0000246,LOINC:30525-0,,,SNOMED CT and UMLS codes not assigned (licence required).
+Sex,Sex,immutable,immutable,NCIT:C28421,,,,LOINC:46098-0,,,SNOMED CT and UMLS codes not assigned (licence required).
+Stroke,Ever told had a stroke,immutable,immutable,NCIT:C3390,HP:0001297,MONDO:0005098,,LOINC:78925-5,,,SNOMED CT and UMLS codes not assigned (licence required).
+HeartDiseaseorAttack,Coronary heart disease or myocardial infarction,immutable,immutable,NCIT:C26732,HP:0001658,MONDO:0005010,,,,,The item merges coronary heart disease and myocardial infarction; one code is given for each. SNOMED CT and UMLS codes not assigned (licence required).
+Income,Household income category,immutable,monotonic_up,NCIT:C41150,,,EFO:0009695,LOINC:108248-6,,,SNOMED CT and UMLS codes not assigned (licence required).
+Education,Education level,immutable,monotonic_up,NCIT:C17953,,,EFO:0011015,LOINC:82589-3,,,SNOMED CT and UMLS codes not assigned (licence required).
+AnyHealthcare,Any health care coverage,immutable,monotonic_up,NCIT:C157356,,,,LOINC:63513-6,,,SNOMED CT and UMLS codes not assigned (licence required).
+CholCheck,Cholesterol check within five years,immutable,monotonic_up,NCIT:C105586,,,EFO:0004574,,,,Codes name the cholesterol test; the survey item records whether a check took place within five years. SNOMED CT and UMLS codes not assigned (licence required).

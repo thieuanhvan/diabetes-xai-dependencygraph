@@ -111,3 +111,7 @@ If you use this code or the edge set, please cite the FAIR 2026 paper
 
 MIT (code). ADA guideline text is not reproduced here; edges store only the
 recommendation number and grade as bibliographic facts.
+
+## Journal extension artefacts
+
+The journal extension (diabetes, chronic kidney disease and hypertension; six generators; protocol, post-hoc plans and their SHA-256 hashes; graphs in RDF Turtle; SPARQL audit; derived results) is in `eswa2026/` (see its README) and `q1/`.

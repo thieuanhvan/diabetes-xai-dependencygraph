@@ -1,0 +1,770 @@
+{
+  "cohort": "main",
+  "written": "12/11/2026 08:48",
+  "n_cohort": 192,
+  "test_auc": 0.7584860979451615,
+  "eligible": 192,
+  "near_degenerate_check": {
+    "supporting_levers_kdigo_k1": [
+      "BMI",
+      "PhysActivity"
+    ],
+    "share_cohort_movable": {
+      "BMI": 1.0,
+      "PhysActivity": 0.7760416666666666
+    },
+    "rule": "near-degenerate iff every supporting lever is movable for < 10% of cohort patients (prereg 4.8)",
+    "near_degenerate": false,
+    "degenerate": false
+  },
+  "pre_generator_single_nonindicator_flip_share": 0.8489583333333334,
+  "kdigo_edges_items": [
+    [
+      "BMI",
+      "GenHlth"
+    ],
+    [
+      "BMI",
+      "HighBP"
+    ],
+    [
+      "BMI",
+      "HighChol"
+    ],
+    [
+      "PhysActivity",
+      "MentHlth"
+    ]
+  ],
+  "ada_edges_items": [
+    [
+      "BMI",
+      "GenHlth"
+    ],
+    [
+      "BMI",
+      "HighBP"
+    ],
+    [
+      "BMI",
+      "HighChol"
+    ],
+    [
+      "HighBP",
+      "GenHlth"
+    ],
+    [
+      "HighChol",
+      "GenHlth"
+    ],
+    [
+      "PhysActivity",
+      "BMI"
+    ],
+    [
+      "PhysActivity",
+      "GenHlth"
+    ],
+    [
+      "PhysActivity",
+      "HighBP"
+    ],
+    [
+      "PhysActivity",
+      "HighChol"
+    ],
+    [
+      "PhysActivity",
+      "MentHlth"
+    ],
+    [
+      "Smoker",
+      "HighBP"
+    ]
+  ],
+  "pre_generator_single_nonindicator_flip": {
+    "x": 163,
+    "n": 192,
+    "cp95": [
+      0.7903351026962904,
+      0.8964522691300005
+    ]
+  },
+  "O_A1_fully_unactionable_dice_published": {
+    "n": 192,
+    "est": 0.220625,
+    "ci95": [
+      0.19562500000000002,
+      0.24479166666666666
+    ],
+    "ci99": [
+      0.18874791666666668,
+      0.25312604166666663
+    ],
+    "lower_one_sided_99": 0.19166458333333333,
+    "upper_one_sided_99": 0.2502104166666667,
+    "patients_without_cf": 0
+  },
+  "O_share_dice_published": {
+    "n": 192,
+    "est": 0.2704455420490671,
+    "ci95": [
+      0.24633488704442283,
+      0.29364659504626983
+    ]
+  },
+  "touch_share_dice_published": {
+    "n": 192,
+    "est": 0.3997916666666667,
+    "ci95": [
+      0.3629166666666667,
+      0.43604166666666666
+    ]
+  },
+  "O_A2_movability_null": {
+    "T_mean_oshare": 0.2704455420490671,
+    "null_mean_of_means": 0.22818700396825398,
+    "p": 9.99990000099999e-05,
+    "draws": 100000,
+    "n_draws_ge": 9,
+    "n_patients": 192,
+    "max_subsets_per_patient": 36,
+    "changes_outside_movable_set": 0
+  },
+  "H1": {
+    "verdict": "supported",
+    "component_i_replication_lower99_gt_0.10": true,
+    "component_ii_p_lt_0.01": true,
+    "verdict_if_two_sided_99": "supported"
+  },
+  "O_A3_valid_among_requested_lock_minus_published": {
+    "n": 192,
+    "est": 0.026249999999999996,
+    "ci95": [
+      0.0001979166666666808,
+      0.05167187499999997
+    ],
+    "ci99": [
+      -0.008960416666666677,
+      0.05958437499999996
+    ],
+    "lower_one_sided_99": -0.004585416666666672,
+    "upper_one_sided_99": 0.05750416666666666,
+    "published_valid_among_requested": 0.8020833333333334,
+    "lock_valid_among_requested": 0.8283333333333333,
+    "relative_loss": -0.032727272727272584
+  },
+  "coverage_dice": {
+    "published": {
+      "x_valid": 192,
+      "x_returned": 192,
+      "n": 192,
+      "share": 1.0,
+      "cp99": [
+        0.9727818718652851,
+        1.0
+      ],
+      "cp95": [
+        0.9809704778312202,
+        1.0
+      ]
+    },
+    "lock": {
+      "x_valid": 187,
+      "x_returned": 187,
+      "n": 192,
+      "share": 0.9739583333333334,
+      "cp99": [
+        0.9280421948707469,
+        0.9943425719305485
+      ],
+      "cp95": [
+        0.9402767975045574,
+        0.9914914384850049
+      ]
+    },
+    "route": {
+      "x_valid": 191,
+      "x_returned": 192,
+      "n": 192,
+      "share": 0.9947916666666666,
+      "cp99": [
+        0.9619429903557901,
+        0.9999738933521202
+      ],
+      "cp95": [
+        0.97132415814551,
+        0.9998681451103687
+      ]
+    }
+  },
+  "H2": {
+    "verdict": "supported",
+    "lock_coverage_point": 0.9739583333333334,
+    "verdict_if_two_sided_99": "supported"
+  },
+  "route_cost_dice_route_minus_published": {
+    "n": 192,
+    "est": -0.00833333333333333,
+    "ci95": [
+      -0.028333333333333325,
+      0.011255208333333301
+    ],
+    "route_valid_among_requested": 0.7937499999999998,
+    "mean_rounds": 2.066666666666667
+  },
+  "O_A5_dist_lock_minus_route_exhaustive": {
+    "n": 188,
+    "est": 0.01685203094777563,
+    "ci95": [
+      0.005011484526112189,
+      0.0317220744680851
+    ],
+    "ci98": [
+      0.0027796582849774357,
+      0.03441336234687298
+    ],
+    "n_route_only": 4,
+    "n_lock_only": 0,
+    "share_exactly_zero": 0.9574468085106383
+  },
+  "H3": {
+    "verdict": "supported (equivalent)",
+    "near_degenerate_flag": false,
+    "reading": "graph not near-degenerate; verdict read as stated"
+  },
+  "O_A4_route_strictly_better_than_lock": {
+    "x": 8,
+    "n_pairs": 188,
+    "share": 0.0425531914893617,
+    "cp95": [
+      0.018547788384514177,
+      0.0821224141121357
+    ]
+  },
+  "exhaustive_costs": {
+    "published": {
+      "coverage_x": 192,
+      "n": 192,
+      "coverage": 1.0,
+      "cp95": [
+        0.9809704778312202,
+        1.0
+      ],
+      "best_changes": {
+        "n": 192,
+        "est": 1.1145833333333333,
+        "ci95": [
+          1.0729166666666667,
+          1.1614583333333333
+        ]
+      },
+      "best_dist": {
+        "n": 192,
+        "est": 0.3097537878787879,
+        "ci95": [
+          0.2721947995580808,
+          0.3477840909090909
+        ]
+      }
+    },
+    "lock": {
+      "coverage_x": 188,
+      "n": 192,
+      "coverage": 0.9791666666666666,
+      "cp95": [
+        0.9475200885417698,
+        0.9942951367988042
+      ],
+      "best_changes": {
+        "n": 188,
+        "est": 1.1436170212765957,
+        "ci95": [
+          1.0904255319148937,
+          1.196808510638298
+        ]
+      },
+      "best_dist": {
+        "n": 188,
+        "est": 0.3552304964539007,
+        "ci95": [
+          0.3075950999355255,
+          0.4053531995486783
+        ]
+      },
+      "n_changes_minus_published": {
+        "n": 188,
+        "est": 0.0425531914893617,
+        "ci95": [
+          0.015957446808510637,
+          0.07446808510638298
+        ]
+      },
+      "dist_minus_published": {
+        "n": 188,
+        "est": 0.05468246292714378,
+        "ci95": [
+          0.03303292230818827,
+          0.07978098807221147
+        ]
+      }
+    },
+    "route": {
+      "coverage_x": 192,
+      "n": 192,
+      "coverage": 1.0,
+      "cp95": [
+        0.9809704778312202,
+        1.0
+      ],
+      "best_changes": {
+        "n": 192,
+        "est": 1.1510416666666667,
+        "ci95": [
+          1.1041666666666667,
+          1.203125
+        ]
+      },
+      "best_dist": {
+        "n": 192,
+        "est": 0.3470328282828283,
+        "ci95": [
+          0.30388218118686866,
+          0.3931175031565656
+        ]
+      },
+      "n_changes_minus_published": {
+        "n": 192,
+        "est": 0.036458333333333336,
+        "ci95": [
+          0.015494791666666896,
+          0.0625
+        ]
+      },
+      "dist_minus_published": {
+        "n": 192,
+        "est": 0.037279040404040405,
+        "ci95": [
+          0.020098445391414144,
+          0.05569227430555554
+        ]
+      }
+    },
+    "capped": {
+      "coverage_x": 192,
+      "n": 192,
+      "coverage": 1.0,
+      "cp95": [
+        0.9809704778312202,
+        1.0
+      ],
+      "best_changes": {
+        "n": 192,
+        "est": 1.1614583333333333,
+        "ci95": [
+          1.109375,
+          1.21875
+        ]
+      },
+      "best_dist": {
+        "n": 192,
+        "est": 0.35486111111111107,
+        "ci95": [
+          0.30846571180555554,
+          0.4047841698232323
+        ]
+      },
+      "dist_minus_route": {
+        "n": 192,
+        "est": 0.007828282828282828,
+        "ci95": [
+          7.832228535353629e-05,
+          0.018150647095959593
+        ]
+      }
+    }
+  },
+  "software_checks": {
+    "dice_route_leaking_cfs": 0,
+    "exh_route_leaking_cfs": 0,
+    "exh_capped_leaking_cfs": 0,
+    "dice_lock_indicator_touching_cfs": 0,
+    "exh_lock_indicator_touching_cfs": 0,
+    "lemma3_route_worse_than_lock_patients": 0,
+    "depgraph_ada_k1_disagreements": 0
+  },
+  "leakage_published": {
+    "dice_random": {
+      "primary_kdigo_k1": {
+        "n": 192,
+        "est": 0.3072916666666667,
+        "ci95": [
+          0.27373958333333337,
+          0.34105208333333337
+        ],
+        "cf_level_share": 0.3072916666666667
+      },
+      "kdigo_k2_permissive": {
+        "n": 192,
+        "est": 0.3072916666666667,
+        "ci95": [
+          0.27373958333333337,
+          0.34105208333333337
+        ],
+        "cf_level_share": 0.3072916666666667
+      },
+      "kdigo_k2_strict": {
+        "n": 192,
+        "est": 0.3072916666666667,
+        "ci95": [
+          0.27373958333333337,
+          0.34105208333333337
+        ],
+        "cf_level_share": 0.3072916666666667
+      },
+      "union_kdigo_ada_k1": {
+        "n": 192,
+        "est": 0.28729166666666667,
+        "ci95": [
+          0.2556197916666667,
+          0.319375
+        ],
+        "cf_level_share": 0.28729166666666667
+      },
+      "union_kdigo_ada_k2_permissive": {
+        "n": 192,
+        "est": 0.28270833333333334,
+        "ci95": [
+          0.25125000000000003,
+          0.3145833333333334
+        ],
+        "cf_level_share": 0.28270833333333334
+      },
+      "union_kdigo_ada_k2_strict": {
+        "n": 192,
+        "est": 0.28729166666666667,
+        "ci95": [
+          0.2556197916666667,
+          0.319375
+        ],
+        "cf_level_share": 0.28729166666666667
+      },
+      "other_domain_ada_k1": {
+        "n": 192,
+        "est": 0.28729166666666667,
+        "ci95": [
+          0.2556197916666667,
+          0.319375
+        ],
+        "cf_level_share": 0.28729166666666667
+      },
+      "graded_only_kdigo_k1": {
+        "n": 192,
+        "est": 0.3997916666666667,
+        "ci95": [
+          0.3629166666666667,
+          0.43604166666666666
+        ],
+        "cf_level_share": 0.39979166666666666
+      },
+      "in_scope_kdigo_k1": {
+        "n": 192,
+        "est": 0.3397916666666667,
+        "ci95": [
+          0.3060312500000001,
+          0.3750052083333333
+        ],
+        "cf_level_share": 0.33979166666666666
+      },
+      "fully_unactionable": {
+        "n": 192,
+        "est": 0.220625,
+        "ci95": [
+          0.19562500000000002,
+          0.24479166666666666
+        ]
+      },
+      "touch": {
+        "n": 192,
+        "est": 0.3997916666666667,
+        "ci95": [
+          0.3629166666666667,
+          0.43604166666666666
+        ]
+      }
+    },
+    "exhaustive": {
+      "primary_kdigo_k1": {
+        "n": 192,
+        "est": 0.27708333333333335,
+        "ci95": [
+          0.24791666666666667,
+          0.30520833333333336
+        ],
+        "cf_level_share": 0.27824267782426776
+      },
+      "kdigo_k2_permissive": {
+        "n": 192,
+        "est": 0.27708333333333335,
+        "ci95": [
+          0.24791666666666667,
+          0.30520833333333336
+        ],
+        "cf_level_share": 0.27824267782426776
+      },
+      "kdigo_k2_strict": {
+        "n": 192,
+        "est": 0.27708333333333335,
+        "ci95": [
+          0.24791666666666667,
+          0.30520833333333336
+        ],
+        "cf_level_share": 0.27824267782426776
+      },
+      "union_kdigo_ada_k1": {
+        "n": 192,
+        "est": 0.27187500000000003,
+        "ci95": [
+          0.2427083333333334,
+          0.30000000000000004
+        ],
+        "cf_level_share": 0.2730125523012552
+      },
+      "union_kdigo_ada_k2_permissive": {
+        "n": 192,
+        "est": 0.26979166666666665,
+        "ci95": [
+          0.240625,
+          0.2989583333333334
+        ],
+        "cf_level_share": 0.2709205020920502
+      },
+      "union_kdigo_ada_k2_strict": {
+        "n": 192,
+        "est": 0.27187500000000003,
+        "ci95": [
+          0.2427083333333334,
+          0.30000000000000004
+        ],
+        "cf_level_share": 0.2730125523012552
+      },
+      "other_domain_ada_k1": {
+        "n": 192,
+        "est": 0.27187500000000003,
+        "ci95": [
+          0.2427083333333334,
+          0.30000000000000004
+        ],
+        "cf_level_share": 0.2730125523012552
+      },
+      "graded_only_kdigo_k1": {
+        "n": 192,
+        "est": 0.39479166666666665,
+        "ci95": [
+          0.3635416666666667,
+          0.4270833333333333
+        ],
+        "cf_level_share": 0.39330543933054396
+      },
+      "in_scope_kdigo_k1": {
+        "n": 192,
+        "est": 0.3229166666666667,
+        "ci95": [
+          0.29583333333333334,
+          0.3510416666666667
+        ],
+        "cf_level_share": 0.32426778242677823
+      },
+      "fully_unactionable": {
+        "n": 192,
+        "est": 0.22395833333333334,
+        "ci95": [
+          0.19999999999999998,
+          0.25
+        ]
+      },
+      "touch": {
+        "n": 192,
+        "est": 0.39479166666666665,
+        "ci95": [
+          0.3635416666666667,
+          0.4270833333333333
+        ]
+      }
+    }
+  },
+  "change_sizes_supported_indicator_moves": {
+    "dice_published|GenHlth|BMI": {
+      "n": 434,
+      "steps_distribution": {
+        "1": 216,
+        "2": 133,
+        "3": 74,
+        "4": 11
+      },
+      "share_within_cap": 0.4976958525345622,
+      "raw_change_mean": -1.7235023041474655
+    },
+    "dice_published|MentHlth|PhysActivity": {
+      "n": 10,
+      "steps_distribution": {
+        "1": 10
+      },
+      "share_within_cap": 1.0,
+      "raw_change_mean": -2.9
+    },
+    "dice_route|GenHlth|BMI": {
+      "n": 758,
+      "steps_distribution": {
+        "1": 303,
+        "2": 280,
+        "3": 144,
+        "4": 31
+      },
+      "share_within_cap": 0.3997361477572559,
+      "raw_change_mean": -1.8720316622691293
+    },
+    "dice_route|MentHlth|PhysActivity": {
+      "n": 31,
+      "steps_distribution": {
+        "1": 21,
+        "2": 9,
+        "3": 1
+      },
+      "share_within_cap": 0.6774193548387096,
+      "raw_change_mean": -6.645161290322581
+    },
+    "exh_published|GenHlth|BMI": {
+      "n": 112,
+      "steps_distribution": {
+        "1": 84,
+        "2": 20,
+        "3": 8
+      },
+      "share_within_cap": 0.75,
+      "raw_change_mean": -1.3214285714285714
+    },
+    "exh_route|GenHlth|BMI": {
+      "n": 187,
+      "steps_distribution": {
+        "1": 144,
+        "2": 29,
+        "3": 13,
+        "4": 1
+      },
+      "share_within_cap": 0.7700534759358288,
+      "raw_change_mean": -1.3101604278074865
+    },
+    "exh_route|MentHlth|PhysActivity": {
+      "n": 4,
+      "steps_distribution": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1
+      },
+      "share_within_cap": 0.25,
+      "raw_change_mean": -14.75
+    }
+  },
+  "dice_route_share_meeting_cap": 0.9022082018927445,
+  "A_Q4_cross_guideline_agreement": {
+    "dice_random": {
+      "n_cf": 1919,
+      "n_patients": 181,
+      "raw_agreement": 0.9499739447628973,
+      "raw_agreement_ci95": [
+        0.9361253641977697,
+        0.9636127598016185
+      ],
+      "kappa": 0.8692311623707388,
+      "kappa_ci95": [
+        0.8288671714484869,
+        0.90663031871106
+      ],
+      "supported_kdigo": 0.2313705054715998,
+      "supported_ada": 0.28139656070870245,
+      "reading": "routes carry across the two guidelines"
+    },
+    "exhaustive": {
+      "n_cf": 376,
+      "n_patients": 180,
+      "raw_agreement": 0.9867021276595744,
+      "raw_agreement_ci95": [
+        0.975274045261669,
+        0.9971910112359551
+      ],
+      "kappa": 0.9682967959527824,
+      "kappa_ci95": [
+        0.9405272656534392,
+        0.9933025111187869
+      ],
+      "supported_kdigo": 0.2925531914893617,
+      "supported_ada": 0.3058510638297872,
+      "reading": "routes carry across the two guidelines"
+    },
+    "all_generators": {
+      "n_cf": 2295,
+      "n_patients": 185,
+      "raw_agreement": 0.9559912854030501,
+      "raw_agreement_ci95": [
+        0.943760578385932,
+        0.9672918680067487
+      ],
+      "kappa": 0.8868693918488566,
+      "kappa_ci95": [
+        0.8529103739887791,
+        0.9172427454306283
+      ],
+      "supported_kdigo": 0.24139433551198258,
+      "supported_ada": 0.28540305010893247,
+      "reading": "routes carry across the two guidelines"
+    }
+  },
+  "per_cycle_dice_published": {
+    "2017-2020": {
+      "O_A1": {
+        "n": 121,
+        "est": 0.22876033057851242,
+        "ci95": [
+          0.19734710743801653,
+          0.2618264462809917
+        ]
+      },
+      "O_share": {
+        "n": 121,
+        "est": 0.2723417531192533,
+        "ci95": [
+          0.24315736441231361,
+          0.3033653278963103
+        ]
+      }
+    },
+    "2021-2023": {
+      "O_A1": {
+        "n": 71,
+        "est": 0.20676056338028165,
+        "ci95": [
+          0.16901408450704225,
+          0.24846478873239436
+        ]
+      },
+      "O_share": {
+        "n": 71,
+        "est": 0.2672139710702991,
+        "ci95": [
+          0.23004272960331554,
+          0.30679800751682645
+        ]
+      }
+    }
+  },
+  "distinct_cfs_per_patient_dice_published": {
+    "n": 192,
+    "est": 20.265625,
+    "ci95": [
+      19.744791666666668,
+      20.75013020833333
+    ]
+  }
+}

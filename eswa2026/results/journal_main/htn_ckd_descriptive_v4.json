@@ -1,0 +1,156 @@
+{
+  "label": "descriptive, read from existing files",
+  "denominator": "all returned counterfactuals",
+  "htn_main": {
+    "published": {
+      "n_cf": 4454,
+      "n_patients": 183,
+      "patient_mean": {
+        "bmi": 0.9451,
+        "touch": 0.3582,
+        "no_action": 0.0187,
+        "empty": 0.0028,
+        "valid": 0.8697
+      },
+      "pooled": {
+        "bmi": 0.9436,
+        "touch": 0.361,
+        "no_action": 0.0193,
+        "empty": 0.0029,
+        "valid": 0.8702
+      }
+    },
+    "lock": {
+      "n_cf": 4088,
+      "n_patients": 170,
+      "patient_mean": {
+        "bmi": 0.984,
+        "touch": 0.0,
+        "no_action": 0.0,
+        "empty": 0.0028,
+        "valid": 0.9258
+      },
+      "pooled": {
+        "bmi": 0.9833,
+        "touch": 0.0,
+        "no_action": 0.0,
+        "empty": 0.0029,
+        "valid": 0.9229
+      }
+    }
+  },
+  "ckd_ses_freeze": {
+    "published": {
+      "n_cf": 4700,
+      "n_patients": 188,
+      "patient_mean": {
+        "bmi": 0.6687,
+        "touch": 0.4795,
+        "no_action": 0.1351,
+        "empty": 0.0259,
+        "valid": 0.8174
+      },
+      "pooled": {
+        "bmi": 0.6687,
+        "touch": 0.4795,
+        "no_action": 0.1351,
+        "empty": 0.0259,
+        "valid": 0.8174
+      }
+    },
+    "lock": {
+      "n_cf": 4561,
+      "n_patients": 183,
+      "patient_mean": {
+        "bmi": 0.923,
+        "touch": 0.0,
+        "no_action": 0.0,
+        "empty": 0.0142,
+        "valid": 0.9118
+      },
+      "pooled": {
+        "bmi": 0.9228,
+        "touch": 0.0,
+        "no_action": 0.0,
+        "empty": 0.0142,
+        "valid": 0.9118
+      }
+    }
+  },
+  "ckd_frozen": {
+    "published": {
+      "n_cf": 4700,
+      "n_patients": 188,
+      "patient_mean": {
+        "bmi": 0.5091,
+        "touch": 0.3931,
+        "no_action": 0.3029,
+        "empty": 0.0259,
+        "valid": 0.8248
+      },
+      "pooled": {
+        "bmi": 0.5091,
+        "touch": 0.3931,
+        "no_action": 0.3029,
+        "empty": 0.0259,
+        "valid": 0.8248
+      }
+    },
+    "lock": {
+      "n_cf": 4644,
+      "n_patients": 187,
+      "patient_mean": {
+        "bmi": 0.7281,
+        "touch": 0.0,
+        "no_action": 0.1259,
+        "empty": 0.0149,
+        "valid": 0.9028
+      },
+      "pooled": {
+        "bmi": 0.7263,
+        "touch": 0.0,
+        "no_action": 0.1268,
+        "empty": 0.015,
+        "valid": 0.9076
+      }
+    }
+  },
+  "gain_share": {
+    "htn_main": {
+      "Age": 0.3096,
+      "BMI": 0.2114,
+      "Income": 0.0749,
+      "Education": 0.0721,
+      "GenHlth": 0.062,
+      "MentHlth": 0.0532,
+      "Sex": 0.044,
+      "Cycle": 0.0292,
+      "PhysActivity": 0.0268,
+      "Smoker": 0.0258,
+      "Diabetes": 0.0239,
+      "HighChol": 0.0203,
+      "HeartDiseaseorAttack": 0.0132,
+      "AnyHealthcare": 0.013,
+      "Stroke": 0.0117,
+      "KidneyDisease": 0.0082
+    },
+    "ckd": {
+      "Age": 0.3258,
+      "BMI": 0.1623,
+      "Diabetes": 0.0837,
+      "GenHlth": 0.0667,
+      "Education": 0.0637,
+      "Income": 0.062,
+      "MentHlth": 0.0403,
+      "HighBP": 0.0401,
+      "Sex": 0.0274,
+      "Cycle": 0.026,
+      "PhysActivity": 0.0246,
+      "HeartDiseaseorAttack": 0.0212,
+      "Smoker": 0.0163,
+      "HighChol": 0.0151,
+      "AnyHealthcare": 0.0148,
+      "Stroke": 0.0092
+    }
+  }
+}

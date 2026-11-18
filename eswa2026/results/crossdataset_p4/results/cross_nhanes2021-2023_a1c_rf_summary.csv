@@ -1,0 +1,16 @@
+dataset,method,mode,seed,auc,cohort,eligible,n_cf,queries_with_no_cf,validity,n_changes,indicator_changes,cf_touching_indicator,unsupported_edge_rule,fully_unactionable,rounds_mean,secs
+nhanes2021-2023_a1c,random,published,42,0.7844,25,25,125,0,0.992,197,52,49,40,32,1.0,15
+nhanes2021-2023_a1c,random,tableV,42,0.7844,25,25,125,0,0.992,182,0,0,0,0,1.0,16
+nhanes2021-2023_a1c,random,route_A,42,0.7844,25,25,125,0,0.992,187,8,8,0,0,1.88,32
+nhanes2021-2023_a1c,random,published,123,0.7844,25,25,125,0,0.992,184,51,49,39,28,1.0,15
+nhanes2021-2023_a1c,random,tableV,123,0.7844,25,25,125,0,0.992,174,0,0,0,0,1.0,17
+nhanes2021-2023_a1c,random,route_A,123,0.7844,25,25,125,0,0.992,187,7,7,0,0,1.96,36
+nhanes2021-2023_a1c,random,published,2024,0.7844,25,25,125,0,0.992,195,45,45,35,23,1.0,17
+nhanes2021-2023_a1c,random,tableV,2024,0.7844,25,25,125,0,0.992,197,0,0,0,0,1.0,16
+nhanes2021-2023_a1c,random,route_A,2024,0.7844,25,25,125,0,1.0,189,15,15,0,0,1.8,33
+nhanes2021-2023_a1c,random,published,7,0.7844,25,25,125,0,0.992,190,47,45,41,27,1.0,19
+nhanes2021-2023_a1c,random,tableV,7,0.7844,25,25,125,0,0.992,195,0,0,0,0,1.0,22
+nhanes2021-2023_a1c,random,route_A,7,0.7844,25,25,125,0,1.0,199,8,8,0,0,1.96,36
+nhanes2021-2023_a1c,random,published,31337,0.7844,25,25,125,0,0.992,186,46,45,35,25,1.0,19
+nhanes2021-2023_a1c,random,tableV,31337,0.7844,25,25,125,0,0.992,197,0,0,0,0,1.0,19
+nhanes2021-2023_a1c,random,route_A,31337,0.7844,25,25,125,0,1.0,190,8,8,0,0,1.8,32

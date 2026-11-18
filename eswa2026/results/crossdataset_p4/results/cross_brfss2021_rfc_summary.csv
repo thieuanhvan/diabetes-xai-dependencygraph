@@ -1,0 +1,4 @@
+dataset,method,mode,seed,auc,cohort,eligible,n_cf,queries_with_no_cf,validity,n_changes,indicator_changes,cf_touching_indicator,unsupported_edge_rule,fully_unactionable,rounds_mean,secs
+brfss2021,random,published,7,0.7916,200,2369,1000,0,0.9940000000000001,1559,350,334,252,145,1.0,304
+brfss2021,random,tableV,7,0.7916,200,2369,1000,0,0.995,1534,0,0,0,0,1.0,239
+brfss2021,random,route_A,7,0.7916,200,2369,1000,0,0.998,1542,136,136,0,0,1.715,381

@@ -1,0 +1,16 @@
+# Secondary reading: path of at most two Statements through a treatable node (permissive: the treatable node need not
+# be in S; strict: add  ?t kg:inS true .). Same conventions as audit_unsupported_k1.rq.
+PREFIX kg: <https://example.org/anonymised-review/kg#>
+ASK {
+  VALUES ?v { kg:BMI kg:GenHlth }
+  ?rav kg:ofVariable ?v ; kg:assignedIn kg:CKD ; kg:role kg:indicator .
+  FILTER NOT EXISTS {
+    { ?u kg:inS true . ?rau kg:ofVariable ?u ; kg:assignedIn kg:CKD ; kg:role kg:lever .
+      [] a kg:Statement ; kg:subject ?u ; kg:object ?v ; kg:authority ?a1 . VALUES ?a1 { kg:KDIGO kg:ADA } }
+    UNION
+    { ?u kg:inS true . ?rau kg:ofVariable ?u ; kg:assignedIn kg:CKD ; kg:role kg:lever .
+      ?rat kg:ofVariable ?t ; kg:assignedIn kg:CKD ; kg:role kg:treatable .
+      [] a kg:Statement ; kg:subject ?u ; kg:object ?t ; kg:authority ?a2 . VALUES ?a2 { kg:KDIGO kg:ADA }
+      [] a kg:Statement ; kg:subject ?t ; kg:object ?v ; kg:authority ?a3 . VALUES ?a3 { kg:KDIGO kg:ADA } }
+  }
+}

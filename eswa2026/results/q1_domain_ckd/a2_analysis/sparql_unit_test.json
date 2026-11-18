@@ -1,0 +1,33 @@
+{
+  "rdflib": "7.6.0",
+  "test_kdigo_k1": {
+    "n_sets": 10000,
+    "n_distinct_sets_queried": 637,
+    "disagreements": 0,
+    "python_leaking": 3815
+  },
+  "test_ada_k1": {
+    "n_sets": 10000,
+    "n_distinct_sets_queried": 637,
+    "disagreements": 0,
+    "python_leaking": 3111
+  },
+  "test_union_k1": {
+    "n_sets": 10000,
+    "n_distinct_sets_queried": 637,
+    "disagreements": 0,
+    "python_leaking": 3141
+  },
+  "test_union_k2_permissive": {
+    "n_sets": 10000,
+    "n_distinct_sets_queried": 637,
+    "disagreements": 0,
+    "python_leaking": 2789
+  },
+  "test_union_k2_strict": {
+    "n_sets": 10000,
+    "n_distinct_sets_queried": 637,
+    "disagreements": 0,
+    "python_leaking": 3029
+  }
+}

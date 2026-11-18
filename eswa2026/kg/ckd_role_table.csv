@@ -1,0 +1,17 @@
+domain,variable,nhanes_source,concept,role,direction,derivation
+CKD (MONDO:0005300),Diabetes,DIQ010 = 1,DIABETES_HISTORY,immutable,immutable,new Concept; fixed rule: diagnosis_history -> immutable
+CKD (MONDO:0005300),HighBP,mean BPXOSY1-3 >= 130 mmHg (measured),BLOOD_PRESSURE,treatable,monotonic_down,inherited from diabetes RoleAssignment (the dependency-graph study KG export)
+CKD (MONDO:0005300),HighChol,LBXTC >= 240 mg/dL (measured),CHOLESTEROL,treatable,monotonic_down,inherited from diabetes RoleAssignment (the dependency-graph study KG export)
+CKD (MONDO:0005300),BMI,"BMXBMI, integer",BODY_WEIGHT,lever,bidirectional,inherited from diabetes RoleAssignment (the dependency-graph study KG export)
+CKD (MONDO:0005300),Smoker,"SMQ020 = 1 and SMQ040 in {1, 2} (current)",SMOKING,lever,monotonic_down,inherited from diabetes RoleAssignment (the dependency-graph study KG export)
+CKD (MONDO:0005300),PhysActivity,2017-2020 PAQ605; 2021-2023 PAD800/PAD820 (as the dependency-graph study),PHYSICAL_ACTIVITY,lever,monotonic_up,inherited from diabetes RoleAssignment (the dependency-graph study KG export)
+CKD (MONDO:0005300),GenHlth,HUQ010,GENERAL_HEALTH,indicator,monotonic_down,inherited from diabetes RoleAssignment (the dependency-graph study KG export)
+CKD (MONDO:0005300),MentHlth,PHQ-9 total in the dependency-graph study bands,MENTAL_HEALTH,indicator,monotonic_down,inherited from diabetes RoleAssignment (the dependency-graph study KG export)
+CKD (MONDO:0005300),Stroke,MCQ160F,STROKE_HISTORY,immutable,immutable,inherited from diabetes RoleAssignment (the dependency-graph study KG export)
+CKD (MONDO:0005300),HeartDiseaseorAttack,MCQ160C or MCQ160E,CHD_MI_HISTORY,immutable,immutable,inherited from diabetes RoleAssignment (the dependency-graph study KG export)
+CKD (MONDO:0005300),Age,RIDAGEYR,AGE,immutable,immutable,inherited from diabetes RoleAssignment (the dependency-graph study KG export)
+CKD (MONDO:0005300),Sex,RIAGENDR,SEX,immutable,immutable,inherited from diabetes RoleAssignment (the dependency-graph study KG export)
+CKD (MONDO:0005300),Education,DMDEDUC2,EDUCATION,immutable,monotonic_up,inherited from diabetes RoleAssignment (the dependency-graph study KG export)
+CKD (MONDO:0005300),Income,"INDFMPIR, 5 bands",INCOME,immutable,monotonic_up,inherited from diabetes RoleAssignment (the dependency-graph study KG export)
+CKD (MONDO:0005300),AnyHealthcare,HIQ011,HEALTH_COVERAGE,immutable,monotonic_up,inherited from diabetes RoleAssignment (the dependency-graph study KG export)
+CKD (MONDO:0005300),Cycle,"0 = 2017-2020, 1 = 2021-2023",SURVEY_CYCLE,immutable,immutable,new Concept; fixed rule: survey_design -> immutable

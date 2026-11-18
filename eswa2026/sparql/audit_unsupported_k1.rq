@@ -1,0 +1,15 @@
+# Unsupported-indicator audit, primary reading (k = 1, lever sources), as evaluated by code/q1_domain_ckd/a2_sparql_check.py.
+# The change set S of a counterfactual is asserted as temporary triples  kg:<feature> kg:inS true .  before the query,
+# and VALUES lists the features of S. ASK returns true when S contains an indicator with no lever in S that has a
+# Statement (route) into it from an admitted authority (here KDIGO; use kg:ADA for the diabetes domain).
+PREFIX kg: <https://example.org/anonymised-review/kg#>
+ASK {
+  VALUES ?v { kg:BMI kg:GenHlth }                       # the change set S
+  ?rav kg:ofVariable ?v ; kg:assignedIn kg:CKD ; kg:role kg:indicator .
+  FILTER NOT EXISTS {
+    ?u kg:inS true .
+    ?rau kg:ofVariable ?u ; kg:assignedIn kg:CKD ; kg:role kg:lever .
+    [] a kg:Statement ; kg:subject ?u ; kg:object ?v ; kg:authority ?au .
+    VALUES ?au { kg:KDIGO }
+  }
+}

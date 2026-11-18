@@ -1,0 +1,29 @@
+{
+  "title": "diabetes-xai-dependencygraph: guideline knowledge-graph audit of counterfactual recourse (diabetes, chronic kidney disease, hypertension)",
+  "upload_type": "software",
+  "description": "Code, guideline dependency graphs in RDF Turtle with route provenance, SPARQL audit queries, internally time-stamped protocol and post-hoc plans with their SHA-256 hashes, deviation log and derived summary results for a guideline knowledge-graph audit of counterfactual recourse across three surveys (BRFSS, NHIS, NHANES), three diseases (diabetes, chronic kidney disease, hypertension) and six generators. Survey data, fitted models and guideline documents are not included. See eswa2026/README.md.",
+  "creators": [
+    {
+      "name": "Thieu, Van",
+      "orcid": "0009-0003-9637-0195",
+      "affiliation": "University of Information Technology, Ho Chi Minh City, Vietnam; Vietnam National University, Ho Chi Minh City, Vietnam"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "counterfactual explanation",
+    "algorithmic recourse",
+    "knowledge graph",
+    "clinical practice guideline",
+    "diabetes",
+    "chronic kidney disease",
+    "hypertension"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.1016/j.ijmedinf.2026.106555",
+      "relation": "references",
+      "scheme": "doi"
+    }
+  ]
+}

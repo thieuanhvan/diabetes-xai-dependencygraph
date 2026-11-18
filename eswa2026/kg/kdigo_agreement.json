@@ -1,0 +1,200 @@
+{
+  "_about": "the dependency-graph study Q1 step A1, KDIGO agreement (prereg v3 4.4, 4.8). Extractor 2 = fallback Claude instance (event E1). Quotation check and parsing as frozen; unit and strength rule as clarifications C7, C8.",
+  "written": "11/11/2026 19:16",
+  "input_hashes": {
+    "extractor1_claude_v1": "19ce3ad95027784e87214abdced13591f8a7b825bdde24a226e45cee011b2276",
+    "extractor2_claude_fallback_v2": "debfbc3844640c7759bf09dd4a69714c56350c295dc9f8c1fcd39e7d7fe40f0b"
+  },
+  "parse_and_drop_counts": {
+    "extractor1_claude_v1": {
+      "edges_returned": 17,
+      "quotation_fail": 3,
+      "passages_after_quote_check": 14
+    },
+    "extractor2_claude_fallback_v2": {
+      "edges_returned": 16,
+      "quotation_fail": 1,
+      "passages_after_quote_check": 15
+    }
+  },
+  "pairs_before_quote_check": {
+    "extractor1_claude_v1": 7,
+    "extractor2_claude_fallback_v2": 7
+  },
+  "pairs_after_quote_check": {
+    "extractor1_claude_v1": 6,
+    "extractor2_claude_fallback_v2": 7
+  },
+  "agreement_concept_pairs_primary": {
+    "n_pairs": 88,
+    "both": 6,
+    "only_e1": 0,
+    "only_e2": 1,
+    "neither": 81,
+    "observed_agreement": "0.9886",
+    "cohen_kappa": "0.9169",
+    "pabak": "0.9772",
+    "positive_agreement": "0.9230",
+    "negative_agreement": "0.9938"
+  },
+  "agreement_concept_pairs_before_quote_check": {
+    "n_pairs": 88,
+    "both": 7,
+    "only_e1": 0,
+    "only_e2": 0,
+    "neither": 81,
+    "observed_agreement": "1.0000",
+    "cohen_kappa": "1.0000",
+    "pabak": "1.0000",
+    "positive_agreement": "1.0000",
+    "negative_agreement": "1.0000"
+  },
+  "agreement_nhanes_items_secondary": {
+    "n_pairs": 30,
+    "both": 4,
+    "only_e1": 0,
+    "only_e2": 1,
+    "neither": 25,
+    "observed_agreement": "0.9666",
+    "cohen_kappa": "0.8695",
+    "pabak": "0.9333",
+    "positive_agreement": "0.8888",
+    "negative_agreement": "0.9803"
+  },
+  "pairs_only_e1": [],
+  "pairs_only_e2": [
+    [
+      "BODY_WEIGHT",
+      "MENTAL_HEALTH"
+    ]
+  ],
+  "agreed_graph_intersection": [
+    {
+      "source": "BODY_WEIGHT",
+      "target": "BLOOD_PRESSURE",
+      "nhanes_items": [
+        "BMI->HighBP"
+      ],
+      "strength_e1": "narrative",
+      "strength_e2": "narrative",
+      "strength_agreed_weaker": "narrative",
+      "page_e1": 92,
+      "page_e2": 92,
+      "section_e1": "3.3 Diet",
+      "section_e2": "3.3 Diet"
+    },
+    {
+      "source": "BODY_WEIGHT",
+      "target": "CHOLESTEROL",
+      "nhanes_items": [
+        "BMI->HighChol"
+      ],
+      "strength_e1": "narrative",
+      "strength_e2": "narrative",
+      "strength_agreed_weaker": "narrative",
+      "page_e1": 119,
+      "page_e2": 119,
+      "section_e1": "3.15 Cardiovascular disease (CVD) and additional speciﬁc interventions to modify risk",
+      "section_e2": "3.15 Cardiovascular disease (CVD) and additional specific interventions to modify risk (Management)"
+    },
+    {
+      "source": "BODY_WEIGHT",
+      "target": "GENERAL_HEALTH",
+      "nhanes_items": [
+        "BMI->GenHlth"
+      ],
+      "strength_e1": "narrative",
+      "strength_e2": "narrative",
+      "strength_agreed_weaker": "narrative",
+      "page_e1": 95,
+      "page_e2": 92,
+      "section_e1": "3.3.1 Protein intake",
+      "section_e2": "3.3 Diet"
+    },
+    {
+      "source": "BODY_WEIGHT",
+      "target": "PHYSICAL_FUNCTION",
+      "nhanes_items": [],
+      "strength_e1": "narrative",
+      "strength_e2": "narrative",
+      "strength_agreed_weaker": "narrative",
+      "page_e1": 94,
+      "page_e2": 94,
+      "section_e1": "3.3.1 Protein intake",
+      "section_e2": "3.3.1 Protein intake"
+    },
+    {
+      "source": "PHYSICAL_ACTIVITY",
+      "target": "MENTAL_HEALTH",
+      "nhanes_items": [
+        "PhysActivity->MentHlth"
+      ],
+      "strength_e1": "explicit",
+      "strength_e2": "explicit",
+      "strength_agreed_weaker": "explicit",
+      "page_e1": 145,
+      "page_e2": 145,
+      "section_e1": "Table 38",
+      "section_e2": "Table 38 (Continued) Management strategies for common symptoms in CKD (Depression)"
+    },
+    {
+      "source": "PHYSICAL_ACTIVITY",
+      "target": "PHYSICAL_FUNCTION",
+      "nhanes_items": [],
+      "strength_e1": "explicit",
+      "strength_e2": "explicit",
+      "strength_agreed_weaker": "explicit",
+      "page_e1": 144,
+      "page_e2": 144,
+      "section_e1": "Table 38",
+      "section_e2": "Table 38 Management strategies for common symptoms in CKD (Pain)"
+    }
+  ],
+  "union_pairs_secondary": [
+    [
+      "BODY_WEIGHT",
+      "BLOOD_PRESSURE"
+    ],
+    [
+      "BODY_WEIGHT",
+      "CHOLESTEROL"
+    ],
+    [
+      "BODY_WEIGHT",
+      "GENERAL_HEALTH"
+    ],
+    [
+      "BODY_WEIGHT",
+      "MENTAL_HEALTH"
+    ],
+    [
+      "BODY_WEIGHT",
+      "PHYSICAL_FUNCTION"
+    ],
+    [
+      "PHYSICAL_ACTIVITY",
+      "MENTAL_HEALTH"
+    ],
+    [
+      "PHYSICAL_ACTIVITY",
+      "PHYSICAL_FUNCTION"
+    ]
+  ],
+  "reading_rules_A1": {
+    "agreed_nhanes_edges_into_GenHlth_or_MentHlth": [
+      "BMI->GenHlth",
+      "PhysActivity->MentHlth"
+    ],
+    "degenerate": false,
+    "near_degenerate": "not evaluable at A1: needs the cohort's per-patient movability of each supporting lever (prereg 4.8), available only after the CKD model is fitted",
+    "supporting_levers_for_later_near_degenerate_check": [
+      "BMI",
+      "PhysActivity"
+    ],
+    "union_nhanes_edges_into_GenHlth_or_MentHlth_secondary": [
+      "BMI->GenHlth",
+      "BMI->MentHlth",
+      "PhysActivity->MentHlth"
+    ]
+  }
+}

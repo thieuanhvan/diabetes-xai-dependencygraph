@@ -1,0 +1,2024 @@
+{
+  "label": "POST HOC (S-P4), exploratory; preregistered verdicts unchanged",
+  "plan_sha256": "b1c7624aea42fa4e7911e869db77e71f44ccbe9dc983416acaf53c214cdf87e0",
+  "written": "12/11/2026 11:25",
+  "margin": 0.1,
+  "wachter": {
+    "s44": {
+      "cohort_n": 200,
+      "published": {
+        "status": "complete",
+        "coverage_x": 27,
+        "coverage": 0.135,
+        "coverage_cp95": [
+          0.09088710175489771,
+          0.19030917268339845
+        ],
+        "kept_outputs": 113,
+        "valid_among_requested": 0.113,
+        "runs": 24000,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.07966666666666666,
+        "lost_at_rounding": 0.9203333333333333,
+        "valid_after_given_before": 0.07966666666666666,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 31.786,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 2.665942611960311,
+        "kept": {
+          "n": 113,
+          "touch_indicator": 1.0,
+          "genhlth": 1.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.9380530973451328,
+          "presentation": {
+            "with_consequence_shown": 1.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.004756944444444445
+      },
+      "lock": {
+        "status": "complete",
+        "coverage_x": 77,
+        "coverage": 0.385,
+        "coverage_cp95": [
+          0.31722452536286766,
+          0.4562386927831452
+        ],
+        "kept_outputs": 374,
+        "valid_among_requested": 0.374,
+        "runs": 24000,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.356,
+        "lost_at_rounding": 0.644,
+        "valid_after_given_before": 0.356,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 46.092,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 3.4172176308539943,
+        "kept": {
+          "n": 374,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.8957219251336899,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.005030381944444444
+      },
+      "route": {
+        "status": "complete",
+        "coverage_x": 149,
+        "coverage": 0.745,
+        "coverage_cp95": [
+          0.6787246033612795,
+          0.8038591847995418
+        ],
+        "kept_outputs": 688,
+        "valid_among_requested": 0.688,
+        "runs": 24000,
+        "feasible_runs": 18100,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.16303867403314917,
+        "lost_at_rounding": 0.8369613259668508,
+        "valid_after_given_before": 0.16303867403314917,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 24.79270718232044,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 2.8039750704721635,
+        "kept": {
+          "n": 688,
+          "touch_indicator": 0.42877906976744184,
+          "genhlth": 0.29069767441860467,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.7354651162790697,
+          "presentation": {
+            "with_consequence_shown": 0.42877906976744184,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.006996527777777778
+      },
+      "forced": {
+        "status": "complete",
+        "coverage_x": 159,
+        "coverage": 0.795,
+        "coverage_cp95": [
+          0.7323460792147148,
+          0.8486894280044806
+        ],
+        "kept_outputs": 779,
+        "valid_among_requested": 0.779,
+        "runs": 24000,
+        "feasible_runs": 14345,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.27835482746601603,
+        "lost_at_rounding": 0.721645172533984,
+        "valid_after_given_before": 0.27835482746601603,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 34.469362147089576,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 2.378966818376318,
+        "kept": {
+          "n": 779,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.5686777920410783,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.006571180555555556,
+        "j1_equals_lock_share": 1.0
+      },
+      "lockroute": {
+        "status": "complete",
+        "coverage_x": 117,
+        "coverage": 0.585,
+        "coverage_cp95": [
+          0.5133753143831974,
+          0.6540663318192197
+        ],
+        "kept_outputs": 557,
+        "valid_among_requested": 0.557,
+        "runs": 24000,
+        "feasible_runs": 18100,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.18298342541436463,
+        "lost_at_rounding": 0.8170165745856354,
+        "valid_after_given_before": 0.18298342541436463,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 30.382486187845306,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 3.1037321146836407,
+        "kept": {
+          "n": 557,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.6822262118491921,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.008255208333333333
+      },
+      "delta_G_coverage": -0.05,
+      "delta_R_coverage": 0.16
+    },
+    "s45": {
+      "cohort_n": 200,
+      "published": {
+        "status": "complete",
+        "coverage_x": 20,
+        "coverage": 0.1,
+        "coverage_cp95": [
+          0.06215936625406608,
+          0.1502127878677559
+        ],
+        "kept_outputs": 90,
+        "valid_among_requested": 0.09,
+        "runs": 24000,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.06966666666666667,
+        "lost_at_rounding": 0.9303333333333333,
+        "valid_after_given_before": 0.06966666666666667,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 29.5895,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 2.213703703703704,
+        "kept": {
+          "n": 90,
+          "touch_indicator": 1.0,
+          "genhlth": 1.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.9,
+          "presentation": {
+            "with_consequence_shown": 1.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.004678819444444445
+      },
+      "lock": {
+        "status": "complete",
+        "coverage_x": 62,
+        "coverage": 0.31,
+        "coverage_cp95": [
+          0.24665803744172582,
+          0.37907704052032587
+        ],
+        "kept_outputs": 301,
+        "valid_among_requested": 0.301,
+        "runs": 24000,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.27920833333333334,
+        "lost_at_rounding": 0.7207916666666667,
+        "valid_after_given_before": 0.27920833333333334,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 44.413041666666665,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 2.7879794623980674,
+        "kept": {
+          "n": 301,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.9169435215946844,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.0050260416666666665
+      },
+      "route": {
+        "status": "complete",
+        "coverage_x": 136,
+        "coverage": 0.68,
+        "coverage_cp95": [
+          0.6105301149383418,
+          0.7440388123600422
+        ],
+        "kept_outputs": 618,
+        "valid_among_requested": 0.618,
+        "runs": 24000,
+        "feasible_runs": 16780,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.1693087008343266,
+        "lost_at_rounding": 0.8306912991656734,
+        "valid_after_given_before": 0.1693087008343266,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 23.695351609058402,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 2.313545650681573,
+        "kept": {
+          "n": 618,
+          "touch_indicator": 0.4692556634304207,
+          "genhlth": 0.4045307443365696,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.8187702265372169,
+          "presentation": {
+            "with_consequence_shown": 0.4692556634304207,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.00671875
+      },
+      "forced": {
+        "status": "complete",
+        "coverage_x": 148,
+        "coverage": 0.74,
+        "coverage_cp95": [
+          0.6734222463428603,
+          0.7993151451236593
+        ],
+        "kept_outputs": 724,
+        "valid_among_requested": 0.724,
+        "runs": 24000,
+        "feasible_runs": 13605,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.25012862918044837,
+        "lost_at_rounding": 0.7498713708195517,
+        "valid_after_given_before": 0.25012862918044837,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 33.10077177508269,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 2.0765318935208437,
+        "kept": {
+          "n": 724,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.6325966850828729,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.006263020833333333,
+        "j1_equals_lock_share": 1.0
+      },
+      "lockroute": {
+        "status": "complete",
+        "coverage_x": 93,
+        "coverage": 0.465,
+        "coverage_cp95": [
+          0.3943527352614569,
+          0.5367001422116788
+        ],
+        "kept_outputs": 449,
+        "valid_among_requested": 0.449,
+        "runs": 24000,
+        "feasible_runs": 16780,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.17139451728247915,
+        "lost_at_rounding": 0.8286054827175209,
+        "valid_after_given_before": 0.17139451728247915,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 28.96626936829559,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 2.691300533171357,
+        "kept": {
+          "n": 449,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.7639198218262806,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.007903645833333334
+      },
+      "delta_G_coverage": -0.06,
+      "delta_R_coverage": 0.215
+    },
+    "s46": {
+      "cohort_n": 200,
+      "published": {
+        "status": "complete",
+        "coverage_x": 29,
+        "coverage": 0.145,
+        "coverage_cp95": [
+          0.09930862255520755,
+          0.20156149617317962
+        ],
+        "kept_outputs": 122,
+        "valid_among_requested": 0.122,
+        "runs": 24000,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 0.10454166666666667,
+        "valid_after_rounding": 0.042416666666666665,
+        "lost_at_rounding": 0.062125,
+        "valid_after_given_before": 0.4057393383818254,
+        "patients_with_run_valid_before_rounding": 52,
+        "mean_iterations": 9044.308958333333,
+        "share_runs_at_last_lambda_step": 0.8954583333333334,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": 0.7994287133631396,
+        "kept": {
+          "n": 122,
+          "touch_indicator": 1.0,
+          "genhlth": 1.0,
+          "no_action": 0.04918032786885246,
+          "ses_only": 0.0,
+          "ses_touch": 1.0,
+          "presentation": {
+            "with_consequence_shown": 1.0,
+            "with_at_least_one_action": 0.9508196721311475,
+            "action_list_empty_or_ses_only": 0.04918032786885246,
+            "indicator_without_action": 0.04918032786885246
+          }
+        },
+        "cpu_hours": 0.22546440972222223
+      },
+      "lock": {
+        "status": "complete",
+        "coverage_x": 0,
+        "coverage": 0.0,
+        "coverage_cp95": [
+          0.0,
+          0.018275340355136237
+        ],
+        "kept_outputs": 0,
+        "valid_among_requested": 0.0,
+        "runs": 24000,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 0.09733333333333333,
+        "valid_after_rounding": 0.0,
+        "lost_at_rounding": 0.09733333333333333,
+        "valid_after_given_before": 0.0,
+        "patients_with_run_valid_before_rounding": 45,
+        "mean_iterations": 9116.619666666667,
+        "share_runs_at_last_lambda_step": 0.9026666666666666,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": null,
+        "kept": {
+          "n": 0
+        },
+        "cpu_hours": 0.21357638888888889
+      },
+      "route": {
+        "status": "complete",
+        "coverage_x": 139,
+        "coverage": 0.695,
+        "coverage_cp95": [
+          0.6261321954662298,
+          0.7579805629764088
+        ],
+        "kept_outputs": 628,
+        "valid_among_requested": 0.628,
+        "runs": 24000,
+        "feasible_runs": 17510,
+        "valid_before_rounding": 0.7572244431753283,
+        "valid_after_rounding": 0.16493432324386065,
+        "lost_at_rounding": 0.5922901199314677,
+        "valid_after_given_before": 0.2178143148050381,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 2610.973101085094,
+        "share_runs_at_last_lambda_step": 0.2427755568246716,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": 1.4699744257865277,
+        "kept": {
+          "n": 628,
+          "touch_indicator": 0.7707006369426752,
+          "genhlth": 0.7659235668789809,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.802547770700637,
+          "presentation": {
+            "with_consequence_shown": 0.7707006369426752,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.17596788194444443
+      },
+      "forced": {
+        "status": "complete",
+        "coverage_x": 98,
+        "coverage": 0.49,
+        "coverage_cp95": [
+          0.41882251520548525,
+          0.5614782774378337
+        ],
+        "kept_outputs": 471,
+        "valid_among_requested": 0.471,
+        "runs": 24000,
+        "feasible_runs": 14650,
+        "valid_before_rounding": 0.5733788395904437,
+        "valid_after_rounding": 0.0873037542662116,
+        "lost_at_rounding": 0.4860750853242321,
+        "valid_after_given_before": 0.15226190476190476,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 4403.557542662116,
+        "share_runs_at_last_lambda_step": 0.42662116040955633,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": 1.1223187286881555,
+        "kept": {
+          "n": 471,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.21868365180467092,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.2687543402777778,
+        "j1_equals_lock_share": 1.0
+      },
+      "lockroute": {
+        "status": "complete",
+        "coverage_x": 37,
+        "coverage": 0.185,
+        "coverage_cp95": [
+          0.13372866017976165,
+          0.2458634624486785
+        ],
+        "kept_outputs": 164,
+        "valid_among_requested": 0.164,
+        "runs": 24000,
+        "feasible_runs": 17510,
+        "valid_before_rounding": 0.7569388920616791,
+        "valid_after_rounding": 0.07938320959451742,
+        "lost_at_rounding": 0.6775556824671616,
+        "valid_after_given_before": 0.10487400030179568,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 2617.4320388349515,
+        "share_runs_at_last_lambda_step": 0.24306110793832095,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": 1.290983000739098,
+        "kept": {
+          "n": 164,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.2682926829268293,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.27102864583333336
+      },
+      "delta_G_coverage": 0.205,
+      "delta_R_coverage": 0.51
+    },
+    "s48": {
+      "cohort_n": 200,
+      "published": {
+        "status": "complete",
+        "coverage_x": 24,
+        "coverage": 0.12,
+        "coverage_cp95": [
+          0.07842024799636274,
+          0.17327235116412226
+        ],
+        "kept_outputs": 104,
+        "valid_among_requested": 0.104,
+        "runs": 24000,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 0.06954166666666667,
+        "valid_after_rounding": 0.035708333333333335,
+        "lost_at_rounding": 0.03383333333333333,
+        "valid_after_given_before": 0.5134811264230078,
+        "patients_with_run_valid_before_rounding": 35,
+        "mean_iterations": 9351.130125,
+        "share_runs_at_last_lambda_step": 0.9304583333333334,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": 0.7547202797202798,
+        "kept": {
+          "n": 104,
+          "touch_indicator": 1.0,
+          "genhlth": 1.0,
+          "no_action": 0.0673076923076923,
+          "ses_only": 0.0,
+          "ses_touch": 1.0,
+          "presentation": {
+            "with_consequence_shown": 1.0,
+            "with_at_least_one_action": 0.9326923076923077,
+            "action_list_empty_or_ses_only": 0.0673076923076923,
+            "indicator_without_action": 0.0673076923076923
+          }
+        },
+        "cpu_hours": 0.22606336805555555
+      },
+      "lock": {
+        "status": "complete",
+        "coverage_x": 0,
+        "coverage": 0.0,
+        "coverage_cp95": [
+          0.0,
+          0.018275340355136237
+        ],
+        "kept_outputs": 0,
+        "valid_among_requested": 0.0,
+        "runs": 24000,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 0.061125,
+        "valid_after_rounding": 0.0,
+        "lost_at_rounding": 0.061125,
+        "valid_after_given_before": 0.0,
+        "patients_with_run_valid_before_rounding": 32,
+        "mean_iterations": 9435.495333333334,
+        "share_runs_at_last_lambda_step": 0.938875,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": null,
+        "kept": {
+          "n": 0
+        },
+        "cpu_hours": 0.2139670138888889
+      },
+      "route": {
+        "status": "complete",
+        "coverage_x": 149,
+        "coverage": 0.745,
+        "coverage_cp95": [
+          0.6787246033612795,
+          0.8038591847995418
+        ],
+        "kept_outputs": 719,
+        "valid_among_requested": 0.719,
+        "runs": 24000,
+        "feasible_runs": 17230,
+        "valid_before_rounding": 0.675507835171213,
+        "valid_after_rounding": 0.22623331398723157,
+        "lost_at_rounding": 0.4492745211839814,
+        "valid_after_given_before": 0.3349084972935819,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 3402.2647127103887,
+        "share_runs_at_last_lambda_step": 0.324492164828787,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": 1.4613372950646943,
+        "kept": {
+          "n": 719,
+          "touch_indicator": 0.6300417246175244,
+          "genhlth": 0.6300417246175244,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.6258692628650904,
+          "presentation": {
+            "with_consequence_shown": 0.6300417246175244,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.175703125
+      },
+      "forced": {
+        "status": "complete",
+        "coverage_x": 128,
+        "coverage": 0.64,
+        "coverage_cp95": [
+          0.5692860539812827,
+          0.7064952791088333
+        ],
+        "kept_outputs": 622,
+        "valid_among_requested": 0.622,
+        "runs": 24000,
+        "feasible_runs": 14695,
+        "valid_before_rounding": 0.5374617216740388,
+        "valid_after_rounding": 0.1435862538278326,
+        "lost_at_rounding": 0.3938754678462062,
+        "valid_after_given_before": 0.2671562420866042,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 4719.414766927526,
+        "share_runs_at_last_lambda_step": 0.4625382783259612,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": 1.013456104452889,
+        "kept": {
+          "n": 622,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.05627009646302251,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.26557725694444445,
+        "j1_equals_lock_share": 1.0
+      },
+      "lockroute": {
+        "status": "complete",
+        "coverage_x": 57,
+        "coverage": 0.285,
+        "coverage_cp95": [
+          0.22355439801068505,
+          0.3529426997515398
+        ],
+        "kept_outputs": 270,
+        "valid_among_requested": 0.27,
+        "runs": 24000,
+        "feasible_runs": 17230,
+        "valid_before_rounding": 0.6749854904236796,
+        "valid_after_rounding": 0.13047011027278002,
+        "lost_at_rounding": 0.5445153801508996,
+        "valid_after_given_before": 0.1932932072226999,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 3409.9070806732443,
+        "share_runs_at_last_lambda_step": 0.3250145095763204,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": 1.2535465768799103,
+        "kept": {
+          "n": 270,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.025925925925925925,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.1509201388888889
+      },
+      "delta_G_coverage": 0.105,
+      "delta_R_coverage": 0.46
+    },
+    "s49": {
+      "cohort_n": 200,
+      "published": {
+        "status": "complete",
+        "coverage_x": 19,
+        "coverage": 0.095,
+        "coverage_cp95": [
+          0.05816960972512025,
+          0.14437663997685266
+        ],
+        "kept_outputs": 81,
+        "valid_among_requested": 0.081,
+        "runs": 24000,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 0.06825,
+        "valid_after_rounding": 0.022208333333333333,
+        "lost_at_rounding": 0.04604166666666667,
+        "valid_after_given_before": 0.3253968253968254,
+        "patients_with_run_valid_before_rounding": 37,
+        "mean_iterations": 9355.757083333334,
+        "share_runs_at_last_lambda_step": 0.93175,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": 0.7965394687616909,
+        "kept": {
+          "n": 81,
+          "touch_indicator": 1.0,
+          "genhlth": 1.0,
+          "no_action": 0.13580246913580246,
+          "ses_only": 0.0,
+          "ses_touch": 1.0,
+          "presentation": {
+            "with_consequence_shown": 1.0,
+            "with_at_least_one_action": 0.8641975308641975,
+            "action_list_empty_or_ses_only": 0.13580246913580246,
+            "indicator_without_action": 0.13580246913580246
+          }
+        },
+        "cpu_hours": 0.16299479166666667
+      },
+      "lock": {
+        "status": "complete",
+        "coverage_x": 1,
+        "coverage": 0.005,
+        "coverage_cp95": [
+          0.00012658102786701836,
+          0.027541898457205637
+        ],
+        "kept_outputs": 4,
+        "valid_among_requested": 0.004,
+        "runs": 24000,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 0.059458333333333335,
+        "valid_after_rounding": 0.00020833333333333335,
+        "lost_at_rounding": 0.05925,
+        "valid_after_given_before": 0.00350385423966363,
+        "patients_with_run_valid_before_rounding": 30,
+        "mean_iterations": 9444.294625,
+        "share_runs_at_last_lambda_step": 0.9405416666666667,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": 0.7636363636363637,
+        "kept": {
+          "n": 4,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 1.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.16461371527777777
+      },
+      "route": {
+        "status": "complete",
+        "coverage_x": 125,
+        "coverage": 0.625,
+        "coverage_cp95": [
+          0.5539486258174146,
+          0.6922861517823592
+        ],
+        "kept_outputs": 563,
+        "valid_among_requested": 0.563,
+        "runs": 24000,
+        "feasible_runs": 16610,
+        "valid_before_rounding": 0.6577965081276339,
+        "valid_after_rounding": 0.15057194461167972,
+        "lost_at_rounding": 0.5072245635159542,
+        "valid_after_given_before": 0.22890353285740436,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 3543.3540036122818,
+        "share_runs_at_last_lambda_step": 0.34220349187236604,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": 1.6616744711771354,
+        "kept": {
+          "n": 563,
+          "touch_indicator": 0.5452930728241563,
+          "genhlth": 0.5168738898756661,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.49023090586145646,
+          "presentation": {
+            "with_consequence_shown": 0.5452930728241563,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.16548177083333335
+      },
+      "forced": {
+        "status": "complete",
+        "coverage_x": 130,
+        "coverage": 0.65,
+        "coverage_cp95": [
+          0.5795493775220064,
+          0.7159293296770579
+        ],
+        "kept_outputs": 625,
+        "valid_among_requested": 0.625,
+        "runs": 24000,
+        "feasible_runs": 14165,
+        "valid_before_rounding": 0.5418284504059301,
+        "valid_after_rounding": 0.13349805859512884,
+        "lost_at_rounding": 0.4083303918108013,
+        "valid_after_given_before": 0.2463843648208469,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 4656.686692552065,
+        "share_runs_at_last_lambda_step": 0.4581715495940699,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": 1.1490812121212122,
+        "kept": {
+          "n": 625,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.176,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.1845529513888889,
+        "j1_equals_lock_share": 1.0
+      },
+      "lockroute": {
+        "status": "complete",
+        "coverage_x": 56,
+        "coverage": 0.28,
+        "coverage_cp95": [
+          0.2189611556700331,
+          0.3476887372046082
+        ],
+        "kept_outputs": 277,
+        "valid_among_requested": 0.277,
+        "runs": 24000,
+        "feasible_runs": 16610,
+        "valid_before_rounding": 0.6567730282962071,
+        "valid_after_rounding": 0.10102347983142686,
+        "lost_at_rounding": 0.5557495484647803,
+        "valid_after_given_before": 0.15381794848290403,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 3555.973630343167,
+        "share_runs_at_last_lambda_step": 0.3432269717037929,
+        "last_lambda_step_index": 9,
+        "kept_mean_cost": 1.575112132151843,
+        "kept": {
+          "n": 277,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.07942238267148015,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.12979166666666667
+      },
+      "delta_G_coverage": -0.025,
+      "delta_R_coverage": 0.345
+    },
+    "lr": {
+      "cohort_n": 200,
+      "published": {
+        "status": "complete",
+        "coverage_x": 7,
+        "coverage": 0.035,
+        "coverage_cp95": [
+          0.014185525898419248,
+          0.07078099835097719
+        ],
+        "kept_outputs": 35,
+        "valid_among_requested": 0.035,
+        "runs": 24000,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.029375,
+        "lost_at_rounding": 0.970625,
+        "valid_after_given_before": 0.029375,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 30.411833333333334,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 2.9690476190476187,
+        "kept": {
+          "n": 35,
+          "touch_indicator": 1.0,
+          "genhlth": 1.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 1.0,
+          "presentation": {
+            "with_consequence_shown": 1.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.017395833333333333
+      },
+      "lock": {
+        "status": "complete",
+        "coverage_x": 38,
+        "coverage": 0.19,
+        "coverage_cp95": [
+          0.13810312537283967,
+          0.25133151862374425
+        ],
+        "kept_outputs": 181,
+        "valid_among_requested": 0.181,
+        "runs": 24000,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.160375,
+        "lost_at_rounding": 0.839625,
+        "valid_after_given_before": 0.160375,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 52.525333333333336,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 4.469429097605893,
+        "kept": {
+          "n": 181,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 1.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.0119140625
+      },
+      "route": {
+        "status": "complete",
+        "coverage_x": 126,
+        "coverage": 0.63,
+        "coverage_cp95": [
+          0.5590535152152594,
+          0.6970301757287629
+        ],
+        "kept_outputs": 588,
+        "valid_among_requested": 0.588,
+        "runs": 24000,
+        "feasible_runs": 18270,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.2004926108374384,
+        "lost_at_rounding": 0.7995073891625616,
+        "valid_after_given_before": 0.2004926108374384,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 25.03481116584565,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 2.4229669140383425,
+        "kept": {
+          "n": 588,
+          "touch_indicator": 0.48639455782312924,
+          "genhlth": 0.48639455782312924,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.6428571428571429,
+          "presentation": {
+            "with_consequence_shown": 0.48639455782312924,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.015316840277777778
+      },
+      "forced": {
+        "status": "complete",
+        "coverage_x": 82,
+        "coverage": 0.41,
+        "coverage_cp95": [
+          0.34113064567146767,
+          0.4815784147872211
+        ],
+        "kept_outputs": 387,
+        "valid_among_requested": 0.387,
+        "runs": 24000,
+        "feasible_runs": 14300,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.1293006993006993,
+        "lost_at_rounding": 0.8706993006993007,
+        "valid_after_given_before": 0.1293006993006993,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 39.858111888111885,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 3.0396601675671446,
+        "kept": {
+          "n": 387,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.58656330749354,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.01373263888888889,
+        "j1_equals_lock_share": 1.0
+      },
+      "lockroute": {
+        "status": "complete",
+        "coverage_x": 75,
+        "coverage": 0.375,
+        "coverage_cp95": [
+          0.3077138482176408,
+          0.44605137418258545
+        ],
+        "kept_outputs": 357,
+        "valid_among_requested": 0.357,
+        "runs": 24000,
+        "feasible_runs": 18270,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.16141215106732348,
+        "lost_at_rounding": 0.8385878489326766,
+        "valid_after_given_before": 0.16141215106732348,
+        "patients_with_run_valid_before_rounding": 200,
+        "mean_iterations": 32.78790366721401,
+        "share_runs_at_last_lambda_step": 1.0,
+        "last_lambda_step_index": 0,
+        "kept_mean_cost": 3.2289109583227225,
+        "kept": {
+          "n": 357,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.41456582633053224,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "cpu_hours": 0.021671006944444446
+      },
+      "delta_G_coverage": 0.22,
+      "delta_R_coverage": 0.255
+    }
+  },
+  "pooled": {
+    "key_seeds_46_48_49": {
+      "n_seeds": 3,
+      "units": 600,
+      "coverage": {
+        "published": 0.12,
+        "lock": 0.0016666666666666668,
+        "route": 0.6883333333333334,
+        "forced": 0.5933333333333334,
+        "lockroute": 0.25
+      },
+      "delta_G_route_minus_forced": {
+        "point": 0.095,
+        "ci95": [
+          0.03267471091000503,
+          0.15498821230139123
+        ],
+        "n_units": 600,
+        "n_clusters": 382,
+        "reading": "undecided"
+      },
+      "delta_R_route_minus_lockroute": {
+        "point": 0.43833333333333335,
+        "ci95": [
+          0.3879563823857302,
+          0.48963372380795245
+        ],
+        "n_units": 600,
+        "n_clusters": 382,
+        "reading": "graph adds coverage beyond lever forcing (lower 95% bound > margin)"
+      }
+    },
+    "all_accepted_seeds": {
+      "n_seeds": 5,
+      "units": 1000,
+      "coverage": {
+        "published": 0.119,
+        "lock": 0.14,
+        "route": 0.698,
+        "forced": 0.663,
+        "lockroute": 0.36
+      },
+      "delta_G_route_minus_forced": {
+        "point": 0.035,
+        "ci95": [
+          -0.011056953117457866,
+          0.07807887443856586
+        ],
+        "n_units": 1000,
+        "n_clusters": 468,
+        "reading": "lever forcing explains the coverage advantage (upper 95% bound <= margin)"
+      },
+      "delta_R_route_minus_lockroute": {
+        "point": 0.338,
+        "ci95": [
+          0.30209320213102053,
+          0.3736528196762149
+        ],
+        "n_units": 1000,
+        "n_clusters": 468,
+        "reading": "graph adds coverage beyond lever forcing (lower 95% bound > margin)"
+      }
+    }
+  },
+  "ckd": {
+    "ses_freeze": {
+      "cohort_n": 188,
+      "dice_published": {
+        "coverage_x": 188,
+        "coverage": 1.0,
+        "coverage_cp95": [
+          0.9805695533731766,
+          1.0
+        ],
+        "returned": 4700,
+        "valid": 3842,
+        "valid_among_requested": 0.8174468085106383,
+        "all_returned": {
+          "n": 4700,
+          "touch_indicator": 0.4795744680851064,
+          "genhlth": 0.4257446808510638,
+          "no_action": 0.16106382978723405,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.4795744680851064,
+            "with_at_least_one_action": 0.838936170212766,
+            "action_list_empty_or_ses_only": 0.16106382978723405,
+            "indicator_without_action": 0.1351063829787234
+          }
+        },
+        "valid_only": {
+          "n": 3842,
+          "touch_indicator": 0.4651223321186882,
+          "genhlth": 0.40786048932847474,
+          "no_action": 0.10098906819364914,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.4651223321186882,
+            "with_at_least_one_action": 0.8990109318063508,
+            "action_list_empty_or_ses_only": 0.10098906819364914,
+            "indicator_without_action": 0.10098906819364914
+          }
+        }
+      },
+      "dice_lock": {
+        "coverage_x": 183,
+        "coverage": 0.973404255319149,
+        "coverage_cp95": [
+          0.9390287613351789,
+          0.9913092428308564
+        ],
+        "returned": 4561,
+        "valid": 4159,
+        "valid_among_requested": 0.8848936170212766,
+        "all_returned": {
+          "n": 4561,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.014251260688445516,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 0.9857487393115545,
+            "action_list_empty_or_ses_only": 0.014251260688445516,
+            "indicator_without_action": 0.0
+          }
+        },
+        "valid_only": {
+          "n": 4159,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        }
+      },
+      "dice_route": {
+        "coverage_x": 188,
+        "coverage": 1.0,
+        "coverage_cp95": [
+          0.9805695533731766,
+          1.0
+        ],
+        "returned": 4692,
+        "valid": 3887,
+        "valid_among_requested": 0.8270212765957446,
+        "all_returned": {
+          "n": 4692,
+          "touch_indicator": 0.30434782608695654,
+          "genhlth": 0.2994458653026428,
+          "no_action": 0.035379369138959935,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.30434782608695654,
+            "with_at_least_one_action": 0.9646206308610401,
+            "action_list_empty_or_ses_only": 0.035379369138959935,
+            "indicator_without_action": 0.0
+          }
+        },
+        "valid_only": {
+          "n": 3887,
+          "touch_indicator": 0.31669668124517625,
+          "genhlth": 0.3107795214818626,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.31669668124517625,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        }
+      },
+      "dice_forced": {
+        "coverage_x": 183,
+        "coverage": 0.973404255319149,
+        "coverage_cp95": [
+          0.9390287613351789,
+          0.9913092428308564
+        ],
+        "returned": 4575,
+        "valid": 4181,
+        "valid_among_requested": 0.8895744680851064,
+        "all_returned": {
+          "n": 4575,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "valid_only": {
+          "n": 4181,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        }
+      },
+      "exh_published": {
+        "coverage_x": 188,
+        "coverage": 1.0,
+        "mean_best_cost": 0.3531189555125725,
+        "all": {
+          "n": 904,
+          "touch_indicator": 0.5353982300884956,
+          "genhlth": 0.46792035398230086,
+          "no_action": 0.17035398230088494,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.5353982300884956,
+            "with_at_least_one_action": 0.8296460176991151,
+            "action_list_empty_or_ses_only": 0.17035398230088494,
+            "indicator_without_action": 0.17035398230088494
+          }
+        },
+        "best": {
+          "n": 188,
+          "touch_indicator": 0.2872340425531915,
+          "genhlth": 0.2393617021276596,
+          "no_action": 0.2393617021276596,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.2872340425531915,
+            "with_at_least_one_action": 0.7606382978723404,
+            "action_list_empty_or_ses_only": 0.2393617021276596,
+            "indicator_without_action": 0.2393617021276596
+          }
+        }
+      },
+      "exh_lock": {
+        "coverage_x": 183,
+        "coverage": 0.973404255319149,
+        "mean_best_cost": 0.4643152839874151,
+        "all": {
+          "n": 635,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "best": {
+          "n": 183,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        }
+      },
+      "exh_route": {
+        "coverage_x": 188,
+        "coverage": 1.0,
+        "mean_best_cost": 0.4129190844616376,
+        "all": {
+          "n": 849,
+          "touch_indicator": 0.3792697290930506,
+          "genhlth": 0.3404004711425206,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.3792697290930506,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "best": {
+          "n": 188,
+          "touch_indicator": 0.09574468085106383,
+          "genhlth": 0.09574468085106383,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.09574468085106383,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        }
+      },
+      "exh_forced": {
+        "coverage_x": 183,
+        "coverage": 0.973404255319149,
+        "mean_best_cost": 0.4643152839874151,
+        "all": {
+          "n": 635,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "best": {
+          "n": 183,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        }
+      },
+      "exh_forced_minus_route_best_cost": {
+        "n_pairs": 183,
+        "mean": 0.04860076171551582,
+        "share_zero": 0.9289617486338798,
+        "share_negative": 0.0
+      },
+      "delta_dice_coverage_route_minus_forced": {
+        "point": 0.026595744680851064,
+        "ci95": [
+          0.005319148936170213,
+          0.05319148936170213
+        ],
+        "n_units": 188,
+        "n_clusters": 188,
+        "reading_descriptive": "lever forcing explains the coverage advantage (upper 95% bound <= margin)"
+      }
+    },
+    "frozen": {
+      "cohort_n": 188,
+      "dice_published": {
+        "coverage_x": 188,
+        "coverage": 1.0,
+        "coverage_cp95": [
+          0.9805695533731766,
+          1.0
+        ],
+        "returned": 4700,
+        "valid": 3877,
+        "valid_among_requested": 0.8248936170212766,
+        "all_returned": {
+          "n": 4700,
+          "touch_indicator": 0.3931914893617021,
+          "genhlth": 0.35808510638297875,
+          "no_action": 0.32893617021276594,
+          "ses_only": 0.09276595744680852,
+          "ses_touch": 0.3519148936170213,
+          "presentation": {
+            "with_consequence_shown": 0.3931914893617021,
+            "with_at_least_one_action": 0.671063829787234,
+            "action_list_empty_or_ses_only": 0.32893617021276594,
+            "indicator_without_action": 0.2102127659574468
+          }
+        },
+        "valid_only": {
+          "n": 3877,
+          "touch_indicator": 0.3843177714727882,
+          "genhlth": 0.34665978849626,
+          "no_action": 0.26876450864070156,
+          "ses_only": 0.07712148568480784,
+          "ses_touch": 0.35259221047201444,
+          "presentation": {
+            "with_consequence_shown": 0.3843177714727882,
+            "with_at_least_one_action": 0.7312354913592984,
+            "action_list_empty_or_ses_only": 0.26876450864070156,
+            "indicator_without_action": 0.19164302295589372
+          }
+        }
+      },
+      "dice_lock": {
+        "coverage_x": 186,
+        "coverage": 0.9893617021276596,
+        "coverage_cp95": [
+          0.962101112886772,
+          0.9987090462159253
+        ],
+        "returned": 4644,
+        "valid": 4215,
+        "valid_among_requested": 0.8968085106382979,
+        "all_returned": {
+          "n": 4644,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.14190353143841516,
+          "ses_only": 0.12683031869078382,
+          "ses_touch": 0.46425495262704564,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 0.8580964685615848,
+            "action_list_empty_or_ses_only": 0.14190353143841516,
+            "indicator_without_action": 0.0
+          }
+        },
+        "valid_only": {
+          "n": 4215,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.11079478054567023,
+          "ses_only": 0.11079478054567023,
+          "ses_touch": 0.4604982206405694,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 0.8892052194543297,
+            "action_list_empty_or_ses_only": 0.11079478054567023,
+            "indicator_without_action": 0.0
+          }
+        }
+      },
+      "dice_route": {
+        "coverage_x": 188,
+        "coverage": 1.0,
+        "coverage_cp95": [
+          0.9805695533731766,
+          1.0
+        ],
+        "returned": 4695,
+        "valid": 3982,
+        "valid_among_requested": 0.8472340425531915,
+        "all_returned": {
+          "n": 4695,
+          "touch_indicator": 0.162087326943557,
+          "genhlth": 0.15889243876464323,
+          "no_action": 0.16400425985090522,
+          "ses_only": 0.129073482428115,
+          "ses_touch": 0.3529286474973376,
+          "presentation": {
+            "with_consequence_shown": 0.162087326943557,
+            "with_at_least_one_action": 0.8359957401490948,
+            "action_list_empty_or_ses_only": 0.16400425985090522,
+            "indicator_without_action": 0.0
+          }
+        },
+        "valid_only": {
+          "n": 3982,
+          "touch_indicator": 0.16825715720743345,
+          "genhlth": 0.16449020592667002,
+          "no_action": 0.10798593671521849,
+          "ses_only": 0.10798593671521849,
+          "ses_touch": 0.35509794073329987,
+          "presentation": {
+            "with_consequence_shown": 0.16825715720743345,
+            "with_at_least_one_action": 0.8920140632847815,
+            "action_list_empty_or_ses_only": 0.10798593671521849,
+            "indicator_without_action": 0.0
+          }
+        }
+      },
+      "dice_forced": {
+        "coverage_x": 187,
+        "coverage": 0.9946808510638298,
+        "coverage_cp95": [
+          0.9707214381121004,
+          0.9998653398760827
+        ],
+        "returned": 4675,
+        "valid": 4357,
+        "valid_among_requested": 0.9270212765957446,
+        "all_returned": {
+          "n": 4675,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.41005347593582886,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "valid_only": {
+          "n": 4357,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.4078494376864815,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        }
+      },
+      "exh_published": {
+        "coverage_x": 188,
+        "coverage": 1.0,
+        "mean_best_cost": 0.31158123791102516,
+        "all": {
+          "n": 938,
+          "touch_indicator": 0.3752665245202559,
+          "genhlth": 0.3283582089552239,
+          "no_action": 0.35074626865671643,
+          "ses_only": 0.14285714285714285,
+          "ses_touch": 0.3805970149253731,
+          "presentation": {
+            "with_consequence_shown": 0.3752665245202559,
+            "with_at_least_one_action": 0.6492537313432836,
+            "action_list_empty_or_ses_only": 0.35074626865671643,
+            "indicator_without_action": 0.20788912579957355
+          }
+        },
+        "best": {
+          "n": 188,
+          "touch_indicator": 0.2074468085106383,
+          "genhlth": 0.16489361702127658,
+          "no_action": 0.3191489361702128,
+          "ses_only": 0.13829787234042554,
+          "ses_touch": 0.1595744680851064,
+          "presentation": {
+            "with_consequence_shown": 0.2074468085106383,
+            "with_at_least_one_action": 0.6808510638297872,
+            "action_list_empty_or_ses_only": 0.3191489361702128,
+            "indicator_without_action": 0.18085106382978725
+          }
+        }
+      },
+      "exh_lock": {
+        "coverage_x": 186,
+        "coverage": 0.9893617021276596,
+        "mean_best_cost": 0.3493238840013033,
+        "all": {
+          "n": 905,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.18895027624309393,
+          "ses_only": 0.18895027624309393,
+          "ses_touch": 0.5779005524861879,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 0.8110497237569061,
+            "action_list_empty_or_ses_only": 0.18895027624309393,
+            "indicator_without_action": 0.0
+          }
+        },
+        "best": {
+          "n": 186,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.1774193548387097,
+          "ses_only": 0.1774193548387097,
+          "ses_touch": 0.24731182795698925,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 0.8225806451612904,
+            "action_list_empty_or_ses_only": 0.1774193548387097,
+            "indicator_without_action": 0.0
+          }
+        }
+      },
+      "exh_route": {
+        "coverage_x": 188,
+        "coverage": 1.0,
+        "mean_best_cost": 0.3406189555125725,
+        "all": {
+          "n": 933,
+          "touch_indicator": 0.19506966773847803,
+          "genhlth": 0.1907824222936763,
+          "no_action": 0.16184351554126475,
+          "ses_only": 0.16184351554126475,
+          "ses_touch": 0.46516613076098606,
+          "presentation": {
+            "with_consequence_shown": 0.19506966773847803,
+            "with_at_least_one_action": 0.8381564844587353,
+            "action_list_empty_or_ses_only": 0.16184351554126475,
+            "indicator_without_action": 0.0
+          }
+        },
+        "best": {
+          "n": 188,
+          "touch_indicator": 0.047872340425531915,
+          "genhlth": 0.047872340425531915,
+          "no_action": 0.17553191489361702,
+          "ses_only": 0.17553191489361702,
+          "ses_touch": 0.2127659574468085,
+          "presentation": {
+            "with_consequence_shown": 0.047872340425531915,
+            "with_at_least_one_action": 0.824468085106383,
+            "action_list_empty_or_ses_only": 0.17553191489361702,
+            "indicator_without_action": 0.0
+          }
+        }
+      },
+      "exh_forced": {
+        "coverage_x": 186,
+        "coverage": 0.9893617021276596,
+        "mean_best_cost": 0.3968963831867057,
+        "all": {
+          "n": 898,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.5033407572383074,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "best": {
+          "n": 186,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0967741935483871,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        }
+      },
+      "exh_forced_minus_route_best_cost": {
+        "n_pairs": 186,
+        "mean": 0.0559547083740632,
+        "share_zero": 0.7903225806451613,
+        "share_negative": 0.016129032258064516
+      },
+      "delta_dice_coverage_route_minus_forced": {
+        "point": 0.005319148936170213,
+        "ci95": [
+          0.0,
+          0.015957446808510637
+        ],
+        "n_units": 188,
+        "n_clusters": 188,
+        "reading_descriptive": "lever forcing explains the coverage advantage (upper 95% bound <= margin)"
+      }
+    }
+  },
+  "reviewer_checks": {
+    "route_vs_published_coverage_s46": [
+      139,
+      29
+    ],
+    "route_vs_published_coverage_s49": [
+      125,
+      19
+    ],
+    "valid_before_rounding_route_vs_published_s46": [
+      0.7572244431753283,
+      0.10454166666666667
+    ],
+    "lock_s46_runs_valid_before_rounding": 0.09733333333333333,
+    "lock_s46_runs_valid_after_rounding": 0.0,
+    "lock_s46_patients_with_run_valid_before_rounding": 45,
+    "wachter_lr_published_lock_route_coverage": [
+      7,
+      38,
+      126
+    ],
+    "genhlth_sentence": {
+      "s46": {
+        "published_kept_with_genhlth": 1.0,
+        "lock_runs_valid_before_rounding": 0.09733333333333333,
+        "lock_patients_with_run_valid_before_rounding": 45,
+        "lock_coverage_x": 0
+      },
+      "s48": {
+        "published_kept_with_genhlth": 1.0,
+        "lock_runs_valid_before_rounding": 0.061125,
+        "lock_patients_with_run_valid_before_rounding": 32,
+        "lock_coverage_x": 0
+      },
+      "s49": {
+        "published_kept_with_genhlth": 1.0,
+        "lock_runs_valid_before_rounding": 0.059458333333333335,
+        "lock_patients_with_run_valid_before_rounding": 30,
+        "lock_coverage_x": 1
+      }
+    }
+  },
+  "presentation_layer": {
+    "AR/LR range-scaled L1, route-aware": {
+      "n": 1000,
+      "touch_indicator": 0.855,
+      "genhlth": 0.8,
+      "no_action": 0.0,
+      "ses_only": 0.0,
+      "ses_touch": 0.517,
+      "presentation": {
+        "with_consequence_shown": 0.855,
+        "with_at_least_one_action": 1.0,
+        "action_list_empty_or_ses_only": 0.0,
+        "indicator_without_action": 0.0
+      }
+    },
+    "AR/LR native max percentile shift (S-P3), route-aware": {
+      "n": 1000,
+      "touch_indicator": 0.864,
+      "genhlth": 0.823,
+      "no_action": 0.0,
+      "ses_only": 0.0,
+      "ses_touch": 0.508,
+      "presentation": {
+        "with_consequence_shown": 0.864,
+        "with_at_least_one_action": 1.0,
+        "action_list_empty_or_ses_only": 0.0,
+        "indicator_without_action": 0.0
+      }
+    },
+    "Wachter/LR, route-aware kept": {
+      "n": 588,
+      "touch_indicator": 0.48639455782312924,
+      "genhlth": 0.48639455782312924,
+      "no_action": 0.0,
+      "ses_only": 0.0,
+      "ses_touch": 0.6428571428571429,
+      "presentation": {
+        "with_consequence_shown": 0.48639455782312924,
+        "with_at_least_one_action": 1.0,
+        "action_list_empty_or_ses_only": 0.0,
+        "indicator_without_action": 0.0
+      }
+    },
+    "Wachter/MLP seed 44, route-aware kept": {
+      "n": 688,
+      "touch_indicator": 0.42877906976744184,
+      "genhlth": 0.29069767441860467,
+      "no_action": 0.0,
+      "ses_only": 0.0,
+      "ses_touch": 0.7354651162790697,
+      "presentation": {
+        "with_consequence_shown": 0.42877906976744184,
+        "with_at_least_one_action": 1.0,
+        "action_list_empty_or_ses_only": 0.0,
+        "indicator_without_action": 0.0
+      }
+    },
+    "Wachter/MLP seed 45, route-aware kept": {
+      "n": 618,
+      "touch_indicator": 0.4692556634304207,
+      "genhlth": 0.4045307443365696,
+      "no_action": 0.0,
+      "ses_only": 0.0,
+      "ses_touch": 0.8187702265372169,
+      "presentation": {
+        "with_consequence_shown": 0.4692556634304207,
+        "with_at_least_one_action": 1.0,
+        "action_list_empty_or_ses_only": 0.0,
+        "indicator_without_action": 0.0
+      }
+    },
+    "Wachter/MLP seed 46, route-aware kept": {
+      "n": 628,
+      "touch_indicator": 0.7707006369426752,
+      "genhlth": 0.7659235668789809,
+      "no_action": 0.0,
+      "ses_only": 0.0,
+      "ses_touch": 0.802547770700637,
+      "presentation": {
+        "with_consequence_shown": 0.7707006369426752,
+        "with_at_least_one_action": 1.0,
+        "action_list_empty_or_ses_only": 0.0,
+        "indicator_without_action": 0.0
+      }
+    },
+    "Wachter/MLP seed 48, route-aware kept": {
+      "n": 719,
+      "touch_indicator": 0.6300417246175244,
+      "genhlth": 0.6300417246175244,
+      "no_action": 0.0,
+      "ses_only": 0.0,
+      "ses_touch": 0.6258692628650904,
+      "presentation": {
+        "with_consequence_shown": 0.6300417246175244,
+        "with_at_least_one_action": 1.0,
+        "action_list_empty_or_ses_only": 0.0,
+        "indicator_without_action": 0.0
+      }
+    },
+    "Wachter/MLP seed 49, route-aware kept": {
+      "n": 563,
+      "touch_indicator": 0.5452930728241563,
+      "genhlth": 0.5168738898756661,
+      "no_action": 0.0,
+      "ses_only": 0.0,
+      "ses_touch": 0.49023090586145646,
+      "presentation": {
+        "with_consequence_shown": 0.5452930728241563,
+        "with_at_least_one_action": 1.0,
+        "action_list_empty_or_ses_only": 0.0,
+        "indicator_without_action": 0.0
+      }
+    },
+    "CKD DiCE route-aware, ses_freeze, all returned": {
+      "n": 4692,
+      "touch_indicator": 0.30434782608695654,
+      "genhlth": 0.2994458653026428,
+      "no_action": 0.035379369138959935,
+      "ses_only": 0.0,
+      "ses_touch": 0.0,
+      "presentation": {
+        "with_consequence_shown": 0.30434782608695654,
+        "with_at_least_one_action": 0.9646206308610401,
+        "action_list_empty_or_ses_only": 0.035379369138959935,
+        "indicator_without_action": 0.0
+      }
+    },
+    "CKD exhaustive route-aware best, ses_freeze": {
+      "n": 188,
+      "touch_indicator": 0.09574468085106383,
+      "genhlth": 0.09574468085106383,
+      "no_action": 0.0,
+      "ses_only": 0.0,
+      "ses_touch": 0.0,
+      "presentation": {
+        "with_consequence_shown": 0.09574468085106383,
+        "with_at_least_one_action": 1.0,
+        "action_list_empty_or_ses_only": 0.0,
+        "indicator_without_action": 0.0
+      }
+    },
+    "CKD DiCE route-aware, frozen, all returned": {
+      "n": 4695,
+      "touch_indicator": 0.162087326943557,
+      "genhlth": 0.15889243876464323,
+      "no_action": 0.16400425985090522,
+      "ses_only": 0.129073482428115,
+      "ses_touch": 0.3529286474973376,
+      "presentation": {
+        "with_consequence_shown": 0.162087326943557,
+        "with_at_least_one_action": 0.8359957401490948,
+        "action_list_empty_or_ses_only": 0.16400425985090522,
+        "indicator_without_action": 0.0
+      }
+    },
+    "CKD exhaustive route-aware best, frozen": {
+      "n": 188,
+      "touch_indicator": 0.047872340425531915,
+      "genhlth": 0.047872340425531915,
+      "no_action": 0.17553191489361702,
+      "ses_only": 0.17553191489361702,
+      "ses_touch": 0.2127659574468085,
+      "presentation": {
+        "with_consequence_shown": 0.047872340425531915,
+        "with_at_least_one_action": 0.824468085106383,
+        "action_list_empty_or_ses_only": 0.17553191489361702,
+        "indicator_without_action": 0.0
+      }
+    }
+  }
+}

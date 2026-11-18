@@ -1,0 +1,34 @@
+@prefix kg: <https://example.org/anonymised-review/kg#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+kg:ra_Diabetes_CKD a kg:RoleAssignment ; kg:ofVariable kg:Diabetes ; kg:assignedIn kg:CKD ; kg:role kg:immutable .
+kg:ra_HighBP_CKD a kg:RoleAssignment ; kg:ofVariable kg:HighBP ; kg:assignedIn kg:CKD ; kg:role kg:treatable .
+kg:ra_HighChol_CKD a kg:RoleAssignment ; kg:ofVariable kg:HighChol ; kg:assignedIn kg:CKD ; kg:role kg:treatable .
+kg:ra_BMI_CKD a kg:RoleAssignment ; kg:ofVariable kg:BMI ; kg:assignedIn kg:CKD ; kg:role kg:lever .
+kg:ra_Smoker_CKD a kg:RoleAssignment ; kg:ofVariable kg:Smoker ; kg:assignedIn kg:CKD ; kg:role kg:lever .
+kg:ra_PhysActivity_CKD a kg:RoleAssignment ; kg:ofVariable kg:PhysActivity ; kg:assignedIn kg:CKD ; kg:role kg:lever .
+kg:ra_GenHlth_CKD a kg:RoleAssignment ; kg:ofVariable kg:GenHlth ; kg:assignedIn kg:CKD ; kg:role kg:indicator .
+kg:ra_MentHlth_CKD a kg:RoleAssignment ; kg:ofVariable kg:MentHlth ; kg:assignedIn kg:CKD ; kg:role kg:indicator .
+kg:ra_Stroke_CKD a kg:RoleAssignment ; kg:ofVariable kg:Stroke ; kg:assignedIn kg:CKD ; kg:role kg:immutable .
+kg:ra_HeartDiseaseorAttack_CKD a kg:RoleAssignment ; kg:ofVariable kg:HeartDiseaseorAttack ; kg:assignedIn kg:CKD ; kg:role kg:immutable .
+kg:ra_Age_CKD a kg:RoleAssignment ; kg:ofVariable kg:Age ; kg:assignedIn kg:CKD ; kg:role kg:immutable .
+kg:ra_Sex_CKD a kg:RoleAssignment ; kg:ofVariable kg:Sex ; kg:assignedIn kg:CKD ; kg:role kg:immutable .
+kg:ra_Education_CKD a kg:RoleAssignment ; kg:ofVariable kg:Education ; kg:assignedIn kg:CKD ; kg:role kg:immutable .
+kg:ra_Income_CKD a kg:RoleAssignment ; kg:ofVariable kg:Income ; kg:assignedIn kg:CKD ; kg:role kg:immutable .
+kg:ra_AnyHealthcare_CKD a kg:RoleAssignment ; kg:ofVariable kg:AnyHealthcare ; kg:assignedIn kg:CKD ; kg:role kg:immutable .
+kg:ra_Cycle_CKD a kg:RoleAssignment ; kg:ofVariable kg:Cycle ; kg:assignedIn kg:CKD ; kg:role kg:immutable .
+kg:st0 a kg:Statement ; kg:subject kg:BMI ; kg:object kg:HighBP ; kg:authority kg:KDIGO ; kg:graded false ; kg:scopeCKDOnly false .
+kg:st1 a kg:Statement ; kg:subject kg:BMI ; kg:object kg:HighChol ; kg:authority kg:KDIGO ; kg:graded false ; kg:scopeCKDOnly true .
+kg:st2 a kg:Statement ; kg:subject kg:BMI ; kg:object kg:GenHlth ; kg:authority kg:KDIGO ; kg:graded false ; kg:scopeCKDOnly true .
+kg:st3 a kg:Statement ; kg:subject kg:PhysActivity ; kg:object kg:MentHlth ; kg:authority kg:KDIGO ; kg:graded false ; kg:scopeCKDOnly true .
+kg:st4 a kg:Statement ; kg:subject kg:PhysActivity ; kg:object kg:BMI ; kg:authority kg:ADA ; kg:graded true ; kg:scopeCKDOnly false .
+kg:st5 a kg:Statement ; kg:subject kg:BMI ; kg:object kg:HighBP ; kg:authority kg:ADA ; kg:graded true ; kg:scopeCKDOnly false .
+kg:st6 a kg:Statement ; kg:subject kg:BMI ; kg:object kg:HighChol ; kg:authority kg:ADA ; kg:graded true ; kg:scopeCKDOnly false .
+kg:st7 a kg:Statement ; kg:subject kg:PhysActivity ; kg:object kg:HighBP ; kg:authority kg:ADA ; kg:graded true ; kg:scopeCKDOnly false .
+kg:st8 a kg:Statement ; kg:subject kg:Smoker ; kg:object kg:HighBP ; kg:authority kg:ADA ; kg:graded true ; kg:scopeCKDOnly false .
+kg:st9 a kg:Statement ; kg:subject kg:PhysActivity ; kg:object kg:HighChol ; kg:authority kg:ADA ; kg:graded true ; kg:scopeCKDOnly false .
+kg:st10 a kg:Statement ; kg:subject kg:PhysActivity ; kg:object kg:MentHlth ; kg:authority kg:ADA ; kg:graded false ; kg:scopeCKDOnly false .
+kg:st11 a kg:Statement ; kg:subject kg:PhysActivity ; kg:object kg:GenHlth ; kg:authority kg:ADA ; kg:graded false ; kg:scopeCKDOnly false .
+kg:st12 a kg:Statement ; kg:subject kg:BMI ; kg:object kg:GenHlth ; kg:authority kg:ADA ; kg:graded false ; kg:scopeCKDOnly false .
+kg:st13 a kg:Statement ; kg:subject kg:HighBP ; kg:object kg:GenHlth ; kg:authority kg:ADA ; kg:graded false ; kg:scopeCKDOnly false .
+kg:st14 a kg:Statement ; kg:subject kg:HighChol ; kg:object kg:GenHlth ; kg:authority kg:ADA ; kg:graded false ; kg:scopeCKDOnly false .

@@ -1,0 +1,375 @@
+@prefix kg: <https://example.org/anonymised-review/kg#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Guideline dependency graph of the diabetes recourse audit, in knowledge-graph form. An edge states that a guideline names acting on the
+# subject as a recognised route to changing the object. It encodes no effect size and no causal model.
+kg:recognisedRouteTo a rdf:Property ; rdfs:label "recognised route to" .
+
+kg:BMI a kg:SurveyFeature ; rdfs:label "Body mass index" ;
+    kg:role kg:lever ; kg:direction "bidirectional" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C16358> ;
+    skos:closeMatch <http://www.ebi.ac.uk/efo/EFO_0004340> ;
+    skos:closeMatch <https://loinc.org/39156-5> ;
+    rdfs:comment "SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:PhysActivity a kg:SurveyFeature ; rdfs:label "Physical activity in the past 30 days outside work" ;
+    kg:role kg:lever ; kg:direction "monotonic_up" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C17708> ;
+    skos:closeMatch <http://www.ebi.ac.uk/efo/EFO_0003940> ;
+    rdfs:comment "SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:Fruits a kg:SurveyFeature ; rdfs:label "Fruit consumption at least once per day" ;
+    kg:role kg:lever ; kg:direction "monotonic_up" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C172465> ;
+    rdfs:comment "Codes name dietary fruit intake; the survey item is a binary daily-consumption indicator. SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:Veggies a kg:SurveyFeature ; rdfs:label "Vegetable consumption at least once per day" ;
+    kg:role kg:lever ; kg:direction "monotonic_up" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C172466> ;
+    rdfs:comment "Codes name dietary vegetable intake; the survey item is a binary daily-consumption indicator. SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:Smoker a kg:SurveyFeature ; rdfs:label "Smoked at least 100 cigarettes in lifetime" ;
+    kg:role kg:lever ; kg:direction "monotonic_down" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C29719> ;
+    skos:closeMatch <http://www.ebi.ac.uk/efo/EFO_0006527> ;
+    skos:closeMatch <https://loinc.org/63581-3> ;
+    rdfs:comment "SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:HvyAlcoholConsump a kg:SurveyFeature ; rdfs:label "Heavy alcohol consumption" ;
+    kg:role kg:lever ; kg:direction "monotonic_down" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C126384> ;
+    skos:closeMatch <http://www.ebi.ac.uk/efo/EFO_0004329> ;
+    rdfs:comment "NCIt 'Heavy Drinker'; BRFSS uses sex-specific weekly thresholds. SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:NoDocbcCost a kg:SurveyFeature ; rdfs:label "Could not see a doctor in the past year because of cost" ;
+    kg:role kg:lever ; kg:direction "monotonic_down" ;
+    skos:closeMatch <https://loinc.org/99552-2> ;
+    rdfs:comment "No NCIt, HPO, MONDO or EFO concept for a cost barrier to care was found. SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:HighBP a kg:SurveyFeature ; rdfs:label "High blood pressure (told by a health professional)" ;
+    kg:role kg:treatable ; kg:direction "monotonic_down" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C3117> ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/HP_0000822> ;
+    rdfs:comment "No LOINC survey item for 'ever told high blood pressure' was found in the NLM LOINC search. SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:HighChol a kg:SurveyFeature ; rdfs:label "High blood cholesterol (told by a health professional)" ;
+    kg:role kg:treatable ; kg:direction "monotonic_down" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C37967> ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/HP_0003124> ;
+    skos:closeMatch <https://loinc.org/58292-4> ;
+    rdfs:comment "SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:GenHlth a kg:SurveyFeature ; rdfs:label "Self-rated general health (1 excellent to 5 poor)" ;
+    kg:role kg:indicator ; kg:direction "monotonic_down" ;
+    skos:closeMatch <http://www.ebi.ac.uk/efo/EFO_0004778> ;
+    skos:closeMatch <https://loinc.org/66576-0> ;
+    rdfs:comment "SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:PhysHlth a kg:SurveyFeature ; rdfs:label "Days of poor physical health in the past 30 days" ;
+    kg:role kg:indicator ; kg:direction "monotonic_down" ;
+    skos:closeMatch <https://loinc.org/66577-8> ;
+    rdfs:comment "CDC HRQOL-4 item; no ontology concept for days of poor physical health was found. SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:MentHlth a kg:SurveyFeature ; rdfs:label "Days of poor mental health in the past 30 days" ;
+    kg:role kg:indicator ; kg:direction "monotonic_down" ;
+    skos:closeMatch <https://loinc.org/66578-6> ;
+    rdfs:comment "CDC HRQOL-4 item; no ontology concept for days of poor mental health was found. SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:DiffWalk a kg:SurveyFeature ; rdfs:label "Serious difficulty walking or climbing stairs" ;
+    kg:role kg:indicator ; kg:direction "conditional" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C198638> ;
+    skos:closeMatch <https://loinc.org/69859-7> ;
+    rdfs:comment "SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:Age a kg:SurveyFeature ; rdfs:label "Age group" ;
+    kg:role kg:immutable ; kg:direction "immutable" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C25150> ;
+    skos:closeMatch <http://www.ebi.ac.uk/efo/EFO_0000246> ;
+    skos:closeMatch <https://loinc.org/30525-0> ;
+    rdfs:comment "SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:Sex a kg:SurveyFeature ; rdfs:label "Sex" ;
+    kg:role kg:immutable ; kg:direction "immutable" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C28421> ;
+    skos:closeMatch <https://loinc.org/46098-0> ;
+    rdfs:comment "SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:Stroke a kg:SurveyFeature ; rdfs:label "Ever told had a stroke" ;
+    kg:role kg:immutable ; kg:direction "immutable" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C3390> ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/HP_0001297> ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/MONDO_0005098> ;
+    skos:closeMatch <https://loinc.org/78925-5> ;
+    rdfs:comment "SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:HeartDiseaseorAttack a kg:SurveyFeature ; rdfs:label "Coronary heart disease or myocardial infarction" ;
+    kg:role kg:immutable ; kg:direction "immutable" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C26732> ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/HP_0001658> ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/MONDO_0005010> ;
+    rdfs:comment "The item merges coronary heart disease and myocardial infarction; one code is given for each. SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:Income a kg:SurveyFeature ; rdfs:label "Household income category" ;
+    kg:role kg:immutable ; kg:direction "monotonic_up" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C41150> ;
+    skos:closeMatch <http://www.ebi.ac.uk/efo/EFO_0009695> ;
+    skos:closeMatch <https://loinc.org/108248-6> ;
+    rdfs:comment "SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:Education a kg:SurveyFeature ; rdfs:label "Education level" ;
+    kg:role kg:immutable ; kg:direction "monotonic_up" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C17953> ;
+    skos:closeMatch <http://www.ebi.ac.uk/efo/EFO_0011015> ;
+    skos:closeMatch <https://loinc.org/82589-3> ;
+    rdfs:comment "SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:AnyHealthcare a kg:SurveyFeature ; rdfs:label "Any health care coverage" ;
+    kg:role kg:immutable ; kg:direction "monotonic_up" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C157356> ;
+    skos:closeMatch <https://loinc.org/63513-6> ;
+    rdfs:comment "SNOMED CT and UMLS codes not assigned (licence required)." .
+kg:CholCheck a kg:SurveyFeature ; rdfs:label "Cholesterol check within five years" ;
+    kg:role kg:immutable ; kg:direction "monotonic_up" ;
+    skos:closeMatch <http://purl.obolibrary.org/obo/NCIT_C105586> ;
+    skos:closeMatch <http://www.ebi.ac.uk/efo/EFO_0004574> ;
+    rdfs:comment "Codes name the cholesterol test; the survey item records whether a check took place within five years. SNOMED CT and UMLS codes not assigned (licence required)." .
+
+kg:PhysActivity kg:recognisedRouteTo kg:BMI .
+kg:PhysActivity kg:recognisedRouteTo kg:BMI .
+kg:Fruits kg:recognisedRouteTo kg:BMI .
+kg:Veggies kg:recognisedRouteTo kg:BMI .
+kg:Fruits kg:recognisedRouteTo kg:BMI .
+kg:Veggies kg:recognisedRouteTo kg:BMI .
+kg:BMI kg:recognisedRouteTo kg:HighBP .
+kg:BMI kg:recognisedRouteTo kg:HighChol .
+kg:BMI kg:recognisedRouteTo kg:HighBP .
+kg:PhysActivity kg:recognisedRouteTo kg:HighBP .
+kg:Fruits kg:recognisedRouteTo kg:HighBP .
+kg:Veggies kg:recognisedRouteTo kg:HighBP .
+kg:HvyAlcoholConsump kg:recognisedRouteTo kg:HighBP .
+kg:Smoker kg:recognisedRouteTo kg:HighBP .
+kg:HvyAlcoholConsump kg:recognisedRouteTo kg:HighBP .
+kg:PhysActivity kg:recognisedRouteTo kg:HighChol .
+kg:Fruits kg:recognisedRouteTo kg:HighChol .
+kg:Veggies kg:recognisedRouteTo kg:HighChol .
+kg:PhysActivity kg:recognisedRouteTo kg:PhysHlth .
+kg:PhysActivity kg:recognisedRouteTo kg:MentHlth .
+kg:PhysActivity kg:recognisedRouteTo kg:GenHlth .
+kg:Smoker kg:recognisedRouteTo kg:PhysHlth .
+kg:BMI kg:recognisedRouteTo kg:GenHlth .
+kg:BMI kg:recognisedRouteTo kg:PhysHlth .
+kg:HighBP kg:recognisedRouteTo kg:GenHlth .
+kg:HighChol kg:recognisedRouteTo kg:GenHlth .
+kg:PhysActivity kg:recognisedRouteTo kg:BMI .
+kg:BMI kg:recognisedRouteTo kg:HighBP .
+kg:PhysActivity kg:recognisedRouteTo kg:HighBP .
+kg:HvyAlcoholConsump kg:recognisedRouteTo kg:HighBP .
+kg:PhysActivity kg:recognisedRouteTo kg:HighChol .
+kg:PhysActivity kg:recognisedRouteTo kg:HighChol .
+
+kg:e01 a rdf:Statement ; rdf:subject kg:PhysActivity ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:BMI ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S5, Rec 5.12" ;
+    kg:strength "graded" ; kg:grade "A" ;
+    kg:supportScore "0.9"^^xsd:decimal ;
+    kg:paraphrase "A weight-management plan built on nutrition, physical activity and behavioural support targets 5-7% weight loss."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S005> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e02 a rdf:Statement ; rdf:subject kg:PhysActivity ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:BMI ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S8, Rec 8.8a" ;
+    kg:strength "graded" ; kg:grade "A" ;
+    kg:supportScore "0.9"^^xsd:decimal ;
+    kg:paraphrase "Structured counselling centred on nutrition and physical activity to achieve a daily energy deficit."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S008> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e03 a rdf:Statement ; rdf:subject kg:Fruits ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:BMI ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S5, Rec 5.14" ;
+    kg:strength "graded" ; kg:grade "B" ;
+    kg:supportScore "0.7"^^xsd:decimal ;
+    kg:paraphrase "Eating patterns should emphasise whole fruits, among other principles."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S005> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e04 a rdf:Statement ; rdf:subject kg:Veggies ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:BMI ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S5, Rec 5.14" ;
+    kg:strength "graded" ; kg:grade "B" ;
+    kg:supportScore "0.7"^^xsd:decimal ;
+    kg:paraphrase "Eating patterns should emphasise nonstarchy vegetables, among other principles."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S005> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e05 a rdf:Statement ; rdf:subject kg:Fruits ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:BMI ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S5, Rec 5.12" ;
+    kg:strength "graded" ; kg:grade "A" ;
+    kg:supportScore "0.9"^^xsd:decimal ;
+    kg:paraphrase "Nutrition is one of the three components of the weight-management plan."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S005> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e06 a rdf:Statement ; rdf:subject kg:Veggies ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:BMI ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S5, Rec 5.12" ;
+    kg:strength "graded" ; kg:grade "A" ;
+    kg:supportScore "0.9"^^xsd:decimal ;
+    kg:paraphrase "Nutrition is one of the three components of the weight-management plan."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S005> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e07 a rdf:Statement ; rdf:subject kg:BMI ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighBP ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S8, Rec 8.5" ;
+    kg:strength "graded" ; kg:grade "A" ;
+    kg:supportScore "0.9"^^xsd:decimal ;
+    kg:paraphrase "Weight loss of 5-7% improves glycaemia and intermediate cardiovascular risk factors."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S008> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e08 a rdf:Statement ; rdf:subject kg:BMI ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighChol ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S8, Rec 8.5" ;
+    kg:strength "graded" ; kg:grade "A" ;
+    kg:supportScore "0.9"^^xsd:decimal ;
+    kg:paraphrase "Same recommendation; dyslipidaemia is among the intermediate cardiovascular risk factors."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S008> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e09 a rdf:Statement ; rdf:subject kg:BMI ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighBP ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S10, Rec 10.5" ;
+    kg:strength "graded" ; kg:grade "A" ;
+    kg:supportScore "0.9"^^xsd:decimal ;
+    kg:paraphrase "Weight loss is the first lifestyle behaviour advised above 120/80 mmHg."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S010> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e10 a rdf:Statement ; rdf:subject kg:PhysActivity ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighBP ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S10, Rec 10.5" ;
+    kg:strength "graded" ; kg:grade "A" ;
+    kg:supportScore "0.9"^^xsd:decimal ;
+    kg:paraphrase "Increased physical activity is one of the advised lifestyle behaviours."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S010> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e11 a rdf:Statement ; rdf:subject kg:Fruits ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighBP ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S10, Rec 10.5" ;
+    kg:strength "graded" ; kg:grade "A" ;
+    kg:supportScore "0.9"^^xsd:decimal ;
+    kg:paraphrase "A DASH-style eating pattern is one of the advised lifestyle behaviours."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S010> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e12 a rdf:Statement ; rdf:subject kg:Veggies ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighBP ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S10, Rec 10.5" ;
+    kg:strength "graded" ; kg:grade "A" ;
+    kg:supportScore "0.9"^^xsd:decimal ;
+    kg:paraphrase "A DASH-style eating pattern is one of the advised lifestyle behaviours."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S010> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e13 a rdf:Statement ; rdf:subject kg:HvyAlcoholConsump ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighBP ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S10, Rec 10.5" ;
+    kg:strength "graded" ; kg:grade "A" ;
+    kg:supportScore "0.9"^^xsd:decimal ;
+    kg:paraphrase "Limiting or avoiding alcohol is one of the advised lifestyle behaviours."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S010> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e14 a rdf:Statement ; rdf:subject kg:Smoker ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighBP ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S10, Rec 10.5" ;
+    kg:strength "graded" ; kg:grade "A" ;
+    kg:supportScore "0.9"^^xsd:decimal ;
+    kg:paraphrase "Smoking cessation is one of the advised lifestyle behaviours."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S010> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e15 a rdf:Statement ; rdf:subject kg:HvyAlcoholConsump ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighBP ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S5, Rec 5.18" ;
+    kg:strength "graded" ; kg:grade "B" ;
+    kg:supportScore "0.7"^^xsd:decimal ;
+    kg:paraphrase "Adults with or at risk of diabetes should not exceed recommended daily alcohol limits."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S005> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e16 a rdf:Statement ; rdf:subject kg:PhysActivity ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighChol ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S10, Rec 10.15" ;
+    kg:strength "graded" ; kg:grade "C" ;
+    kg:supportScore "0.5"^^xsd:decimal ;
+    kg:paraphrase "Lifestyle therapy is intensified for raised triglycerides or low HDL."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S010> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e17 a rdf:Statement ; rdf:subject kg:Fruits ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighChol ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S10, Rec 10.15" ;
+    kg:strength "graded" ; kg:grade "C" ;
+    kg:supportScore "0.5"^^xsd:decimal ;
+    kg:paraphrase "Lifestyle therapy is intensified for raised triglycerides or low HDL."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S010> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e18 a rdf:Statement ; rdf:subject kg:Veggies ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighChol ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S10, Rec 10.15" ;
+    kg:strength "graded" ; kg:grade "C" ;
+    kg:supportScore "0.5"^^xsd:decimal ;
+    kg:paraphrase "Lifestyle therapy is intensified for raised triglycerides or low HDL."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S010> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e19 a rdf:Statement ; rdf:subject kg:PhysActivity ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:PhysHlth ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S5, physical activity narrative" ;
+    kg:strength "narrative" ; kg:grade "" ;
+    kg:supportScore "0.2"^^xsd:decimal ;
+    kg:paraphrase "Physical activity is described as favourably affecting mobility and physical function."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S005> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e20 a rdf:Statement ; rdf:subject kg:PhysActivity ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:MentHlth ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S5, physical activity narrative" ;
+    kg:strength "narrative" ; kg:grade "" ;
+    kg:supportScore "0.2"^^xsd:decimal ;
+    kg:paraphrase "Physical activity is described as favourably affecting psychosocial well-being, and as benefiting depressive symptoms."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S005> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e21 a rdf:Statement ; rdf:subject kg:PhysActivity ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:GenHlth ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S5, physical activity narrative" ;
+    kg:strength "narrative" ; kg:grade "" ;
+    kg:supportScore "0.2"^^xsd:decimal ;
+    kg:paraphrase "Physical activity is described as favourably affecting glycaemia, cardiovascular risk factors, weight, body composition and physical function."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S005> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e22 a rdf:Statement ; rdf:subject kg:Smoker ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:PhysHlth ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S5, tobacco narrative" ;
+    kg:strength "narrative" ; kg:grade "" ;
+    kg:supportScore "0.2"^^xsd:decimal ;
+    kg:paraphrase "Smoking is described as causally linked to multiple health risks that affect morbidity in people with diabetes."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S005> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e23 a rdf:Statement ; rdf:subject kg:BMI ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:GenHlth ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S8, obesity narrative" ;
+    kg:strength "narrative" ; kg:grade "" ;
+    kg:supportScore "0.2"^^xsd:decimal ;
+    kg:paraphrase "Obesity treatment is framed as improving health outcomes broadly."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S008> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e24 a rdf:Statement ; rdf:subject kg:BMI ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:PhysHlth ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S8, obesity narrative" ;
+    kg:strength "narrative" ; kg:grade "" ;
+    kg:supportScore "0.2"^^xsd:decimal ;
+    kg:paraphrase "Obesity treatment is framed as improving health outcomes broadly."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S008> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e25 a rdf:Statement ; rdf:subject kg:HighBP ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:GenHlth ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S10, narrative" ;
+    kg:strength "narrative" ; kg:grade "" ;
+    kg:supportScore "0.2"^^xsd:decimal ;
+    kg:paraphrase "Blood-pressure control is framed as reducing cardiovascular risk and improving outcomes."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S010> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e26 a rdf:Statement ; rdf:subject kg:HighChol ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:GenHlth ;
+    kg:authority kg:ADA2026 ; kg:location "SoC 2026, S10, narrative" ;
+    kg:strength "narrative" ; kg:grade "" ;
+    kg:supportScore "0.2"^^xsd:decimal ;
+    kg:paraphrase "Lipid control is framed as reducing cardiovascular risk and improving outcomes."@en ;
+    kg:documentLink <https://doi.org/10.2337/dc26-S010> ;
+    kg:extraction "single reader (conference paper)" .
+kg:e27 a rdf:Statement ; rdf:subject kg:PhysActivity ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:BMI ;
+    kg:authority kg:MoH5481 ; kg:location "p. 30, Phan 4 §5.1e Khuyen cao hoat dong the luc (p30); also §5.1 intro p29; §6.2.2a p35" ;
+    kg:strength "explicit" ; kg:grade "" ;
+    kg:supportScore "0.6"^^xsd:decimal ;
+    kg:quotation "luyện tập thể lực được giám sát ... giảm và duy trì cân nặng"@vi ;
+    kg:extraction "two independent LLM-agent extractions; agreed edges only" .
+kg:e28 a rdf:Statement ; rdf:subject kg:BMI ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighBP ;
+    kg:authority kg:MoH5481 ; kg:location "p. 35, Phan 4 §6.1.3c Tang huyet ap - Dieu tri" ;
+    kg:strength "explicit" ; kg:grade "" ;
+    kg:supportScore "0.6"^^xsd:decimal ;
+    kg:quotation "Điều trị tăng huyết áp bằng thay đổi lối sống bao gồm giảm cân"@vi ;
+    kg:extraction "two independent LLM-agent extractions; agreed edges only" .
+kg:e29 a rdf:Statement ; rdf:subject kg:PhysActivity ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighBP ;
+    kg:authority kg:MoH5481 ; kg:location "p. 35, Phan 4 §6.1.3c Tang huyet ap - Dieu tri" ;
+    kg:strength "explicit" ; kg:grade "" ;
+    kg:supportScore "0.6"^^xsd:decimal ;
+    kg:quotation "điều trị tăng huyết áp ... hạn chế uống rượu và tăng hoạt động thể lực"@vi ;
+    kg:extraction "two independent LLM-agent extractions; agreed edges only" .
+kg:e30 a rdf:Statement ; rdf:subject kg:HvyAlcoholConsump ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighBP ;
+    kg:authority kg:MoH5481 ; kg:location "p. 35, Phan 4 §6.1.3c Tang huyet ap - Dieu tri" ;
+    kg:strength "explicit" ; kg:grade "" ;
+    kg:supportScore "0.6"^^xsd:decimal ;
+    kg:quotation "điều trị tăng huyết áp bằng thay đổi lối sống ... hạn chế uống rượu"@vi ;
+    kg:extraction "two independent LLM-agent extractions; agreed edges only" .
+kg:e31 a rdf:Statement ; rdf:subject kg:PhysActivity ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighChol ;
+    kg:authority kg:MoH5481 ; kg:location "p. 35, Phan 4 §6.2.2a Roi loan lipid mau - Dieu tri - Thay doi loi song" ;
+    kg:strength "explicit" ; kg:grade "" ;
+    kg:supportScore "0.6"^^xsd:decimal ;
+    kg:quotation "Rối loạn lipid máu, điều trị: chế độ ăn tốt cho tim mạch, hoạt động thể lực"@vi ;
+    kg:extraction "two independent LLM-agent extractions; agreed edges only" .
+kg:e32 a rdf:Statement ; rdf:subject kg:PhysActivity ; rdf:predicate kg:recognisedRouteTo ; rdf:object kg:HighChol ;
+    kg:authority kg:WHO_HEARTSD ; kg:location "p. 24, 3 Macrovascular complications - Control of blood lipids" ;
+    kg:strength "narrative" ; kg:grade "" ;
+    kg:supportScore "0.2"^^xsd:decimal ;
+    kg:quotation "improvement in lipid profile ... with a healthy diet and physical activity"@en ;
+    kg:extraction "two independent LLM-agent extractions; agreed edges only" .
+
+kg:ADA2026 rdfs:label "American Diabetes Association, Standards of Care in Diabetes 2026" ; rdfs:seeAlso <https://doi.org/10.2337/dc26-SINT> .
+kg:MoH5481 rdfs:label "Ministry of Health of Vietnam, Decision 5481/QD-BYT (2020)" .
+kg:WHO_HEARTSD rdfs:label "World Health Organization, HEARTS-D (2020), WHO/UCN/NCD/20.1" .

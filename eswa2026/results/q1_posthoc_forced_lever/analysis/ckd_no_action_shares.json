@@ -1,0 +1,153 @@
+{
+  "label": "reporting only, read from existing files",
+  "denominator": "all returned counterfactuals",
+  "metric": "no lever and no treatable change",
+  "frozen": {
+    "published": {
+      "n_cf": 4700,
+      "n_patients": 188,
+      "patient_mean": {
+        "no_action": 0.3029,
+        "fully": 0.2102,
+        "ses_only": 0.0927,
+        "empty": 0.0259,
+        "valid": 0.8248
+      },
+      "pooled": {
+        "no_action": 0.3029,
+        "fully": 0.2102,
+        "ses_only": 0.0927,
+        "empty": 0.0259,
+        "valid": 0.8248
+      }
+    },
+    "lock": {
+      "n_cf": 4644,
+      "n_patients": 187,
+      "patient_mean": {
+        "no_action": 0.1259,
+        "fully": 0.0,
+        "ses_only": 0.1259,
+        "empty": 0.0149,
+        "valid": 0.9028
+      },
+      "pooled": {
+        "no_action": 0.1268,
+        "fully": 0.0,
+        "ses_only": 0.1268,
+        "empty": 0.015,
+        "valid": 0.9076
+      }
+    },
+    "route": {
+      "n_cf": 4695,
+      "n_patients": 188,
+      "patient_mean": {
+        "no_action": 0.1289,
+        "fully": 0.0,
+        "ses_only": 0.1289,
+        "empty": 0.035,
+        "valid": 0.8476
+      },
+      "pooled": {
+        "no_action": 0.129,
+        "fully": 0.0,
+        "ses_only": 0.129,
+        "empty": 0.0349,
+        "valid": 0.8481
+      }
+    },
+    "forced": {
+      "n_cf": 4675,
+      "n_patients": 187,
+      "patient_mean": {
+        "no_action": 0.0,
+        "fully": 0.0,
+        "ses_only": 0.0,
+        "empty": 0.0,
+        "valid": 0.9319
+      },
+      "pooled": {
+        "no_action": 0.0,
+        "fully": 0.0,
+        "ses_only": 0.0,
+        "empty": 0.0,
+        "valid": 0.9319
+      }
+    }
+  },
+  "ses_freeze": {
+    "published": {
+      "n_cf": 4700,
+      "n_patients": 188,
+      "patient_mean": {
+        "no_action": 0.1351,
+        "fully": 0.1351,
+        "ses_only": 0.0,
+        "empty": 0.0259,
+        "valid": 0.8174
+      },
+      "pooled": {
+        "no_action": 0.1351,
+        "fully": 0.1351,
+        "ses_only": 0.0,
+        "empty": 0.0259,
+        "valid": 0.8174
+      }
+    },
+    "lock": {
+      "n_cf": 4561,
+      "n_patients": 183,
+      "patient_mean": {
+        "no_action": 0.0,
+        "fully": 0.0,
+        "ses_only": 0.0,
+        "empty": 0.0142,
+        "valid": 0.9118
+      },
+      "pooled": {
+        "no_action": 0.0,
+        "fully": 0.0,
+        "ses_only": 0.0,
+        "empty": 0.0142,
+        "valid": 0.9118
+      }
+    },
+    "route": {
+      "n_cf": 4692,
+      "n_patients": 188,
+      "patient_mean": {
+        "no_action": 0.0,
+        "fully": 0.0,
+        "ses_only": 0.0,
+        "empty": 0.0353,
+        "valid": 0.8279
+      },
+      "pooled": {
+        "no_action": 0.0,
+        "fully": 0.0,
+        "ses_only": 0.0,
+        "empty": 0.0353,
+        "valid": 0.8284
+      }
+    },
+    "forced": {
+      "n_cf": 4575,
+      "n_patients": 183,
+      "patient_mean": {
+        "no_action": 0.0,
+        "fully": 0.0,
+        "ses_only": 0.0,
+        "empty": 0.0,
+        "valid": 0.9138
+      },
+      "pooled": {
+        "no_action": 0.0,
+        "fully": 0.0,
+        "ses_only": 0.0,
+        "empty": 0.0,
+        "valid": 0.9138
+      }
+    }
+  }
+}
