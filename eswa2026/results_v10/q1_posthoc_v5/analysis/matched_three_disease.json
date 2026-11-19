@@ -1,0 +1,494 @@
+{
+  "label": "POST HOC (S-P5), exploratory; prevalence differences are descriptive",
+  "written": "18/11/2026 17:34",
+  "plan_sha256": "57ec4877ba3c278d28379cd20a38535c206e600a2b7c1e875835a09022edb8d8",
+  "diabetes_a1c": {
+    "run": "D:\\20-study\\uit\\research\\diabetesxai\\paper7\\outputs\\p5_v10\\outputs\\q1_posthoc_v5\\nhanes_dm\\runs_dm_a1c",
+    "n_cohort": 83,
+    "test_auc": 0.7514661238779872,
+    "eligible": 83,
+    "single_nonindicator_flip_share": 1.0,
+    "action_features": [
+      "BMI",
+      "HighChol",
+      "PhysActivity",
+      "Smoker"
+    ],
+    "indicators": [
+      "GenHlth",
+      "MentHlth"
+    ],
+    "dice": {
+      "published": {
+        "n_cf": 2075,
+        "n_patients_with_cf": 83,
+        "fully_patient_mean": 0.14987951807228916,
+        "touch_patient_mean": 0.5421686746987953,
+        "no_action_patient_mean": 0.14987951807228916,
+        "empty_patient_mean": 0.014457831325301207,
+        "bmi_patient_mean": 0.7436144578313253,
+        "valid_patient_mean": 0.9306024096385541,
+        "no_action_pooled": 0.14987951807228916
+      },
+      "lock": {
+        "n_cf": 2075,
+        "n_patients_with_cf": 83,
+        "fully_patient_mean": 0.0,
+        "touch_patient_mean": 0.0,
+        "no_action_patient_mean": 0.0,
+        "empty_patient_mean": 0.0014457831325301205,
+        "bmi_patient_mean": 0.9889156626506024,
+        "valid_patient_mean": 0.9865060240963854,
+        "no_action_pooled": 0.0
+      }
+    },
+    "O_A1": {
+      "est": 0.14987951807228916,
+      "lower_one_sided_99": 0.11758554216867467,
+      "upper_one_sided_99": 0.188433734939759,
+      "ci95": [
+        0.12096385542168676,
+        0.18169879518072282
+      ]
+    },
+    "no_action": {
+      "est": 0.14987951807228916,
+      "ci95": [
+        0.12096385542168676,
+        0.18169879518072282
+      ]
+    },
+    "O_A2": {
+      "T": 0.3800082555106386,
+      "null_mean": 0.3995983935742973,
+      "p": 0.8829211707882921
+    },
+    "O_A3": {
+      "est": 0.05590361445783134,
+      "lower_one_sided_99": 0.040481927710843385,
+      "upper_one_sided_99": 0.07373493975903615,
+      "published": 0.9306024096385541,
+      "lock": 0.9865060240963854
+    },
+    "coverage": {
+      "published": {
+        "x": 83,
+        "n": 83,
+        "share": 1.0
+      },
+      "lock": {
+        "x": 83,
+        "n": 83,
+        "share": 1.0
+      }
+    },
+    "H1_rule_descriptive": "not supported",
+    "H2_rule_descriptive": "supported",
+    "gain_share": {
+      "BMI": 0.19578767304311634,
+      "GenHlth": 0.10699419499385128,
+      "MentHlth": 0.04155248479444016,
+      "top5": {
+        "Age": 0.26596753338525636,
+        "BMI": 0.19578767304311634,
+        "GenHlth": 0.10699419499385128,
+        "HighBP": 0.08455382456918795,
+        "Income": 0.06206132020986061
+      }
+    },
+    "n_analytic": 10300,
+    "prevalence": 0.1325242718446602
+  },
+  "diabetes_diag": {
+    "run": "D:\\20-study\\uit\\research\\diabetesxai\\paper7\\outputs\\p5_v10\\outputs\\q1_posthoc_v5\\nhanes_dm\\runs_dm_diag",
+    "n_cohort": 138,
+    "test_auc": 0.7907310081223125,
+    "eligible": 138,
+    "single_nonindicator_flip_share": 0.9420289855072463,
+    "action_features": [
+      "BMI",
+      "HighChol",
+      "PhysActivity",
+      "Smoker"
+    ],
+    "indicators": [
+      "GenHlth",
+      "MentHlth"
+    ],
+    "dice": {
+      "published": {
+        "n_cf": 3450,
+        "n_patients_with_cf": 138,
+        "fully_patient_mean": 0.19681159420289857,
+        "touch_patient_mean": 0.6281159420289856,
+        "no_action_patient_mean": 0.19681159420289857,
+        "empty_patient_mean": 0.013913043478260868,
+        "bmi_patient_mean": 0.6944927536231884,
+        "valid_patient_mean": 0.9037681159420289,
+        "no_action_pooled": 0.19681159420289854
+      },
+      "lock": {
+        "n_cf": 3273,
+        "n_patients_with_cf": 131,
+        "fully_patient_mean": 0.0,
+        "touch_patient_mean": 0.0,
+        "no_action_patient_mean": 0.0,
+        "empty_patient_mean": 0.0027480916030534356,
+        "bmi_patient_mean": 0.9850381679389313,
+        "valid_patient_mean": 0.9770992366412213,
+        "no_action_pooled": 0.0
+      }
+    },
+    "O_A1": {
+      "est": 0.19681159420289857,
+      "lower_one_sided_99": 0.1675333333333333,
+      "upper_one_sided_99": 0.22927536231884055,
+      "ci95": [
+        0.17158695652173914,
+        0.22434782608695653
+      ]
+    },
+    "no_action": {
+      "est": 0.19681159420289857,
+      "ci95": [
+        0.17158695652173914,
+        0.22434782608695653
+      ]
+    },
+    "O_A2": {
+      "T": 0.4395299406647073,
+      "null_mean": 0.43019323671497584,
+      "p": 0.23520764792352075
+    },
+    "O_A3": {
+      "est": 0.02318840579710145,
+      "lower_one_sided_99": -0.021742028985507245,
+      "upper_one_sided_99": 0.060582608695652164,
+      "published": 0.9037681159420289,
+      "lock": 0.9269565217391305
+    },
+    "coverage": {
+      "published": {
+        "x": 138,
+        "n": 138,
+        "share": 1.0
+      },
+      "lock": {
+        "x": 131,
+        "n": 138,
+        "share": 0.9492753623188406
+      }
+    },
+    "H1_rule_descriptive": "undecided",
+    "H2_rule_descriptive": "not supported",
+    "gain_share": {
+      "BMI": 0.16970722347370434,
+      "GenHlth": 0.10980819430320174,
+      "MentHlth": 0.04427512442283639,
+      "top5": {
+        "Age": 0.2541766428444529,
+        "BMI": 0.16970722347370434,
+        "HighBP": 0.13135290340576167,
+        "GenHlth": 0.10980819430320174,
+        "Income": 0.06917306823433149
+      }
+    },
+    "n_analytic": 10311,
+    "prevalence": 0.14508777034235282
+  },
+  "diabetes_hbp_measured": {
+    "run": "D:\\20-study\\uit\\research\\diabetesxai\\paper7\\outputs\\p5_v10\\outputs\\q1_posthoc_v5\\nhanes_dm\\runs_dm_hbp_measured",
+    "n_cohort": 70,
+    "test_auc": 0.7711408168635898,
+    "eligible": 70,
+    "single_nonindicator_flip_share": 1.0,
+    "action_features": [
+      "BMI",
+      "HighBP",
+      "HighChol",
+      "PhysActivity",
+      "Smoker"
+    ],
+    "indicators": [
+      "GenHlth",
+      "MentHlth"
+    ],
+    "dice": {
+      "published": {
+        "n_cf": 1750,
+        "n_patients_with_cf": 70,
+        "fully_patient_mean": 0.18057142857142855,
+        "touch_patient_mean": 0.5268571428571429,
+        "no_action_patient_mean": 0.18057142857142855,
+        "empty_patient_mean": 0.02857142857142857,
+        "bmi_patient_mean": 0.6748571428571428,
+        "valid_patient_mean": 0.9119999999999999,
+        "no_action_pooled": 0.18057142857142858
+      },
+      "lock": {
+        "n_cf": 1750,
+        "n_patients_with_cf": 70,
+        "fully_patient_mean": 0.0,
+        "touch_patient_mean": 0.0,
+        "no_action_patient_mean": 0.0,
+        "empty_patient_mean": 0.008,
+        "bmi_patient_mean": 0.9611428571428572,
+        "valid_patient_mean": 0.9725714285714285,
+        "no_action_pooled": 0.0
+      }
+    },
+    "O_A1": {
+      "est": 0.18057142857142855,
+      "lower_one_sided_99": 0.1439942857142857,
+      "upper_one_sided_99": 0.21828571428571425,
+      "ci95": [
+        0.14969999999999997,
+        0.21371428571428566
+      ]
+    },
+    "no_action": {
+      "est": 0.18057142857142855,
+      "ci95": [
+        0.14969999999999997,
+        0.21371428571428566
+      ]
+    },
+    "O_A2": {
+      "T": 0.3829378080793504,
+      "null_mean": 0.36527210884353734,
+      "p": 0.1913880861191388
+    },
+    "O_A3": {
+      "est": 0.060571428571428575,
+      "lower_one_sided_99": 0.04285714285714286,
+      "upper_one_sided_99": 0.07942857142857142,
+      "published": 0.9119999999999999,
+      "lock": 0.9725714285714285
+    },
+    "coverage": {
+      "published": {
+        "x": 70,
+        "n": 70,
+        "share": 1.0
+      },
+      "lock": {
+        "x": 70,
+        "n": 70,
+        "share": 1.0
+      }
+    },
+    "H1_rule_descriptive": "undecided",
+    "H2_rule_descriptive": "supported",
+    "gain_share": {
+      "BMI": 0.20387876237204747,
+      "GenHlth": 0.12271266295313187,
+      "MentHlth": 0.03988576364974667,
+      "top5": {
+        "Age": 0.2937058022904031,
+        "BMI": 0.20387876237204747,
+        "GenHlth": 0.12271266295313187,
+        "Income": 0.06529418421464125,
+        "Education": 0.05756718001173451
+      }
+    },
+    "n_analytic": 9895,
+    "prevalence": 0.13198585144012126
+  },
+  "ckd_ses_freeze": {
+    "run": "D:\\20-study\\uit\\research\\diabetesxai\\paper7\\outputs\\p5_v10\\outputs\\q1_posthoc_ses_splits\\ses_freeze\\a2_runs_main",
+    "n_cohort": 177,
+    "test_auc": 0.7333065121380943,
+    "eligible": 177,
+    "single_nonindicator_flip_share": 0.7909604519774012,
+    "action_features": [
+      "BMI",
+      "HighBP",
+      "HighChol",
+      "PhysActivity",
+      "Smoker"
+    ],
+    "indicators": [
+      "GenHlth",
+      "MentHlth"
+    ],
+    "dice": {
+      "published": {
+        "n_cf": 4421,
+        "n_patients_with_cf": 177,
+        "fully_patient_mean": 0.128135593220339,
+        "touch_patient_mean": 0.47386602098466507,
+        "no_action_patient_mean": 0.128135593220339,
+        "empty_patient_mean": 0.029830508474576273,
+        "bmi_patient_mean": 0.6646327683615819,
+        "valid_patient_mean": 0.7854721549636803,
+        "no_action_pooled": 0.12825152680389051
+      },
+      "lock": {
+        "n_cf": 4221,
+        "n_patients_with_cf": 170,
+        "fully_patient_mean": 0.0,
+        "touch_patient_mean": 0.0,
+        "no_action_patient_mean": 0.0,
+        "empty_patient_mean": 0.014117647058823532,
+        "bmi_patient_mean": 0.9148235294117648,
+        "valid_patient_mean": 0.864016806722689,
+        "no_action_pooled": 0.0
+      }
+    },
+    "O_A1": {
+      "est": 0.128135593220339,
+      "lower_one_sided_99": 0.10576271186440678,
+      "upper_one_sided_99": 0.15412655367231637,
+      "ci95": [
+        0.10937853107344632,
+        0.14983050847457627
+      ]
+    },
+    "no_action": {
+      "est": 0.128135593220339,
+      "ci95": [
+        0.10937853107344632,
+        0.14983050847457627
+      ]
+    },
+    "O_A2": {
+      "T": 0.3193802080359322,
+      "null_mean": 0.3231772935162766,
+      "p": 0.6153838461615384
+    },
+    "O_A3": {
+      "est": 0.03909604519774011,
+      "lower_one_sided_99": 0.0033875706214689205,
+      "upper_one_sided_99": 0.07028474576271188,
+      "published": 0.7850847457627117,
+      "lock": 0.8241807909604519
+    },
+    "coverage": {
+      "published": {
+        "x": 177,
+        "n": 177,
+        "share": 1.0
+      },
+      "lock": {
+        "x": 170,
+        "n": 177,
+        "share": 0.96045197740113
+      }
+    },
+    "H1_rule_descriptive": "not supported",
+    "H2_rule_descriptive": "supported",
+    "gain_share": {
+      "BMI": 0.15527749788417122,
+      "GenHlth": 0.06363032888689409,
+      "MentHlth": 0.0391311803229307,
+      "top5": {
+        "Age": 0.3300975517591268,
+        "BMI": 0.15527749788417122,
+        "Diabetes": 0.08748567758643963,
+        "Income": 0.07040343942858418,
+        "GenHlth": 0.06363032888689409
+      }
+    },
+    "stored_check": "recomputed O-A1, O-A2 p, O-A3, lock coverage and AUC equal the stored results",
+    "n_analytic": 9793,
+    "prevalence": 0.17512508934953538
+  },
+  "htn_main": {
+    "run": "D:\\20-study\\uit\\research\\diabetesxai\\paper7\\outputs\\p5_v10\\outputs\\q1_domain_htn\\a2_runs_main",
+    "n_cohort": 200,
+    "test_auc": 0.6393228272741458,
+    "eligible": 755,
+    "single_nonindicator_flip_share": 0.62,
+    "action_features": [
+      "BMI",
+      "HighChol",
+      "PhysActivity",
+      "Smoker"
+    ],
+    "indicators": [
+      "GenHlth",
+      "MentHlth"
+    ],
+    "dice": {
+      "published": {
+        "n_cf": 4210,
+        "n_patients_with_cf": 173,
+        "fully_patient_mean": 0.024508670520231216,
+        "touch_patient_mean": 0.4251812926957436,
+        "no_action_patient_mean": 0.024508670520231216,
+        "empty_patient_mean": 0.0032369942196531793,
+        "bmi_patient_mean": 0.9493641618497111,
+        "valid_patient_mean": 0.8201764965926817,
+        "no_action_pooled": 0.02517814726840855
+      },
+      "lock": {
+        "n_cf": 3564,
+        "n_patients_with_cf": 146,
+        "fully_patient_mean": 0.0,
+        "touch_patient_mean": 0.0,
+        "no_action_patient_mean": 0.0,
+        "empty_patient_mean": 0.002465753424657534,
+        "bmi_patient_mean": 0.9846575342465753,
+        "valid_patient_mean": 0.9057320761430351,
+        "no_action_pooled": 0.0
+      }
+    },
+    "O_A1": {
+      "est": 0.024508670520231216,
+      "lower_one_sided_99": 0.010867052023121389,
+      "upper_one_sided_99": 0.04000231213872833,
+      "ci95": [
+        0.012947976878612717,
+        0.03769364161849708
+      ]
+    },
+    "no_action": {
+      "est": 0.024508670520231216,
+      "ci95": [
+        0.012947976878612717,
+        0.03769364161849708
+      ]
+    },
+    "O_A2": {
+      "T": 0.2538494570559371,
+      "null_mean": 0.3819845857418112,
+      "p": 1.0
+    },
+    "O_A3": {
+      "est": -0.0502,
+      "lower_one_sided_99": -0.08860000000000001,
+      "upper_one_sided_99": -0.014798000000000006,
+      "published": 0.6969999999999998,
+      "lock": 0.6468
+    },
+    "coverage": {
+      "published": {
+        "x": 172,
+        "n": 200,
+        "share": 0.86
+      },
+      "lock": {
+        "x": 146,
+        "n": 200,
+        "share": 0.73
+      }
+    },
+    "H1_rule_descriptive": "not supported",
+    "H2_rule_descriptive": "not supported",
+    "gain_share": {
+      "BMI": 0.21693925927250315,
+      "GenHlth": 0.06676596354435542,
+      "MentHlth": 0.04660466845683149,
+      "top5": {
+        "Age": 0.3212374545610727,
+        "BMI": 0.21693925927250315,
+        "Income": 0.07253283733233037,
+        "GenHlth": 0.06676596354435542,
+        "Education": 0.06190666196256293
+      }
+    },
+    "stored_check": "recomputed O-A1, O-A2 p, O-A3, lock coverage and AUC equal the stored results",
+    "n_analytic": 9905,
+    "prevalence": 0.42897526501766786
+  }
+}

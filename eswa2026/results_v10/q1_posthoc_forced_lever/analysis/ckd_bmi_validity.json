@@ -1,0 +1,56 @@
+{
+  "label": "reporting only, read from existing files",
+  "denominator": "all returned counterfactuals",
+  "frozen": {
+    "published": {
+      "n": 4425,
+      "share_changing_bmi": 0.48429378531073447,
+      "validity": 0.8038418079096045,
+      "validity_if_bmi": 0.9024731684554363,
+      "validity_if_not_bmi": 0.7112182296231376,
+      "n_bmi": 2143
+    },
+    "lock": {
+      "n": 4387,
+      "share_changing_bmi": 0.6829268292682927,
+      "validity": 0.8687029860952815,
+      "validity_if_bmi": 0.9162216288384513,
+      "validity_if_not_bmi": 0.7663551401869159,
+      "n_bmi": 2996
+    },
+    "route": {
+      "n": 4422,
+      "share_changing_bmi": 0.6743554952510177,
+      "validity": 0.8141112618724559,
+      "validity_if_bmi": 0.8903420523138833,
+      "validity_if_not_bmi": 0.65625,
+      "n_bmi": 2982
+    }
+  },
+  "ses_freeze": {
+    "published": {
+      "n": 4421,
+      "share_changing_bmi": 0.6643293372540149,
+      "validity": 0.7857950689889165,
+      "validity_if_bmi": 0.863806605379639,
+      "validity_if_not_bmi": 0.6314016172506739,
+      "n_bmi": 2937
+    },
+    "lock": {
+      "n": 4221,
+      "share_changing_bmi": 0.9142383321487799,
+      "validity": 0.8640132669983416,
+      "validity_if_bmi": 0.8831303446488727,
+      "validity_if_not_bmi": 0.6602209944751382,
+      "n_bmi": 3859
+    },
+    "route": {
+      "n": 4418,
+      "share_changing_bmi": 0.8569488456315074,
+      "validity": 0.7908555907650521,
+      "validity_if_bmi": 0.8438985736925515,
+      "validity_if_not_bmi": 0.47310126582278483,
+      "n_bmi": 3786
+    }
+  }
+}

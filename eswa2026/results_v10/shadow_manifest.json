@@ -1,0 +1,14 @@
+{
+  "tools_py_rewritten": 102,
+  "nhis_files_copied": 44,
+  "reused_from_measurement_run": [
+    "q1_domain_ckd/a2_model",
+    "q1_domain_ckd/a2_runs_main",
+    "q1_domain_ckd/a2_analysis",
+    "q1_posthoc_ses_splits/ses_freeze",
+    "q1_posthoc_v5/nhanes_dm/runs_dm_a1c",
+    "q1_posthoc_v5/nhanes_dm/runs_dm_diag",
+    "q1_posthoc_v5/nhanes_dm/runs_dm_hbp_measured",
+    "crossdataset_p4/results (8 NHANES _v3 files)"
+  ]
+}

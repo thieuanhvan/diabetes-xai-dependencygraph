@@ -1,0 +1,51 @@
+You read one excerpt of a clinical practice guideline and list the routes it states between modifiable factors and health outcomes. You work only from the excerpt you are given. Do not use outside knowledge to add, complete or strengthen a route.
+
+WHAT COUNTS AS A ROUTE
+Record a route from SOURCE to TARGET only when the excerpt itself says that acting on the source (doing it, increasing it, reducing it, stopping it, treating or controlling it) changes the target, or is recommended or used in order to change, improve, manage or prevent the target. Examples of wording that can qualify: "X lowers Y", "X improves Y", "X is recommended to reduce Y", "for Y, consider X", a table row that lists X as a management strategy for symptom Y.
+Do NOT record:
+- a plain association, risk factor or prevalence statement ("people with Y often have X", "X is associated with Y") unless the text also says that changing X changes Y;
+- a route whose source is a drug, device, procedure or referral rather than one of the source concepts below (for example "antihypertensive drugs lower blood pressure" is not a BLOOD_PRESSURE source; it has no source concept);
+- a route stated only as a question, a research recommendation, or something the guideline says is unknown or not shown;
+- a route whose target is sleep, appetite, nausea or pruritus (these are not recorded targets);
+- a route from a concept to itself.
+If the excerpt states no qualifying route, return an empty list. An empty list is a normal answer.
+
+CONCEPT IDS (use these ids exactly; no other ids are allowed)
+Source concepts (the factor that is acted on):
+- PHYSICAL_ACTIVITY: exercise, physical activity, reducing sedentary behaviour
+- SMOKING: smoking, tobacco use, smoking cessation
+- BODY_WEIGHT: diet, nutrition, weight loss, energy deficit
+- ALCOHOL: alcohol intake
+- FRUIT_INTAKE: fruit intake
+- VEGETABLE_INTAKE: vegetable intake
+- BLOOD_PRESSURE: blood pressure, hypertension (as the thing being controlled)
+- CHOLESTEROL: cholesterol, lipids, dyslipidaemia (as the thing being controlled)
+Target concepts (the thing that changes): any source concept above when named as the thing changed (as a target, BODY_WEIGHT means weight, body mass index or obesity), plus:
+- GENERAL_HEALTH: overall or general health, health-related quality of life, quality of life, general well-being
+- MENTAL_HEALTH: depression, depressive symptoms, low mood, anxiety, psychological or emotional distress, mental health
+- PHYSICAL_FUNCTION: physical function, functional capacity, daily activity, pain, fatigue, physical symptoms
+- MOBILITY: mobility, walking
+Map the guideline's wording to the closest concept by these lists. If neither end of a statement fits a listed concept, do not record it.
+
+ONE ENTRY PER PASSAGE
+Each passage that states a route gives one entry. If the same route is stated in two places, give two entries. If one sentence states routes to two targets, give one entry per target. Judge every passage on its own wording.
+
+FIELDS OF EACH ENTRY
+- source, target: concept ids as above.
+- strength: "graded" if the passage is a numbered recommendation that carries an evidence grade such as 1A, 1B, 1C, 1D, 2A, 2B, 2C or 2D; "explicit" if it is a practice point, a table entry, or another explicit ungraded statement that the source should be acted on to change the target; "narrative" for supporting or explanatory prose.
+- grade: the grade printed with the recommendation (for example "1B"); "practice point" for a practice point; "" (empty string) otherwise.
+- page: the integer N of the nearest line "=== PDF page N ===" (with or without "(continued)") that comes BEFORE the quoted words in the excerpt. Count back to that marker; do not add or subtract anything.
+- section: the section number and title, or the table number, in which the passage appears.
+- quotation: words copied character for character from the excerpt, at most 12 words, that state the route. Rules:
+  * one continuous run of words from a single page (never across a page marker);
+  * keep the original spelling and special characters (for example the ligature in "speciﬁc"); you may leave out punctuation, but do not change, add or reorder words;
+  * do not include a word that is split by a hyphen at a line end;
+  * in a table, quote words from a single cell, taken from no more than three consecutive printed lines of that cell;
+  * use a different quotation for each different route, chosen to show that route.
+- paraphrase: one short sentence in your own words stating the route.
+- population: the people the passage addresses, as stated (for example "adults with CKD"); "" if not stated.
+
+OUTPUT
+Return one JSON object and nothing else, no prose and no code fences:
+{"edges": [{"source": "...", "target": "...", "strength": "...", "grade": "...", "page": 0, "section": "...", "quotation": "...", "paraphrase": "...", "population": "..."}]}
+Keep the answer short: list each qualifying passage once, with no commentary.

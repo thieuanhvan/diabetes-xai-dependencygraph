@@ -1,0 +1,18 @@
+{
+  "_about": "Concept-to-item map for the HTN domain (addendum HTN v1, sections 3 and 5). The 12-Concept vocabulary is the frozen CKD file (concepts_constructs_v1.json, SHA-256 6db9963a...), unchanged. Written 12/11/2026 before any HTN extraction.",
+  "vocabulary_file_sha256": "6db9963a5f712f27e49301516d17e54ef69223012203fc786368a8235465e30b",
+  "outcome_concept": "BLOOD_PRESSURE",
+  "outcome_rule": "Edges with BLOOD_PRESSURE at either end are recorded in the KG (they are guideline routes to the outcome) but are not used by the audit or by route-aware enforcement, because BLOOD_PRESSURE is not a feature of the HTN domain. With k = 2, a path through BLOOD_PRESSURE does not count, because an intermediate node must be a treatable feature of the domain.",
+  "concept_to_item": {
+    "nhanes_htn": {
+      "PHYSICAL_ACTIVITY": ["PhysActivity"], "SMOKING": ["Smoker"], "BODY_WEIGHT": ["BMI"], "ALCOHOL": [],
+      "FRUIT_INTAKE": [], "VEGETABLE_INTAKE": [], "BLOOD_PRESSURE": [], "CHOLESTEROL": ["HighChol"],
+      "GENERAL_HEALTH": ["GenHlth"], "MENTAL_HEALTH": ["MentHlth"], "PHYSICAL_FUNCTION": [], "MOBILITY": []
+    }
+  },
+  "item_pairs_secondary": "lever/treatable items {BMI, Smoker, PhysActivity, HighChol} x targets {BMI, Smoker, PhysActivity, HighChol, GenHlth, MentHlth}, u != v: 20 item pairs",
+  "construct_mismatch_threats": [
+    "PhysActivity 2017-2020 is occupational vigorous activity (PAQ605); the 2021-2023-only analysis is the matched sensitivity for routes from exercise (as prereg v3 4.4).",
+    "Guideline levers with no NHANES feature in this schema (sodium, potassium, DASH-type diet, alcohol, stress management, sleep) can route only to the outcome or to unmapped Concepts; they do not enter the audit."
+  ]
+}

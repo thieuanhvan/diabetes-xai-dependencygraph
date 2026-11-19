@@ -1,0 +1,33 @@
+{
+  "_about": "Frozen extraction units (prereg v3 4.3, 4.4). Section units are cut from `pdftotext -raw`, table units from `pdftotext -layout`. Only the main guideline body is used (KDIGO PDF pages >= 90); the front-matter summary of recommendations repeats the same statements and is not a listed section. Page numbers are PDF page indices; KDIGO journal page = PDF page + 115.",
+  "kdigo": {
+    "pdf": "KDIGO-2024-CKD-Guideline.pdf",
+    "min_pdf_page": 90,
+    "page_offset_journal": 115,
+    "footer_patterns": ["^www\\.kidney-international\\.org chapter \\d+$", "^chapter \\d+ www\\.kidney-international\\.org$", "^(S\\d{3} )?Kidney International \\(2024\\) 105 \\(Suppl 4S\\), S117.S314( S\\d{3})?$"],
+    "section_units": [
+      {"unit": "kdigo_s3_1", "label": "3.1 CKD treatment and risk modification (with Figure 17)", "start": "^3\\.1 CKD treatment and risk modi", "end": "^3\\.2 Lifestyle factors", "append_block": {"start": "^Impact on CKD pathophysiology$", "end_inclusive": "^Figure 17\\|"}},
+      {"unit": "kdigo_s3_2", "label": "3.2 Lifestyle factors", "start": "^3\\.2 Lifestyle factors", "end": "^3\\.3 Diet$", "remove_block": {"start": "^Impact on CKD pathophysiology$", "end_inclusive": "^Figure 17\\|"}},
+      {"unit": "kdigo_s3_3", "label": "3.3 Diet", "start": "^3\\.3 Diet$", "end": "^3\\.4 Blood pressure control"},
+      {"unit": "kdigo_s3_4", "label": "3.4 Blood pressure control", "start": "^3\\.4 Blood pressure control", "end": "^3\\.5 Glycemic control"},
+      {"unit": "kdigo_s3_5", "label": "3.5 Glycemic control", "start": "^3\\.5 Glycemic control", "end": "^3\\.6 Renin-angiotensin"},
+      {"unit": "kdigo_s3_15", "label": "3.15 Cardiovascular disease (CVD) and additional specific interventions to modify risk", "start": "^3\\.15 Cardiovascular disease", "end": "^3\\.16 CKD and atrial"},
+      {"unit": "kdigo_s5_2", "label": "5.2 Symptoms in CKD (prose; Tables 37 and 38 also given as table units)", "start": "^5\\.2 Symptoms in CKD", "end": "^5\\.3 Team-based integrated care"}
+    ],
+    "table_units": [
+      {"unit": "kdigo_table37", "label": "Table 37 Recommended patient-reported outcome measurement tools for use in people with CKD", "blocks": [{"pdf_page": 143, "start": "^\\s*Table 37 \\|", "end": "^\\s*CKD, chronic kidney disease; PROM"}]},
+      {"unit": "kdigo_table38", "label": "Table 38 Management strategies for common symptoms in CKD", "blocks": [
+        {"pdf_page": 144, "start": "^\\s*Table 38 \\| Management", "end": "^\\s*\\(Continued on following page\\)"},
+        {"pdf_page": 145, "start": "^\\s*Table 38 \\| \\(Continued\\)", "end": "^\\s*CKD, chronic kidney disease; HRQoL"}]}
+    ]
+  },
+  "recall_gate": {
+    "_about": "Prereg 4.4 recall gate: the frozen prompt on P7's x5 sources, whole document as one unit (no section list exists for them), diabetes (BRFSS) domain.",
+    "documents": [
+      {"unit": "gate_who_heartsd", "pdf": "WHO_HEARTS-D_2020_en.pdf", "label": "WHO HEARTS-D 2020 (WHO/UCN/NCD/20.1)", "language": "en"},
+      {"unit": "gate_moh5481", "pdf": "QD_5481_QD-BYT_2020_HD_DTD_tip2.pdf", "label": "Vietnam MoH Decision 5481/QD-BYT (2020)", "language": "vi"},
+      {"unit": "gate_nice_ng28", "pdf": "NICE_NG28_2022_NBK553486.pdf", "label": "NICE NG28 (2022)", "language": "en"}
+    ]
+  },
+  "chunking": {"max_tokens": 6000, "overlap_tokens": 500, "tokenizer": "Qwen2.5-7B-Instruct GGUF vocabulary via llama.cpp b12283 /tokenize", "boundary": "line-snapped: a chunk ends at the last line break within 6,000 tokens; the next chunk starts at the last line break at or before (end - 500 tokens), so each overlap is at least 500 tokens"}
+}

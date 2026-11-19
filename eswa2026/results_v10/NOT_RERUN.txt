@@ -1,0 +1,15 @@
+Files of results/ that have no v10 counterpart: runs of the first analysis that were superseded before v9 or interrupted, and SPARQL unit tests that do not depend on the data (kept in results/).
+journal_main\htn_ckd_descriptive_v4.json
+q1_domain_htn\a2_analysis\sparql_unit_test.json
+q1_domain_ckd\a2_analysis\sparql_unit_test.json
+crossdataset_p4\results\cross_brfss2021_gen_summary.csv
+crossdataset_p4\results\cross_brfss2021_rfb_summary.csv
+crossdataset_p4\results\cross_brfss2021_rfc_summary.csv
+crossdataset_p4\results\cross_nhanes2017-2020_a1c_gen_summary.csv
+crossdataset_p4\results\cross_nhanes2017-2020_a1c_summary.csv
+crossdataset_p4\results\cross_nhanes2017-2020_a1c_v2_summary.csv
+crossdataset_p4\results\cross_nhanes2017-2020_diag_gen_summary.csv
+crossdataset_p4\results\cross_nhanes2017-2020_diag_summary.csv
+crossdataset_p4\results\cross_nhanes2017-2020_diag_v2_summary.csv
+crossdataset_p4\results\_interrupted\cross_nhanes2021-2023_a1c_gen2_summary.csv
+crossdataset_p4\results\_interrupted\omp2_wrongmodel_cross_nhanes2021-2023_a1c_gen2_summary.csv

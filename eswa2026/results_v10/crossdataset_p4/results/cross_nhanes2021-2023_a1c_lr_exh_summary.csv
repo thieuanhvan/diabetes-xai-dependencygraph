@@ -1,0 +1,4 @@
+dataset,method,mode,seed,auc,cohort,eligible,n_cf,queries_with_no_cf,coverage,best_k_mean,best_dist_mean,cf_touching_indicator,unsupported_edge_rule,fully_unactionable,secs
+nhanes2021-2023_a1c,exhaustive,published,0,0.7929,19,19,95,0,1.0,1.0,0.2924242424242424,37,34,30,0
+nhanes2021-2023_a1c,exhaustive,tableV,0,0.7929,19,19,95,0,1.0,1.0,0.3920255183413078,0,0,0,0
+nhanes2021-2023_a1c,exhaustive,route_A,0,0.7929,19,19,95,0,1.0,1.0,0.3920255183413078,11,0,0,0

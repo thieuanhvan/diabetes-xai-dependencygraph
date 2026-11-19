@@ -1,0 +1,4 @@
+dataset,method,mode,seed,auc,cohort,eligible,n_cf,queries_with_no_cf,coverage,best_k_mean,best_dist_mean,cf_touching_indicator,unsupported_edge_rule,fully_unactionable,secs
+brfss2021,exhaustive,published,0,0.7927,200,2366,996,0,1.0,1.005,0.3960757575757576,364,295,258,38
+brfss2021,exhaustive,tableV,0,0.7927,200,2366,987,0,1.0,1.005,0.46590909090909094,0,0,0,26
+brfss2021,exhaustive,route_A,0,0.7927,200,2366,993,0,1.0,1.005,0.46590909090909094,169,0,0,30

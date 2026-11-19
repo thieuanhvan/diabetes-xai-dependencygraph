@@ -1,0 +1,1461 @@
+{
+  "label": "POST HOC (S-P5), exploratory; preregistered verdicts unchanged",
+  "plan_sha256": "57ec4877ba3c278d28379cd20a38535c206e600a2b7c1e875835a09022edb8d8",
+  "written": "18/11/2026 22:29",
+  "margin": 0.1,
+  "levers_r5": [
+    "BMI",
+    "Fruits",
+    "HvyAlcoholConsump",
+    "PhysActivity",
+    "Smoker",
+    "Veggies"
+  ],
+  "wachter": {
+    "s44": {
+      "cohort_n": 200,
+      "published": {
+        "coverage_x": 19,
+        "coverage": 0.095,
+        "coverage_cp95": [
+          0.05816960972512025,
+          0.14437663997685266
+        ],
+        "action_coverage_r5_x": 18,
+        "kept_outputs": 81,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.0485,
+        "kept_v4": {
+          "n": 81,
+          "touch_indicator": 1.0,
+          "genhlth": 1.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 1.0,
+          "presentation": {
+            "with_consequence_shown": 1.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 81,
+          "no_action_r5": 0.1111111111111111,
+          "fully_unactionable_r5": 0.1111111111111111,
+          "changes_highbp_or_highchol": 0.4074074074074074,
+          "changes_highbp_or_highchol_without_lever": 0.1111111111111111
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.0055295138888888885
+      },
+      "lock": {
+        "coverage_x": 69,
+        "coverage": 0.345,
+        "coverage_cp95": [
+          0.27936547597156597,
+          0.4153072390103893
+        ],
+        "action_coverage_r5_x": 60,
+        "kept_outputs": 333,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.29970833333333335,
+        "kept_v4": {
+          "n": 333,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 1.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 333,
+          "no_action_r5": 0.1111111111111111,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.984984984984985,
+          "changes_highbp_or_highchol_without_lever": 0.1111111111111111
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.0059244791666666664
+      },
+      "route": {
+        "coverage_x": 133,
+        "coverage": 0.665,
+        "coverage_cp95": [
+          0.5950033586505903,
+          0.7300208448426302
+        ],
+        "action_coverage_r5_x": 131,
+        "kept_outputs": 604,
+        "feasible_runs": 18240,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.14533991228070176,
+        "kept_v4": {
+          "n": 604,
+          "touch_indicator": 0.4337748344370861,
+          "genhlth": 0.3195364238410596,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.8228476821192053,
+          "presentation": {
+            "with_consequence_shown": 0.4337748344370861,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 604,
+          "no_action_r5": 0.026490066225165563,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.478476821192053,
+          "changes_highbp_or_highchol_without_lever": 0.026490066225165563
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.008346354166666667
+      },
+      "forced": {
+        "coverage_x": 147,
+        "coverage": 0.735,
+        "coverage_cp95": [
+          0.6681299077913819,
+          0.7947609086140769
+        ],
+        "action_coverage_r5_x": 98,
+        "kept_outputs": 700,
+        "feasible_runs": 14340,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.22691771269177127,
+        "kept_v4": {
+          "n": 700,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.61,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 700,
+          "no_action_r5": 0.36,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.9171428571428571,
+          "changes_highbp_or_highchol_without_lever": 0.36
+        },
+        "j1_equals_lock_share": 1.0,
+        "cpu_hours": 0.011293402777777777,
+        "kept_with_highbp_or_highchol_forced": 348
+      },
+      "lockroute": {
+        "coverage_x": 99,
+        "coverage": 0.495,
+        "coverage_cp95": [
+          0.4237370503170775,
+          0.5664133450249882
+        ],
+        "action_coverage_r5_x": 97,
+        "kept_outputs": 462,
+        "feasible_runs": 18240,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.15109649122807017,
+        "kept_v4": {
+          "n": 462,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.7662337662337663,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 462,
+          "no_action_r5": 0.04112554112554113,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.7337662337662337,
+          "changes_highbp_or_highchol_without_lever": 0.04112554112554113
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.013489583333333333
+      },
+      "levers": {
+        "coverage_x": 98,
+        "coverage": 0.49,
+        "coverage_cp95": [
+          0.41882251520548525,
+          0.5614782774378337
+        ],
+        "action_coverage_r5_x": 96,
+        "kept_outputs": 466,
+        "feasible_runs": 13080,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.21681957186544343,
+        "kept_v4": {
+          "n": 466,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.8884120171673819,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 466,
+          "no_action_r5": 0.0407725321888412,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.8454935622317596,
+          "changes_highbp_or_highchol_without_lever": 0.0407725321888412
+        },
+        "j1_equals_lock_share": 1.0,
+        "cpu_hours": 0.010642361111111111
+      },
+      "delta_route_minus_levers": 0.175,
+      "delta_route_minus_forced": -0.07,
+      "delta_route_minus_lockroute": 0.17
+    },
+    "s45": {
+      "cohort_n": 200,
+      "published": {
+        "coverage_x": 19,
+        "coverage": 0.095,
+        "coverage_cp95": [
+          0.05816960972512025,
+          0.14437663997685266
+        ],
+        "action_coverage_r5_x": 16,
+        "kept_outputs": 95,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.074625,
+        "kept_v4": {
+          "n": 95,
+          "touch_indicator": 1.0,
+          "genhlth": 1.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.9473684210526315,
+          "presentation": {
+            "with_consequence_shown": 1.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 95,
+          "no_action_r5": 0.15789473684210525,
+          "fully_unactionable_r5": 0.15789473684210525,
+          "changes_highbp_or_highchol": 0.3684210526315789,
+          "changes_highbp_or_highchol_without_lever": 0.15789473684210525
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.005577256944444445
+      },
+      "lock": {
+        "coverage_x": 78,
+        "coverage": 0.39,
+        "coverage_cp95": [
+          0.32199106211524064,
+          0.46132123254499846
+        ],
+        "action_coverage_r5_x": 56,
+        "kept_outputs": 383,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.356,
+        "kept_v4": {
+          "n": 383,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.8825065274151436,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 383,
+          "no_action_r5": 0.2898172323759791,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.9738903394255874,
+          "changes_highbp_or_highchol_without_lever": 0.2898172323759791
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.006032986111111111
+      },
+      "route": {
+        "coverage_x": 150,
+        "coverage": 0.75,
+        "coverage_cp95": [
+          0.6840371666701309,
+          0.8083928303774125
+        ],
+        "action_coverage_r5_x": 137,
+        "kept_outputs": 679,
+        "feasible_runs": 16680,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.18327338129496404,
+        "kept_v4": {
+          "n": 679,
+          "touch_indicator": 0.36229749631811486,
+          "genhlth": 0.30633284241531666,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.7584683357879234,
+          "presentation": {
+            "with_consequence_shown": 0.36229749631811486,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 679,
+          "no_action_r5": 0.1134020618556701,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.46686303387334316,
+          "changes_highbp_or_highchol_without_lever": 0.1134020618556701
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.008103298611111111
+      },
+      "forced": {
+        "coverage_x": 154,
+        "coverage": 0.77,
+        "coverage_cp95": [
+          0.7053936054340193,
+          0.8264191371984088
+        ],
+        "action_coverage_r5_x": 98,
+        "kept_outputs": 754,
+        "feasible_runs": 13740,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.26499272197962154,
+        "kept_v4": {
+          "n": 754,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.6061007957559682,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 754,
+          "no_action_r5": 0.38726790450928383,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.883289124668435,
+          "changes_highbp_or_highchol_without_lever": 0.38726790450928383
+        },
+        "j1_equals_lock_share": 1.0,
+        "cpu_hours": 0.010407986111111111,
+        "kept_with_highbp_or_highchol_forced": 356
+      },
+      "lockroute": {
+        "coverage_x": 116,
+        "coverage": 0.58,
+        "coverage_cp95": [
+          0.5083361748773803,
+          0.649256142208944
+        ],
+        "action_coverage_r5_x": 101,
+        "kept_outputs": 549,
+        "feasible_runs": 16680,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.1960431654676259,
+        "kept_v4": {
+          "n": 549,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.6903460837887068,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 549,
+          "no_action_r5": 0.15482695810564662,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.7122040072859745,
+          "changes_highbp_or_highchol_without_lever": 0.15482695810564662
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.0128125
+      },
+      "levers": {
+        "coverage_x": 110,
+        "coverage": 0.55,
+        "coverage_cp95": [
+          0.47824931099353846,
+          0.6202464100211151
+        ],
+        "action_coverage_r5_x": 93,
+        "kept_outputs": 537,
+        "feasible_runs": 12400,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.2632258064516129,
+        "kept_v4": {
+          "n": 537,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.7579143389199255,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 537,
+          "no_action_r5": 0.1787709497206704,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.7914338919925512,
+          "changes_highbp_or_highchol_without_lever": 0.1787709497206704
+        },
+        "j1_equals_lock_share": 1.0,
+        "cpu_hours": 0.010190972222222223
+      },
+      "delta_route_minus_levers": 0.2,
+      "delta_route_minus_forced": -0.02,
+      "delta_route_minus_lockroute": 0.17
+    },
+    "s46": {
+      "cohort_n": 200,
+      "published": {
+        "coverage_x": 52,
+        "coverage": 0.26,
+        "coverage_cp95": [
+          0.20068485487634063,
+          0.3265777536571397
+        ],
+        "action_coverage_r5_x": 50,
+        "kept_outputs": 231,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 0.15475,
+        "valid_after_rounding": 0.09070833333333334,
+        "kept_v4": {
+          "n": 231,
+          "touch_indicator": 1.0,
+          "genhlth": 1.0,
+          "no_action": 0.017316017316017316,
+          "ses_only": 0.0,
+          "ses_touch": 1.0,
+          "presentation": {
+            "with_consequence_shown": 1.0,
+            "with_at_least_one_action": 0.9826839826839827,
+            "action_list_empty_or_ses_only": 0.017316017316017316,
+            "indicator_without_action": 0.017316017316017316
+          }
+        },
+        "kept_r5": {
+          "n": 231,
+          "no_action_r5": 0.017316017316017316,
+          "fully_unactionable_r5": 0.017316017316017316,
+          "changes_highbp_or_highchol": 0.0,
+          "changes_highbp_or_highchol_without_lever": 0.0
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.22118055555555555
+      },
+      "lock": {
+        "coverage_x": 1,
+        "coverage": 0.005,
+        "coverage_cp95": [
+          0.00012658102786701836,
+          0.027541898457205637
+        ],
+        "action_coverage_r5_x": 1,
+        "kept_outputs": 4,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 0.14420833333333333,
+        "valid_after_rounding": 0.000375,
+        "kept_v4": {
+          "n": 4,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 1.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 4,
+          "no_action_r5": 0.0,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.0,
+          "changes_highbp_or_highchol_without_lever": 0.0
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.21159288194444445
+      },
+      "route": {
+        "coverage_x": 161,
+        "coverage": 0.805,
+        "coverage_cp95": [
+          0.7432143124734407,
+          0.8575081252209411
+        ],
+        "action_coverage_r5_x": 161,
+        "kept_outputs": 781,
+        "feasible_runs": 15530,
+        "valid_before_rounding": 0.675724404378622,
+        "valid_after_rounding": 0.2327108821635544,
+        "kept_v4": {
+          "n": 781,
+          "touch_indicator": 0.8092189500640204,
+          "genhlth": 0.8079385403329066,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.8258642765685019,
+          "presentation": {
+            "with_consequence_shown": 0.8092189500640204,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 781,
+          "no_action_r5": 0.0,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.0,
+          "changes_highbp_or_highchol_without_lever": 0.0
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.1728342013888889
+      },
+      "forced": {
+        "coverage_x": 126,
+        "coverage": 0.63,
+        "coverage_cp95": [
+          0.5590535152152594,
+          0.6970301757287629
+        ],
+        "action_coverage_r5_x": 27,
+        "kept_outputs": 621,
+        "feasible_runs": 14065,
+        "valid_before_rounding": 0.5559900462140064,
+        "valid_after_rounding": 0.15535015997156063,
+        "kept_v4": {
+          "n": 621,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.07568438003220612,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 621,
+          "no_action_r5": 0.8019323671497585,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.8695652173913043,
+          "changes_highbp_or_highchol_without_lever": 0.8019323671497585
+        },
+        "j1_equals_lock_share": 1.0,
+        "cpu_hours": 0.2778559027777778,
+        "kept_with_highbp_or_highchol_forced": 540
+      },
+      "lockroute": {
+        "coverage_x": 36,
+        "coverage": 0.18,
+        "coverage_cp95": [
+          0.12936892834839725,
+          0.24038109688400744
+        ],
+        "action_coverage_r5_x": 36,
+        "kept_outputs": 164,
+        "feasible_runs": 15530,
+        "valid_before_rounding": 0.6744365743721829,
+        "valid_after_rounding": 0.0708950418544752,
+        "kept_v4": {
+          "n": 164,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.11585365853658537,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 164,
+          "no_action_r5": 0.0,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.0,
+          "changes_highbp_or_highchol_without_lever": 0.0
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.2640104166666667
+      },
+      "levers": {
+        "coverage_x": 23,
+        "coverage": 0.115,
+        "coverage_cp95": [
+          0.07431337369229704,
+          0.1675469444822539
+        ],
+        "action_coverage_r5_x": 23,
+        "kept_outputs": 111,
+        "feasible_runs": 13050,
+        "valid_before_rounding": 0.4553256704980843,
+        "valid_after_rounding": 0.033486590038314175,
+        "kept_v4": {
+          "n": 111,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0990990990990991,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 111,
+          "no_action_r5": 0.0,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.0,
+          "changes_highbp_or_highchol_without_lever": 0.0
+        },
+        "j1_equals_lock_share": 1.0,
+        "cpu_hours": 0.2574739583333333
+      },
+      "delta_route_minus_levers": 0.69,
+      "delta_route_minus_forced": 0.175,
+      "delta_route_minus_lockroute": 0.625
+    },
+    "s48": {
+      "cohort_n": 200,
+      "published": {
+        "coverage_x": 24,
+        "coverage": 0.12,
+        "coverage_cp95": [
+          0.07842024799636274,
+          0.17327235116412226
+        ],
+        "action_coverage_r5_x": 24,
+        "kept_outputs": 104,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 0.07170833333333333,
+        "valid_after_rounding": 0.03975,
+        "kept_v4": {
+          "n": 104,
+          "touch_indicator": 1.0,
+          "genhlth": 1.0,
+          "no_action": 0.009615384615384616,
+          "ses_only": 0.0,
+          "ses_touch": 1.0,
+          "presentation": {
+            "with_consequence_shown": 1.0,
+            "with_at_least_one_action": 0.9903846153846154,
+            "action_list_empty_or_ses_only": 0.009615384615384616,
+            "indicator_without_action": 0.009615384615384616
+          }
+        },
+        "kept_r5": {
+          "n": 104,
+          "no_action_r5": 0.009615384615384616,
+          "fully_unactionable_r5": 0.009615384615384616,
+          "changes_highbp_or_highchol": 0.0,
+          "changes_highbp_or_highchol_without_lever": 0.0
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.21438802083333333
+      },
+      "lock": {
+        "coverage_x": 0,
+        "coverage": 0.0,
+        "coverage_cp95": [
+          0.0,
+          0.018275340355136237
+        ],
+        "action_coverage_r5_x": 0,
+        "kept_outputs": 0,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 0.063375,
+        "valid_after_rounding": 0.0,
+        "kept_v4": {
+          "n": 0
+        },
+        "kept_r5": {
+          "n": 0
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.2212109375
+      },
+      "route": {
+        "coverage_x": 144,
+        "coverage": 0.72,
+        "coverage_cp95": [
+          0.6523112627953918,
+          0.781038844329967
+        ],
+        "action_coverage_r5_x": 144,
+        "kept_outputs": 674,
+        "feasible_runs": 14860,
+        "valid_before_rounding": 0.5792732166890983,
+        "valid_after_rounding": 0.21561238223418575,
+        "kept_v4": {
+          "n": 674,
+          "touch_indicator": 0.7804154302670623,
+          "genhlth": 0.7804154302670623,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.7774480712166172,
+          "presentation": {
+            "with_consequence_shown": 0.7804154302670623,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 674,
+          "no_action_r5": 0.0,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.0,
+          "changes_highbp_or_highchol_without_lever": 0.0
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.2603081597222222
+      },
+      "forced": {
+        "coverage_x": 116,
+        "coverage": 0.58,
+        "coverage_cp95": [
+          0.5083361748773803,
+          0.649256142208944
+        ],
+        "action_coverage_r5_x": 39,
+        "kept_outputs": 563,
+        "feasible_runs": 13985,
+        "valid_before_rounding": 0.5027529495888452,
+        "valid_after_rounding": 0.12570611369324275,
+        "kept_v4": {
+          "n": 563,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0994671403197158,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 563,
+          "no_action_r5": 0.6980461811722913,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.7921847246891652,
+          "changes_highbp_or_highchol_without_lever": 0.6980461811722913
+        },
+        "j1_equals_lock_share": 1.0,
+        "cpu_hours": 0.24800347222222222,
+        "kept_with_highbp_or_highchol_forced": 446
+      },
+      "lockroute": {
+        "coverage_x": 33,
+        "coverage": 0.165,
+        "coverage_cp95": [
+          0.11638311995805391,
+          0.22384346771182057
+        ],
+        "action_coverage_r5_x": 33,
+        "kept_outputs": 157,
+        "feasible_runs": 14860,
+        "valid_before_rounding": 0.5786675639300135,
+        "valid_after_rounding": 0.0693135935397039,
+        "kept_v4": {
+          "n": 157,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.044585987261146494,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 157,
+          "no_action_r5": 0.0,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.0,
+          "changes_highbp_or_highchol_without_lever": 0.0
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.26098958333333333
+      },
+      "levers": {
+        "coverage_x": 29,
+        "coverage": 0.145,
+        "coverage_cp95": [
+          0.09930862255520755,
+          0.20156149617317962
+        ],
+        "action_coverage_r5_x": 29,
+        "kept_outputs": 145,
+        "feasible_runs": 12915,
+        "valid_before_rounding": 0.38064266356949283,
+        "valid_after_rounding": 0.04653503677893922,
+        "kept_v4": {
+          "n": 145,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 145,
+          "no_action_r5": 0.0,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.0,
+          "changes_highbp_or_highchol_without_lever": 0.0
+        },
+        "j1_equals_lock_share": 1.0,
+        "cpu_hours": 0.24417100694444444
+      },
+      "delta_route_minus_levers": 0.575,
+      "delta_route_minus_forced": 0.14,
+      "delta_route_minus_lockroute": 0.555
+    },
+    "s49": {
+      "cohort_n": 200,
+      "published": {
+        "coverage_x": 13,
+        "coverage": 0.065,
+        "coverage_cp95": [
+          0.03506070865697905,
+          0.10858723650381527
+        ],
+        "action_coverage_r5_x": 11,
+        "kept_outputs": 48,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 0.06295833333333334,
+        "valid_after_rounding": 0.01633333333333333,
+        "kept_v4": {
+          "n": 48,
+          "touch_indicator": 1.0,
+          "genhlth": 1.0,
+          "no_action": 0.041666666666666664,
+          "ses_only": 0.0,
+          "ses_touch": 0.8958333333333334,
+          "presentation": {
+            "with_consequence_shown": 1.0,
+            "with_at_least_one_action": 0.9583333333333334,
+            "action_list_empty_or_ses_only": 0.041666666666666664,
+            "indicator_without_action": 0.041666666666666664
+          }
+        },
+        "kept_r5": {
+          "n": 48,
+          "no_action_r5": 0.041666666666666664,
+          "fully_unactionable_r5": 0.041666666666666664,
+          "changes_highbp_or_highchol": 0.10416666666666667,
+          "changes_highbp_or_highchol_without_lever": 0.0
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.3216145833333333
+      },
+      "lock": {
+        "coverage_x": 1,
+        "coverage": 0.005,
+        "coverage_cp95": [
+          0.00012658102786701836,
+          0.027541898457205637
+        ],
+        "action_coverage_r5_x": 1,
+        "kept_outputs": 5,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 0.058666666666666666,
+        "valid_after_rounding": 0.0008333333333333334,
+        "kept_v4": {
+          "n": 5,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 5,
+          "no_action_r5": 0.0,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 1.0,
+          "changes_highbp_or_highchol_without_lever": 0.0
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.33706163194444444
+      },
+      "route": {
+        "coverage_x": 124,
+        "coverage": 0.62,
+        "coverage_cp95": [
+          0.5488512420834482,
+          0.6875345648223296
+        ],
+        "action_coverage_r5_x": 124,
+        "kept_outputs": 541,
+        "feasible_runs": 17430,
+        "valid_before_rounding": 0.6725760183591509,
+        "valid_after_rounding": 0.14738955823293173,
+        "kept_v4": {
+          "n": 541,
+          "touch_indicator": 0.5859519408502772,
+          "genhlth": 0.5859519408502772,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.5711645101663586,
+          "presentation": {
+            "with_consequence_shown": 0.5859519408502772,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 541,
+          "no_action_r5": 0.0,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.0,
+          "changes_highbp_or_highchol_without_lever": 0.0
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.27053819444444444
+      },
+      "forced": {
+        "coverage_x": 127,
+        "coverage": 0.635,
+        "coverage_cp95": [
+          0.5641659702100028,
+          0.7017665736329881
+        ],
+        "action_coverage_r5_x": 48,
+        "kept_outputs": 614,
+        "feasible_runs": 14350,
+        "valid_before_rounding": 0.5465505226480836,
+        "valid_after_rounding": 0.12752613240418118,
+        "kept_v4": {
+          "n": 614,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.18241042345276873,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 614,
+          "no_action_r5": 0.6498371335504886,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.8664495114006515,
+          "changes_highbp_or_highchol_without_lever": 0.6416938110749185
+        },
+        "j1_equals_lock_share": 1.0,
+        "cpu_hours": 0.25196180555555553,
+        "kept_with_highbp_or_highchol_forced": 532
+      },
+      "lockroute": {
+        "coverage_x": 53,
+        "coverage": 0.265,
+        "coverage_cp95": [
+          0.2052390913859231,
+          0.3318700922086181
+        ],
+        "action_coverage_r5_x": 53,
+        "kept_outputs": 249,
+        "feasible_runs": 17430,
+        "valid_before_rounding": 0.6722317842799771,
+        "valid_after_rounding": 0.09799196787148594,
+        "kept_v4": {
+          "n": 249,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.1285140562248996,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 249,
+          "no_action_r5": 0.0,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.020080321285140562,
+          "changes_highbp_or_highchol_without_lever": 0.0
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.27081163194444446
+      },
+      "levers": {
+        "coverage_x": 32,
+        "coverage": 0.16,
+        "coverage_cp95": [
+          0.11208749764580188,
+          0.21829901535134077
+        ],
+        "action_coverage_r5_x": 32,
+        "kept_outputs": 155,
+        "feasible_runs": 13120,
+        "valid_before_rounding": 0.43597560975609756,
+        "valid_after_rounding": 0.04489329268292683,
+        "kept_v4": {
+          "n": 155,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.22580645161290322,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 155,
+          "no_action_r5": 0.0,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.03225806451612903,
+          "changes_highbp_or_highchol_without_lever": 0.0
+        },
+        "j1_equals_lock_share": 1.0,
+        "cpu_hours": 0.2433203125
+      },
+      "delta_route_minus_levers": 0.46,
+      "delta_route_minus_forced": -0.015,
+      "delta_route_minus_lockroute": 0.355
+    },
+    "lr": {
+      "cohort_n": 200,
+      "published": {
+        "coverage_x": 7,
+        "coverage": 0.035,
+        "coverage_cp95": [
+          0.014185525898419248,
+          0.07078099835097719
+        ],
+        "action_coverage_r5_x": 5,
+        "kept_outputs": 35,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.029333333333333333,
+        "kept_v4": {
+          "n": 35,
+          "touch_indicator": 1.0,
+          "genhlth": 1.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 1.0,
+          "presentation": {
+            "with_consequence_shown": 1.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 35,
+          "no_action_r5": 0.2857142857142857,
+          "fully_unactionable_r5": 0.2857142857142857,
+          "changes_highbp_or_highchol": 0.5714285714285714,
+          "changes_highbp_or_highchol_without_lever": 0.2857142857142857
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.0240625
+      },
+      "lock": {
+        "coverage_x": 39,
+        "coverage": 0.195,
+        "coverage_cp95": [
+          0.1424918747790589,
+          0.2567856875265592
+        ],
+        "action_coverage_r5_x": 36,
+        "kept_outputs": 182,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.16066666666666668,
+        "kept_v4": {
+          "n": 182,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 1.0,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 182,
+          "no_action_r5": 0.08241758241758242,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.9725274725274725,
+          "changes_highbp_or_highchol_without_lever": 0.08241758241758242
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.025625
+      },
+      "route": {
+        "coverage_x": 125,
+        "coverage": 0.625,
+        "coverage_cp95": [
+          0.5539486258174146,
+          0.6922861517823592
+        ],
+        "action_coverage_r5_x": 124,
+        "kept_outputs": 587,
+        "feasible_runs": 18170,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.20242157402311503,
+        "kept_v4": {
+          "n": 587,
+          "touch_indicator": 0.48722316865417375,
+          "genhlth": 0.48722316865417375,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.6422487223168655,
+          "presentation": {
+            "with_consequence_shown": 0.48722316865417375,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 587,
+          "no_action_r5": 0.010221465076660987,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.151618398637138,
+          "changes_highbp_or_highchol_without_lever": 0.010221465076660987
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.03680121527777778
+      },
+      "forced": {
+        "coverage_x": 82,
+        "coverage": 0.41,
+        "coverage_cp95": [
+          0.34113064567146767,
+          0.4815784147872211
+        ],
+        "action_coverage_r5_x": 81,
+        "kept_outputs": 386,
+        "feasible_runs": 14285,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.12929646482324117,
+        "kept_v4": {
+          "n": 386,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.5854922279792746,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 386,
+          "no_action_r5": 0.015544041450777202,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.572538860103627,
+          "changes_highbp_or_highchol_without_lever": 0.015544041450777202
+        },
+        "j1_equals_lock_share": 1.0,
+        "cpu_hours": 0.014583333333333334,
+        "kept_with_highbp_or_highchol_forced": 88
+      },
+      "lockroute": {
+        "coverage_x": 74,
+        "coverage": 0.37,
+        "coverage_cp95": [
+          0.30296982427123714,
+          0.4409464847847406
+        ],
+        "action_coverage_r5_x": 73,
+        "kept_outputs": 355,
+        "feasible_runs": 18170,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.1619702806824436,
+        "kept_v4": {
+          "n": 355,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.4112676056338028,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 355,
+          "no_action_r5": 0.016901408450704224,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.39436619718309857,
+          "changes_highbp_or_highchol_without_lever": 0.016901408450704224
+        },
+        "j1_equals_lock_share": null,
+        "cpu_hours": 0.022391493055555555
+      },
+      "levers": {
+        "coverage_x": 69,
+        "coverage": 0.345,
+        "coverage_cp95": [
+          0.27936547597156597,
+          0.4153072390103893
+        ],
+        "action_coverage_r5_x": 68,
+        "kept_outputs": 329,
+        "feasible_runs": 13420,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.15,
+        "kept_v4": {
+          "n": 329,
+          "touch_indicator": 0.0,
+          "genhlth": 0.0,
+          "no_action": 0.0,
+          "ses_only": 0.0,
+          "ses_touch": 0.513677811550152,
+          "presentation": {
+            "with_consequence_shown": 0.0,
+            "with_at_least_one_action": 1.0,
+            "action_list_empty_or_ses_only": 0.0,
+            "indicator_without_action": 0.0
+          }
+        },
+        "kept_r5": {
+          "n": 329,
+          "no_action_r5": 0.0182370820668693,
+          "fully_unactionable_r5": 0.0,
+          "changes_highbp_or_highchol": 0.49848024316109424,
+          "changes_highbp_or_highchol_without_lever": 0.0182370820668693
+        },
+        "j1_equals_lock_share": 1.0,
+        "cpu_hours": 0.0234765625
+      },
+      "delta_route_minus_levers": 0.28,
+      "delta_route_minus_forced": 0.215,
+      "delta_route_minus_lockroute": 0.255
+    }
+  },
+  "pooled": {
+    "key_seeds_46_48_49": {
+      "n_seeds": 3,
+      "units": 600,
+      "coverage": {
+        "published": 0.14833333333333334,
+        "lock": 0.0033333333333333335,
+        "route": 0.715,
+        "forced": 0.615,
+        "lockroute": 0.20333333333333334,
+        "levers": 0.14
+      },
+      "action_coverage_r5": {
+        "published": 0.14166666666666666,
+        "lock": 0.0033333333333333335,
+        "route": 0.715,
+        "forced": 0.19,
+        "lockroute": 0.20333333333333334,
+        "levers": 0.14
+      },
+      "delta_L_route_minus_levers": {
+        "point": 0.575,
+        "ci95": [
+          0.5302013422818792,
+          0.6181840427109595
+        ],
+        "n_units": 600,
+        "n_clusters": 424,
+        "reading": "graph adds coverage beyond lever forcing (lower 95% bound > margin)"
+      },
+      "delta_G_route_minus_forced_S_P4": {
+        "point": 0.1,
+        "ci95": [
+          0.040533738436423,
+          0.15773531057344517
+        ],
+        "n_units": 600,
+        "n_clusters": 424,
+        "reading": "undecided"
+      },
+      "delta_R_route_minus_lockroute_S_P4": {
+        "point": 0.5116666666666667,
+        "ci95": [
+          0.46553447954991195,
+          0.5568186498427437
+        ],
+        "n_units": 600,
+        "n_clusters": 424,
+        "reading": "graph adds coverage beyond lever forcing (lower 95% bound > margin)"
+      },
+      "delta_action_coverage_route_minus_levers": {
+        "point": 0.575,
+        "ci95": [
+          0.5302013422818792,
+          0.6181840427109595
+        ],
+        "n_units": 600,
+        "n_clusters": 424,
+        "reading": "graph adds coverage beyond lever forcing (lower 95% bound > margin)"
+      }
+    },
+    "all_accepted_seeds": {
+      "n_seeds": 5,
+      "units": 1000,
+      "coverage": {
+        "published": 0.127,
+        "lock": 0.149,
+        "route": 0.712,
+        "forced": 0.67,
+        "lockroute": 0.337,
+        "levers": 0.292
+      },
+      "action_coverage_r5": {
+        "published": 0.119,
+        "lock": 0.118,
+        "route": 0.697,
+        "forced": 0.31,
+        "lockroute": 0.32,
+        "levers": 0.273
+      },
+      "delta_L_route_minus_levers": {
+        "point": 0.42,
+        "ci95": [
+          0.38703069584521177,
+          0.4521658080668263
+        ],
+        "n_units": 1000,
+        "n_clusters": 490,
+        "reading": "graph adds coverage beyond lever forcing (lower 95% bound > margin)"
+      },
+      "delta_G_route_minus_forced_S_P4": {
+        "point": 0.042,
+        "ci95": [
+          0.0,
+          0.08316841258593945
+        ],
+        "n_units": 1000,
+        "n_clusters": 490,
+        "reading": "lever forcing explains the coverage advantage (upper 95% bound <= margin)"
+      },
+      "delta_R_route_minus_lockroute_S_P4": {
+        "point": 0.375,
+        "ci95": [
+          0.34138732320271753,
+          0.4074474984068729
+        ],
+        "n_units": 1000,
+        "n_clusters": 490,
+        "reading": "graph adds coverage beyond lever forcing (lower 95% bound > margin)"
+      },
+      "delta_action_coverage_route_minus_levers": {
+        "point": 0.424,
+        "ci95": [
+          0.3913765220700152,
+          0.45628741533755734
+        ],
+        "n_units": 1000,
+        "n_clusters": 490,
+        "reading": "graph adds coverage beyond lever forcing (lower 95% bound > margin)"
+      }
+    }
+  }
+}

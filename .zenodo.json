@@ -1,7 +1,7 @@
 {
   "title": "diabetes-xai-dependencygraph: guideline knowledge-graph audit of counterfactual recourse (diabetes, chronic kidney disease, hypertension)",
   "upload_type": "software",
-  "description": "Code, guideline dependency graphs in RDF Turtle with route provenance, SPARQL audit queries, internally time-stamped protocol and post-hoc plans with their SHA-256 hashes, deviation log and derived summary results for a guideline knowledge-graph audit of counterfactual recourse across three surveys (BRFSS, NHIS, NHANES), three diseases (diabetes, chronic kidney disease, hypertension) and six generators. Survey data, fitted models and guideline documents are not included. See eswa2026/README.md.",
+  "description": "Code, guideline dependency graphs in RDF Turtle with route provenance, SPARQL audit queries, internally time-stamped protocol and post-hoc plans with their SHA-256 hashes, deviation log and derived summary results for a guideline knowledge-graph audit of counterfactual recourse across three surveys (BRFSS, NHIS, NHANES), three diseases (diabetes, chronic kidney disease, hypertension) and six generators. Version 2.1.0 adds the rerun on a shared harmonised dataset (deviation D-P5): code in q1_v10/, results in eswa2026/results_v10/. Survey data, fitted models and guideline documents are not included. See eswa2026/README.md.",
   "creators": [
     {
       "name": "Thieu, Van",

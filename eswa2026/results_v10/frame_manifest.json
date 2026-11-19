@@ -1,0 +1,59 @@
+{
+  "p5_file": "D:\\20-study\\uit\\research\\diabetesxai\\paper5\\data\\harmonized\\udss_md_nhanes_v0.2.1.parquet",
+  "p5_sha256": "580d01142b7804f857012e5a5818fbfaaf7b62249606ed39e51c35cfc51163e6",
+  "p5_repo_commit": "3b1809f",
+  "frames": {
+    "ckd_p5": {
+      "path": "D:\\20-study\\uit\\research\\diabetesxai\\paper7\\outputs\\p5_v10\\frames\\ckd_p5.csv",
+      "n": 9793,
+      "sha256": "0214305381ae581c041a092713612de54c1e719759f13f6d616cb72d6a17d1c6"
+    },
+    "htn_p5": {
+      "path": "D:\\20-study\\uit\\research\\diabetesxai\\paper7\\outputs\\p5_v10\\frames\\htn_p5.csv",
+      "n": 9905,
+      "sha256": "b09c36130f8301750d6d324bceebf2b18343d45ec0eb625890c56fe42dfb37ec"
+    },
+    "dm_p5": {
+      "path": "D:\\20-study\\uit\\research\\diabetesxai\\paper7\\outputs\\p5_v10\\frames\\dm_p5.csv",
+      "n": 14480,
+      "sha256": "1b023fbd39d1bdf639b96947464ed9cbd1c9a3ca690f37bb9195ab584e96150a"
+    },
+    "t4_2017-2020_p5": {
+      "path": "D:\\20-study\\uit\\research\\diabetesxai\\paper7\\outputs\\p5_v10\\frames\\t4_2017-2020_p5.csv",
+      "n": 6389,
+      "sha256": "3f80bd8e13352258c954e529524f01e299118e2377ad43950acdd95f93c348e2"
+    },
+    "t4_2021-2023_p5": {
+      "path": "D:\\20-study\\uit\\research\\diabetesxai\\paper7\\outputs\\p5_v10\\frames\\t4_2021-2023_p5.csv",
+      "n": 4279,
+      "sha256": "71c7ed558accb1667bbed5f5f41c6cef74450a7477536025121d51df1f55f83a"
+    },
+    "htn_ext_p5": {
+      "path": "D:\\20-study\\uit\\research\\diabetesxai\\paper7\\outputs\\p5_v10\\frames\\htn_ext_p5.csv",
+      "n": 9905,
+      "sha256": "4a408fed61c97c0ebaa514a75e323d8ece9afe221f80ab1acaa909818b6f95ba",
+      "note": "htn_p5 plus HTN_L2_measured_or_treated (P5 hypertension_total_acc) and BP_med_now"
+    },
+    "brfss2021_p5": {
+      "path": "D:\\20-study\\uit\\research\\diabetesxai\\paper7\\outputs\\p5_v10\\frames\\brfss2021_p5.csv",
+      "n": 236378,
+      "sha256": "2902623232b12cc0f1abf543f79370b668f7cec2eb06c4fd4fe78deea27953d9",
+      "p5_file": "D:\\20-study\\uit\\research\\diabetesxai\\paper5\\data\\harmonized\\udss_md_brfss_v0.2.1.parquet",
+      "p5_sha256": "7bbfbf0a6157895682d75c9b867504ea853f8643ac41a307f98e37538d4e302c"
+    }
+  },
+  "identical_to_0_2_0_frame": {
+    "ckd": true,
+    "htn": true,
+    "dm": true,
+    "t4_2017-2020": true,
+    "t4_2021-2023": true
+  },
+  "brfss_vs_v9_file": {
+    "n_v9": 236378,
+    "same_order_rows_identical": 236147,
+    "cells_differing": {
+      "Sex": 231
+    }
+  }
+}

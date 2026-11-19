@@ -1,0 +1,362 @@
+{
+  "variant": "rimm_off",
+  "written": "19/11/2026 05:49",
+  "target": "HTN_L1_measured",
+  "n_analytic": 9905,
+  "test_auc": 0.6393228272741458,
+  "eligible": 755,
+  "r_imm_applied": false,
+  "aha_agreed_graph": "not reached (extractor B failed the recall gate)",
+  "n_cohort": 200,
+  "near_degenerate_check": {
+    "supporting_levers_aha_k1": [],
+    "share_cohort_movable": {},
+    "rule": "near-degenerate iff every supporting lever is movable for < 10% of cohort patients (addendum 7.3)",
+    "near_degenerate": false,
+    "degenerate": true,
+    "status": "not reached (no agreed graph)"
+  },
+  "aha_edges_items": [],
+  "kdigo_edges_items": [
+    [
+      "BMI",
+      "GenHlth"
+    ],
+    [
+      "BMI",
+      "HighChol"
+    ],
+    [
+      "PhysActivity",
+      "MentHlth"
+    ]
+  ],
+  "ada_edges_items": [
+    [
+      "BMI",
+      "GenHlth"
+    ],
+    [
+      "BMI",
+      "HighChol"
+    ],
+    [
+      "HighChol",
+      "GenHlth"
+    ],
+    [
+      "PhysActivity",
+      "BMI"
+    ],
+    [
+      "PhysActivity",
+      "GenHlth"
+    ],
+    [
+      "PhysActivity",
+      "HighChol"
+    ],
+    [
+      "PhysActivity",
+      "MentHlth"
+    ]
+  ],
+  "S1_single_nonindicator_flip": {
+    "x": 131,
+    "n": 200,
+    "share": 0.655,
+    "cp95": [
+      0.5846927609896106,
+      0.720634524028434
+    ]
+  },
+  "O_A1_fully_unactionable_dice_published": {
+    "n": 196,
+    "est": 0.0776287657920311,
+    "ci95": [
+      0.05530490767735666,
+      0.10252672497570457
+    ],
+    "ci99": [
+      0.05048245869776483,
+      0.11130262390670553
+    ],
+    "lower_one_sided_99": 0.052603692905733725,
+    "upper_one_sided_99": 0.1082430515063168,
+    "patients_without_cf": 4
+  },
+  "O_share_dice_published": {
+    "n": 196,
+    "est": 0.1551380994168475,
+    "ci95": [
+      0.13453677335112782,
+      0.17831468598045733
+    ]
+  },
+  "touch_share_dice_published": {
+    "n": 196,
+    "est": 0.27176627793974734,
+    "ci95": [
+      0.23355102040816325,
+      0.3119918610301264
+    ]
+  },
+  "O_A2_movability_null": {
+    "T_mean_oshare": 0.1551380994168475,
+    "null_mean_of_means": 0.23928368966634272,
+    "p": 1.0,
+    "draws": 100000,
+    "n_draws_ge": 100000,
+    "n_patients": 196,
+    "max_subsets_per_patient": 36,
+    "changes_outside_movable_set": 0
+  },
+  "H1": {
+    "verdict": "not supported",
+    "component_i_lower99_gt_0.10": false,
+    "component_ii_p_lt_0.01": false
+  },
+  "O_A3_valid_among_requested_lock_minus_published": {
+    "n": 200,
+    "est": 0.0152,
+    "ci95": [
+      -0.0052000000000000015,
+      0.0348
+    ],
+    "ci99": [
+      -0.01260599999999999,
+      0.042801999999999944
+    ],
+    "lower_one_sided_99": -0.009602,
+    "upper_one_sided_99": 0.03840599999999999,
+    "published_valid_among_requested": 0.8128,
+    "lock_valid_among_requested": 0.828
+  },
+  "coverage_dice": {
+    "published": {
+      "x_valid": 195,
+      "n": 200,
+      "share": 0.975,
+      "cp99": [
+        0.9308543619303203,
+        0.9945705472017682
+      ]
+    },
+    "lock": {
+      "x_valid": 187,
+      "n": 200,
+      "share": 0.935,
+      "cp99": [
+        0.876478504803248,
+        0.9716389594580143
+      ]
+    }
+  },
+  "H2": {
+    "verdict": "not supported",
+    "lock_coverage_point": 0.935
+  },
+  "exhaustive_costs": {
+    "lock": {
+      "coverage_x": 187,
+      "n": 200,
+      "coverage": 0.935,
+      "cp95": [
+        0.8914127634961847,
+        0.9649392913430209
+      ],
+      "best_changes": {
+        "n": 187,
+        "est": 1.320855614973262,
+        "ci95": [
+          1.2513368983957218,
+          1.3903743315508021
+        ]
+      },
+      "best_dist": {
+        "n": 187,
+        "est": 0.5718603143736833,
+        "ci95": [
+          0.5207687165775401,
+          0.6275366634257008
+        ]
+      },
+      "dist_minus_published": {
+        "n": 187,
+        "est": 0.010030789175174203,
+        "ci95": [
+          -0.002116553232863391,
+          0.02571848160751903
+        ]
+      }
+    },
+    "published": {
+      "coverage_x": 194,
+      "n": 200,
+      "coverage": 0.97,
+      "cp95": [
+        0.935849373294973,
+        0.9889125443277452
+      ],
+      "best_changes": {
+        "n": 194,
+        "est": 1.3402061855670102,
+        "ci95": [
+          1.268041237113402,
+          1.4124999999999994
+        ]
+      },
+      "best_dist": {
+        "n": 194,
+        "est": 0.5798266166822869,
+        "ci95": [
+          0.5338398156825992,
+          0.6332813964386129
+        ]
+      }
+    }
+  },
+  "H3": {
+    "verdict": "not reached",
+    "reason": "extractor B (Qwen2.5-72B) failed the recall gate; no fallback (addendum 5.4): the HTN agreed graph, H3-HTN and A-Q4-HTN are not reached"
+  },
+  "A_Q4": "not reached",
+  "leakage_published_other_authorities": {
+    "dice_random": {
+      "kdigo_k1": {
+        "n": 196,
+        "est": 0.11550048590864918,
+        "ci95": [
+          0.08854737609329447,
+          0.14571890184645284
+        ],
+        "cf_level_share": 0.11790484140233723
+      },
+      "ada_k1": {
+        "n": 196,
+        "est": 0.11301263362487853,
+        "ci95": [
+          0.0864781341107872,
+          0.14307021379980558
+        ],
+        "cf_level_share": 0.11540066777963272
+      },
+      "union_kdigo_ada_k1": {
+        "n": 196,
+        "est": 0.11301263362487853,
+        "ci95": [
+          0.0864781341107872,
+          0.14307021379980558
+        ],
+        "cf_level_share": 0.11540066777963272
+      },
+      "fully_unactionable": {
+        "n": 196,
+        "est": 0.0776287657920311,
+        "ci95": [
+          0.05530490767735666,
+          0.10252672497570457
+        ]
+      }
+    },
+    "exhaustive": {
+      "kdigo_k1": {
+        "n": 194,
+        "est": 0.1475085910652921,
+        "ci95": [
+          0.12379510309278349,
+          0.17371563573883161
+        ],
+        "cf_level_share": 0.15545755237045203
+      },
+      "ada_k1": {
+        "n": 194,
+        "est": 0.14647766323024056,
+        "ci95": [
+          0.12319372852233676,
+          0.172770618556701
+        ],
+        "cf_level_share": 0.1543550165380375
+      },
+      "union_kdigo_ada_k1": {
+        "n": 194,
+        "est": 0.14647766323024056,
+        "ci95": [
+          0.12319372852233676,
+          0.172770618556701
+        ],
+        "cf_level_share": 0.1543550165380375
+      },
+      "fully_unactionable": {
+        "n": 194,
+        "est": 0.09716494845360825,
+        "ci95": [
+          0.07731958762886598,
+          0.11829896907216496
+        ]
+      }
+    }
+  },
+  "per_cycle_dice_published": {
+    "2017-2020": {
+      "O_A1": {
+        "n": 135,
+        "est": 0.07981657848324515,
+        "ci95": [
+          0.052960846560846576,
+          0.111336860670194
+        ]
+      },
+      "O_share": {
+        "n": 135,
+        "est": 0.15362627364232956,
+        "ci95": [
+          0.12900020952362246,
+          0.17980888390678482
+        ]
+      }
+    },
+    "2021-2023": {
+      "O_A1": {
+        "n": 61,
+        "est": 0.07278688524590164,
+        "ci95": [
+          0.03737704918032787,
+          0.11278688524590164
+        ]
+      },
+      "O_share": {
+        "n": 61,
+        "est": 0.15848394334405927,
+        "ci95": [
+          0.12148368098706591,
+          0.19741409088867265
+        ]
+      }
+    }
+  },
+  "distinct_cfs_per_patient_dice_published": {
+    "n": 196,
+    "est": 20.943877551020407,
+    "ci95": [
+      20.260204081632654,
+      21.5765306122449
+    ]
+  },
+  "feature_change_counts_dice_published": {
+    "BMI": 3964,
+    "Education": 1314,
+    "GenHlth": 1031,
+    "Income": 983,
+    "PhysActivity": 278,
+    "MentHlth": 266,
+    "HighChol": 248,
+    "AnyHealthcare": 48,
+    "Smoker": 45
+  },
+  "software_checks": {
+    "dice_lock_indicator_touching_cfs": 0,
+    "exh_lock_indicator_touching_cfs": 0,
+    "changes_on_r_imm_features": 2345
+  }
+}

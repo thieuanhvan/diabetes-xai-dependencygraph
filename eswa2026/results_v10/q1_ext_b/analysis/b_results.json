@@ -1,0 +1,1730 @@
+{
+  "written": "18/11/2026 22:29",
+  "wachter_mlp": {
+    "status": "not run"
+  },
+  "wachter_lr": {
+    "cohort_n": 200,
+    "model_info": {
+      "model": "lr",
+      "n": 236378,
+      "n_train": 189102,
+      "n_test": 47276,
+      "features": [
+        "HighBP",
+        "HighChol",
+        "CholCheck",
+        "BMI",
+        "Smoker",
+        "Stroke",
+        "HeartDiseaseorAttack",
+        "PhysActivity",
+        "Fruits",
+        "Veggies",
+        "HvyAlcoholConsump",
+        "AnyHealthcare",
+        "NoDocbcCost",
+        "GenHlth",
+        "MentHlth",
+        "PhysHlth",
+        "DiffWalk",
+        "Sex",
+        "Age",
+        "Education",
+        "Income"
+      ],
+      "p4_lo": [
+        0.0,
+        0.0,
+        0.0,
+        18.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "p4_span": [
+        1.0,
+        1.0,
+        1.0,
+        16.5,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        4.0,
+        30.0,
+        30.0,
+        1.0,
+        1.0,
+        12.0,
+        5.0,
+        10.0
+      ],
+      "config": "StandardScaler + LogisticRegression(max_iter=5000, random_state=42), P7",
+      "test_auc": 0.8169894634393327,
+      "eligible_p_ge_0_5": 1878,
+      "cohort_n": 200,
+      "cohort_min_p": 0.7250133847509422,
+      "secs": 12.277693748474121
+    },
+    "run_info": {
+      "precheck_max_abs_diff": 5.960464477539063e-08,
+      "model": "lr",
+      "cohort_n": 200,
+      "P": 24,
+      "wachter": {
+        "lr": 0.01,
+        "lambda_param": 0.01,
+        "n_iter": 1000,
+        "norm": 1,
+        "max_lambda_steps": 10,
+        "y_target": [
+          1,
+          0
+        ],
+        "start_sd": 0.01
+      },
+      "seeds": [
+        42,
+        123,
+        2024,
+        7,
+        31337
+      ],
+      "torch": "2.15.0+cpu",
+      "cpu_secs_published": 86.625,
+      "status_published": "complete",
+      "cpu_secs_lock": 92.25,
+      "status_lock": "complete",
+      "cpu_secs_route": 132.484375,
+      "status_route": "complete"
+    },
+    "published": {
+      "coverage": {
+        "x": 7,
+        "n": 200,
+        "share": 0.035,
+        "cp95": [
+          0.014185525898419248,
+          0.07078099835097719
+        ],
+        "cp99": [
+          0.010289183813943588,
+          0.08351637307554177
+        ]
+      },
+      "valid_among_requested": {
+        "n": 200,
+        "est": 0.035,
+        "ci95": [
+          0.015,
+          0.06
+        ]
+      },
+      "fully": {
+        "n": 7,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "touch": {
+        "n": 7,
+        "est": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "oshare": {
+        "n": 7,
+        "est": 0.2085034013605442,
+        "ci95": [
+          0.177891156462585,
+          0.2357142857142857
+        ]
+      },
+      "cost": {
+        "n": 7,
+        "est": 2.969047619047619,
+        "ci95": [
+          1.730952380952381,
+          4.275108225108224
+        ]
+      },
+      "best": {
+        "n": 7,
+        "est": 2.969047619047619,
+        "ci95": [
+          1.730952380952381,
+          4.275108225108224
+        ]
+      },
+      "nchg": {
+        "n": 7,
+        "est": 5.0,
+        "ci95": [
+          4.285714285714286,
+          5.857142857142857
+        ]
+      },
+      "leak_ada_k1": {
+        "n": 7,
+        "est": 0.42857142857142855,
+        "ci95": [
+          0.14285714285714285,
+          0.8571428571428571
+        ]
+      },
+      "leak_ada_graded_k1": {
+        "n": 7,
+        "est": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "leak_ada_k2_permissive": {
+        "n": 7,
+        "est": 0.2857142857142857,
+        "ci95": [
+          0.0,
+          0.5714285714285714
+        ]
+      },
+      "leak_ada_k2_strict": {
+        "n": 7,
+        "est": 0.2857142857142857,
+        "ci95": [
+          0.0,
+          0.5714285714285714
+        ]
+      },
+      "n_outputs": 35,
+      "distinct_outputs_per_patient": {
+        "n": 7,
+        "est": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "share_outputs_fully_unactionable": 0.0,
+      "share_outputs_leaking_ada_k1": 0.42857142857142855,
+      "feature_change_counts": {
+        "Education": 35,
+        "GenHlth": 35,
+        "Income": 35,
+        "HighChol": 20,
+        "HighBP": 20,
+        "BMI": 15,
+        "PhysActivity": 5,
+        "Fruits": 5,
+        "Veggies": 5
+      },
+      "runs": {
+        "n_runs": 24000,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.029333333333333333,
+        "valid_after_given_before": 0.029333333333333333,
+        "mean_iterations": 30.408,
+        "share_capped_runs": 0.0
+      },
+      "kept_valid_before_rounding": 1.0,
+      "cpu_hours": 0.0240625,
+      "lof": {
+        "n": 7,
+        "est": 1.2805530559524418,
+        "ci95": [
+          1.0893977942242843,
+          1.5011213562524746
+        ],
+        "share_outputs_predicted_outlier": 0.2857142857142857
+      }
+    },
+    "lock": {
+      "coverage": {
+        "x": 39,
+        "n": 200,
+        "share": 0.195,
+        "cp95": [
+          0.1424918747790589,
+          0.2567856875265592
+        ],
+        "cp99": [
+          0.12837603494204902,
+          0.2766240304410533
+        ]
+      },
+      "valid_among_requested": {
+        "n": 200,
+        "est": 0.182,
+        "ci95": [
+          0.128,
+          0.23800000000000002
+        ]
+      },
+      "fully": {
+        "n": 39,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "touch": {
+        "n": 39,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "oshare": {
+        "n": 39,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "cost": {
+        "n": 39,
+        "est": 4.334654234654234,
+        "ci95": [
+          3.92475912975913,
+          4.754902486402488
+        ]
+      },
+      "best": {
+        "n": 39,
+        "est": 4.272183372183371,
+        "ci95": [
+          3.854283216783216,
+          4.709180264180265
+        ]
+      },
+      "nchg": {
+        "n": 39,
+        "est": 5.338461538461538,
+        "ci95": [
+          4.963974358974359,
+          5.723076923076923
+        ]
+      },
+      "leak_ada_k1": {
+        "n": 39,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_graded_k1": {
+        "n": 39,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_k2_permissive": {
+        "n": 39,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_k2_strict": {
+        "n": 39,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "n_outputs": 182,
+      "distinct_outputs_per_patient": {
+        "n": 39,
+        "est": 1.2820512820512822,
+        "ci95": [
+          1.1282051282051282,
+          1.435897435897436
+        ]
+      },
+      "share_outputs_fully_unactionable": 0.0,
+      "share_outputs_leaking_ada_k1": 0.0,
+      "feature_change_counts": {
+        "Income": 182,
+        "HighBP": 166,
+        "HighChol": 159,
+        "PhysActivity": 142,
+        "Education": 140,
+        "BMI": 128,
+        "Fruits": 45,
+        "Veggies": 20,
+        "NoDocbcCost": 10
+      },
+      "runs": {
+        "n_runs": 24000,
+        "feasible_runs": 24000,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.16066666666666668,
+        "valid_after_given_before": 0.16066666666666668,
+        "mean_iterations": 52.51866666666667,
+        "share_capped_runs": 0.0
+      },
+      "kept_valid_before_rounding": 1.0,
+      "cpu_hours": 0.025625,
+      "lof": {
+        "n": 39,
+        "est": 1.2500748139845548,
+        "ci95": [
+          1.1926151864723367,
+          1.3186830727057022
+        ],
+        "share_outputs_predicted_outlier": 0.11538461538461539
+      }
+    },
+    "route": {
+      "coverage": {
+        "x": 125,
+        "n": 200,
+        "share": 0.625,
+        "cp95": [
+          0.5539486258174146,
+          0.6922861517823592
+        ],
+        "cp99": [
+          0.5321373168195997,
+          0.7117603807341533
+        ]
+      },
+      "valid_among_requested": {
+        "n": 200,
+        "est": 0.5870000000000001,
+        "ci95": [
+          0.5179750000000001,
+          0.655
+        ]
+      },
+      "fully": {
+        "n": 125,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "touch": {
+        "n": 125,
+        "est": 0.5056,
+        "ci95": [
+          0.42236000000000007,
+          0.5903999999999999
+        ]
+      },
+      "oshare": {
+        "n": 125,
+        "est": 0.11561818181818183,
+        "ci95": [
+          0.0961412987012987,
+          0.13512469696969695
+        ]
+      },
+      "cost": {
+        "n": 125,
+        "est": 2.4295539393939394,
+        "ci95": [
+          2.243665090909091,
+          2.629856363636363
+        ]
+      },
+      "best": {
+        "n": 125,
+        "est": 2.3869454545454545,
+        "ci95": [
+          2.200313939393939,
+          2.583336969696969
+        ]
+      },
+      "nchg": {
+        "n": 125,
+        "est": 3.5564,
+        "ci95": [
+          3.2448,
+          3.87363
+        ]
+      },
+      "leak_ada_k1": {
+        "n": 125,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_graded_k1": {
+        "n": 125,
+        "est": 0.5056,
+        "ci95": [
+          0.42236000000000007,
+          0.5903999999999999
+        ]
+      },
+      "leak_ada_k2_permissive": {
+        "n": 125,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_k2_strict": {
+        "n": 125,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "n_outputs": 587,
+      "distinct_outputs_per_patient": {
+        "n": 125,
+        "est": 1.128,
+        "ci95": [
+          1.064,
+          1.216
+        ]
+      },
+      "share_outputs_fully_unactionable": 0.0,
+      "share_outputs_leaking_ada_k1": 0.0,
+      "feature_change_counts": {
+        "BMI": 564,
+        "Income": 377,
+        "Education": 305,
+        "GenHlth": 286,
+        "PhysActivity": 272,
+        "HighBP": 89,
+        "HighChol": 83,
+        "Smoker": 34,
+        "Fruits": 22,
+        "Veggies": 12,
+        "NoDocbcCost": 3
+      },
+      "runs": {
+        "n_runs": 24000,
+        "feasible_runs": 18170,
+        "valid_before_rounding": 1.0,
+        "valid_after_rounding": 0.20242157402311503,
+        "valid_after_given_before": 0.20242157402311503,
+        "mean_iterations": 25.084094661529996,
+        "share_capped_runs": 0.0
+      },
+      "kept_valid_before_rounding": 1.0,
+      "cpu_hours": 0.03680121527777778,
+      "lof": {
+        "n": 125,
+        "est": 1.1123753232414737,
+        "ci95": [
+          1.0877743900614245,
+          1.1387916510454303
+        ],
+        "share_outputs_predicted_outlier": 0.03236797274275979
+      },
+      "change_sizes_route_supported": {
+        "GenHlth|BMI": {
+          "n": 136,
+          "mean": 1.0,
+          "median": 1.0,
+          "max": 1.0
+        },
+        "GenHlth|BMI+PhysActivity": {
+          "n": 147,
+          "mean": 1.0,
+          "median": 1.0,
+          "max": 1.0
+        },
+        "GenHlth|PhysActivity": {
+          "n": 3,
+          "mean": 2.0,
+          "median": 2.0,
+          "max": 2.0
+        }
+      }
+    },
+    "published_change_sizes_supported": {
+      "GenHlth|BMI": {
+        "n": 15,
+        "mean": 1.0,
+        "median": 1.0,
+        "max": 1.0
+      },
+      "GenHlth|PhysActivity": {
+        "n": 5,
+        "mean": 2.0,
+        "median": 2.0,
+        "max": 2.0
+      }
+    },
+    "decisions": {
+      "H4": {
+        "verdict": "not supported",
+        "fully_unactionable": {
+          "n": 7,
+          "est": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "ci99": [
+            0.0,
+            0.0
+          ],
+          "lower_one_sided_99": 0.0,
+          "upper_one_sided_99": 0.0,
+          "patients_without_output": 193
+        },
+        "movability_null": {
+          "T_mean_oshare": 0.2085034013605442,
+          "null_mean_of_means": 0.2644300144300144,
+          "p": 0.8421715782842172,
+          "draws": 100000,
+          "n_draws_ge": 84217,
+          "n_patients": 7,
+          "max_subsets_per_patient": 220,
+          "changes_outside_movable_set": 0
+        },
+        "component_i_lower99_gt_0.10": false,
+        "component_ii_p_lt_0.01": false,
+        "verdict_if_two_sided_99": "not supported"
+      },
+      "H5": {
+        "verdict": "not supported",
+        "delta_valid_among_requested": {
+          "n": 200,
+          "est": 0.147,
+          "ci95": [
+            0.09,
+            0.21
+          ],
+          "ci99": [
+            0.07,
+            0.22600999999999977
+          ],
+          "lower_one_sided_99": 0.07699,
+          "upper_one_sided_99": 0.22,
+          "published_valid_among_requested": 0.035,
+          "lock_valid_among_requested": 0.182,
+          "relative_loss": -4.199999999999999
+        },
+        "lock_coverage_point": 0.195,
+        "lock_coverage_cp99": [
+          0.12837603494204902,
+          0.2766240304410533
+        ],
+        "lock_coverage_x": 39,
+        "verdict_if_two_sided_99": "not supported"
+      },
+      "S_route_vs_lock_best_kept_cost_TOST": {
+        "n": 38,
+        "est": 1.0574162679425836,
+        "ci95": [
+          0.6023474880382774,
+          1.5464344098883571
+        ],
+        "ci98": [
+          0.5386586921850078,
+          1.6658847687400318
+        ],
+        "delta": 0.05,
+        "reading": "not equivalent",
+        "n_paired": 38,
+        "n_route_only": 87,
+        "n_lock_only": 1
+      },
+      "S_lr_port_check": {
+        "n_outputs": 35,
+        "share_largest_scaled_change_is_predicted_feature": 0.0,
+        "share_predicted_feature_in_change_set": 1.0
+      }
+    }
+  },
+  "gs": {
+    "run_info": {
+      "method": "gs",
+      "model": "xgb",
+      "cohort_n": 200,
+      "cpu_secs_published": 133.953125,
+      "status_published": "complete",
+      "cpu_secs_lock": 141.375,
+      "status_lock": "complete",
+      "cpu_secs_route": 268.171875,
+      "status_route": "complete"
+    },
+    "published": {
+      "coverage": {
+        "x": 200,
+        "n": 200,
+        "share": 1.0,
+        "cp95": [
+          0.9817246596448638,
+          1.0
+        ],
+        "cp99": [
+          0.9738562370164787,
+          1.0
+        ]
+      },
+      "valid_among_requested": {
+        "n": 200,
+        "est": 0.998,
+        "ci95": [
+          0.995,
+          1.0
+        ]
+      },
+      "fully": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "touch": {
+        "n": 200,
+        "est": 0.5379999999999999,
+        "ci95": [
+          0.47700000000000004,
+          0.5950249999999998
+        ]
+      },
+      "oshare": {
+        "n": 200,
+        "est": 0.22410827075650766,
+        "ci95": [
+          0.19921279290675936,
+          0.2488531771892899
+        ]
+      },
+      "cost": {
+        "n": 200,
+        "est": 1.945025378787879,
+        "ci95": [
+          1.8307612121212122,
+          2.071556590909091
+        ]
+      },
+      "best": {
+        "n": 200,
+        "est": 1.6177045454545453,
+        "ci95": [
+          1.5291672348484846,
+          1.7134270833333336
+        ]
+      },
+      "nchg": {
+        "n": 200,
+        "est": 3.0439999999999996,
+        "ci95": [
+          2.8364749999999996,
+          3.2635
+        ]
+      },
+      "leak_ada_k1": {
+        "n": 200,
+        "est": 0.36174999999999996,
+        "ci95": [
+          0.30949375000000007,
+          0.4125
+        ]
+      },
+      "leak_ada_graded_k1": {
+        "n": 200,
+        "est": 0.5379999999999999,
+        "ci95": [
+          0.47700000000000004,
+          0.5950249999999998
+        ]
+      },
+      "leak_ada_k2_permissive": {
+        "n": 200,
+        "est": 0.35174999999999995,
+        "ci95": [
+          0.30099375,
+          0.40075625000000004
+        ]
+      },
+      "leak_ada_k2_strict": {
+        "n": 200,
+        "est": 0.35174999999999995,
+        "ci95": [
+          0.30099375,
+          0.40075625000000004
+        ]
+      },
+      "n_outputs": 998,
+      "distinct_outputs_per_patient": {
+        "n": 200,
+        "est": 2.875,
+        "ci95": [
+          2.66,
+          3.1
+        ]
+      },
+      "share_outputs_fully_unactionable": 0.0,
+      "share_outputs_leaking_ada_k1": 0.36172344689378755,
+      "feature_change_counts": {
+        "HighBP": 827,
+        "HighChol": 482,
+        "PhysHlth": 352,
+        "MentHlth": 287,
+        "Income": 272,
+        "PhysActivity": 226,
+        "GenHlth": 188,
+        "BMI": 154,
+        "Fruits": 103,
+        "Education": 61,
+        "Smoker": 43,
+        "Veggies": 27,
+        "NoDocbcCost": 7
+      },
+      "valid_before_rounding_of_kept": 0.7865731462925851,
+      "mean_layers": 3.33,
+      "cpu_hours": 0.03720920138888889,
+      "status": "complete",
+      "lof": {
+        "n": 200,
+        "est": 1.2328032534088476,
+        "ci95": [
+          1.2115647362668847,
+          1.2569532878900462
+        ],
+        "share_outputs_predicted_outlier": 0.05811623246492986
+      },
+      "movability_null": {
+        "T_mean_oshare": 0.22410827075650766,
+        "null_mean_of_means": 0.27045558608058606,
+        "p": 0.998230017699823,
+        "draws": 100000,
+        "n_draws_ge": 99823,
+        "n_patients": 200,
+        "max_subsets_per_patient": 286,
+        "changes_outside_movable_set": 0
+      }
+    },
+    "lock": {
+      "coverage": {
+        "x": 200,
+        "n": 200,
+        "share": 1.0,
+        "cp95": [
+          0.9817246596448638,
+          1.0
+        ],
+        "cp99": [
+          0.9738562370164787,
+          1.0
+        ]
+      },
+      "valid_among_requested": {
+        "n": 200,
+        "est": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "fully": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "touch": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "oshare": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "cost": {
+        "n": 200,
+        "est": 1.9656363636363636,
+        "ci95": [
+          1.8572726515151519,
+          2.084719393939394
+        ]
+      },
+      "best": {
+        "n": 200,
+        "est": 1.780151515151515,
+        "ci95": [
+          1.6837931818181817,
+          1.8832734848484847
+        ]
+      },
+      "nchg": {
+        "n": 200,
+        "est": 2.506,
+        "ci95": [
+          2.375975,
+          2.643025
+        ]
+      },
+      "leak_ada_k1": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_graded_k1": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_k2_permissive": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_k2_strict": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "n_outputs": 1000,
+      "distinct_outputs_per_patient": {
+        "n": 200,
+        "est": 2.14,
+        "ci95": [
+          1.97,
+          2.325
+        ]
+      },
+      "share_outputs_fully_unactionable": 0.0,
+      "share_outputs_leaking_ada_k1": 0.0,
+      "feature_change_counts": {
+        "HighBP": 851,
+        "HighChol": 449,
+        "Income": 367,
+        "BMI": 327,
+        "PhysActivity": 201,
+        "Fruits": 117,
+        "Education": 112,
+        "Smoker": 49,
+        "Veggies": 23,
+        "NoDocbcCost": 9,
+        "HvyAlcoholConsump": 1
+      },
+      "valid_before_rounding_of_kept": 0.715,
+      "mean_layers": 1.777,
+      "cpu_hours": 0.03927083333333333,
+      "status": "complete",
+      "lof": {
+        "n": 200,
+        "est": 1.221586674507746,
+        "ci95": [
+          1.1993269474322366,
+          1.2462953910982806
+        ],
+        "share_outputs_predicted_outlier": 0.051
+      }
+    },
+    "route": {
+      "coverage": {
+        "x": 200,
+        "n": 200,
+        "share": 1.0,
+        "cp95": [
+          0.9817246596448638,
+          1.0
+        ],
+        "cp99": [
+          0.9738562370164787,
+          1.0
+        ]
+      },
+      "valid_among_requested": {
+        "n": 200,
+        "est": 0.9790000000000001,
+        "ci95": [
+          0.964,
+          0.991
+        ]
+      },
+      "fully": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "touch": {
+        "n": 200,
+        "est": 0.34450000000000003,
+        "ci95": [
+          0.2834875,
+          0.40449999999999997
+        ]
+      },
+      "oshare": {
+        "n": 200,
+        "est": 0.11673441295179231,
+        "ci95": [
+          0.09520639548704807,
+          0.13809567344045842
+        ]
+      },
+      "cost": {
+        "n": 200,
+        "est": 2.275498232323232,
+        "ci95": [
+          2.1373006281565656,
+          2.4203908175505053
+        ]
+      },
+      "best": {
+        "n": 200,
+        "est": 1.989409090909091,
+        "ci95": [
+          1.8776950757575757,
+          2.102863446969697
+        ]
+      },
+      "nchg": {
+        "n": 200,
+        "est": 3.1064999999999996,
+        "ci95": [
+          2.8724104166666664,
+          3.3608124999999998
+        ]
+      },
+      "leak_ada_k1": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_graded_k1": {
+        "n": 200,
+        "est": 0.34450000000000003,
+        "ci95": [
+          0.2834875,
+          0.40449999999999997
+        ]
+      },
+      "leak_ada_k2_permissive": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_k2_strict": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "n_outputs": 979,
+      "distinct_outputs_per_patient": {
+        "n": 200,
+        "est": 2.405,
+        "ci95": [
+          2.195,
+          2.615
+        ]
+      },
+      "share_outputs_fully_unactionable": 0.0,
+      "share_outputs_leaking_ada_k1": 0.0,
+      "feature_change_counts": {
+        "HighBP": 840,
+        "HighChol": 529,
+        "PhysActivity": 372,
+        "PhysHlth": 266,
+        "Income": 232,
+        "BMI": 180,
+        "MentHlth": 139,
+        "GenHlth": 133,
+        "Fruits": 101,
+        "Education": 75,
+        "Smoker": 55,
+        "Veggies": 35,
+        "NoDocbcCost": 12,
+        "HvyAlcoholConsump": 1
+      },
+      "valid_before_rounding_of_kept": 0.8212461695607763,
+      "mean_layers": 22.475,
+      "cpu_hours": 0.0744921875,
+      "status": "complete",
+      "lof": {
+        "n": 200,
+        "est": 1.250973655623396,
+        "ci95": [
+          1.22738841501475,
+          1.277061154695362
+        ],
+        "share_outputs_predicted_outlier": 0.07967313585291114
+      },
+      "change_sizes_route_supported": {
+        "GenHlth|BMI": {
+          "n": 25,
+          "mean": 1.28,
+          "median": 1.0,
+          "max": 4.0
+        },
+        "GenHlth|BMI+PhysActivity": {
+          "n": 25,
+          "mean": 1.44,
+          "median": 1.0,
+          "max": 4.0
+        },
+        "GenHlth|PhysActivity": {
+          "n": 83,
+          "mean": 1.5421686746987953,
+          "median": 1.0,
+          "max": 4.0
+        },
+        "MentHlth|PhysActivity": {
+          "n": 139,
+          "mean": 3.697841726618705,
+          "median": 2.0,
+          "max": 18.0
+        },
+        "PhysHlth|BMI": {
+          "n": 56,
+          "mean": 4.660714285714286,
+          "median": 2.0,
+          "max": 30.0
+        },
+        "PhysHlth|BMI+PhysActivity": {
+          "n": 45,
+          "mean": 5.4,
+          "median": 4.0,
+          "max": 21.0
+        },
+        "PhysHlth|BMI+PhysActivity+Smoker": {
+          "n": 4,
+          "mean": 5.0,
+          "median": 5.0,
+          "max": 8.0
+        },
+        "PhysHlth|BMI+Smoker": {
+          "n": 5,
+          "mean": 11.2,
+          "median": 10.0,
+          "max": 21.0
+        },
+        "PhysHlth|PhysActivity": {
+          "n": 127,
+          "mean": 4.05511811023622,
+          "median": 2.0,
+          "max": 29.0
+        },
+        "PhysHlth|PhysActivity+Smoker": {
+          "n": 22,
+          "mean": 8.136363636363637,
+          "median": 5.0,
+          "max": 24.0
+        },
+        "PhysHlth|Smoker": {
+          "n": 7,
+          "mean": 2.2857142857142856,
+          "median": 2.0,
+          "max": 4.0
+        }
+      }
+    },
+    "delta_valid_among_requested_lock_minus_published": {
+      "n": 200,
+      "est": 0.002,
+      "ci95": [
+        0.0,
+        0.005
+      ]
+    },
+    "best_cost_lock_minus_route": {
+      "n": 200,
+      "est": -0.20925757575757573,
+      "ci95": [
+        -0.2855401515151515,
+        -0.13660321969696973
+      ],
+      "ci98": [
+        -0.3026383333333333,
+        -0.1241430303030303
+      ]
+    }
+  },
+  "ar": {
+    "run_info": {
+      "method": "ar",
+      "model": "lr",
+      "cohort_n": 200,
+      "cpu_secs_published": 19.328125,
+      "status_published": "complete",
+      "cpu_secs_lock": 30.25,
+      "status_lock": "complete",
+      "cpu_secs_route": 23.953125,
+      "status_route": "complete"
+    },
+    "published": {
+      "coverage": {
+        "x": 200,
+        "n": 200,
+        "share": 1.0,
+        "cp95": [
+          0.9817246596448638,
+          1.0
+        ],
+        "cp99": [
+          0.9738562370164787,
+          1.0
+        ]
+      },
+      "valid_among_requested": {
+        "n": 200,
+        "est": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "fully": {
+        "n": 200,
+        "est": 0.726,
+        "ci95": [
+          0.6779749999999999,
+          0.7730000000000001
+        ]
+      },
+      "touch": {
+        "n": 200,
+        "est": 0.9880000000000001,
+        "ci95": [
+          0.9780000000000001,
+          0.996
+        ]
+      },
+      "oshare": {
+        "n": 200,
+        "est": 0.678251045995628,
+        "ci95": [
+          0.6559066391275563,
+          0.6995169078792726
+        ]
+      },
+      "cost": {
+        "n": 200,
+        "est": 0.9658681818181819,
+        "ci95": [
+          0.9081894318181819,
+          1.0305007575757577
+        ]
+      },
+      "best": {
+        "n": 200,
+        "est": 0.8884924242424241,
+        "ci95": [
+          0.8317835227272729,
+          0.9506965909090909
+        ]
+      },
+      "nchg": {
+        "n": 200,
+        "est": 2.3089999999999997,
+        "ci95": [
+          2.254,
+          2.370025
+        ]
+      },
+      "leak_ada_k1": {
+        "n": 200,
+        "est": 0.8130000000000002,
+        "ci95": [
+          0.7789750000000001,
+          0.847
+        ]
+      },
+      "leak_ada_graded_k1": {
+        "n": 200,
+        "est": 0.9880000000000001,
+        "ci95": [
+          0.9780000000000001,
+          0.996
+        ]
+      },
+      "leak_ada_k2_permissive": {
+        "n": 200,
+        "est": 0.8130000000000002,
+        "ci95": [
+          0.7789750000000001,
+          0.847
+        ]
+      },
+      "leak_ada_k2_strict": {
+        "n": 200,
+        "est": 0.8130000000000002,
+        "ci95": [
+          0.7789750000000001,
+          0.847
+        ]
+      },
+      "n_outputs": 1000,
+      "distinct_outputs_per_patient": {
+        "n": 200,
+        "est": 5.0,
+        "ci95": [
+          5.0,
+          5.0
+        ]
+      },
+      "share_outputs_fully_unactionable": 0.726,
+      "share_outputs_leaking_ada_k1": 0.813,
+      "feature_change_counts": {
+        "GenHlth": 987,
+        "Income": 422,
+        "PhysHlth": 340,
+        "BMI": 211,
+        "MentHlth": 205,
+        "Education": 79,
+        "HighBP": 35,
+        "HighChol": 29,
+        "PhysActivity": 1
+      },
+      "mip_outputs_invalid_after_check": 0,
+      "cpu_hours": 0.005368923611111111,
+      "status": "complete",
+      "lof": {
+        "n": 200,
+        "est": 1.2782469923347708,
+        "ci95": [
+          1.2523773687892839,
+          1.304889106190722
+        ],
+        "share_outputs_predicted_outlier": 0.138
+      },
+      "movability_null": {
+        "T_mean_oshare": 0.678251045995628,
+        "null_mean_of_means": 0.25662513875013876,
+        "p": 9.99990000099999e-06,
+        "draws": 100000,
+        "n_draws_ge": 0,
+        "n_patients": 200,
+        "max_subsets_per_patient": 286,
+        "changes_outside_movable_set": 0
+      }
+    },
+    "lock": {
+      "coverage": {
+        "x": 200,
+        "n": 200,
+        "share": 1.0,
+        "cp95": [
+          0.9817246596448638,
+          1.0
+        ],
+        "cp99": [
+          0.9738562370164787,
+          1.0
+        ]
+      },
+      "valid_among_requested": {
+        "n": 200,
+        "est": 0.9990000000000001,
+        "ci95": [
+          0.9969999999999999,
+          1.0
+        ]
+      },
+      "fully": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "touch": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "oshare": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "cost": {
+        "n": 200,
+        "est": 1.784237878787879,
+        "ci95": [
+          1.7084055681818182,
+          1.8638516666666665
+        ]
+      },
+      "best": {
+        "n": 200,
+        "est": 1.5801212121212123,
+        "ci95": [
+          1.5095606060606062,
+          1.6541590909090909
+        ]
+      },
+      "nchg": {
+        "n": 200,
+        "est": 2.146,
+        "ci95": [
+          2.114,
+          2.179
+        ]
+      },
+      "leak_ada_k1": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_graded_k1": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_k2_permissive": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_k2_strict": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "n_outputs": 999,
+      "distinct_outputs_per_patient": {
+        "n": 200,
+        "est": 4.995,
+        "ci95": [
+          4.985,
+          5.0
+        ]
+      },
+      "share_outputs_fully_unactionable": 0.0,
+      "share_outputs_leaking_ada_k1": 0.0,
+      "feature_change_counts": {
+        "BMI": 958,
+        "Income": 449,
+        "Education": 289,
+        "HighBP": 284,
+        "HighChol": 145,
+        "PhysActivity": 13,
+        "Fruits": 2,
+        "NoDocbcCost": 2,
+        "Veggies": 1,
+        "Smoker": 1
+      },
+      "mip_outputs_invalid_after_check": 0,
+      "cpu_hours": 0.008402777777777778,
+      "status": "complete",
+      "lof": {
+        "n": 200,
+        "est": 1.1314917810487823,
+        "ci95": [
+          1.1147103757620638,
+          1.1496636162343472
+        ],
+        "share_outputs_predicted_outlier": 0.02702702702702703
+      }
+    },
+    "route": {
+      "coverage": {
+        "x": 200,
+        "n": 200,
+        "share": 1.0,
+        "cp95": [
+          0.9817246596448638,
+          1.0
+        ],
+        "cp99": [
+          0.9738562370164787,
+          1.0
+        ]
+      },
+      "valid_among_requested": {
+        "n": 200,
+        "est": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ]
+      },
+      "fully": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "touch": {
+        "n": 200,
+        "est": 0.855,
+        "ci95": [
+          0.8269999999999998,
+          0.882
+        ]
+      },
+      "oshare": {
+        "n": 200,
+        "est": 0.4155092191305427,
+        "ci95": [
+          0.4018086096297494,
+          0.4291847307206683
+        ]
+      },
+      "cost": {
+        "n": 200,
+        "est": 1.3138787878787879,
+        "ci95": [
+          1.2386575757575757,
+          1.3911082575757574
+        ]
+      },
+      "best": {
+        "n": 200,
+        "est": 1.2131439393939394,
+        "ci95": [
+          1.1379679924242425,
+          1.2904638257575758
+        ]
+      },
+      "nchg": {
+        "n": 200,
+        "est": 2.7239999999999998,
+        "ci95": [
+          2.666975,
+          2.779
+        ]
+      },
+      "leak_ada_k1": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_graded_k1": {
+        "n": 200,
+        "est": 0.855,
+        "ci95": [
+          0.8269999999999998,
+          0.882
+        ]
+      },
+      "leak_ada_k2_permissive": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "leak_ada_k2_strict": {
+        "n": 200,
+        "est": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "n_outputs": 1000,
+      "distinct_outputs_per_patient": {
+        "n": 200,
+        "est": 5.0,
+        "ci95": [
+          5.0,
+          5.0
+        ]
+      },
+      "share_outputs_fully_unactionable": 0.0,
+      "share_outputs_leaking_ada_k1": 0.0,
+      "feature_change_counts": {
+        "BMI": 922,
+        "GenHlth": 800,
+        "Income": 391,
+        "PhysHlth": 341,
+        "Education": 145,
+        "PhysActivity": 75,
+        "HighBP": 21,
+        "MentHlth": 19,
+        "HighChol": 10
+      },
+      "mip_outputs_invalid_after_check": 0,
+      "cpu_hours": 0.0066536458333333335,
+      "status": "complete",
+      "lof": {
+        "n": 200,
+        "est": 1.1141484792211005,
+        "ci95": [
+          1.0948624978097143,
+          1.134831064549279
+        ],
+        "share_outputs_predicted_outlier": 0.036
+      },
+      "change_sizes_route_supported": {
+        "GenHlth|BMI": {
+          "n": 725,
+          "mean": 1.5862068965517242,
+          "median": 2.0,
+          "max": 3.0
+        },
+        "GenHlth|PhysActivity": {
+          "n": 75,
+          "mean": 3.0933333333333333,
+          "median": 3.0,
+          "max": 4.0
+        },
+        "MentHlth|PhysActivity": {
+          "n": 19,
+          "mean": 1.0,
+          "median": 1.0,
+          "max": 1.0
+        },
+        "PhysHlth|BMI": {
+          "n": 317,
+          "mean": 1.0,
+          "median": 1.0,
+          "max": 1.0
+        },
+        "PhysHlth|PhysActivity": {
+          "n": 24,
+          "mean": 1.0,
+          "median": 1.0,
+          "max": 1.0
+        }
+      }
+    },
+    "delta_valid_among_requested_lock_minus_published": {
+      "n": 200,
+      "est": -0.001,
+      "ci95": [
+        -0.0030000000000000005,
+        0.0
+      ]
+    },
+    "best_cost_lock_minus_route": {
+      "n": 200,
+      "est": 0.36697727272727276,
+      "ci95": [
+        0.3268748106060606,
+        0.4052827651515152
+      ],
+      "ci98": [
+        0.3205957575757576,
+        0.4135913636363637
+      ]
+    }
+  },
+  "mint": {
+    "run_info": {
+      "method": "mint",
+      "model": "xgb",
+      "cohort_n": 200,
+      "cpu_secs_published": 13.96875,
+      "status_published": "complete",
+      "mint_model_evaluations": 16674,
+      "mint_scm_order": [
+        "BMI",
+        "MentHlth",
+        "HighBP",
+        "HighChol",
+        "PhysHlth",
+        "GenHlth"
+      ]
+    },
+    "n_outputs": 194,
+    "t_max_treatable_on_path": 1,
+    "leaks_k1": 0,
+    "leaks_k2_permissive": 0,
+    "leaks_k2_strict": 0,
+    "outputs_with_propagated_changes": 184,
+    "outputs_moving_an_indicator": 184,
+    "propagated_feature_counts": {
+      "PhysHlth": 176,
+      "GenHlth": 94,
+      "HighBP": 11,
+      "BMI": 1
+    },
+    "proposition2_k_ge_1_plus_t_no_leak": true
+  }
+}

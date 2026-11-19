@@ -1,0 +1,151 @@
+{
+  "label": "POST HOC (S-P5), exploratory; presentation-layer counts of route-aware outputs under R5",
+  "written": "19/11/2026 16:06",
+  "plan_sha256": "57ec4877ba3c278d28379cd20a38535c206e600a2b7c1e875835a09022edb8d8",
+  "rows": {
+    "dice_random_xgb_brfss2021": {
+      "n": 5000,
+      "with_action_v4": 0.9514,
+      "with_action_r5": 0.8738,
+      "touch_indicator": 0.1518,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.1098,
+      "highbp_or_highchol_only_action_v4": 0.0776
+    },
+    "dice_random_xgb_nhis2022": {
+      "n": 2575,
+      "with_action_v4": 0.6559223300970873,
+      "with_action_r5": 0.3642718446601942,
+      "touch_indicator": 0.06524271844660194,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.4858252427184466,
+      "highbp_or_highchol_only_action_v4": 0.2916504854368932
+    },
+    "dice_random_xgb_nhis2024": {
+      "n": 2625,
+      "with_action_v4": 0.6902857142857143,
+      "with_action_r5": 0.4125714285714286,
+      "touch_indicator": 0.08571428571428572,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.43466666666666665,
+      "highbp_or_highchol_only_action_v4": 0.2777142857142857
+    },
+    "dice_random_xgb_nhanes2017-2020_diag": {
+      "n": 2700,
+      "with_action_v4": 0.8355555555555556,
+      "with_action_r5": 0.6785185185185185,
+      "touch_indicator": 0.11074074074074074,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.25851851851851854,
+      "highbp_or_highchol_only_action_v4": 0.15703703703703703
+    },
+    "dice_random_xgb_nhanes2017-2020_a1c": {
+      "n": 1575,
+      "with_action_v4": 0.8088888888888889,
+      "with_action_r5": 0.6838095238095238,
+      "touch_indicator": 0.12761904761904763,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.25206349206349205,
+      "highbp_or_highchol_only_action_v4": 0.12507936507936507
+    },
+    "dice_random_xgb_nhanes2021-2023_diag": {
+      "n": 1425,
+      "with_action_v4": 0.8028070175438596,
+      "with_action_r5": 0.6175438596491228,
+      "touch_indicator": 0.09894736842105263,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.28982456140350876,
+      "highbp_or_highchol_only_action_v4": 0.18526315789473685
+    },
+    "dice_random_xgb_nhanes2021-2023_a1c": {
+      "n": 1050,
+      "with_action_v4": 0.78,
+      "with_action_r5": 0.6561904761904762,
+      "touch_indicator": 0.09238095238095238,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.26857142857142857,
+      "highbp_or_highchol_only_action_v4": 0.12380952380952381
+    },
+    "actionable_recourse_l1": {
+      "n": 1000,
+      "with_action_v4": 1.0,
+      "with_action_r5": 0.997,
+      "touch_indicator": 0.855,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.003,
+      "highbp_or_highchol_only_action_v4": 0.003
+    },
+    "actionable_recourse_native": {
+      "n": 1000,
+      "with_action_v4": 1.0,
+      "with_action_r5": 1.0,
+      "touch_indicator": 0.863,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.0,
+      "highbp_or_highchol_only_action_v4": 0.0
+    },
+    "growing_spheres": {
+      "n": 979,
+      "with_action_v4": 1.0,
+      "with_action_r5": 0.5730337078651685,
+      "touch_indicator": 0.3319713993871297,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.42696629213483145,
+      "highbp_or_highchol_only_action_v4": 0.42696629213483145
+    },
+    "wachter_lr": {
+      "n": 587,
+      "with_action_v4": 1.0,
+      "with_action_r5": 0.989778534923339,
+      "touch_indicator": 0.48722316865417375,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.010221465076660987,
+      "highbp_or_highchol_only_action_v4": 0.010221465076660987
+    },
+    "wachter_mlp_s44": {
+      "n": 604,
+      "with_action_v4": 1.0,
+      "with_action_r5": 0.9735099337748344,
+      "touch_indicator": 0.4337748344370861,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.026490066225165563,
+      "highbp_or_highchol_only_action_v4": 0.026490066225165563
+    },
+    "wachter_mlp_s45": {
+      "n": 679,
+      "with_action_v4": 1.0,
+      "with_action_r5": 0.8865979381443299,
+      "touch_indicator": 0.36229749631811486,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.1134020618556701,
+      "highbp_or_highchol_only_action_v4": 0.1134020618556701
+    },
+    "wachter_mlp_s46": {
+      "n": 781,
+      "with_action_v4": 1.0,
+      "with_action_r5": 1.0,
+      "touch_indicator": 0.8092189500640204,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.0,
+      "highbp_or_highchol_only_action_v4": 0.0
+    },
+    "wachter_mlp_s48": {
+      "n": 674,
+      "with_action_v4": 1.0,
+      "with_action_r5": 1.0,
+      "touch_indicator": 0.7804154302670623,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.0,
+      "highbp_or_highchol_only_action_v4": 0.0
+    },
+    "wachter_mlp_s49": {
+      "n": 541,
+      "with_action_v4": 1.0,
+      "with_action_r5": 1.0,
+      "touch_indicator": 0.5859519408502772,
+      "indicator_without_r5_action": 0.0,
+      "nonempty_without_r5_action": 0.0,
+      "highbp_or_highchol_only_action_v4": 0.0
+    }
+  }
+}

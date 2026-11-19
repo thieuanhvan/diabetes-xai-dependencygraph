@@ -1,0 +1,4 @@
+dataset,method,mode,seed,auc,cohort,eligible,n_cf,queries_with_no_cf,coverage,best_k_mean,best_dist_mean,cf_touching_indicator,unsupported_edge_rule,fully_unactionable,secs
+nhis2024,exhaustive,published,0,0.8222,105,105,525,0,1.0,1.0,0.3184126984126984,193,173,168,2
+nhis2024,exhaustive,tableV,0,0.8222,105,105,525,0,1.0,1.0095238095238095,0.5323809523809524,0,0,0,2
+nhis2024,exhaustive,route_A,0,0.8222,105,105,525,0,1.0,1.0095238095238095,0.5276190476190477,76,0,0,3

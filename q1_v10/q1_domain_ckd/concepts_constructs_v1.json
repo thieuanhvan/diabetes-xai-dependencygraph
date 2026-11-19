@@ -1,0 +1,46 @@
+{
+  "_about": "Frozen Concept vocabulary and construct tables for the P7 Q1 extension (prereg v3 sections 3, 4.4). Extractors label edges with these Concept ids; a script maps Concepts to survey items. Written 11/11/2026, before any extraction.",
+  "concepts": {
+    "PHYSICAL_ACTIVITY": {"role_class": "lever", "as_source": ["exercise", "physical activity", "sedentary behaviour (reduce)"], "as_target": ["physical activity", "exercise"]},
+    "SMOKING": {"role_class": "lever", "as_source": ["smoking", "tobacco use", "cessation"], "as_target": ["smoking", "tobacco use"]},
+    "BODY_WEIGHT": {"role_class": "lever", "as_source": ["diet", "nutrition", "weight loss", "energy deficit"], "as_target": ["weight", "body mass index", "obesity"]},
+    "ALCOHOL": {"role_class": "lever", "as_source": ["alcohol"], "as_target": ["alcohol"]},
+    "FRUIT_INTAKE": {"role_class": "lever", "as_source": ["fruit intake"], "as_target": ["fruit intake"]},
+    "VEGETABLE_INTAKE": {"role_class": "lever", "as_source": ["vegetable intake"], "as_target": ["vegetable intake"]},
+    "BLOOD_PRESSURE": {"role_class": "treatable", "as_source": ["blood pressure", "hypertension"], "as_target": ["blood pressure", "hypertension"]},
+    "CHOLESTEROL": {"role_class": "treatable", "as_source": ["cholesterol", "lipids", "dyslipidaemia"], "as_target": ["cholesterol", "lipids", "dyslipidaemia"]},
+    "GENERAL_HEALTH": {"role_class": "indicator", "as_source": [], "as_target": ["overall or general health", "health-related quality of life", "quality of life", "general well-being"]},
+    "MENTAL_HEALTH": {"role_class": "indicator", "as_source": [], "as_target": ["depression", "depressive symptoms", "low mood", "anxiety", "psychological or emotional distress", "mental health"]},
+    "PHYSICAL_FUNCTION": {"role_class": "indicator", "as_source": [], "as_target": ["physical function", "functional capacity", "daily activity", "pain", "fatigue", "physical symptoms"]},
+    "MOBILITY": {"role_class": "indicator", "as_source": [], "as_target": ["mobility", "walking"]}
+  },
+  "not_recorded_targets": ["sleep", "appetite", "nausea", "pruritus"],
+  "concept_to_item": {
+    "nhanes_ckd": {
+      "PHYSICAL_ACTIVITY": ["PhysActivity"], "SMOKING": ["Smoker"], "BODY_WEIGHT": ["BMI"], "ALCOHOL": [],
+      "FRUIT_INTAKE": [], "VEGETABLE_INTAKE": [], "BLOOD_PRESSURE": ["HighBP"], "CHOLESTEROL": ["HighChol"],
+      "GENERAL_HEALTH": ["GenHlth"], "MENTAL_HEALTH": ["MentHlth"], "PHYSICAL_FUNCTION": [], "MOBILITY": []
+    },
+    "brfss": {
+      "PHYSICAL_ACTIVITY": ["PhysActivity"], "SMOKING": ["Smoker"], "BODY_WEIGHT": ["BMI"], "ALCOHOL": ["HvyAlcoholConsump"],
+      "FRUIT_INTAKE": ["Fruits"], "VEGETABLE_INTAKE": ["Veggies"], "BLOOD_PRESSURE": ["HighBP"], "CHOLESTEROL": ["HighChol"],
+      "GENERAL_HEALTH": ["GenHlth"], "MENTAL_HEALTH": ["MentHlth"], "PHYSICAL_FUNCTION": ["PhysHlth"], "MOBILITY": ["PhysHlth", "DiffWalk"]
+    }
+  },
+  "construct_table_targets_prereg_4_4": [
+    ["overall or general health, health-related quality of life, quality of life, general well-being", "GenHlth (HUQ010)", "GenHlth"],
+    ["depression, depressive symptoms, low mood, anxiety, psychological or emotional distress, mental health", "MentHlth (PHQ-9 proxy)", "MentHlth"],
+    ["physical function, functional capacity, daily activity, mobility, pain, fatigue, physical symptoms", "none", "PhysHlth; DiffWalk only for mobility or walking"],
+    ["sleep, appetite, nausea, pruritus", "none", "none"],
+    ["weight, body mass index, obesity", "BMI", "BMI"],
+    ["blood pressure, hypertension", "HighBP (measured)", "HighBP"],
+    ["cholesterol, lipids, dyslipidaemia", "HighChol (measured)", "HighChol"]
+  ],
+  "construct_table_sources_prereg_4_4": [
+    ["exercise, physical activity, sedentary behaviour (reduce)", "PhysActivity: 2017-2020 PAQ605; 2021-2023 leisure-time minutes (PAD790-PAD820)", "PhysActivity (_TOTINDA)"],
+    ["smoking, tobacco use, cessation", "Smoker (current)", "Smoker"],
+    ["diet, nutrition, weight loss, energy deficit", "BMI (weight loss); diet items have no NHANES feature", "BMI; Fruits, Veggies for fruit and vegetable intake"],
+    ["alcohol", "none in the CKD feature set", "HvyAlcoholConsump"]
+  ],
+  "excluded_from_vocabulary": {"NoDocbcCost": "cost barrier to care is a BRFSS lever with no construct row in prereg 4.4; no agreed P7 recall-gate edge involves it"}
+}

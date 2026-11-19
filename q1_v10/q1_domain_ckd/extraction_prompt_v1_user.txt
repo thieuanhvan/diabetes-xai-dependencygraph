@@ -1,0 +1,10 @@
+Document: {DOCUMENT_LABEL}
+Licence and attribution: {LICENCE_NOTICE}
+Extraction unit: {UNIT_LABEL} (chunk {CHUNK_INDEX} of {CHUNK_COUNT})
+
+TEXT
+<<<
+{CHUNK_TEXT}
+>>>
+
+Extract the edges stated in TEXT, following the rules. Return only the JSON object.
